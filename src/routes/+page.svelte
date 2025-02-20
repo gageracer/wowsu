@@ -7,7 +7,7 @@
 
 <Layout>
   <section>
-    <h2 class="mb-6 text-2xl font-bold">Works & Experience</h2>
+    <h2 class="mb-6 text-2xl font-bold">Rehber ve Yazilar</h2>
     <ul class="space-y-4">
       {#each posts as post}
         <li class="flex items-center space-x-4">

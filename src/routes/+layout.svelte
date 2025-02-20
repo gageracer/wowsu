@@ -4,17 +4,10 @@ import "../app.css";
 import { page } from "$app/state";
 
 let { children } = $props();
-let imgHover = $state(false);
 const home = $derived(page.url.pathname === "/");
 
-const name = "John Can Aygin";
+const name = "The Hive";
 
-const pictureAnimate = () => {
-	const count = setInterval(() => {
-		imgHover = true;
-	}, 4000);
-	return clearInterval(count);
-};
 onNavigate((navigation) => {
 	if (!document.startViewTransition) return;
 
@@ -27,32 +20,30 @@ onNavigate((navigation) => {
 });
 </script>
 
-<div class="min-h-screen bg-gradient-to-br from-primary to-secondary text-text">
+<div class="min-h-screen bg-mobile md:bg-leather bg-contain text-text">
   <main class="container mx-auto px-4 py-8">
       <div class="container mx-auto max-w-2xl px-4 py-8">
         <header class="flex flex-col items-center">
           {#if home}
-            <div class="mb-4">
+            <div class="mb-4 logo-container">
               <img
-                src={imgHover ? "/images/profile2.jpeg" : "/images/profile.jpeg"}
+                src="/images/logo-1.avif"
                 alt={name}
-                class="h-40 w-40 rounded-full shadow-lg transition-shadow duration-300"
-                onmouseenter={()=> pictureAnimate()}
-                onmouseleave={()=> imgHover = false}
+                class="h-40 rounded-full logo-image"
               />
             </div>
-            <h1 class="text-4xl font-bold">{name}</h1>
+            <h1 class="text-4xl font-bold site-name">{name}</h1>
           {:else}
-            <div class="mb-4">
+            <div class="mb-4 logo-container">
               <a href="/">
                 <img
-                  src="/images/profile.jpeg"
+                src="/images/logo-1.avif"
                   alt={name}
-                  class="h-24 w-24 rounded-full shadow-md"
+                  class="h-36 rounded-full logo-image"
                 />
               </a>
             </div>
-            <h2 class="text-2xl font-bold">
+            <h2 class="text-2xl font-bold site-name">
               <a href="/" class="text-text hover:no-underline">{name}</a>
             </h2>
           {/if}
@@ -60,3 +51,32 @@ onNavigate((navigation) => {
     {@render children()}
   </main>
 </div>
+
+<style>
+header{
+    view-transition-name: header;
+}
+.logo-container {
+    view-transition-name: logo;
+}
+
+.logo-image {
+    view-transition-name: logo-image;
+}
+.site-name {
+    view-transition-name: site-name;
+}
+::view-transition-old(site-name),
+::view-transition-new(site-name) {
+    mix-blend-mode: normal;
+    height: 100%;
+    width: 100%;
+}
+::view-transition-old(logo-image),
+::view-transition-new(logo-image) {
+    mix-blend-mode: normal;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+</style>

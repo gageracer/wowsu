@@ -1,0 +1,52 @@
+---
+title: 'TWW Sezon 2 Raid Planı'
+date: '2025-02-19'
+img: 'logo-1.avif'
+---
+
+Sezon 2 raid ve mitik+ 5 Mayıs'ta başlayacak. Guild olarak planımız 4 haftalık bir raid takvimi yapmak. Minik bir anket yaptık ve neredeyse 10 kişiye sahibiz. Saatler için de anket gelecek. 
+
+## Neden 10?
+Flex raid'ler 10-30 kişi arası olabiliyor. Minimum 10'u tamamlayıp kendi kendimize oynamayı planlıyoruz.
+
+Anket sonuçları:
+<img alt="Anket" src="/images/anket.png" />
+
+10 kişiden:
+- 2 Tank
+- 2 Healer
+- 6 DPS
+
+gerekiyor. Şu anda Tank ve DPS olarak iyiyiz. Healer eksiğimiz var. 
+
+## Hedeflerimiz
+
+Hedefimiz sezon başladığı anda normal raid ile başlayıp en kısa sürede bitirmek. Ardından performansa göre Heroic raid ekleyeceğiz ya da normal raid'i başka bir güne atıp ana raid günü Heroic yapacağız.
+
+Ana başlık olarak:
+
+- Normal Raid PUG'siz bitirmek,
+- Normal Raid'i farmlayabilir hale gelmek ve yeni arkadaşlarla burda 1 saat ile 90 dakika arası oynayıp ana raid ekibine yeni oyuncular bulmak,
+
+Bu başlıkları yapabilirsek ek olarak:
+
+- Heroic Raid'e geçmek ana raid günümüzde,
+- Normal Raid'i farmlamak
+
+## Gereksinimler
+
+Ana Raid ekibinde oynayacaklar için asgari isteklerimiz olacak. Bunlar:
+
+- Raid'e gerekli flask ve buff'larıyla gelmeleri,
+- Ekipmanlarını enchant'lı ve gem'li, optimize halde tutmaları,
+- Boss Fight'a göre verilen görevleri yapmaya istekli olmaları,
+- Boss Fight'a göre gereken talent ve rotasyonları öğrenmeleri,
+- Saatinde oyunda olup hazır olmaları,
+- Raid için gereken addon'ları yükleyip addon'larını güncel tutmaları(bunun için ayrı bir yazı yazıldı)
+
+## Yapılacaklar
+
+Raid organizasyonu olarak sizlere 2 adet toplantı yapacağız. Bunlar:
+
+- Raid günü ve saati belirleme,
+- Raid Bilgileri, fight taktikleri ve minimum bilgilerin verileceği brifing toplantısı
