@@ -6,7 +6,7 @@ import { page } from "$app/state";
 let { children } = $props();
 const home = $derived(page.url.pathname === "/");
 
-const name = "The Hive";
+const name = "The Hive Topluluğu";
 
 onNavigate((navigation) => {
 	if (!document.startViewTransition) return;

@@ -1,5 +1,5 @@
 <script lang="ts">
-let { siteTitle = "The Hive Mind", children } = $props();
+let { siteTitle = "The Hive Mind Topluluğu", children } = $props();
 </script>
 
 <svelte:head>

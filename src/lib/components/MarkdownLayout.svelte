@@ -15,4 +15,4 @@ let { title, date, children } = $props();
     {@render children()}
   </article>
   <br>
-  <a href="/" class="flex items-center space-x-4">← Back to Home</a>
+  <a href="/" class="flex items-center space-x-4">← Geri</a>

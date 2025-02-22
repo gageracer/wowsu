@@ -4,10 +4,10 @@ date: '2025-02-19'
 img: 'logo-1.avif'
 ---
 
-Sezon 2 raid ve mitik+ 5 Mayıs'ta başlayacak. Guild olarak planımız 4 haftalık bir raid takvimi yapmak. Minik bir anket yaptık ve neredeyse 10 kişiye sahibiz. Saatler için de anket gelecek. 
+Ikinci sezon raid ve mitik+ 5 Mart'ta başlayacak. Guild olarak planımız 4 haftalık bir raid takvimi yapmak. Minik bir anket yaptık ve neredeyse 10 kişiye sahibiz. Saatler için de anket gelecek. Amacımız Damage Meter odaklı olmadan, birbirimize destek olarak oyundan keyif almak.
 
 ## Neden 10?
-Flex raid'ler 10-30 kişi arası olabiliyor. Minimum 10'u tamamlayıp kendi kendimize oynamayı planlıyoruz.
+Flex Raid'ler 10-30 kişi arası olabiliyor. Minimum 10'u tamamlayıp kendi kendimize guild olarak oynamayı planlıyoruz.
 
 Anket sonuçları:
 <img alt="Anket" src="/images/anket.png" />
@@ -17,32 +17,40 @@ Anket sonuçları:
 - 2 Healer
 - 6 DPS
 
-gerekiyor. Şu anda Tank ve DPS olarak iyiyiz. Healer eksiğimiz var. 
+gerekiyor. Şu anda Tank ve DPS olarak iyiyiz. **Healer eksiğimiz var**.
+
+
+## Yeni Gelecek Oyuncular
+
+Kadroya dahil olmak isteyen yeni oyuncular lütfen Discord'dan Geyman'a ya da Ode'ye ulaşın.
+
 
 ## Hedeflerimiz
 
-Hedefimiz sezon başladığı anda normal raid ile başlayıp en kısa sürede bitirmek. Ardından performansa göre Heroic raid ekleyeceğiz ya da normal raid'i başka bir güne atıp ana raid günü Heroic yapacağız.
+Hedefimiz sezon başladığı anda normal raid ile başlayıp en kısa sürede normal zorluğun son boss'unu kesebilmek. Ardından Heroic raid günü ekleyeceğiz ya da normal raid'i başka bir güne atıp progress raid günü Heroic yapacağız.
 
-Ana başlık olarak:
+Temel başlık olarak:
 
 - Normal Raid PUG'siz bitirmek,
-- Normal Raid'i farmlayabilir hale gelmek ve yeni arkadaşlarla burda 1 saat ile 90 dakika arası oynayıp ana raid ekibine yeni oyuncular bulmak,
+- Normal Raid'i farmlayabilir hale gelmek ve yeni arkadaşlarla burda 1 saat ile 90 dakika arası oynayıp birincil raid ekibine yeni oyuncular bulmak,
 
 Bu başlıkları yapabilirsek ek olarak:
 
-- Heroic Raid'e geçmek ana raid günümüzde,
+- Heroic Raid'e geçmek progress raid günümüzde,
 - Normal Raid'i farmlamak
 
 ## Gereksinimler
 
-Ana Raid ekibinde oynayacaklar için asgari isteklerimiz olacak. Bunlar:
+Progress Raid ekibinde oynayacaklar için asgari isteklerimiz olacak. Bunlar:
 
 - Raid'e gerekli flask ve buff'larıyla gelmeleri,
 - Ekipmanlarını enchant'lı ve gem'li, optimize halde tutmaları,
 - Boss Fight'a göre verilen görevleri yapmaya istekli olmaları,
 - Boss Fight'a göre gereken talent ve rotasyonları öğrenmeleri,
 - Saatinde oyunda olup hazır olmaları,
-- Raid için gereken addon'ları yükleyip addon'larını güncel tutmaları(bunun için ayrı bir yazı yazıldı)
+- Raid için gereken addon'ları yükleyip addon'larını güncel tutmaları
+
+Raid spesifik eşya, addon detayları için ayrı bir yazı gelecek.
 
 ## Yapılacaklar
 
