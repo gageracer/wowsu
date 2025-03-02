@@ -60,7 +60,7 @@
 		</li>
 		<li class="w-6">
 			<a href="https://www.warcraftlogs.com/guild/id/469456" title="guildwlogpage" target="blank">
-				<img alt="u.gg" src="/images/wlog.png" />
+				<img alt="guildwlogpage" src="/images/wlog.png" />
 			</a>
 		</li>
 	</ul>

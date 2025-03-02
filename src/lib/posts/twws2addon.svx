@@ -1,0 +1,35 @@
+---
+title: 'TWW Sezon 2 Addonlar'
+date: '2025-3-1'
+img: 'logo-1.avif'
+---
+
+Raid ve Mitik+ için oyundan alacağınız keyfi arttıracak addonlar var. Bir kısmı da Raid için zaruri olacak.
+
+## Genel Addonlar
+-  <a href="https://wowup.io/addons/10" target="_blank">
+WeakAuras
+</a>
+- <a href="https://www.curseforge.com/wow/addons/deadly-boss-mods" target="_blank">
+DBM
+</a> ya da <a href="https://www.curseforge.com/wow/addons/big-wigs" target="_blank">
+BigWigs
+</a>  ve <a href="https://www.curseforge.com/wow/addons/little-wigs" target="_blank">
+LittleWigs
+</a>
+
+WeakAuras'dan gerekli spec auralarını kullanıp büyülerinizi rahatça takip edebilirsiniz. Ayrıca raid ve dungeonlar için de çok güzel paketler mevcut. Çıktıkları vakit burda paylaşacağım.
+
+DBM dungeon ve raid için ekranınızda uyarılar atıyor. DBM hemen hemen herşeyi ekranda uyarı olarak veriyor. Eğer daha sakin birşey isterseniz BigWigs ve LittleWigs'i tavsiye ederim. Daha sakin bilgileri veriyor. BigWigs Raid için ve o eklentinin paketini de indirmeniz gerek. LittleWigs ise dungeon'lar için olanı.
+
+## Raid Addonları
+
+- <a href="https://www.curseforge.com/wow/addons/method-raid-tools" target="_blank">
+Method Raid Tools
+</a>
+
+Bu addon raid için olmazsa olmaz. Bunun sayesinde raid taktiklerimizi anlık olarak ekrana yansıtıp, dinamik olarak güncelleyebileceğiz.
+
+Ayrıca bu addon sayesinde eğer kullanmanız gereken spesifik bir büyünüz varsa onun için fight'ın istenilen dakikasına alarm koyabiliriz. Bu bilgiyi <a href="https://lorrgs.io/" title="Lorrgs" target="_blank">Lorrgs</a>'dan çekip oynadığınız comp'a benzer bir grup bulup istediğiniz boss için oynadığınız spec'in büyü rotasyonuna bakabilir, kopyalayıp MRT'ye aktarabilirsiniz.
+
+Birçok linki bu sitenin ana sayafındaki sol kısa yollarında bulabilirsiniz.
