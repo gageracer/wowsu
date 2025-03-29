@@ -11,8 +11,7 @@ Nisan için yine tek bir raid günü Heroic progress'e geçmeyi planlıyoruz. İ
 Bu raid için aynı raid gereksinimlerimiz geçerli.
 
 ## Gereksinimler
-
-Progress Raid ekibinde oynayacaklar için asgari isteklerimiz olacak. Bunlar:
+ Raid ekibinde oynayacaklar için asgari isteklerimiz olacak. Bunlar:
 
 - Raid'e gerekli flask ve buff'larıyla gelmeleri,
 - Ekipmanlarını enchant'lı ve gem'li, optimize halde tutmaları,
@@ -20,6 +19,11 @@ Progress Raid ekibinde oynayacaklar için asgari isteklerimiz olacak. Bunlar:
 - Boss Fight'a göre gereken talent ve rotasyonları öğrenmeleri,
 - Saatinde oyunda olup hazır olmaları,
 - Raid için gereken addon'ları yükleyip addon'larını güncel tutmaları
+
+Ayrıca:
+- Raid karakterinizi bizim için save etmeniz,
+- Loot'ları fight'dan önce kontrol edip neyi isteyip istemediğinizi bilmeniz,
+- Asgari rakamsal performansı sağlamanız,
 
 İlk ay performans artışımız yerindeydi. Normal için hala zorluk yaşadığımız fightlar var. Bunlar heroic de daha da zorlayıcı olacak. Kişisel performans gelişimi için öncelikle dps için minik bir rehber planlıyoruz. Bu rehberin olayı sadece rotasyon, stat optimizasyonu ve pot/flask kullanımı üzerine. Heroic raid tahmin edeceğimiz üzere bizim için daha zorlu geçecek. Healer eksiğimizi içerden tamamlayacağız. Belli bir performans altında olan oyuncularımız için eğer ilerleyemiyorsak o fight için geri çıkmasını isteyebiliriz.
 
