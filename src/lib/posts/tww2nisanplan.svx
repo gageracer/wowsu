@@ -1,0 +1,35 @@
+---
+title: 'TWW Sezon 2 Nisan Raid Planı'
+date: '2025-3-29'
+img: 'logo-1.avif'
+---
+
+Mart ayındaki planlarımızı ve analizimizi paylaştık. Şimdi sıra Nisan ayında.
+
+Nisan için yine tek bir raid günü Heroic progress'e geçmeyi planlıyoruz. İlk raid günümüz 2 Nisan Çarşamba akşam 9-11 TR saati.
+
+Bu raid için aynı raid gereksinimlerimiz geçerli.
+
+## Gereksinimler
+
+Progress Raid ekibinde oynayacaklar için asgari isteklerimiz olacak. Bunlar:
+
+- Raid'e gerekli flask ve buff'larıyla gelmeleri,
+- Ekipmanlarını enchant'lı ve gem'li, optimize halde tutmaları,
+- Boss Fight'a göre verilen görevleri yapmaya istekli olmaları,
+- Boss Fight'a göre gereken talent ve rotasyonları öğrenmeleri,
+- Saatinde oyunda olup hazır olmaları,
+- Raid için gereken addon'ları yükleyip addon'larını güncel tutmaları
+
+İlk ay performans artışımız yerindeydi. Normal için hala zorluk yaşadığımız fightlar var. Bunlar heroic de daha da zorlayıcı olacak. Kişisel performans gelişimi için öncelikle dps için minik bir rehber planlıyoruz. Bu rehberin olayı sadece rotasyon, stat optimizasyonu ve pot/flask kullanımı üzerine. Heroic raid tahmin edeceğimiz üzere bizim için daha zorlu geçecek. Healer eksiğimizi içerden tamamlayacağız. Belli bir performans altında olan oyuncularımız için eğer ilerleyemiyorsak o fight için geri çıkmasını isteyebiliriz.
+
+Bazı linkler
+- raid planı yazımızı <a href="https://wowsu.vercel.app/posts/twws2plan" target="_blank">
+paylaştık
+</a>
+- normali full clear <a href="https://www.youtube.com/live/1uco0z2viz8?si=WzpCtvbCsW6LzQn4&t=6885" target="_blank">
+yaptık
+</a>
+- raid sonu raporlamalar  <a href="https://discord.com/channels/341256966687031297/1346336872279838740" target="_blank">
+yaptık
+</a>
