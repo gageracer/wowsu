@@ -1,6 +1,6 @@
 ---
-title: 'TWW Sezon 2 Raid Planı'
-date: '2025-2-19'
+title: 'TWW Sezon 2 Mayis Raporu ve Nisan Planı'
+date: '2025-3-28'
 img: 'logo-1.avif'
 ---
 
