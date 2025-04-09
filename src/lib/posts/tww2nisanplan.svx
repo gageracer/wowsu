@@ -1,6 +1,6 @@
 ---
 title: 'TWW Sezon 2 Nisan Raid Planı'
-date: '2025-3-29'
+date: '2025-4-9'
 img: 'logo-1.avif'
 ---
 
@@ -37,3 +37,20 @@ yaptık
 - raid sonu raporlamalar  <a href="https://discord.com/channels/341256966687031297/1346336872279838740" target="_blank">
 yaptık
 </a>
+
+## Discord
+
+Discord kullanmak için bazen ayar çekmemiz gerekebiliyor. Birkaç çözüm var:
+
+- <a href="https://www.opera.com/tr/gx" target="_blank">
+Opera GX Browser
+</a> ile gomulu vpniyle açılabilir
+-  <a href="https://github.com/cagritaskn/GoodbyeDPI-Turkey?tab=readme-ov-file" target="_blank">
+GoodbyeDPI
+</a> bu ise goodbyedpi yolu. Kaspersky ve bilimum antivirüsleri silmek gerekebiliyor.
+
+Opera icin <a href="https://www.youtube.com/watch?v=FQ6Njt73Sms" target="_blank">
+vidyo rehberi</a>
+
+Discord GoodbyeDPI <a href="https://www.youtube.com/watch?v=cgKBvAUvzIQ&t=2s" target="_blank">
+ vidyo rehberi</a>
