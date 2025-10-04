@@ -21,7 +21,7 @@
 	});
 </script>
 
-<div class="min-h-screen bg-mobile bg-contain text-text md:bg-leather">
+<div class="bg-mobile md:bg-leather min-h-screen bg-contain text-text">
 	<main class="container mx-auto px-4 py-8">
 		<div class="container mx-auto max-w-2xl px-4 py-8">
 			<header class="flex flex-col items-center">
