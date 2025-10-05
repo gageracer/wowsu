@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { onMount, onDestroy } from 'svelte';
+	import { SvelteMap } from 'svelte/reactivity';
 
 	// Which heading levels to include (typical docs: H2-H3)
 
 	let {
 		containerSelector = '#doc-content',
-		minLevel = 1,
-		maxLevel = 3
+		minLevel,
+		maxLevel
 	}: { containerSelector: string; minLevel: number; maxLevel: number } = $props();
 
 	type Heading = { id: string; text: string; level: number };
@@ -25,7 +26,7 @@
 			.replace(/-+/g, '-');
 	}
 
-	let observer: IntersectionObserver | null = null;
+	let observer: IntersectionObserver | null = $state(null);
 
 	onMount(() => {
 		const container = document.querySelector(containerSelector) as HTMLElement | null;
@@ -37,11 +38,13 @@
 		) as HTMLHeadingElement[];
 
 		// Ensure IDs and filter by level range
-		const seen = new Map<string, number>();
+		const seen = new SvelteMap<string, number>();
 		const inRange = all
 			.map((h) => {
 				const level = Number(h.tagName.replace('H', ''));
+				$inspect('level1:', level);
 				if (level < minLevel || level > maxLevel) return null;
+				$inspect('level2:', level);
 
 				let id = h.id?.trim();
 				if (!id) {

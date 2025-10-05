@@ -23,7 +23,7 @@
 		<div
 			class="sticky top-24 h-[calc(100vh-6rem)] overflow-auto border-r border-text/20 pr-3 md:pl-4"
 		>
-			<Toc containerSelector="#doc-content" minLevel={1} maxLevel={3} />
+			<Toc containerSelector="#doc-content" minLevel={1} maxLevel={2} />
 		</div>
 	</aside>
 
