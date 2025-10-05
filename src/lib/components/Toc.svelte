@@ -119,7 +119,7 @@
 			<li>
 				<button
 					type="button"
-					on:click={() => onClick(h.id)}
+					onclick={() => onClick(h.id)}
 					class={`block w-full text-left hover:underline ${
 						activeId === h.id ? 'text-secondary' : 'text-text'
 					}`}
