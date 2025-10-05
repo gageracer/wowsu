@@ -1,0 +1,402 @@
+---
+title: 'THE HIVE GUILD TÜZÜĞÜ'
+date: '2025-9-04'
+img: 'logo-1.avif'
+---
+
+<br/>
+
+# Önsöz
+
+Bu oyunu seviyor ve kendi zamanımız el verdiğince emek harcıyoruz. WOW çok büyük bir oyun; tek başınıza yapabileceğiniz birçok aktivite olduğu gibi takım arkadaşı gerektiren çok fazla etkinlik de mevcut.
+
+İşte bu yüzden Guild gibi birçok oyuncunun beraber oynadığı yapılar var. Sadece oyun mekaniklerini düşünürsek İlk bakışta Guildden beklentimiz oyunun çok oyunculu etkinliklerinde bizlere avantaj sağlaması. Ama bir guild çoğunlukla bundan fazlası olabiliyor.
+
+Çoğu guild ablasının ve abisinin 2000\`li yılların ikinci yarısından anlattığı anıları anımsayın; guild buluşmalarını, oyunu beraber oynamanın heyecanını, oyun bitse de hala süren arkadaşlıkları. Guild aynı zamanda sosyal bir yapı. İçerisinde birçok hikayenin yaşandığı, arkadaşlıkların kurulduğu bazen yıkıldığı dijitalde olsa da hayattan bir parça.
+
+Her sosyal yapıda olduğu gibi burada da bireylerin toplulukla olan ilişkilerini düzenleyen çoğu insanın bildiği ama yazılı olmayan kurallar var. Bu kurallar genel geçer adabı muaşeret kurallarından çok da farklı olmasa da belki dijital ortam kültürünün getirdiği yüz yüze olmamanın rahatlığı nedeni ile topluluklar oyuncularına hatırlatma yapmak ihtiyacı duyuyorlar. Birçok discord sunucusunda olduğu gibi bizim de kurallarımız / yol gösterici başlıklarımız var.
+
+Bu tüzük bu konulara ufaktan değinse de daha çok üyeler arasındaki ortak çalışma alanını düzenlemeye; ‘alt tarafi bir oyun’ yaklaşımı ile ‘Başarmalıyım’ bakış açısı arasında bir denge kurmaya çalışıyor.
+
+World of Warcraft devasa ve birlikte çalışmayı gerektiriyor demiştim. Işte bu dokümanda zaman yönetimini, WOW etkinliklerini nasıl planladığımızı, nasıl yaptığımızı ve nasıl kendimizi geliştirdiğimizi bulabilirsiniz. Guildin nasıl yönetildiği ve sürekliliğin nasıl sağlandığını koyduğumuz kurallarda öğrenebilirsiniz.
+
+İster yönetim kadrosunda olun isterse etkinliklere katılın sizden ne beklendiğini anlamanız için yazıldı bu doküman.
+
+Zaman en kısıtlı; dolayısıyla en değerli kaynak. Eğer oyunda başarı elde etmek istiyorsak beraber geçirdiğimiz zamanı iyi kullanmaktan başka  şansımız yok.
+
+Umarım hepiniz için iyi bir okuma olur.
+
+Kerem
+
+# Kısaltma ve Tanımlar
+
+**ALT:** Alternatif karakteri tanımlar. Alternatif karakterden kasıt main yerine kullanılabilecek karakterlerdir.
+
+**Main**: oyuncunun guild aktivitelerinde kullanmayı planladığı rezerve karakteridir.
+
+Mücbir Sebep: Tarafların kontrolü dışında meydana gelen, öngörülemez, önlenemez ve kaçınılamaz nitelikteki olağanüstü olaylardır. Bu olaylar sebebiyle taraflardan birinin sözleşmeden doğan yükümlülüklerini yerine getirmesi imkânsız veya aşırı derecede güç hale gelir.
+
+EY: Etkinlik Yöneticisi
+
+EP: Etkinlik Planlayıcısı
+
+OT: Oyuncu Tutundurma
+
+PY: Performans Yöneticisi
+
+OK: Oyuncu Kazandırma
+
+EDKK: Etkinlik değerlendirme ve Kalite Kontrol.
+
+**DC:** Discord.
+
+**RL:** Real life. Hayat.
+
+**Guild:** Lonca. The Hive
+
+**Raid:** Oyun içerisinde yer alan minimum 10 maximum 40 kişilik etkinlik. Mitik zorluk için 20 kişi ile sınırlıdır.
+
+**Etkinlik:** Guild tarafından gerçekleştirilen çok oyunculu içerikler. Raid-Dungeon-Farm-Achievement Run vb. çoklu katılım gerektiren etkinlikler.
+
+**Etkinlik Planlayıcısı:** Raid vb. guild etkinliklerinin gün/saat/içerik(kurallar) ile birlikte ilgili DC kanallarında yayınlayan, katılım durumlarına göre etkinliği başlatan ya da erteleyen ya da iptal eden sorumlu kişi.
+
+**Etkinlik Sorumlusu:** Etkinliğin sağlıklı bir şekilde sürmesini sağlayan, etkilliği başlatan ve bitiren, etkinlik sonrası değerlendirme raporu hazırlayan kişi.
+
+**Actus reus:** Roma ceza hukuku terimi. Suçun dışa yansıyan fiili davranış kısmı.
+
+ **Mens rea:** Roma ceza hukuku terimi. Failin zihinsel durumu (kast, ihmal, bilme, isteme)
+
+# 1\. Amaç
+
+1. Guild’imizin amacı; oyunda keyifli bir ortam yaratmak, birlikte ilerlemek, raid/dungeon/PvP/Farming içeriklerinde başarılı olmak ve oyuncular arasında dayanışmayı güçlendirmektir.
+   2. The Hive oyuncularına pozitif bir World of Warcraft deneyimi sunmak için var. Hedefimiz oyundaki tüm takım aktivitelerini etkin bir şekilde gerçekleştiren bir World of Warcraft topluluğu olmaktır.
+
+# 2\. Üyelik Şartları
+
+1. Katılımcı olmak.
+   2. Pozitif ve Enerjik olmak.
+   3. Dış dünyanın derdini tasasını dış dünyada bırakmak.
+   4. Yardımlaşma ve takım oyununa yatkın olmak.
+   5. Oyun oynadığımızı unutmamak.
+   6. Öğrenmeye açık olmak.
+   7. Oyunu oynamaktan zevk almak.
+   8. Loot için değil beraber kaliteli vakit geçirmek için gelmek.
+   9. Blizzard’ı eleştirmek.
+   10. Küfür, hakaret, ayrımcılık yapmamak.
+   11. Guild kurallarını bilmek. (Bu dokümanı okumak ve anlamak.)
+   12. Guild kurallarına uymak.
+
+# 3\. Rütbeler
+
+1. ## Quartermaster
+
+   1. Guild’in kural sorumlusu.
+      2. Bu rol guild ile alakalı ayarlamaları değiştirebildiğinden, Nepenthe karakterine rezervedir.
+      3. Mücbir sebepler ile devri gerçekleşebilir.
+
+   2. ## Captain
+
+      1. Etkinlik düzeni, organizasyon ve üye yönetimi vb. işlerden sorumlu karakterlerdir.
+      2. Rol guild ile alakalı Raider.IO ve Warcraftlogs ayarlamalarını değiştirebilir. Bu sebeple 2 kişi ile sınırlandırılmıştır.
+      3. Tercihen Sezon Yöneticisi ve Genel yönetimi yapacak kişilere atanmalıdır.
+      4. Bu bir officer rolüdür.
+      5. İçerdiği teknik yönetim rolleri nedeni ile istisnai olarak değişiklik yapılır.
+
+   3. ## Lieutenant
+
+      1. Yönetim/icra rolü bulunan sorumlular.
+      2. Guild officer larını tanımlar.
+      3. Yönetim bölümünde izah edildiği üzere seçilir ve sezonsal olarak görev yürütürler.
+      4. Aktif görev süreleri sonunda Sergeant rütbesine geçerler.
+
+   4. ## Sergeant
+
+      1. invite yetkisine sahip deneyimli oyuncular.
+      2. Deneyimli ve eskiden sezonsal yönetim yapmış oyuncuları belirtir.
+      3. Diğer officer olmayan ranklerden farklı olarak bu rütbedeki oyuncular guild invite atabilirler.
+
+   5. ## HC Raider
+
+      1. Guild’in raid etkinliğine katılan temel oyuncular.
+      2. Guildin raid etkinliklerinden birine katılım sağlayan oyuncular bu rank’e officerlar tarafından getirilebilirler.
+      3. Bu oyuncuların etkinlik davetlerine cevap vermesi gereklidir.
+      4. Her oyuncunun MAIN ve ALTERNATIF (ALT) karakterleri olabilir.
+      5. Oyuncu alternatif olarak tanımladığı karakterinin main olarak tanımladığı karaktere denkliğinden sorumludur.
+      6. Oyuncu en az 1 karakterini (tercihen) Main karakterini loot kısıtlandırılmış etkinliklere saklamak, yani bu karakteri guild etkinliğinde kullanmak üzere rezerve etmekten sorumludur.
+      7. Main karakterini Mythic raide saklamak zorunludur.
+      8. Farklı nedenler ile oyuncunun sezon katılımının azalması ya da etkinlik katılımının azalması sonucunda bu rütbe 1 alt rütbeye indirilebilir.
+         1. Alt rütbeye indirme kararını, sezonsal yöneticiler verebilir.
+
+   6. ## Social
+
+      1.  Sosyal, sezonsal etkinliklere katılmayan ya da bir şekilde 5 seneden fazla aktif olmamış antika üyeler.
+      2. Etkinlik yazılma zorunlulukları bulunmaz.
+      3. Etkinliklere event yöneticileri ile etkinlik gereksinimlerini karşıladıkları sürece katılabilirler.
+
+
+
+   7. Rütbeler oyuncuya verilir. Alt karakterler aynı rütbeden sayılırlar.
+
+# 4\. Etkinlikler
+
+1. Guild tarafından gerçekleştirilecek her etkinliğin Etkinlik Planlayıcısı, Etkinlik İçeriği, Etkinlik Organizatörü/Sorumlusu, katılımcıları vardır.
+
+   2. ## Etkinlik Planlama Aşaması
+
+      1. Etkinlik içeriği Etkinlik Planlayıcısı tarafından ilgili paydaşlar (katılımcılar, Etkinlik Sorumlusu/Etkinlik Organizatörü) ile görüşülerek Discord kanalında Etkinlik Duyurusu olarak yayınlanır.
+      2. Etkinlik duyurusu etkinliğin gerçekleştirileceği tarihten en fazla 1 hafta önce, en geç 3 iş günü önce ilgili etkinliğe ait DC kanalında duyurulur.
+      3. HC Raider ve üstü oyuncuların ilgili etkinliklere pozitif veya negatif cevap vermesi esastır.
+         1. Etkinlikler için Etkinlik İçeriği, Etkinlik Planlayıcısı tarafından belirlenerek Etkinlik Duyurusuna eklenmesi gerekir. İlgili bilgiler aşağıdaki maddelerde belirtilmiştir.
+            1. Etkinlik İsmi
+            2. Etkinlik Günü
+            3. Etkinlik Başlangıç Saati
+            4. Etkinlik Süresi
+            5. Etkinlik Kuralları
+            6. Etkinlik İsterleri
+      4. Etkinlik, etkinlik başlangıcından 24 saat önce kilitlenir ve yeni kullanıcı almayı bırakır.
+      5. Raid organizasyonları için verilebilecek kabul edilebilir cevaplar aşağıda detaylandırılmıştır.
+         1. Sınıf ve Alt Sınıf seçimi ile yazılma: Oyuncunun ilgili gün ve saatte hazır olarak geleceğini belirtir.
+         2. Tentative işaretleme: Oyuncunun katılım durumunun netleşmediği durumlardır. Oyuncu katılma niyetindedir ancak RL engelleyicileri nedeni ile net cevap verememektedir.
+            1. Tercihen oyuncunun katılım durumunu Raid etkinliği yeni oyuncu katılımına kapatmadan – belirlenen raid saatinden 24 saat önce – KATILIM/KATILAMAMA olarak netleştirilmesi istenir.
+            2. Raid etkinliği yeni oyuncu alımına kapandığı zaman, katılım durumu Tentative olarak kalan oyuncuların katılım durumunu Etkinlik Planlayıcısına sözel ya da yazılı olarak (Discord Mesaj/Whatsapp/Discord Ses) bildirmesi gerekir.
+            3. Bu bildirim de yapılmaması durumunda oyuncunun katılım durumu KATILMAMA/ABSENCE olarak Etkinlik Planlayıcısı tarafından ilan edilir.
+         3. LATE: Geç katılma durumu bildirilmektedir. Bu durumda ne kadar geç kalınacağı yazılır ise Etkinlik Planlayıcısı etkinlik başlangıç saati ile ilgili değişiklik yapmak hakkını katılımcılara en az 1 gün önce bilgi vermek koşulu ile saklı tutar.
+         4. ABSENCE: Katılmama durumudur. İlgili gün ve saat oyuncu için uygun değil anlamını taşır. Bu katılım durumunda değişiklik olması durumunda 4.6.2 alt maddeleri uygulanır.
+      6. Etkinlik Planlayıcısı, bildirilen katılım durumuna göre etkinlikten 24 saat önceki zaman aralığında etkinliği başlatma/erteleme/iptal etme kararını başvuruların yapıldığı ilgili Discord kanalından duyurur. Bu duyuru raid başlangıcından en erken 24 saat, en geç 6 saat önce yapılmalıdır.
+      7. Etkinlik Planlayıcısı, ilgili etkinlik ile ilgili 3 şekilde karar verebilir.
+         1. Etkinlik Planlaması OLUMLU: etkinlik yapılacak
+         2. OLUMSUZ/İPTAL: etkinlik isterleri sağlanmadı etkinlik iptal.
+
+   3. ## Uygulama
+
+      1. Etkinlik Sorumlusu/Organizatörü; Etkinlik Planlayıcısının etkinliğin yapılacağına dair kararı kendisine iletmesine istinaden; belirlenen tarihten 15 dakika önce katılımcı listesi üzerinden;
+         1. katılım durumunu pozitif olarak duyurmuş oyuncuları
+         2. son 24 saat içerisinde Etkinlik Planlayıcısına Tentative/Belirsiz olarak işaretlenmiş ancak gelebileceğini bildirmiş olan oyuncuları
+
+oyun içerisinden davet sürecini başlatır ve etkinlik grubunu etkinlik başlangıç saatine kadar oluşturur.
+
+2. Yazılmış ya da Tentative’e 24 saat içinde pozitif dönmüş ancak raid saatinde hazır bulunmayan oyuncular, Etkinlik Sorumlusu tarafından Oyuncu Tutundurma ekibine bildirilir. Oyuncu Tutundurma ekibi disiplin kuralları çerçevesinde aksiyon alır.
+   3. Katılım durumunu bildirmeyen ancak ilgili tarihte “Son dakika” katılım sağlayabileceğini söyleyen oyuncuları etkinlik içerisine dahil edip etmeme ve ne koşullarla dahil edileceği kararı Etkinlik Sorumlusunundur.
+      4. Etkinliğe katılımı netleşen oyuncular için etkinliğe zamanında ve ilgili etkinlik isterleri (örneğin raidler için ilvl/potion/oil vb. mevcut) sağlanmış olarak katılım esastır.
+      5. Loot sistemi mythic raid zorluğu için RCLootcouncil olarak uygulanacak, HC ve altı zorluklar için oyuncu beyanı ile default zar atma kuralları geçerli olacaktır.
+      6. HC ve altı zorluklarda ana karakterlerin loot önceliği vardır.
+      7. Herhangi bir etkinlik sesli iletişim kanalında Konuşması Gereken prensibi uygulanır. Bu prensip kritik role sahip olan (tank – healer lideri – raid lideri vb.) roldeki insanların konuşma kanalını kullanma önceliğidir. Günlük sohbet – kakara kikiri – event içerisindeki bekleme/geçiş bölümleri vb. kritik olmayan zamanlarda yapılabilir ancak kritik anlarda (taktik uygulanacağı zamanlar vb.) mikrofon disiplini uygulanmalıdır.
+      8. Disiplin bozucu davranışlarda bulunan üyeler için disiplin kuralları uygulanır.
+      9. Guild tarafından kullanılan iletişim kanalının kullanılması şarttır. Guild, iletişim kanalını Discord olarak belirlemiştir.
+
+# 5\. İletişim
+
+1. Guild içi iletişim için Discord belirlenmiştir.
+   1. Etkinliklerde ayriyeten belirtilmemiş ise mikrofon kullanımı tüm katılımcılar tarafından “konuşması gereken prensibi” dahilinde yapılmalıdır.
+      1. Bu prensip kapsamında etkinliğin yapılması için gerekli komut ve uyarılar etkinlik yöneticisi tarafından yapılması gerektiğinden, ortak sesli kanalların kullanım önceliği bu kişilere bırakılmalıdır.
+         2. Goygoy zamanı goygoy yapılabilir.
+   2. Etkinlik esnasında anlaşmazlıklar yine etkinlik esnasında giderilebilir.
+      1. Eskale olan Tartışmalar, özel kanallarda yapılmalı, ya da etkinlik bitiminde çözülmelidir.
+
+# 6\. Disiplin
+
+1. ## Prensipler
+
+   1. Guild, insanların gönüllülük esası ile görev aldığı ve katılım sağladığı bir yerdir. Bir şirket ya da devlet kurumu değildir. Öte yandan hala uyulması gereken kurallara ve kural uygulayıcılarına ihtiyaç duyar; çünkü ortak kullanılan bir alandır. Kuralların uygulanmadığı durumlarda kişinin kendisi ve görevlendirilmiş sorumlular yaşanan ihlalle ilgili konuşurlar. Aşağıdaki prensipleri lütfen göz önünde bulundurun.
+      1. Herkes kendinden sorumludur. Çoğunlukla yetişkinlerden oluşan bu toplulukta günlük hayatınızda size nasıl davranılmasını bekliyorsanız siz de diğer insanlara o şekilde davranın.
+         2. Girdiğiniz diyaloglarda karşınızda gerçek bir insanın olduğunu unutmayın. İnsanlar öğrenme yetenekleri, dikkat aralıkları, motor fonksiyonları, kültür ve espri anlayışları gibi bir çok konuda farklı olurlar. Ayrımcılık yapmayın empati sahibi, birleştirici ve hoşgörülü olun. Ben kötü ve yaşlı bir healerım diye beni dışlamayın.
+         3. Kendinizi nasıl tanıtıyor, nasıl bir persona çiziyorsanız artık burada siz o kişisiniz. Takım oyununa yatkın, yardımsever, pozitif iletişim kuran v.b. üyelik kurallarında yazdığımız kurallar kazandırır. Apatik, snob, üstencil çoğunlukla kaybettirir.
+         4. Adalet dağıtıcısı olmayın. Bunun için sorumlularımız var.
+            1. Bir ihlal olduğunu düşündüğünüzde ihlali yapanın farkındalığını arttıracak medeni bir konuşma yaparak problemi o anda çözmenizi tercih ederiz.
+               1. Bu konuşma tabii ki bu dokümanda anlatılan kurallar çerçevesinde olmalı
+               2. Kişisel ajandanıza özel ve guild kuralları ile alakalı olmayan bir konu olmamalı.
+            2. Ancak bu her zaman mümkün olmayabilir. Bu durumda konuyu ilgili sorumluya sizi ve guildi nasıl etkilediği, hangi kuralın ihlal edildiğini düşündüğünüz bilgisi ile aktarın. Yalnız değilsiniz.
+
+   2. ## Uygulama
+
+      1. Diyelim ki bir ihlal oldu. Sorumlunun görevi, ihlali gerçekleştiren guild arkadaşına ilgili kurallarını hatırlatmak ya da konu ile ilgili farkındalığını arttırmaya yardımcı olmaktır.
+      2. Bir ihlal başka bir ihlalden kaynaklanamaz, anlamlandırılamaz, haklı hale gelemez. Kaba bir tabirle “Ben X davranışını yaptım çünkü Ahmet arkadaşımız da Y davranışını yapmıştı.” Cümlesi modern hukukta çalışmadığı gibi burada da çalışmaz.
+      3. İhlal çoğunlukla ihlali yapanın davranış değişikliği ile kendi kendine çözülebilir. Minik bir özür, daha dikkatli iletişim ve farkındalık anahtardır.
+      4. İhlal buradaki yazılı kurallardan biri ile antant kalamadığınız için gerçekleşiyorsa belki de burası sizin için uygun bir yer değildir. İnsanlara veda eder şapkanızı alır, guildden çıkarken arkanızda bir yangın bırakmak yerine saygın bir şekilde çıkar güzel hatırlanırsınız.
+      5. Her ihlal de aynı değildir. Bir ihlalin ağırlığı etkilenenlerin sayısı ve ilgili ihlalin içeriğine bağlıdır.
+      6. Etkilenenlerin sayısına örnek verelim
+         1. Hafif ihlal 3-4 kişinin bulunduğu bir ortamda ağızdan kaçan bir argo kelime olabilir. Bu durumda “pardon” kelimesini kullanarak hayatımıza devam edebiliriz.
+         2. Daha yüksek seviyeli bir ihlal yazıldığınız bir etkinliğe gelmeme olabilir. Mesela 20 kişi isteyen bir etkinlikte 20\. Kişi iseniz ve yazılıp da gelmediyseniz diğer 19 kişiye bir özür borçlusunuz. Böyle bir durumda toplum tarafından anlaşılabilecek haklı bir mücbir sebebiniz olmalı. Aksi takdirde başka insanların zamanına saygı duymayan ya da yaptığı işlerin sorumluluğunu alamayan biri olarak görülmek kuvvetle muhtemel.
+         3. Başka bir ihlal tipi de “öfke ile yapılan fevri hareketler” olarak tanımlanabilir. Örnek verelim; Raid etkinliğinde düşen bir item için paylaşma aklınıza yatmayan bir paylaşım gerçekleşti ve bu sizin hoşunuza gitmedi. Kurallar dahilinde olan bu olaya sinirlendiniz ve habersiz bir şekilde raidi terk ettiniz. Raidde olan tüm arkadaşlarınız ve sinirlendiğiniz kişi ile birlikte havaalanında unutulan bavul gibi kaldılar. Kalmamalılar ve çıkmamalısınız.
+      7. İhlalin içeriğine de örnek verelim. Burada Roma Ceza Hukukundaki Mens Rea ve Actus Reus kavramlarından faydalanalım
+         1. Yeni katılan bir kullanıcımız burada yazan ve uymasını beklediğimiz kuralların farkında ama oyundaki yazılı olmayan kurallardan deneyimsiz olduğu için bihaber. Örnek verelim; mythic raidlerde yapılan BOE farmları sizi bu sezon 1\. Bossun ölü olduğu bir duruma kayıt eder ve guildle giremezsiniz. İşte bu arkadaşımız bu durumda yazılmış olduğu bir raide ne yazık ki giremez ve hepimizi zor durumda bırakır. Yapılan hareket yanlış olduğu algılanıp bir daha yapılmadığı sürece büyük bir ihlal değildir. Bu ihlalde eksik bilgilendirme nedeni ile oyunun da kusuru bulunmaktadır.
+         2. Yine yeni katılan bir arkadaşımız düzenlenmiş bir guild raid etkinliği vaktinde başka bir guild ya da pugla oynamayı tercih ediyor. Bu durum bu kurallarda açıkça belirtildiği üzere HC Raider rolüne ters bir davranış ama Social rolünde kabul edilebilir bir davranış. Bu durumda kuralları okumak ile yükümlü olduğumuz için arkadaşımız HC Raider rolündeyse ve etkinlik saatinde aynı etkinliği başka bir grupla yapmayı tercih ediyorsa ortak bir aktivite ortamı doğal olarak oluşmuyor. Bu durumda yapılabilecek 3 aksiyon var öncelikle sorumluluk ve beklentileri bu arkadaşımıza ilgili görevli tarafından anlatılmalı. Daha sonra devamındaki şu tercihlerden biri olabilir: rolü değiştirilebilir ya da oyun içi hedefleri guildin kural ve hedefleri ile uyuşmadığı için veda etmeyi seçebilir.
+      8. Oyundaki hiçbir kazanç, saygısızlığı ve negatif davranışları haklı çıkarmaz.
+      9. Topluluk ile beraber oynamayı sevmiyorsanız geçirdiğiniz zaman size zul oluyorsa bize de olmasına gerek yok. Her evlilik sonsuza kadar sürmüyor.
+
+
+
+# 7\. Yönetim
+
+## 7.1 Yönetim ve Hedeflerin Belirlenmesi
+
+1. Guild rankları 3\. Maddede açıklandığı şekilde olup Quartermaster haricindeki tüm ranklerde sezonsal görevlendirme nedeni ile değişiklik olabilir.
+   2. Guild yönetimi Blizzard’ın WOW sezon mantığına uygun olarak sezonsal olarak planlanır.
+      3. Var Olan yönetim tarafından, guild üyelerinin sezon öncesinde fikirleri alınır. Anket toplanti vb yöntemler kullanılabilir.
+      4. Sezon öncesinde var olan Captain ve Lieutenant’lar tarafından “Olağan Yönetim Kurulu” gerçekleştirilir.
+      5.  Bu toplantının amacı;
+         1. Sezonun yönetici kadrosunu,
+            1. Guildin beraber gerçekleştireceği aktiviteleri belirlemeyi
+         2. Aktivite için taslak takvim belirlemeyi
+         3. Bu aktiviteleri gerçekleştirmek için gereken işleri ve rolleri taslak olarak belirlemektir.
+      6. Bu toplantı bitiminde Sezonun yönetiminden sorumlu 2 Genel Yönetim Sorumlusu atanır.
+      7. Önceki yönetim kurulundan ayrılanlar ve yeni olası yönetim kuruluna girmek isteyen kişiler belirlenir. Yönetim kurulu şekillendirilir.
+
+   2. ## Sezon Yönetimi
+
+      1. Genel Yönetim Sorumluları toplantıda alınan kararlar ve kendi inisiyatifleri doğrultusunda hedefleri gerçekleştirmek için gereken işleri belirler ve bu işleri gerçekleştirecek kişiler ile iletişime geçerek kadro oluştururlar.
+      2. Kadro ile ilgili görev tanımları ve iş yükümlülükleri ilgili sezon için işbu tüzüğe eklenerek tüzük yenilenir ve tekrar guild iletişim kanalında yayınlanır.
+      3. Tüzükte değişiklik olması istenmesi durumunda değişiklik talebine sahip olan captain veya lieutenant rankindeki yönetici “Olağanüstü Yönetim Kurulu” çağrısını yapmakla ve toplantıyı organize etmekle yükümlüdür.
+      4. Olağanüstü Yönetim Kurulu Sayı çoğunluğu ile toplanabilir.
+      5. Guildin Captain ve Lieutenant sayısı 6 olarak belirlenmiştir.
+      6. Olağan ve Olağanüstü Yönetim kurulu Kararlar oy çoğunluğu prensibi ile alınır.
+      7. Yönetim kurulu aynı zamanda sezon içi faaliyetler ile ilgili aktif görev alacak kişilerdir. Bu kural yönetim kurulunda olmayan kişilerin aktif görev alamayacağı anlamına gelmez.
+
+   3. ## TWW 3\. Sezon Roller ve sorumlulukları
+
+      1. ### Oyuncu Kazandırma Sorumlusu
+
+         1. #### *Kanal Sorumlulukları*
+
+            1. Raider.io, Warcraftlogs, oyun içi guild notları kanallarında tanıtım içeriğinin oluşturulması.
+            2. Raid listesi ilan açılması ve düzenli oyuncu alımının sağlanması
+            3. Raider.io / Warcraftlogs / oyunici guild notlari ile ilan tazelemesi.
+               1. Aylık 1 kere revizyon yeterlidir.
+
+         2. #### *Oyuncu Mülakat Sorumlulukları*
+
+##### İlk Temas
+
+1. İlanlara  ve çağrılara dönüş yapan kişiler ile iletişime geçilmesi
+   1. Adayın daha önce guild ile ilgili geçmişi kayıtlardan kontrol edilmelidir. (Guild Addonu varsa discord kayıtları)
+      2. Kayıt Raider.io gibi kanallardan yapılan bir başvuru ise en geç 2 gün içinde iletişime geçilmelidir.
+         3. Görüşme sağlanamaması durumunda Oyuncu Kazandırma Sorumlusu Discordunda kontak ile ilgili kayıt açılmalı ve iletişim sorumlusu olarak iletişime geçen kendisinin konu üzerinde çalıştığını diğer sorumlulara bildirmelidir.
+            4. Aday dönüş yapmıyor ise kayıt kapatılmalı ve daha fazla vakit kaybedilmemelidir.
+
+##### İlk Görüşme ve Raporlama
+
+3. Guild ve aktivitelerinin tanıtımının yapılması
+   1. Tanıtım materyali oluşturulması ve Discord kanalında paylaşımı.
+      2. Güncel tutulmalıdır
+         3. Standardize edilmelidir
+            4. 1’den fazla recruiter olması durumunda koordine olarak değişikliklerin yapılması
+            5. Guild tanıtımının mümkün olduğunca matbuğ bir şekilde yapılması (kişi bazlı olmama sürdürülebilirlik ve tutarlılık nedenleri ile.)
+         4. Karsi tarafin beklentilerinin sorulmasi
+         5. Guild icin gereksinimlerin anlatılması
+         6. Hedeflerin ortak olması durumunda guilde davet edilmesi.
+         7. Oyuncu dosyasının Oyuncu Kazandırma Sorumlusu Discordunda künyesinin tamamlanarak (yukarıdaki konuşma özeti) kapatılması.
+         8. Oyuncu ile ilgili temel bilgilerin bir bilgi notu olarak Oyuncu Tutundurma Ekibi Discord sayfasına yazılması ve işin paslanması
+
+      2. ### Oyuncu Tutundurma Sorumlusu
+
+##### Yeni Gelen Oyuncu Onboarding
+
+1. Yeni gelen oyuncuların karşılanması.
+   1. Discord onboard edilmesi.
+      1. WOW rol seçimi
+         2. The Hive tüzüğünün okudum anladım kabul ediyorum şeklinde işaretlenmesi. Gerekirse dokümanın açılıp önemli yerlerin anlatılması
+            3. Kanalların tanıtımı
+               1. Raid Yazılma Kanalları
+                  2. Wow Sohbet
+                  3. Forum
+                  4. Tatil/iş bildirimleri sayfası
+               4. Onboarding sürecini başlattığı oyuncunun case’ini oluşturmak ve yukarıaki adımların kaçının üstünden geçebildiğini diğer Oyuncu Tutundurmacılarla Discord kanalında paylaşmak.
+            2. Bütün bu aşamaları geçtiği üyelere sorumluluğun kendilerinde olduğunu bildirmek.
+
+##### Var Olan Oyuncu Çözüm Ortağı
+
+2. Yer yer oyuncular ile temasa geçerek isteklerinin ve beklentilerinin sorulması
+   3. Gelen geri bildirimlerim ilgilendiren diğer sorumlularla paylaşılması
+      4. Aktivite Planlama ve Aktivite Sorumlusundan gelen ve Oyuncu Tutundurma Discorduna düşen istekler üzerine oyuncular ile görüşülmesi
+         5. Anlaşmazlıkların çözülmesi.
+            1. Alınan aksiyonun ilgililerine aynı kanaldan raporlanması
+               1. Aktivite Planlama Problemleri – Oyuncu Tutundurma DC
+               2. Aktivite Sorumlusunun görevi kapsamındaki problemler – Oyuncu Tutundurma DC
+               3. Kişisel Gelişim için Performans Yöneticisine – Performans Yönetimi DC istek açma
+            2. Alınan aksiyon üyeliğin sonlandırılması ise Yeni Gelen Oyuncu Onboarding ekibinin bilgilendirilmesi.
+         6. Her roldeki ve her oyun içeriğini tüketen üyelerin ilgili ve isteklerinin anlaşılması ve yönetim kademesinde bu oyuncuların da haklarının korunulmasını gözetmek.
+         7. Gerekli raporlari aktivite planlamacıya paylaşır
+
+      3. ### Performans Yöneticisi
+
+         1. Aktivite Değerlendirmeden ve Oyuncu Tutundurmalardan gelen isteklere göre performans optimize eder
+            1. AD ve OT istekleri Performans Yönetimi Discorduna istek olarak açılır.
+            2. İlgili kişi ile iletişime geçer
+            3. Problemi değerlendirir aksiyon planı hazırlar
+            4. Aksiyon planını yapar uygular
+               1. WOW ile alakalı sitelere yönlendirme
+               2. Kişisel performansın takibi için log almayı öğretir
+               3. Log değerlendirir
+               4. kişisel birebir ya da toplu eğitim planlar
+         2. Gerçekleştirilen faaliyetleri kendi discordunda raporlar
+         3. Eğer faaliyet bir ekipten geldiyse case’i cevaplar ve kapatır.
+         4. Performans problemi tekrar ederse başa dönüşür.
+         5. Tekrar eden unsurlar için zaman kazanmak adına rehber, yazi, video vs. gibi içerikleri takip eder üretir paylaşır. Eğitim Dökümanları kanalında forumda
+         6. Destek verdigi oyunculari takip edip aktivite liderlerine bilgi verir.
+
+      4. ### Etkinlik Planlama
+
+##### Etkinlik Öncesi
+
+1. Hedefler doğrultusunda sezon takvimini etkinlik yöneticisiyle oluşturur
+   2. Etkinlik takvimini ayarlar ve haftalık döngüyle düzenli olarak kurar
+      1. Standart bildirimleri oluşturur
+         2. Standart bildirim zamanlarında çağrıları çıkar
+         3. Etkinlik sorumlusundan aldığı isterleri etkinlik çağrısına ekler. Aktivite kurallarini oyunculara iletir.
+         4. Katılım hatırlatmaları yapar ve kritik pozisyonları takip eder
+         5. Gereksinimler yeterli değilse etkinliği iptal eder. Katılım pozitif bildiren oyunculara en geç 6 saat öncesinden ve ES’ye en geç 7 saat öncesinden durumu bildirir.
+         6. Gereksinimler yeterli ise GO kararını ES’ye bildirir. Katılımcılar için ayrı bir bildirim yapmasına gerek olmaz. İşi ES’ye paslar
+
+##### Etkinlik Sonrası
+
+7. Oyuncuların katılıp katılmama durumlarını ve sebeplerini öğrenerek OT ekibine OT DC si üzerinden case açarak iletir.
+   8. Oyuncu Tutundurma ve Aktivite Değerlendirmeden geri donus alarak planlarini günceller
+      9. Planladığı etkinlik başarı durumu oluşturur ve kendi DC sinde başarı durumu ve iyileştirme planları ile birlikte AYLIK bazda sunar
+
+
+
+      5. ### Etkinlik Sorumlusu
+
+         1. Etkinlik Planlamacı ile Sezonluk takvim planlaması yapar.
+         2. Etkinlik içeriğini ve gereksinimlerini Etkinlik planlamacıya iletir.
+            1. Takvim dışı etkinlikler ve irregular etkinlikler için özel isterleri EP ye iletir.
+         3. GO kararı çıkan Etkinlikler için 15 dk öncesinden grup kurar
+         4. Aktivite oncesi anlatim yapar ve gerekli urunleri onceden ayarlar (yemek vs) ya da delege eder
+         5. Etkinliği yönetir
+         6. Gereksinimleri karsilar(log almak, yayin acmak vs.)
+         7. Aktivite bitimini belirler, erken bitirme insiyatifi alabilir
+         8. Grup isterse aktivite belli bir süre uzayabilir
+         9. Kapanisi yapar kendi kanalında ya da EP ile ortak kanallarında ilgili künye altına raporlar
+         10. Problem alanları için OT ve PY birimlerine ilgili DC lerde case açar.
+         11. Açtığı caseleri takip eder yorumlar.
+
+      6. ### Etkinlik Değerlendirme ve Kalite Kontrol Sorumlusu
+
+         1. Etkinlik kalite kriterlerini belirler. Bunları kendi discordunda yayınlar. Örn.
+            1. Duyuru aşaması zamanlı açıldı mı ?
+            2. Etkinlik Yöneticisi Etkinlik Gereksinimlerini Etkinlik Çağrısında net bir şekilde belirlemiş mi?
+            3. Duyuru başvuruları tam olarak yapıldı mı?
+            4. Etkinlik yapma / yapmama kararı ve buna ait bildirimler zamanlı yapıldı mı?
+            5. Etkinlik logu var mı?
+         2. Her Etkinlik için “Etkinlik Hazırlık Kalite” puanını verir ve paylaşır.
+         3. Etkinlik bir Raid ise raid logunu inceler.
+         4. Etkinlik Sorumlusunun kriterlerinin sağlanıp sağlanmadığını kontrol eder.
+            1. Hedeflenen saatte başlanmış mı?
+            2. İlgili pot yemek kullanılmış mı?
+            3. Damage yetmiş mi?
+            4. Heal yetmiş mi?
+         5. Aktivite hemen sonrasi ya da haftalik degerlendirme yapar
+         6. Toplu değerlendirme ve bireysel degerlendirme seanslari yapar
+         7. Basari kriterlerine gore problemleri tespit eder
+         8. Pozitif ve negatif geri bildirim raporu hazirlar
+         9. Genel değerlendirme yapabilir
+
+8. # Tüzüğün yürürlüğe girmesi
+
+   1. Bu tüzük görüşülüp var olan officerlar tarafından oybirliği ile onaylandığı tarihten itibaren geçerlidir.
+   2. Tüzüğün ilk hali var olan yönetim tarafından hazırlanmış ve var olan yönetim kurulu ile hayata geçirilmiştir.
+   3. Gelecek eden sezonlarda tüzüğün devamlılık kuralları uygulanarak ilerletilecektir.
+
+9. # Son Söz
+
+   1. ZUGZUG

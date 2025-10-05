@@ -1,6 +1,6 @@
 ---
 title: 'Temeller: Addon ve WeakAura'
-date: '2025-02-18'
+date: '2025-2-18'
 img: 'wa.png'
 ---
 
@@ -8,7 +8,7 @@ img: 'wa.png'
 
 Oyunun birçok eksiği ve iyileştirilebilecek yerleri var. Bunları addonlarla çözmek mümkün. Eğer rahat rahat oyuna odaklanmak ve sinir katsayınızı çok arttırmak istemiyorsanız ne yazık ki bu çözümlere el atmanız gerek.
 
-Oyuna girmeden önce yapmamız gerek birkaç şey var: Addon Manager ve Weak Aura manager yüklemek. 
+Oyuna girmeden önce yapmamız gerek birkaç şey var: Addon Manager ve Weak Aura manager yüklemek.
 
 ## Addon Manager
 Addon Manager için birçok seçenek var. Benim tavsiyem WowUp. Kendisi bedava ve reklamsız. Ayrıca her işletim sistemini destekliyor. [wowup.io linki](https://wowup.io/)
@@ -24,7 +24,7 @@ WowUp'ı indirdikten sonra oyunun kurulu olduğu yeri gösterip ardından da add
 
 Weak Aura'ların derli toplu bulunduğu en büyük yer Wago.io. Burda birçok oyuncu paketler halinde isteğinize göre Aura'lar bulunduruyor. Bir kere alıştınız mı da oyunda canınızı sıkan herşey için bir aura paketi bulabiliyorsunuz. Wago gittikçe büyüdü ve artık Weak Aura dışındaki addonları da indirebildiğiniz bir platform oldu. Eğer isterseniz WowUp yerine onların Addon Manager'ını kurabilirsiniz ama herşey birebir Curse'le aynı mı bilemiyorum, denemedim. Bizim işimiz Weak Aura odaklı. [wago linki](https://uipacks.wago.io/)
 
-Siteye girdiğinizde UIPacks sizi karşılayacak. Eğer izlediğiniz ya da bildiğiniz birisinin Arayüzüne sahip olmak isterseniz burdan bilgilerine ulaşabiliyorsunuz. Bu paketlerin içinde Weak Auraların dışında, ElvUI ve diğer addonlarda var. 
+Siteye girdiğinizde UIPacks sizi karşılayacak. Eğer izlediğiniz ya da bildiğiniz birisinin Arayüzüne sahip olmak isterseniz burdan bilgilerine ulaşabiliyorsunuz. Bu paketlerin içinde Weak Auraların dışında, ElvUI ve diğer addonlarda var.
 
 Biz yine Weak Aura odaklıyız. Üstteki Menüden `Imports`a girince Weak Auraların olduğu yerdeyiz. Çok Boş duruyor biliyorum. Burda "Browse"dan "WeakAuras" altındaki "The War Within" e girince daha işlevli bir menü gelecek. [wago weakaura linki](https://wago.io/the-war-within-weakauras)
 
@@ -34,7 +34,7 @@ Biz yine Weak Aura odaklıyız. Üstteki Menüden `Imports`a girince Weak Aurala
 
 Herhangi bir aurayı indirmeniz için onun kodunu kopyalamanız ve ardından oyun içindeki önceden indirdiğiniz "WeakAuras" Addonu gerekli. Oyun içinde chat'e "/wa" yazıp ardından "import" diyip kopladiğiniz aura kodunu oraya yapıştırmanız yeterli.
 
-Weak Auraların bir kısmı da güncelleniyor. Oyun değiştikçe, mesela sezonlarla dungeon ve raid'ler değişince ya da class'ların büyüleri değişince, bu auralarında yeni versiyonlarına ihtiyaç duyacaksınız. Bunun için de bir uygulama var. Wago'nun geliştirdiği "Weak Auras Companion" uygulaması.[Weak Aura Companion linki](https://weakauras.wtf/) 
+Weak Auraların bir kısmı da güncelleniyor. Oyun değiştikçe, mesela sezonlarla dungeon ve raid'ler değişince ya da class'ların büyüleri değişince, bu auralarında yeni versiyonlarına ihtiyaç duyacaksınız. Bunun için de bir uygulama var. Wago'nun geliştirdiği "Weak Auras Companion" uygulaması.[Weak Aura Companion linki](https://weakauras.wtf/)
 
 <a href="https://weakauras.wtf/" style="display: flex; justify-content: center" target="_blank">
 <img alt="Wago WeakAuralar" src="/images/wacomp.png" />

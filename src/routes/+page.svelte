@@ -7,9 +7,9 @@
 
 <Layout>
 	<section>
-		<h2 class="mb-6 text-center text-2xl font-bold">Rehber ve Yazilar</h2>
-		<ul class="space-y-4 px-16">
-			{#each posts as post}
+		<h2 class="mb-6 text-center text-2xl font-bold">Rehber ve Yazılar</h2>
+		<ul class="space-y-4 lg:px-16">
+			{#each posts as post, index}
 				<li class="flex items-center space-x-4">
 					<a href={`/posts/${post.slug}`} class="flex items-center space-x-4 text-secondary">
 						{#if post.img}

@@ -13,7 +13,7 @@ const config = {
 	preprocess: [
 		vitePreprocess(),
 		mdsvex({
-			extensions: ['.svx'],
+			extensions: ['.svx', '.md'],
 			smartypants: { dashes: 'oldschool' },
 			layout: {
 				_: join(__dirname, './src/lib/components/MarkdownLayout.svelte')
