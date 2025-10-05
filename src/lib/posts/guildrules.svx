@@ -1,5 +1,5 @@
 ---
-title: 'THE HIVE GUILD TÜZÜĞÜ'
+title: 'THE HIVE GUILD KURALLARI'
 date: '2025-10-4'
 img: 'logo-1.avif'
 ---

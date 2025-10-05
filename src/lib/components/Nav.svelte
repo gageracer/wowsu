@@ -42,7 +42,7 @@
 			</a>
 		</li>
 		<li class="w-6">
-			<a href="/guildrules" title="Guild Tüzüğü"> Tüzük </a>
+			<a href="/kurallar" title="Guild Kuralları">Kurallar</a>
 		</li>
 	</ul>
 	<!-- Vertical line after social icons - only shows on md and up -->
