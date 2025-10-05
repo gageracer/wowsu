@@ -5,7 +5,7 @@
 >
 	<ul
 		class="flex flex-row items-center justify-center space-x-5
-                  md:flex-col md:space-x-0 md:space-y-4"
+                  md:flex-col md:space-y-4 md:space-x-0"
 	>
 		<li class="w-6">
 			<a href="https://discord.gg/JRXv5XMZGy" target="_blank" title="Discord">
@@ -40,6 +40,9 @@
 			<a href="https://www.warcraftlogs.com/guild/id/469456" title="guildwlogpage" target="blank">
 				<img alt="guildwlogpage" src="/images/wlog.png" />
 			</a>
+		</li>
+		<li class="w-6">
+			<a href="/guildrules" title="Guild Tüzüğü"> Tüzük </a>
 		</li>
 	</ul>
 	<!-- Vertical line after social icons - only shows on md and up -->

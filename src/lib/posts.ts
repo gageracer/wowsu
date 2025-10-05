@@ -1,4 +1,4 @@
-import type { Component } from "svelte";
+import type { Component } from 'svelte';
 
 type Post = {
 	slug: string;
@@ -14,20 +14,21 @@ type PostModule = {
 
 // Import all .svx files in the posts directory
 const posts = import.meta.glob<{
-  metadata: Post;
-}>("/src/lib/posts/*.svx", {
-	eager: true,
+	metadata: Post;
+}>('/src/lib/posts/*.svx', {
+	eager: true
 });
 
 export function getPosts(): Post[] {
 	return Object.entries(posts)
 		.map(([path, post]) => {
-			const slug = path.split("/").pop()?.replace(".svx", "");
+			const slug = path.split('/').pop()?.replace('.svx', '');
 			return {
 				...(post as { metadata: Post }).metadata,
-				slug: slug || '',
+				slug: slug || ''
 			};
 		})
+		.filter((post) => post.slug !== 'guildrules')
 		.sort((a, b) => (a.date < b.date ? 1 : -1));
 }
 
@@ -37,10 +38,9 @@ export async function getPost(slug: string): Promise<Post | undefined> {
 
 	if (!post) return undefined;
 
-
-  return {
-    ...(post as {metadata: Post}).metadata,
-    content: (post as PostModule).default,
-    slug,
+	return {
+		...(post as { metadata: Post }).metadata,
+		content: (post as PostModule).default,
+		slug
 	};
 }

@@ -1,6 +1,6 @@
 ---
 title: 'THE HIVE GUILD TÜZÜĞÜ'
-date: '2025-9-04'
+date: '2025-10-4'
 img: 'logo-1.avif'
 ---
 
