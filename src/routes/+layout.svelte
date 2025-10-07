@@ -27,7 +27,7 @@
 			<header class="flex flex-col items-center">
 				{#if home}
 					<div class="logo-container mb-4">
-						<img src="/images/logo-1.avif" alt={name} class="logo-image h-40 rounded-full" />
+						<img loading="lazy" src="/images/logo-1.avif" alt={name} class="logo-image h-40 rounded-full" />
 					</div>
 					<h1 class="site-name text-4xl font-bold">{name}</h1>
 				{:else}

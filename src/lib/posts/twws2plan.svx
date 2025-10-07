@@ -10,7 +10,7 @@ img: 'logo-1.avif'
 Flex Raid'ler 10-30 kişi arası olabiliyor. Minimum 10'u tamamlayıp kendi kendimize guild olarak oynamayı planlıyoruz.
 
 Anket sonuçları:
-<img alt="Anket" src="/images/anket.png" />
+<img loading="lazy" alt="Anket" src="/images/anket.png" />
 
 10 kişiden:
 - 2 Tank

@@ -9,7 +9,7 @@
 	>
 		<li class="w-6">
 			<a href="https://discord.gg/JRXv5XMZGy" target="_blank" title="Discord">
-				<img src="/images/svgs/discord.svg" alt="discord" />
+				<img loading="lazy" src="/images/svgs/discord.svg" alt="discord" />
 			</a>
 		</li>
 		<li class="w-6">
@@ -18,27 +18,27 @@
 				title="Archon"
 				target="_blank"
 			>
-				<img src="/images/svgs/archon.svg" alt="archon" />
+				<img loading="lazy" src="/images/svgs/archon.svg" alt="archon" />
 			</a>
 		</li>
 		<li class="w-6">
 			<a href="https://lorrgs.io/" title="Lorrgs" target="_blank">
-				<img alt="lorrgs" src="/images/lorrgs.jpg" />
+				<img loading="lazy" alt="lorrgs" src="/images/lorrgs.jpg" />
 			</a>
 		</li>
 		<li class="w-6">
 			<a href="https://bloodmallet.com/" title="BloodMallet" target="blank">
-				<img alt="bloodMallet" src="/images/svgs/bloodmallet.svg" />
+				<img loading="lazy" alt="bloodMallet" src="/images/svgs/bloodmallet.svg" />
 			</a>
 		</li>
 		<li class="w-6">
 			<a href="https://u.gg/wow" title="U.GG" target="blank">
-				<img alt="u.gg" src="/images/svgs/u.svg" />
+				<img loading="lazy" alt="u.gg" src="/images/svgs/u.svg" />
 			</a>
 		</li>
 		<li class="w-6">
 			<a href="https://www.warcraftlogs.com/guild/id/469456" title="guildwlogpage" target="blank">
-				<img alt="guildwlogpage" src="/images/wlog.png" />
+				<img loading="lazy" alt="guildwlogpage" src="/images/wlog.png" />
 			</a>
 		</li>
 		<li class="w-6">

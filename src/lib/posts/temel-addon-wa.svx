@@ -15,10 +15,10 @@ Addon Manager için birçok seçenek var. Benim tavsiyem WowUp. Kendisi bedava v
 
 Siteye girdikten sonra "WowUp with CurseForge" olanını indirebilirsiniz. Diğer versiyonu da başka bir addon havuzu olan Wago. İkisinde de aynı addonlar var fakat rekabet ettikleri için birini destekleyen addon managerda diğerini koyamıyorlar, lisanslarını öyle veriyorlar. O yüzden WowUp isteyene iki seçeneği de sunuyor.
 
-<img alt="WowUp indirme seçenekleri" src="/images/wowupsec.png" />
+<img loading="lazy" alt="WowUp indirme seçenekleri" src="/images/wowupsec.png" />
 
 WowUp'ı indirdikten sonra oyunun kurulu olduğu yeri gösterip ardından da addonları otomatik güncelle ayarını yapmamız işleri daha otomatik hale getirir. Ayarlardaki WoW'e "edit" modunu aktive edip ardından "Auto Update" i açıp sonra da "Save" diyin. Ardından Sol üstteki "My Addons" a tıklayıp listenizdeki tüm Addonları seçin(bir tanesine tıklayıp CTRL + A yapınca seçer). Sonra herhangi birine sağ tıklayın ve "Auto-Update" seçeneğini seçin. Bundan sonra her uygulamayı açtığınızda otomatik güncellemeleri çekecektir. Yeni bir Addon yüklerseniz onu da yine bu şekilde auto-update'ini aktive edersiniz.
-<img alt="WowUp otomatik update" src="/images/wowupauto.png" />
+<img loading="lazy" alt="WowUp otomatik update" src="/images/wowupauto.png" />
 
 ## Weak Aura
 
@@ -29,7 +29,7 @@ Siteye girdiğinizde UIPacks sizi karşılayacak. Eğer izlediğiniz ya da bildi
 Biz yine Weak Aura odaklıyız. Üstteki Menüden `Imports`a girince Weak Auraların olduğu yerdeyiz. Çok Boş duruyor biliyorum. Burda "Browse"dan "WeakAuras" altındaki "The War Within" e girince daha işlevli bir menü gelecek. [wago weakaura linki](https://wago.io/the-war-within-weakauras)
 
 <a href="https://wago.io/the-war-within-weakauras" style="display: flex; justify-content: center" target="_blank">
-<img alt="Wago WeakAuralar" src="/images/wagoaura.png" />
+<img loading="lazy" alt="Wago WeakAuralar" src="/images/wagoaura.png" />
 </a>
 
 Herhangi bir aurayı indirmeniz için onun kodunu kopyalamanız ve ardından oyun içindeki önceden indirdiğiniz "WeakAuras" Addonu gerekli. Oyun içinde chat'e "/wa" yazıp ardından "import" diyip kopladiğiniz aura kodunu oraya yapıştırmanız yeterli.
@@ -37,11 +37,11 @@ Herhangi bir aurayı indirmeniz için onun kodunu kopyalamanız ve ardından oyu
 Weak Auraların bir kısmı da güncelleniyor. Oyun değiştikçe, mesela sezonlarla dungeon ve raid'ler değişince ya da class'ların büyüleri değişince, bu auralarında yeni versiyonlarına ihtiyaç duyacaksınız. Bunun için de bir uygulama var. Wago'nun geliştirdiği "Weak Auras Companion" uygulaması.[Weak Aura Companion linki](https://weakauras.wtf/)
 
 <a href="https://weakauras.wtf/" style="display: flex; justify-content: center" target="_blank">
-<img alt="Wago WeakAuralar" src="/images/wacomp.png" />
+<img loading="lazy" alt="Wago WeakAuralar" src="/images/wacomp.png" />
 </a>
 
 Bunu indirdikten sonra da oyunun yerini göstermeniz gerek. "Finish Setup" tuşuna basıp "Game Settings" den "World of Warcraft Folder" yerine oyunun yerini ayarlayın. Eğer isterseniz, ki bence yapın, "Startup" daki 2 seçeneği de işaretleyin. Sonra üstteki yuvarlak iki dönen ok'a basınca oyundaki yüklü weak auralarınız gözükecek. Bu uygulama update bulursa size update ready yazıyor. Ardından oyuna girerseniz chat'te weak auralarınız güncellemeye hazır diyecek. "/wa" ile weak auralarınızı açın ve en üstteki güncelleme bekleyen auraları tek tek güncelleyin. Güncellerken size bir soru soracak, kopyasını oluştur, ya da üstüne yaz. Üstüne yaz seçeneğini seçin ve her seçenek seçilmiş olsun. Sonra devam deyip güncellemeyi bekleyin. Büyük Auraların güncellemeleri birkaç saniye sürebiliyor.
 
-<img alt="WA comp setup" src="/images/wacompfin.png" />
+<img loading="lazy" alt="WA comp setup" src="/images/wacompfin.png" />
 
 Sonunda oyundaki her işi gücü çözmeye hazırız!

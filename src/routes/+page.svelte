@@ -13,7 +13,7 @@
 				<li class="flex items-center space-x-4">
 					<a href={`/posts/${post.slug}`} class="flex items-center space-x-4 text-secondary">
 						{#if post.img}
-							<img src={`/images/${post.img}`} alt="Logo" class="h-12 w-12 object-contain" />
+							<img loading="lazy" src={`/images/${post.img}`} alt="Logo" class="h-12 w-12 object-contain" />
 						{/if}
 						<span>{post.title}</span>
 					</a>

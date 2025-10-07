@@ -2,8 +2,6 @@
 	import { onMount, onDestroy } from 'svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 
-	// Which heading levels to include (typical docs: H2-H3)
-
 	let {
 		containerSelector = '#doc-content',
 		minLevel,
