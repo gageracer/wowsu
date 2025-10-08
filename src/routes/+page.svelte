@@ -1,8 +1,13 @@
 <script lang="ts">
+	// biome-ignore lint/correctness/noUnusedImports: false positive
+	import { resolve } from '$app/paths';
+	// biome-ignore lint/correctness/noUnusedImports: false positive
 	import Layout from '$lib/components/Layout.svelte';
+	// biome-ignore lint/correctness/noUnusedImports: false positive
 	import Nav from '$lib/components/Nav.svelte';
 	import { getPosts } from '$lib/posts';
 
+	// biome-ignore lint/correctness/noUnusedVariables: false positive
 	const posts = getPosts();
 </script>
 
@@ -11,12 +16,15 @@
 		<h2 class="text-center text-2xl font-bold">Önemli Linkler</h2>
 		<Nav />
 	</section>
-	<section>
+	<section class="flex flex-col items-center">
 		<h2 class="mb-6 text-center text-2xl font-bold">Rehber ve Yazılar</h2>
-		<ul class="space-y-4 lg:px-16">
-			{#each posts as post, index}
-				<li class="flex items-center space-x-4">
-					<a href={`/posts/${post.slug}`} class="flex items-center space-x-4 text-secondary">
+		<ul class="mx-auto grid gap-4">
+			{#each posts as post (post.slug)}
+				<li class="grid grid-cols-[auto_1fr_auto] items-center gap-4">
+					<a
+						href={resolve(`/posts/${post.slug}`)}
+						class="flex items-center gap-4 text-secondary sm:w-80"
+					>
 						{#if post.img}
 							<img
 								loading="lazy"
@@ -25,9 +33,9 @@
 								class="h-12 w-12 object-contain"
 							/>
 						{/if}
-						<span>{post.title}</span>
+						<span class="text-sm leading-tight">{post.title}</span>
 					</a>
-					<span class="text-xs text-gray-200">{post.date}</span>
+					<span class="text-xs whitespace-nowrap text-gray-200">{post.date}</span>
 				</li>
 			{/each}
 		</ul>
