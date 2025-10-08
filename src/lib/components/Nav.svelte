@@ -44,6 +44,11 @@
 				<img loading="lazy" alt="guildwlogpage" src="/images/wlog.png" />
 			</a>
 		</li>
+		<li class="w-6">
+			<a href="https://wowchievement.com/" title="wowachievement" target="blank">
+				<img loading="lazy" alt="wowachievement" src="/images/wowachivement.webp" />
+			</a>
+		</li>
 	</ul>
 	<!-- Vertical line after social icons - only shows on md and up -->
 	{#if !home}
