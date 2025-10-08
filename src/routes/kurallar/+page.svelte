@@ -1,6 +1,7 @@
 <script lang="ts">
 	import GuildRules, { metadata } from '$lib/posts/guildrules.svx';
 	import Toc from '$lib/components/Toc.svelte';
+	import Nav from '$lib/components/Nav.svelte';
 </script>
 
 <svelte:head>
@@ -31,3 +32,4 @@
 		<GuildRules />
 	</article>
 </div>
+<Nav />

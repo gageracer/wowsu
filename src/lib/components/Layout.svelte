@@ -14,7 +14,7 @@
 		</p>
 		<p>
 			Sol altta ya da sayfanın sonundaki ikonlara basarak daha fazla bilgi edinebileceğin sitelerin
-			linklerini sakladım.
+			linklerini sakladım. Guild <a href="/kurallar" title="Guild Kuralları">kuralları</a> burada.
 		</p>
 	</section>
 
