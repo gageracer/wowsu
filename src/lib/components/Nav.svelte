@@ -39,16 +39,22 @@
 			</a>
 		</li>
 		<li class="w-6">
-			<a href="https://www.warcraftlogs.com/guild/id/469456" title="guildwlogpage" target="blank">
-				<img loading="lazy" alt="guildwlogpage" src="/images/wlog.png" />
+			<a href="https://www.warcraftlogs.com/guild/id/469456" title="GuildWLogPage" target="blank">
+				<img loading="lazy" alt="GuildWLogPage" src="/images/wlog.png" />
 			</a>
 		</li>
 		<li class="w-6">
-			<a href="https://wowchievement.com/" title="wowachievement" target="blank">
-				<img loading="lazy" alt="wowachievement" src="/images/wowachivement.webp" />
+			<a href="https://wowchievement.com/" title="WowAchievement" target="blank">
+				<img loading="lazy" alt="WowAchievement" src="/images/wowachivement.webp" />
+			</a>
+		</li>
+		<li class="w-6">
+			<a href="https://completionism.com/" title="Completionism" target="blank">
+				<img loading="lazy" alt="Completionism" src="/images/ui_delves.jpg" />
 			</a>
 		</li>
 	</ul>
+
 	<!-- Vertical line after social icons - only shows on md and up -->
 	{#if !home}
 		<div class="mx-auto mt-4 hidden h-24 w-px bg-text/30 md:block"></div>
