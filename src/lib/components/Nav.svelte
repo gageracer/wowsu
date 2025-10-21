@@ -5,10 +5,9 @@
 </script>
 
 <!-- Social Links -->
-<nav class={`${!home ? 'relative bottom-0 z-10 md:fixed' : ''} mt-8 w-full md:left-10 md:w-auto`}>
+<nav class={['mt-8 w-full md:left-10 md:w-auto', {'relative bottom-0 z-10 md:fixed': !home} ]}>
 	<ul
-		class={`flex flex-row items-center justify-center space-x-5
-                  ${!home ? 'md:flex-col md:space-y-4 md:space-x-0' : ''}`}
+		class={['flex flex-row items-center justify-center space-x-5',!home && 'md:flex-col md:space-y-4 md:space-x-0']}
 	>
 		<li class="w-6">
 			<a href="https://discord.gg/JRXv5XMZGy" target="_blank" title="Discord">

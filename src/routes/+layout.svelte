@@ -23,7 +23,7 @@
 
 <div class="bg-mobile md:bg-leather min-h-screen bg-contain text-text">
 	<main class="container mx-auto px-4 py-8">
-		<div class={`container mx-auto ${wide ? 'max-w-5xl' : 'max-w-2xl'} px-4 py-8`}>
+		<div class={['container mx-auto px-4 py-8',wide ? 'max-w-5xl' : 'max-w-2xl']}>
 			<header class="flex flex-col items-center">
 				{#if home}
 					<div class="logo-container mb-4">
