@@ -1,13 +1,9 @@
 <script lang="ts">
-	// biome-ignore lint/correctness/noUnusedImports: false positive
 	import { resolve } from '$app/paths';
-	// biome-ignore lint/correctness/noUnusedImports: false positive
 	import Layout from '$lib/components/Layout.svelte';
-	// biome-ignore lint/correctness/noUnusedImports: false positive
 	import Nav from '$lib/components/Nav.svelte';
 	import { getPosts } from '$lib/posts';
 
-	// biome-ignore lint/correctness/noUnusedVariables: false positive
 	const posts = getPosts();
 </script>
 
