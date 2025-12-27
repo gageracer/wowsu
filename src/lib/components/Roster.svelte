@@ -10,6 +10,8 @@
 	} from '$lib/wow-specs';
 	import type { RosterMember } from '$lib/types/roster';
 	import type { Role } from '$lib/wow-specs';
+	import type { RosterFilter } from '$lib/types/filters';
+	import RosterFilters from './RosterFilters.svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { dev } from '$app/environment';
 
@@ -21,6 +23,27 @@
 		lastUpdated: number;
 	} = $props();
 
+	// Filter state
+	let filters = $state<RosterFilter[]>([]);
+	let matchAll = $state(true);
+	let filtersApplied = $state(false);
+
+	// Existing state
+	let sortKey = $state<keyof RosterMember>('name');
+	let sortDirection = $state<'asc' | 'desc'>('asc');
+	let showJsonExport = $state(false);
+	let showMergePanel = $state(false);
+	let newRosterJson = $state('');
+	let mergeError = $state<string | null>(null);
+	let mergePreview = $state<{
+		merged: RosterMember[];
+		rolesPreserved: number;
+		newPlayers: number;
+		changes: Array<{ name: string; classFileName: string; message: string }>;
+		lastUpdated: number;
+	} | null>(null);
+
+	// Helper functions
 	function formatLastOnline(timestamp: number): string {
 		if (timestamp === 0) return 'Online';
 		const date = new Date(timestamp * 1000);
@@ -36,6 +59,14 @@
 		return `${Math.floor(diffDays / 365)} years ago`;
 	}
 
+	function getDaysAgo(timestamp: number): number {
+		if (timestamp === 0) return 0;
+		const date = new Date(timestamp * 1000);
+		const now = new Date();
+		const diffMs = now.getTime() - date.getTime();
+		return Math.floor(diffMs / (1000 * 60 * 60 * 24));
+	}
+
 	function formatDate(timestamp: number): string {
 		if (!timestamp) return 'Never';
 		const date = new Date(timestamp * 1000);
@@ -48,23 +79,129 @@
 		});
 	}
 
-	let sortKey = $state<keyof RosterMember>('name');
-	let sortDirection = $state<'asc' | 'desc'>('asc');
-	let showJsonExport = $state(false);
-	let showMergePanel = $state(false);
-	let newRosterJson = $state('');
-	let mergeError = $state<string | null>(null);
-	let luaImportError = $state<string | null>(null);
-	let mergePreview = $state<{
-		merged: RosterMember[];
-		rolesPreserved: number;
-		newPlayers: number;
-		changes: Array<{ name: string; classFileName: string; message: string }>;
-		lastUpdated: number;
-	} | null>(null);
+	// Filter function
+	function matchFilter(member: RosterMember, filter: RosterFilter): boolean {
+		const { field, operator, value } = filter;
+
+		// Handle empty/not empty checks first (don't need value)
+		if (operator === 'is_empty' || operator === 'is_not_empty') {
+			let fieldValue: any;
+			switch (field) {
+				case 'mainSpec':
+					fieldValue = member.mainSpec;
+					break;
+				case 'mainRole':
+					fieldValue = member.mainRole;
+					break;
+				case 'zone':
+					fieldValue = member.zone;
+					break;
+				case 'note':
+					fieldValue = member.note;
+					break;
+				default:
+					fieldValue = (member as any)[field];
+			}
+
+			const isEmpty = !fieldValue || fieldValue === '';
+			return operator === 'is_empty' ? isEmpty : !isEmpty;
+		}
+
+		if (!value) return true;
+
+		// Determine if this is a numeric field
+		const numericFields = ['level', 'achievementPoints', 'lastOnline'];
+		const isNumericField = numericFields.includes(field);
+
+		let memberValue: any;
+		switch (field) {
+			case 'name':
+				memberValue = member.name.toLowerCase();
+				break;
+			case 'class':
+				memberValue = member.classFileName;
+				break;
+			case 'level':
+				memberValue = member.level;
+				break;
+			case 'rankName':
+				memberValue = member.rankName.toLowerCase();
+				break;
+			case 'mainSpec':
+				memberValue = (member.mainSpec || '').toLowerCase();
+				break;
+			case 'mainRole':
+				memberValue = member.mainRole || '';
+				break;
+			case 'zone':
+				memberValue = (member.zone || '').toLowerCase();
+				break;
+			case 'note':
+				memberValue = (member.note || '').toLowerCase();
+				break;
+			case 'achievementPoints':
+				memberValue = member.achievementPoints;
+				break;
+			case 'lastOnline':
+				memberValue = getDaysAgo(member.lastOnline);
+				break;
+		}
+
+		// Handle compareValue based on field type
+		let compareValue: any;
+		if (isNumericField) {
+			compareValue = value; // Keep as-is for numeric comparisons
+		} else if (field === 'class' || field === 'mainRole') {
+			compareValue = value; // Keep as-is for exact matches
+		} else {
+			compareValue = String(value).toLowerCase();
+		}
+
+		switch (operator) {
+			case '=':
+				if (isNumericField) {
+					return Number(memberValue) === Number(compareValue);
+				}
+				return String(memberValue) === String(compareValue);
+			case '!=':
+				if (isNumericField) {
+					return Number(memberValue) !== Number(compareValue);
+				}
+				return String(memberValue) !== String(compareValue);
+			case '>':
+				return Number(memberValue) > Number(compareValue);
+			case '<':
+				return Number(memberValue) < Number(compareValue);
+			case '>=':
+				return Number(memberValue) >= Number(compareValue);
+			case '<=':
+				return Number(memberValue) <= Number(compareValue);
+			case 'contains':
+				return String(memberValue).includes(String(compareValue).toLowerCase());
+			case 'not_contains':
+				return !String(memberValue).includes(String(compareValue).toLowerCase());
+			default:
+				return true;
+		}
+	}
+
+
+	const filteredRoster = $derived.by(() => {
+		if (!filtersApplied || filters.length === 0) {
+			return roster;
+		}
+
+		return roster.filter((member) => {
+			if (matchAll) {
+				return filters.every((filter) => matchFilter(member, filter));
+			} else {
+				return filters.some((filter) => matchFilter(member, filter));
+			}
+		});
+	});
 
 	const sortedRoster = $derived(
-		[...roster].sort((a, b) => {
+		[...filteredRoster].sort((a, b) => {
 			let aVal = a[sortKey];
 			let bVal = b[sortKey];
 
@@ -132,49 +269,6 @@
 		URL.revokeObjectURL(url);
 	}
 
-	function parseLuaFile() {
-		luaImportError = null;
-		try {
-			// Extract the autoExportSave string from the Lua file
-			const match = luaFileContent.match(/\["autoExportSave"\]\s*=\s*"(.+?)"\s*,?\s*\[/s);
-
-			if (!match) {
-				luaImportError = 'Could not find autoExportSave field in the Lua file';
-				return;
-			}
-
-			// Get the JSON string and unescape it
-			let jsonString = match[1];
-
-			// Replace escaped quotes and newlines
-			jsonString = jsonString.replace(/\\"/g, '"').replace(/\\n/g, '');
-
-			// Parse the JSON
-			const newRoster: RosterMember[] = JSON.parse(jsonString);
-
-			if (!Array.isArray(newRoster)) {
-				luaImportError = 'Invalid data: Expected an array of roster members';
-				return;
-			}
-
-			// Find the most recent lastOnline timestamp
-			const latestTimestamp = Math.max(...newRoster.map(m => m.lastOnline));
-
-			// Check if the new data is actually newer
-			if (latestTimestamp <= lastUpdated) {
-				luaImportError = `This data is not newer than the current roster. Latest player activity: ${formatDate(latestTimestamp)}`;
-				return;
-			}
-
-			// Proceed to merge
-			newRosterJson = JSON.stringify(newRoster, null, 2);
-			mergeRosters(latestTimestamp);
-			luaFileContent = '';
-		} catch (error) {
-			luaImportError = `Failed to parse Lua file: ${error instanceof Error ? error.message : 'Unknown error'}`;
-		}
-	}
-
 	function mergeRosters(newLastUpdated?: number) {
 		mergeError = null;
 		try {
@@ -185,7 +279,6 @@
 				return;
 			}
 
-			// Create a map of existing roles by player name
 			const existingRoles = new SvelteMap<string, { spec: string; role: Role }>();
 			roster.forEach((member) => {
 				if (member.mainSpec && member.mainRole) {
@@ -196,14 +289,11 @@
 				}
 			});
 
-			// Create a set of existing player names for comparison
 			const existingNames = new Set(roster.map((m) => m.name));
-
 			const changes: Array<{ name: string; classFileName: string; message: string }> = [];
 			let rolesPreserved = 0;
 			let newPlayers = 0;
 
-			// Merge: Apply existing roles to new roster
 			const merged = newRoster.map((newMember) => {
 				const existingRole = existingRoles.get(newMember.name);
 
@@ -257,7 +347,6 @@
 			alert('Roster merged successfully! Click "Export Updated JSON" to save.');
 		}
 	}
-
 </script>
 
 {#if dev}
@@ -401,6 +490,16 @@
 	</div>
 {/if}
 
+<!-- FILTERS COMPONENT -->
+<RosterFilters
+	bind:filters
+	bind:matchAll
+	bind:applied={filtersApplied}
+	totalCount={roster.length}
+	filteredCount={filteredRoster.length}
+/>
+
+<!-- ROSTER TABLE -->
 <div class="w-full overflow-x-auto rounded-lg border border-gray-700 bg-gray-800/50">
 	<table class="w-full min-w-max text-left text-sm">
 		<thead class="border-b border-gray-700 bg-gray-800 text-xs text-gray-300 uppercase">
@@ -524,7 +623,6 @@
 									value={member.mainSpec || ''}
 									onchange={(e) => onSpecChange(member, e.currentTarget.value)}
 									class="w-full min-w-30 rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-200 focus:border-blue-500 focus:outline-none"
-									disabled={!dev}
 								>
 									{#if !member.mainSpec}
 										<option value="">Select Spec</option>
@@ -559,7 +657,6 @@
 					<td class="px-4 py-3 whitespace-nowrap">
 						{#if dev}
 							<input
-								disabled={!dev}
 								type="text"
 								value={member.note}
 								oninput={(e) => onNoteChange(member, e.currentTarget.value)}
