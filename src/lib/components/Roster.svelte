@@ -13,7 +13,13 @@
 	import { SvelteMap } from 'svelte/reactivity';
 	import { dev } from '$app/environment';
 
-	let { roster = $bindable([]) }: { roster: RosterMember[] } = $props();
+	let {
+		roster = $bindable([]),
+		lastUpdated = $bindable(0)
+	}: {
+		roster: RosterMember[];
+		lastUpdated: number;
+	} = $props();
 
 	function formatLastOnline(timestamp: number): string {
 		if (timestamp === 0) return 'Online';
@@ -30,19 +36,32 @@
 		return `${Math.floor(diffDays / 365)} years ago`;
 	}
 
+	function formatDate(timestamp: number): string {
+		if (!timestamp) return 'Never';
+		const date = new Date(timestamp * 1000);
+		return date.toLocaleString('en-US', {
+			year: 'numeric',
+			month: 'short',
+			day: 'numeric',
+			hour: '2-digit',
+			minute: '2-digit'
+		});
+	}
+
 	let sortKey = $state<keyof RosterMember>('name');
 	let sortDirection = $state<'asc' | 'desc'>('asc');
 	let showJsonExport = $state(false);
 	let showMergePanel = $state(false);
 	let newRosterJson = $state('');
 	let mergeError = $state<string | null>(null);
+	let luaImportError = $state<string | null>(null);
 	let mergePreview = $state<{
 		merged: RosterMember[];
 		rolesPreserved: number;
 		newPlayers: number;
 		changes: Array<{ name: string; classFileName: string; message: string }>;
+		lastUpdated: number;
 	} | null>(null);
-	const rosterJson = $derived(JSON.stringify(roster, null, 2));
 
 	const sortedRoster = $derived(
 		[...roster].sort((a, b) => {
@@ -69,7 +88,6 @@
 		}
 	}
 
-
 	function onSpecChange(member: RosterMember, spec: string) {
 		const role = getRoleForSpec(member.classFileName, spec);
 		if (role && spec) {
@@ -79,22 +97,32 @@
 	}
 
 	function onNoteChange(member: RosterMember, note: string) {
-			member.note = note;
-		}
+		member.note = note;
+	}
 
 	function exportJson() {
 		showJsonExport = true;
 	}
 
 	function copyToClipboard() {
-		const jsonText = JSON.stringify(roster, null, 2);
+		const rosterData = {
+			version: new Date().toISOString().split('T')[0].replace(/-/g, '.'),
+			lastUpdated: Math.floor(Date.now() / 1000),
+			members: roster
+		};
+		const jsonText = JSON.stringify(rosterData, null, 2);
 		navigator.clipboard.writeText(jsonText).then(() => {
 			alert('JSON copied to clipboard!');
 		});
 	}
 
 	function downloadJson() {
-		const jsonText = JSON.stringify(roster, null, 2);
+		const rosterData = {
+			version: new Date().toISOString().split('T')[0].replace(/-/g, '.'),
+			lastUpdated: Math.floor(Date.now() / 1000),
+			members: roster
+		};
+		const jsonText = JSON.stringify(rosterData, null, 2);
 		const blob = new Blob([jsonText], { type: 'application/json' });
 		const url = URL.createObjectURL(blob);
 		const a = document.createElement('a');
@@ -104,7 +132,50 @@
 		URL.revokeObjectURL(url);
 	}
 
-	function mergeRosters() {
+	function parseLuaFile() {
+		luaImportError = null;
+		try {
+			// Extract the autoExportSave string from the Lua file
+			const match = luaFileContent.match(/\["autoExportSave"\]\s*=\s*"(.+?)"\s*,?\s*\[/s);
+
+			if (!match) {
+				luaImportError = 'Could not find autoExportSave field in the Lua file';
+				return;
+			}
+
+			// Get the JSON string and unescape it
+			let jsonString = match[1];
+
+			// Replace escaped quotes and newlines
+			jsonString = jsonString.replace(/\\"/g, '"').replace(/\\n/g, '');
+
+			// Parse the JSON
+			const newRoster: RosterMember[] = JSON.parse(jsonString);
+
+			if (!Array.isArray(newRoster)) {
+				luaImportError = 'Invalid data: Expected an array of roster members';
+				return;
+			}
+
+			// Find the most recent lastOnline timestamp
+			const latestTimestamp = Math.max(...newRoster.map(m => m.lastOnline));
+
+			// Check if the new data is actually newer
+			if (latestTimestamp <= lastUpdated) {
+				luaImportError = `This data is not newer than the current roster. Latest player activity: ${formatDate(latestTimestamp)}`;
+				return;
+			}
+
+			// Proceed to merge
+			newRosterJson = JSON.stringify(newRoster, null, 2);
+			mergeRosters(latestTimestamp);
+			luaFileContent = '';
+		} catch (error) {
+			luaImportError = `Failed to parse Lua file: ${error instanceof Error ? error.message : 'Unknown error'}`;
+		}
+	}
+
+	function mergeRosters(newLastUpdated?: number) {
 		mergeError = null;
 		try {
 			const newRoster: RosterMember[] = JSON.parse(newRosterJson);
@@ -162,11 +233,14 @@
 				return newMember;
 			});
 
+			const updateTimestamp = newLastUpdated || Math.floor(Date.now() / 1000);
+
 			mergePreview = {
 				merged,
 				rolesPreserved,
 				newPlayers,
-				changes
+				changes,
+				lastUpdated: updateTimestamp
 			};
 		} catch (error) {
 			mergeError = `Failed to parse JSON: ${error instanceof Error ? error.message : 'Unknown error'}`;
@@ -176,12 +250,14 @@
 	function applyMerge() {
 		if (mergePreview) {
 			roster = mergePreview.merged;
+			lastUpdated = mergePreview.lastUpdated;
 			mergePreview = null;
 			newRosterJson = '';
 			showMergePanel = false;
 			alert('Roster merged successfully! Click "Export Updated JSON" to save.');
 		}
 	}
+
 </script>
 
 {#if dev}
@@ -214,7 +290,7 @@
 			></textarea>
 			<div class="flex gap-2">
 				<button
-					onclick={mergeRosters}
+					onclick={() => mergeRosters()}
 					disabled={!newRosterJson.trim()}
 					class="rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50"
 				>
@@ -237,55 +313,55 @@
 			{/if}
 		</div>
 	{/if}
+{/if}
 
-	{#if mergePreview}
-		<div class="mb-4 rounded-lg border border-green-600 bg-gray-900 p-4">
-			<h3 class="mb-2 text-lg font-semibold text-green-400">Merge Preview</h3>
-			<div class="mb-3 grid grid-cols-3 gap-4 text-sm">
-				<div class="rounded bg-blue-900/30 p-3">
-					<div class="font-semibold text-blue-400">Total Players</div>
-					<div class="text-2xl text-gray-200">{mergePreview.merged.length}</div>
-				</div>
-				<div class="rounded bg-green-900/30 p-3">
-					<div class="font-semibold text-green-400">Roles Preserved</div>
-					<div class="text-2xl text-gray-200">{mergePreview.rolesPreserved}</div>
-				</div>
-				<div class="rounded bg-orange-900/30 p-3">
-					<div class="font-semibold text-orange-400">New Players</div>
-					<div class="text-2xl text-gray-200">{mergePreview.newPlayers}</div>
-				</div>
+{#if mergePreview}
+	<div class="mb-4 rounded-lg border border-green-600 bg-gray-900 p-4">
+		<h3 class="mb-2 text-lg font-semibold text-green-400">Merge Preview</h3>
+		<div class="mb-3 grid grid-cols-3 gap-4 text-sm">
+			<div class="rounded bg-blue-900/30 p-3">
+				<div class="font-semibold text-blue-400">Total Players</div>
+				<div class="text-2xl text-gray-200">{mergePreview.merged.length}</div>
 			</div>
-			<div class="mb-3 max-h-64 overflow-auto rounded bg-gray-950 p-3">
-				<h4 class="mb-2 text-sm font-semibold text-gray-400">Changes:</h4>
-				<ul class="space-y-1 text-xs text-gray-300">
-					{#each mergePreview.changes as change, index (change.name)}
-						<li class="flex items-center gap-2">
-							<span class="text-gray-500">•</span>
-							<span class="font-medium" style="color: {getClassColor(change.classFileName)}"
-								>{change.name}</span
-							>
-							<span class="text-gray-500">→</span>
-							<span class="text-gray-400">{change.message}</span>
-						</li>
-					{/each}
-				</ul>
+			<div class="rounded bg-green-900/30 p-3">
+				<div class="font-semibold text-green-400">Roles Preserved</div>
+				<div class="text-2xl text-gray-200">{mergePreview.rolesPreserved}</div>
 			</div>
-			<div class="flex gap-2">
-				<button
-					onclick={applyMerge}
-					class="rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700"
-				>
-					Apply Merge
-				</button>
-				<button
-					onclick={() => (mergePreview = null)}
-					class="rounded bg-gray-600 px-4 py-2 text-sm text-white hover:bg-gray-700"
-				>
-					Cancel
-				</button>
+			<div class="rounded bg-orange-900/30 p-3">
+				<div class="font-semibold text-orange-400">New Players</div>
+				<div class="text-2xl text-gray-200">{mergePreview.newPlayers}</div>
 			</div>
 		</div>
-	{/if}
+		<div class="mb-3 max-h-64 overflow-auto rounded bg-gray-950 p-3">
+			<h4 class="mb-2 text-sm font-semibold text-gray-400">Changes:</h4>
+			<ul class="space-y-1 text-xs text-gray-300">
+				{#each mergePreview.changes as change (change.name)}
+					<li class="flex items-center gap-2">
+						<span class="text-gray-500">•</span>
+						<span class="font-medium" style="color: {getClassColor(change.classFileName)}"
+							>{change.name}</span
+						>
+						<span class="text-gray-500">→</span>
+						<span class="text-gray-400">{change.message}</span>
+					</li>
+				{/each}
+			</ul>
+		</div>
+		<div class="flex gap-2">
+			<button
+				onclick={applyMerge}
+				class="rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700"
+			>
+				Apply Merge
+			</button>
+			<button
+				onclick={() => (mergePreview = null)}
+				class="rounded bg-gray-600 px-4 py-2 text-sm text-white hover:bg-gray-700"
+			>
+				Cancel
+			</button>
+		</div>
+	</div>
 {/if}
 
 {#if showJsonExport}
@@ -313,9 +389,15 @@
 				</button>
 			</div>
 		</div>
-		<pre class="max-h-96 overflow-auto rounded bg-gray-950 p-3 text-xs text-gray-300"
-			>{rosterJson}</pre>
-
+		<pre class="max-h-96 overflow-auto rounded bg-gray-950 p-3 text-xs text-gray-300">{JSON.stringify(
+				{
+					version: new Date().toISOString().split('T')[0].replace(/-/g, '.'),
+					lastUpdated: Math.floor(Date.now() / 1000),
+					members: roster
+				},
+				null,
+				2
+			)}</pre>
 	</div>
 {/if}
 
@@ -444,13 +526,12 @@
 									class="w-full min-w-30 rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-200 focus:border-blue-500 focus:outline-none"
 									disabled={!dev}
 								>
-    								{#if !member.mainSpec}
-    									<option value="">Select Spec</option>
-    								{/if}
-									{#each specs as spec, index(spec.name)}
+									{#if !member.mainSpec}
+										<option value="">Select Spec</option>
+									{/if}
+									{#each specs as spec (spec.name)}
 										<option value={spec.name}>{spec.name}</option>
 									{/each}
-
 								</select>
 							</div>
 						{:else if member.mainSpec}
@@ -495,6 +576,5 @@
 				</tr>
 			{/each}
 		</tbody>
-
 	</table>
 </div>

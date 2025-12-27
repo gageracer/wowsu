@@ -18,3 +18,9 @@ export interface RosterMember {
 	mainSpec?: string;
 	mainRole?: Role;
 }
+
+export interface RosterData {
+	version: string;
+	lastUpdated: number; // Unix timestamp
+	members: RosterMember[];
+}
