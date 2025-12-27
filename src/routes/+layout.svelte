@@ -6,8 +6,9 @@
 
 	let { children } = $props();
 	const home = $derived(page.url.pathname === '/');
-	const wide = $derived( page.url.pathname.startsWith('/roster')
-	);
+	const wide = $derived(page.url.pathname.startsWith('/roster'));
+	const dc = $derived(page.url.pathname.startsWith('/dc'));
+
 	const name = 'The Hive Topluluğu';
 
 	onNavigate((navigation) => {
@@ -24,6 +25,7 @@
 
 <div class="bg-mobile md:bg-leather min-h-screen bg-contain text-text">
 	<main class="container mx-auto px-4 py-8">
+		{#if !dc}
 		<div class={['container mx-auto px-4 py-8', wide ? 'max-w-5xl' : 'max-w-2xl']}>
 			<header class="flex flex-col items-center">
 				{#if home}
@@ -47,8 +49,9 @@
 					</h2>
 				{/if}
 			</header>
-			{@render children()}
 		</div>
+		{/if}
+			{@render children()}
 	</main>
 </div>
 
