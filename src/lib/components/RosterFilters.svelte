@@ -120,8 +120,8 @@
 </script>
 
 <div class="mb-4 rounded-lg border border-gray-700 bg-gray-900 p-3 sm:p-4">
-	<div class="mb-3 flex items-center justify-between">
-		<h3 class="text-base sm:text-lg font-semibold text-gray-200">Filters</h3>
+	<div class={`flex items-center justify-between${showFilters ? " mb-3":""}`}>
+		<h3 class="sm:text-lg font-semibold text-gray-200">Filters</h3>
 		<button
 			onclick={() => (showFilters = !showFilters)}
 			class="text-xs sm:text-sm text-blue-400 hover:text-blue-300"
@@ -146,7 +146,7 @@
 							}}
 							class="flex-1 sm:flex-initial rounded border border-gray-600 bg-gray-800 px-2 sm:px-3 py-2 text-xs sm:text-sm text-gray-200 focus:border-blue-500 focus:outline-none"
 						>
-							{#each FILTER_FIELDS as field}
+							{#each FILTER_FIELDS as field, index(index)}
 								<option value={field.value}>{field.label}</option>
 							{/each}
 						</select>
@@ -156,7 +156,7 @@
 							bind:value={filter.operator}
 							class="flex-1 sm:flex-initial rounded border border-gray-600 bg-gray-800 px-2 sm:px-3 py-2 text-xs sm:text-sm text-gray-200 focus:border-blue-500 focus:outline-none"
 						>
-							{#each getAvailableOperators(filter.field) as op}
+							{#each getAvailableOperators(filter.field) as op, index(index)}
 								<option value={op.value}>{op.label}</option>
 							{/each}
 						</select>
@@ -172,7 +172,7 @@
 									class="flex-1 rounded border border-gray-600 bg-gray-800 px-2 sm:px-3 py-2 text-xs sm:text-sm text-gray-200 focus:border-blue-500 focus:outline-none"
 								>
 									<option value="">Select Class...</option>
-									{#each WOW_CLASSES as cls}
+									{#each WOW_CLASSES as cls, index(index)}
 										<option value={cls.value}>{cls.label}</option>
 									{/each}
 								</select>
@@ -182,7 +182,7 @@
 									class="flex-1 rounded border border-gray-600 bg-gray-800 px-2 sm:px-3 py-2 text-xs sm:text-sm text-gray-200 focus:border-blue-500 focus:outline-none"
 								>
 									<option value="">Select Role...</option>
-									{#each WOW_ROLES as role}
+									{#each WOW_ROLES as role,_ (role)}
 										<option value={role}>{role}</option>
 									{/each}
 								</select>
