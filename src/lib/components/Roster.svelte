@@ -12,6 +12,10 @@
 	import type { Role } from '$lib/wow-specs';
 	import type { RosterFilter } from '$lib/types/filters';
 	import RosterFilters from './RosterFilters.svelte';
+	import ColumnManager from './ColumnManager.svelte';
+	import MergePanel from './MergePanel.svelte';
+	import MergePreview from './MergePreview.svelte';
+	import JsonExport from './JsonExport.svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { dev } from '$app/environment';
 
@@ -23,13 +27,74 @@
 		lastUpdated: number;
 	} = $props();
 
+	// Column configuration
+	interface ColumnConfig {
+		key: keyof RosterMember | 'daysOffline';
+		label: string;
+		visible: boolean;
+		alwaysVisible?: boolean;
+		sortable: boolean;
+	}
+
+	const defaultColumns: ColumnConfig[] = [
+		{ key: 'name', label: 'Name', visible: true, alwaysVisible: true, sortable: true },
+		{ key: 'level', label: 'Level', visible: true, sortable: true },
+		{ key: 'class', label: 'Class', visible: true, sortable: true },
+		{ key: 'mainSpec', label: 'Main Spec', visible: true, sortable: true },
+		{ key: 'mainRole', label: 'Main Role', visible: true, sortable: true },
+		{ key: 'rankName', label: 'Rank', visible: true, sortable: true },
+		{ key: 'note', label: 'Note', visible: true, sortable: true },
+		{ key: 'lastOnline', label: 'Last Online', visible: true, sortable: true },
+		{ key: 'zone', label: 'Zone', visible: false, sortable: true },
+		{ key: 'achievementPoints', label: 'Achievement Points', visible: false, sortable: true },
+		{ key: 'daysOffline', label: 'Days Offline', visible: false, sortable: true },
+		{ key: 'realmName', label: 'Realm', visible: false, sortable: true }
+	];
+
+	// Load column config from localStorage or use defaults
+	function loadColumnConfig(): ColumnConfig[] {
+		if (typeof window === 'undefined') return defaultColumns;
+
+		try {
+			const saved = localStorage.getItem('roster-columns');
+			if (saved) {
+				const savedConfig = JSON.parse(saved);
+				return defaultColumns.map(col => {
+					const savedCol = savedConfig.find((c: ColumnConfig) => c.key === col.key);
+					return savedCol ? { ...col, visible: savedCol.visible } : col;
+				});
+			}
+		} catch (e) {
+			console.error('Failed to load column config:', e);
+		}
+		return defaultColumns;
+	}
+
+	function saveColumnConfig(config: ColumnConfig[]) {
+		if (typeof window === 'undefined') return;
+		try {
+			localStorage.setItem('roster-columns', JSON.stringify(config));
+		} catch (e) {
+			console.error('Failed to save column config:', e);
+		}
+	}
+
+	let columns = $state<ColumnConfig[]>(loadColumnConfig());
+	let showColumnManager = $state(false);
+
+	$effect(() => {
+		saveColumnConfig(columns);
+	});
+
+	const visibleColumns = $derived(columns.filter(col => col.visible));
+
 	// Filter state
 	let filters = $state<RosterFilter[]>([]);
 	let matchAll = $state(true);
 	let filtersApplied = $state(false);
 
 	// Existing state
-	let sortKey = $state<keyof RosterMember>('name');
+	let sortKey = $state<keyof RosterMember | 'daysOffline'>('name');
 	let sortDirection = $state<'asc' | 'desc'>('asc');
 	let showJsonExport = $state(false);
 	let showMergePanel = $state(false);
@@ -67,25 +132,12 @@
 		return Math.floor(diffMs / (1000 * 60 * 60 * 24));
 	}
 
-	function formatDate(timestamp: number): string {
-		if (!timestamp) return 'Never';
-		const date = new Date(timestamp * 1000);
-		return date.toLocaleString('en-US', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-			hour: '2-digit',
-			minute: '2-digit'
-		});
-	}
-
 	// Filter function
 	function matchFilter(member: RosterMember, filter: RosterFilter): boolean {
 		const { field, operator, value } = filter;
 
-		// Handle empty/not empty checks first (don't need value)
 		if (operator === 'is_empty' || operator === 'is_not_empty') {
-			let fieldValue: any;
+			let fieldValue: unknown;
 			switch (field) {
 				case 'mainSpec':
 					fieldValue = member.mainSpec;
@@ -100,7 +152,7 @@
 					fieldValue = member.note;
 					break;
 				default:
-					fieldValue = (member as any)[field];
+					fieldValue = (member as Record<string, unknown>)[field];
 			}
 
 			const isEmpty = !fieldValue || fieldValue === '';
@@ -109,11 +161,10 @@
 
 		if (!value) return true;
 
-		// Determine if this is a numeric field
 		const numericFields = ['level', 'achievementPoints', 'lastOnline'];
 		const isNumericField = numericFields.includes(field);
 
-		let memberValue: any;
+		let memberValue: string | number;
 		switch (field) {
 			case 'name':
 				memberValue = member.name.toLowerCase();
@@ -145,14 +196,15 @@
 			case 'lastOnline':
 				memberValue = getDaysAgo(member.lastOnline);
 				break;
+			default:
+				memberValue = '';
 		}
 
-		// Handle compareValue based on field type
-		let compareValue: any;
+		let compareValue: string | number;
 		if (isNumericField) {
-			compareValue = value; // Keep as-is for numeric comparisons
+			compareValue = value;
 		} else if (field === 'class' || field === 'mainRole') {
-			compareValue = value; // Keep as-is for exact matches
+			compareValue = value;
 		} else {
 			compareValue = String(value).toLowerCase();
 		}
@@ -185,7 +237,6 @@
 		}
 	}
 
-
 	const filteredRoster = $derived.by(() => {
 		if (!filtersApplied || filters.length === 0) {
 			return roster;
@@ -202,21 +253,30 @@
 
 	const sortedRoster = $derived(
 		[...filteredRoster].sort((a, b) => {
-			let aVal = a[sortKey];
-			let bVal = b[sortKey];
+			let aVal: string | number | undefined;
+			let bVal: string | number | undefined;
+
+			if (sortKey === 'daysOffline') {
+				aVal = getDaysAgo(a.lastOnline);
+				bVal = getDaysAgo(b.lastOnline);
+			} else {
+				aVal = a[sortKey as keyof RosterMember];
+				bVal = b[sortKey as keyof RosterMember];
+			}
 
 			if (typeof aVal === 'string' && typeof bVal === 'string') {
 				aVal = aVal.toLowerCase();
 				bVal = bVal.toLowerCase();
 			}
 
+			if (aVal === undefined || bVal === undefined) return 0;
 			if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
 			if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
 			return 0;
 		})
 	);
 
-	function toggleSort(key: keyof RosterMember) {
+	function toggleSort(key: keyof RosterMember | 'daysOffline') {
 		if (sortKey === key) {
 			sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
 		} else {
@@ -235,10 +295,6 @@
 
 	function onNoteChange(member: RosterMember, note: string) {
 		member.note = note;
-	}
-
-	function exportJson() {
-		showJsonExport = true;
 	}
 
 	function copyToClipboard() {
@@ -347,153 +403,84 @@
 			alert('Roster merged successfully! Click "Export Updated JSON" to save.');
 		}
 	}
+
+	function resetColumns() {
+		columns = defaultColumns.map(col => ({ ...col }));
+	}
+
+	function getCellValue(member: RosterMember, key: keyof RosterMember | 'daysOffline'): unknown {
+		if (key === 'daysOffline') {
+			return getDaysAgo(member.lastOnline);
+		}
+		return member[key as keyof RosterMember];
+	}
 </script>
 
+<!-- Column Manager - Available to all users -->
+<div class="mb-4 flex flex-wrap gap-2">
+	<button
+		onclick={() => (showColumnManager = !showColumnManager)}
+		class="rounded bg-purple-600 px-4 py-2 text-sm font-semibold text-white hover:bg-purple-700"
+	>
+		{showColumnManager ? 'Hide' : 'Manage Columns'}
+	</button>
+</div>
+
+{#if showColumnManager}
+	<ColumnManager bind:columns={columns} onReset={resetColumns} />
+{/if}
+
+<!-- Dev-only features -->
 {#if dev}
 	<div class="mb-4 flex flex-wrap gap-2">
 		<button
-			onclick={exportJson}
-			class="rounded bg-purple-600 px-4 py-2 text-sm font-semibold text-white hover:bg-purple-700"
+			onclick={() => (showJsonExport = !showJsonExport)}
+			class="rounded bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
 		>
-			Export Updated JSON
+			{showJsonExport ? 'Hide' : 'Export Updated JSON'}
 		</button>
 		<button
 			onclick={() => (showMergePanel = !showMergePanel)}
 			class="rounded bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-700"
 		>
-			{showMergePanel ? 'Hide' : 'Merge New Roster'}
+			{showMergePanel ? 'Hide' : 'Merge From JSON'}
 		</button>
 	</div>
 
 	{#if showMergePanel}
-		<div class="mb-4 rounded-lg border border-orange-600 bg-gray-900 p-4">
-			<h3 class="mb-2 text-lg font-semibold text-orange-400">Merge New Roster</h3>
-			<p class="mb-3 text-sm text-gray-400">
-				Paste your new roster JSON from the game. Existing role assignments will be preserved for
-				matching players.
-			</p>
-			<textarea
-				bind:value={newRosterJson}
-				placeholder="Paste new roster JSON here..."
-				class="mb-3 h-64 w-full rounded border border-gray-600 bg-gray-950 p-3 font-mono text-xs text-gray-300 focus:border-orange-500 focus:outline-none"
-			></textarea>
-			<div class="flex gap-2">
-				<button
-					onclick={() => mergeRosters()}
-					disabled={!newRosterJson.trim()}
-					class="rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50"
-				>
-					Merge & Preview
-				</button>
-				<button
-					onclick={() => {
-						newRosterJson = '';
-						mergePreview = null;
-					}}
-					class="rounded bg-gray-600 px-4 py-2 text-sm text-white hover:bg-gray-700"
-				>
-					Clear
-				</button>
-			</div>
-			{#if mergeError}
-				<div class="mt-3 rounded bg-red-900/50 p-3 text-sm text-red-300">
-					{mergeError}
-				</div>
-			{/if}
-		</div>
+		<MergePanel
+			bind:newRosterJson={newRosterJson}
+			{mergeError}
+			onPreview={() => mergeRosters()}
+			onCancel={() => {
+				showMergePanel = false;
+				newRosterJson = '';
+				mergeError = null;
+			}}
+		/>
 	{/if}
 {/if}
 
 {#if mergePreview}
-	<div class="mb-4 rounded-lg border border-green-600 bg-gray-900 p-4">
-		<h3 class="mb-2 text-lg font-semibold text-green-400">Merge Preview</h3>
-		<div class="mb-3 grid grid-cols-3 gap-4 text-sm">
-			<div class="rounded bg-blue-900/30 p-3">
-				<div class="font-semibold text-blue-400">Total Players</div>
-				<div class="text-2xl text-gray-200">{mergePreview.merged.length}</div>
-			</div>
-			<div class="rounded bg-green-900/30 p-3">
-				<div class="font-semibold text-green-400">Roles Preserved</div>
-				<div class="text-2xl text-gray-200">{mergePreview.rolesPreserved}</div>
-			</div>
-			<div class="rounded bg-orange-900/30 p-3">
-				<div class="font-semibold text-orange-400">New Players</div>
-				<div class="text-2xl text-gray-200">{mergePreview.newPlayers}</div>
-			</div>
-		</div>
-		<div class="mb-3 max-h-64 overflow-auto rounded bg-gray-950 p-3">
-			<h4 class="mb-2 text-sm font-semibold text-gray-400">Changes:</h4>
-			<ul class="space-y-1 text-xs text-gray-300">
-				{#each mergePreview.changes as change (change.name)}
-					<li class="flex items-center gap-2">
-						<span class="text-gray-500">•</span>
-						<span class="font-medium" style="color: {getClassColor(change.classFileName)}"
-							>{change.name}</span
-						>
-						<span class="text-gray-500">→</span>
-						<span class="text-gray-400">{change.message}</span>
-					</li>
-				{/each}
-			</ul>
-		</div>
-		<div class="flex gap-2">
-			<button
-				onclick={applyMerge}
-				class="rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700"
-			>
-				Apply Merge
-			</button>
-			<button
-				onclick={() => (mergePreview = null)}
-				class="rounded bg-gray-600 px-4 py-2 text-sm text-white hover:bg-gray-700"
-			>
-				Cancel
-			</button>
-		</div>
-	</div>
+	<MergePreview
+		preview={mergePreview}
+		onApply={applyMerge}
+		onCancel={() => (mergePreview = null)}
+	/>
 {/if}
 
 {#if showJsonExport}
-	<div class="mb-4 rounded-lg border border-gray-600 bg-gray-900 p-4">
-		<div class="mb-2 flex items-center justify-between">
-			<h3 class="text-lg font-semibold text-gray-200">Updated Roster JSON</h3>
-			<div class="flex gap-2">
-				<button
-					onclick={copyToClipboard}
-					class="rounded bg-blue-600 px-3 py-1 text-xs text-white hover:bg-blue-700"
-				>
-					Copy to Clipboard
-				</button>
-				<button
-					onclick={downloadJson}
-					class="rounded bg-green-600 px-3 py-1 text-xs text-white hover:bg-green-700"
-				>
-					Download
-				</button>
-				<button
-					onclick={() => (showJsonExport = false)}
-					class="rounded bg-gray-600 px-3 py-1 text-xs text-white hover:bg-gray-700"
-				>
-					Close
-				</button>
-			</div>
-		</div>
-		<pre class="max-h-96 overflow-auto rounded bg-gray-950 p-3 text-xs text-gray-300">{JSON.stringify(
-				{
-					version: new Date().toISOString().split('T')[0].replace(/-/g, '.'),
-					lastUpdated: Math.floor(Date.now() / 1000),
-					members: roster
-				},
-				null,
-				2
-			)}</pre>
-	</div>
+	<JsonExport
+		{roster}
+		onCopy={copyToClipboard}
+		onDownload={downloadJson}
+		onClose={() => (showJsonExport = false)}
+	/>
 {/if}
 
-<!-- FILTERS COMPONENT -->
 <RosterFilters
-	bind:filters
-	bind:matchAll
+	bind:filters={filters}
+	bind:matchAll={matchAll}
 	bind:applied={filtersApplied}
 	totalCount={roster.length}
 	filteredCount={filteredRoster.length}
@@ -502,96 +489,25 @@
 <!-- ROSTER TABLE -->
 <div class="w-full overflow-x-auto rounded-lg border border-gray-700 bg-gray-800/50">
 	<table class="w-full min-w-max text-left text-sm">
-		<thead class="border-b border-gray-700 bg-gray-800 text-xs text-gray-300 uppercase">
+		<thead class="border-b border-gray-700 bg-gray-800 text-xs uppercase text-gray-300">
 			<tr>
-				<th class="px-4 py-3 whitespace-nowrap">
-					<button
-						onclick={() => toggleSort('name')}
-						class="flex items-center gap-1 hover:text-white"
-					>
-						Name
-						{#if sortKey === 'name'}
-							<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
+				{#each visibleColumns as column (column.key)}
+					<th class="whitespace-nowrap px-4 py-3">
+						{#if column.sortable}
+							<button
+								onclick={() => toggleSort(column.key)}
+								class="flex items-center gap-1 hover:text-white"
+							>
+								{column.label}
+								{#if sortKey === column.key}
+									<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
+								{/if}
+							</button>
+						{:else}
+							{column.label}
 						{/if}
-					</button>
-				</th>
-				<th class="px-4 py-3 whitespace-nowrap">
-					<button
-						onclick={() => toggleSort('level')}
-						class="flex items-center gap-1 hover:text-white"
-					>
-						Level
-						{#if sortKey === 'level'}
-							<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-						{/if}
-					</button>
-				</th>
-				<th class="px-4 py-3 whitespace-nowrap">
-					<button
-						onclick={() => toggleSort('class')}
-						class="flex items-center gap-1 hover:text-white"
-					>
-						Class
-						{#if sortKey === 'class'}
-							<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-						{/if}
-					</button>
-				</th>
-				<th class="px-4 py-3 whitespace-nowrap">
-					<button
-						onclick={() => toggleSort('mainSpec')}
-						class="flex items-center gap-1 hover:text-white"
-					>
-						Main Spec
-						{#if sortKey === 'mainSpec'}
-							<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-						{/if}
-					</button>
-				</th>
-				<th class="px-4 py-3 whitespace-nowrap">
-					<button
-						onclick={() => toggleSort('mainRole')}
-						class="flex items-center gap-1 hover:text-white"
-					>
-						Main Role
-						{#if sortKey === 'mainRole'}
-							<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-						{/if}
-					</button>
-				</th>
-				<th class="px-4 py-3 whitespace-nowrap">
-					<button
-						onclick={() => toggleSort('rankName')}
-						class="flex items-center gap-1 hover:text-white"
-					>
-						Rank
-						{#if sortKey === 'rankName'}
-							<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-						{/if}
-					</button>
-				</th>
-				<th class="px-4 py-3 whitespace-nowrap">
-					<button
-						onclick={() => toggleSort('note')}
-						class="flex items-center gap-1 hover:text-white"
-					>
-						Note
-						{#if sortKey === 'note'}
-							<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-						{/if}
-					</button>
-				</th>
-				<th class="px-4 py-3 whitespace-nowrap">
-					<button
-						onclick={() => toggleSort('lastOnline')}
-						class="flex items-center gap-1 hover:text-white"
-					>
-						Last Online
-						{#if sortKey === 'lastOnline'}
-							<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-						{/if}
-					</button>
-				</th>
+					</th>
+				{/each}
 			</tr>
 		</thead>
 		<tbody>
@@ -601,75 +517,93 @@
 				{@const classIcon = getClassIcon(member.classFileName)}
 				{@const specIcon = getSpecIcon(member.classFileName, member.mainSpec || '')}
 				<tr class="border-b border-gray-700 hover:bg-gray-700/30">
-					<td class="px-4 py-3 font-medium whitespace-nowrap" style="color: {classColor}">
-						{member.name}
-					</td>
-					<td class="px-4 py-3 text-gray-300 whitespace-nowrap">{member.level}</td>
-					<td class="px-4 py-3 whitespace-nowrap">
-						<div class="flex items-center gap-2">
-							{#if classIcon}
-								<img src={classIcon} alt={member.class} class="h-5 w-5" />
-							{/if}
-							<span style="color: {classColor}">{member.class}</span>
-						</div>
-					</td>
-					<td class="px-4 py-3 whitespace-nowrap">
-						{#if dev}
-							<div class="flex items-center gap-2">
-								{#if specIcon}
-									<img src={specIcon} alt={member.mainSpec} class="h-5 w-5 rounded" />
-								{/if}
-								<select
-									value={member.mainSpec || ''}
-									onchange={(e) => onSpecChange(member, e.currentTarget.value)}
-									class="w-full min-w-30 rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-200 focus:border-blue-500 focus:outline-none"
-								>
-									{#if !member.mainSpec}
-										<option value="">Select Spec</option>
+					{#each visibleColumns as column (column.key)}
+						<td class="whitespace-nowrap px-4 py-3">
+							{#if column.key === 'name'}
+								<span class="font-medium" style="color: {classColor}">{member.name}</span>
+							{:else if column.key === 'level'}
+								<span class="text-gray-300">{member.level}</span>
+							{:else if column.key === 'class'}
+								<div class="flex items-center gap-2">
+									{#if classIcon}
+										<img src={classIcon} alt={member.class} class="h-5 w-5" />
 									{/if}
-									{#each specs as spec (spec.name)}
-										<option value={spec.name}>{spec.name}</option>
-									{/each}
-								</select>
-							</div>
-						{:else if member.mainSpec}
-							<div class="flex items-center gap-2">
-								{#if specIcon}
-									<img src={specIcon} alt={member.mainSpec} class="h-5 w-5 rounded" />
+									<span style="color: {classColor}">{member.class}</span>
+								</div>
+							{:else if column.key === 'mainSpec'}
+								{#if dev}
+									<div class="flex items-center gap-2">
+										{#if specIcon}
+											<img src={specIcon} alt={member.mainSpec} class="h-5 w-5 rounded" />
+										{/if}
+										<select
+											value={member.mainSpec || ''}
+											onchange={(e) => onSpecChange(member, e.currentTarget.value)}
+											class="min-w-30 w-full rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-200 focus:border-blue-500 focus:outline-none"
+										>
+											{#if !member.mainSpec}
+												<option value="">Select Spec</option>
+											{/if}
+											{#each specs as spec (spec.name)}
+												<option value={spec.name}>{spec.name}</option>
+											{/each}
+										</select>
+									</div>
+								{:else if member.mainSpec}
+									<div class="flex items-center gap-2">
+										{#if specIcon}
+											<img src={specIcon} alt={member.mainSpec} class="h-5 w-5 rounded" />
+										{/if}
+										<span class="text-gray-300">{member.mainSpec}</span>
+									</div>
+								{:else}
+									<span class="text-gray-500">Not set</span>
 								{/if}
-								<span class="text-gray-300">{member.mainSpec}</span>
-							</div>
-						{:else}
-							<span class="text-gray-500">Not set</span>
-						{/if}
-					</td>
-					<td class="px-4 py-3 whitespace-nowrap">
-						{#if member.mainRole}
-							<div class="flex items-center gap-2">
-								<img src={ROLE_ICONS[member.mainRole]} alt={member.mainRole} class="h-5 w-5" />
-								<span class="{ROLE_COLORS[member.mainRole]} text-sm">{member.mainRole}</span>
-							</div>
-						{:else}
-							<span class="text-sm text-gray-500">-</span>
-						{/if}
-					</td>
-					<td class="px-4 py-3 text-gray-300 whitespace-nowrap">{member.rankName}</td>
-					<td class="px-4 py-3 whitespace-nowrap">
-						{#if dev}
-							<input
-								type="text"
-								value={member.note}
-								oninput={(e) => onNoteChange(member, e.currentTarget.value)}
-								placeholder="Add note..."
-								class="w-full min-w-32 rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-300 placeholder-gray-500 focus:border-blue-500 focus:outline-none"
-							/>
-						{:else}
-							<span class="text-xs text-gray-400" title={member.note}>{member.note || '-'}</span>
-						{/if}
-					</td>
-					<td class="px-4 py-3 text-xs text-gray-400 whitespace-nowrap">
-						{formatLastOnline(member.lastOnline)}
-					</td>
+							{:else if column.key === 'mainRole'}
+								{#if member.mainRole}
+									<div class="flex items-center gap-2">
+										<img
+											src={ROLE_ICONS[member.mainRole]}
+											alt={member.mainRole}
+											class="h-5 w-5"
+										/>
+										<span class="{ROLE_COLORS[member.mainRole]} text-sm">{member.mainRole}</span>
+									</div>
+								{:else}
+									<span class="text-sm text-gray-500">-</span>
+								{/if}
+							{:else if column.key === 'rankName'}
+								<span class="text-gray-300">{member.rankName}</span>
+							{:else if column.key === 'note'}
+								{#if dev}
+									<input
+										type="text"
+										value={member.note}
+										oninput={(e) => onNoteChange(member, e.currentTarget.value)}
+										placeholder="Add note..."
+										class="min-w-32 w-full rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-300 placeholder-gray-500 focus:border-blue-500 focus:outline-none"
+									/>
+								{:else}
+									<span class="text-xs text-gray-400" title={member.note}>{member.note || '-'}</span>
+								{/if}
+							{:else if column.key === 'lastOnline'}
+								<span class="text-xs text-gray-400">{formatLastOnline(member.lastOnline)}</span>
+							{:else if column.key === 'zone'}
+								<span class="text-xs text-gray-400">{member.zone || '-'}</span>
+							{:else if column.key === 'achievementPoints'}
+								<span class="text-xs text-gray-300">{member.achievementPoints.toLocaleString()}</span>
+							{:else if column.key === 'daysOffline'}
+								{@const days = getDaysAgo(member.lastOnline)}
+								<span class="text-xs {days === 0 ? 'text-green-400' : days < 7 ? 'text-blue-400' : days < 30 ? 'text-yellow-400' : 'text-red-400'}">
+									{days === 0 ? 'Online' : `${days} days`}
+								</span>
+							{:else if column.key === 'realmName'}
+								<span class="text-xs text-gray-400">{member.realmName}</span>
+							{:else}
+								<span class="text-xs text-gray-400">{getCellValue(member, column.key) || '-'}</span>
+							{/if}
+						</td>
+					{/each}
 				</tr>
 			{/each}
 		</tbody>
