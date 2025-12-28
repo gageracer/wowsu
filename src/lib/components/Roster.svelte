@@ -18,6 +18,7 @@
 	import JsonExport from './JsonExport.svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { dev } from '$app/environment';
+	import { onMount } from 'svelte';
 
 	let {
 		roster = $bindable([]),
@@ -51,6 +52,10 @@
 		{ key: 'realmName', label: 'Realm', visible: false, sortable: true }
 	];
 
+	// Loading state to prevent flash
+	let columnsLoaded = $state(false);
+	let filtersLoaded = $state(false);
+
 	// Load column config from localStorage or use defaults
 	function loadColumnConfig(): ColumnConfig[] {
 		if (typeof window === 'undefined') return defaultColumns;
@@ -79,19 +84,78 @@
 		}
 	}
 
-	let columns = $state<ColumnConfig[]>(loadColumnConfig());
+	// Load filters from localStorage
+	function loadFilters(): { filters: RosterFilter[]; matchAll: boolean; filtersEnabled: boolean } {
+		if (typeof window === 'undefined') return { filters: [], matchAll: true, filtersEnabled: false };
+
+		try {
+			const saved = localStorage.getItem('roster-filters');
+			if (saved) {
+				const parsed = JSON.parse(saved);
+				return {
+					filters: parsed.filters || [],
+					matchAll: parsed.matchAll ?? true,
+					filtersEnabled: parsed.filtersEnabled ?? false
+				};
+			}
+		} catch (e) {
+			console.error('Failed to load filters:', e);
+		}
+		return { filters: [], matchAll: true, filtersEnabled: false };
+	}
+
+	function saveFilters(filters: RosterFilter[], matchAll: boolean, filtersEnabled: boolean) {
+		if (typeof window === 'undefined') return;
+		try {
+			localStorage.setItem('roster-filters', JSON.stringify({ filters, matchAll, filtersEnabled }));
+		} catch (e) {
+			console.error('Failed to save filters:', e);
+		}
+	}
+
+	let columns = $state<ColumnConfig[]>([]);
 	let showColumnManager = $state(false);
-
-	$effect(() => {
-		saveColumnConfig(columns);
-	});
-
 	const visibleColumns = $derived(columns.filter(col => col.visible));
 
 	// Filter state
 	let filters = $state<RosterFilter[]>([]);
 	let matchAll = $state(true);
 	let filtersApplied = $state(false);
+	let filtersEnabled = $state(false);
+
+	// Load from localStorage on mount
+	onMount(() => {
+		columns = loadColumnConfig();
+		columnsLoaded = true;
+
+		const savedFilters = loadFilters();
+		filters = savedFilters.filters;
+		matchAll = savedFilters.matchAll;
+		filtersEnabled = savedFilters.filtersEnabled;
+		filtersApplied = savedFilters.filtersEnabled && savedFilters.filters.length > 0;
+		filtersLoaded = true;
+	});
+
+	// Save columns whenever they change
+	$effect(() => {
+		if (columnsLoaded) {
+			saveColumnConfig(columns);
+		}
+	});
+
+	// Save filters whenever they change
+	$effect(() => {
+		if (filtersLoaded) {
+			saveFilters(filters, matchAll, filtersEnabled);
+		}
+	});
+
+	// Update filtersApplied when filtersEnabled changes
+	$effect(() => {
+		if (filtersLoaded) {
+			filtersApplied = filtersEnabled && filters.length > 0;
+		}
+	});
 
 	// Existing state
 	let sortKey = $state<keyof RosterMember | 'daysOffline'>('name');
@@ -152,7 +216,7 @@
 					fieldValue = member.note;
 					break;
 				default:
-					fieldValue = (member as Record<string, unknown>)[field];
+					fieldValue = member[field as keyof RosterMember];
 			}
 
 			const isEmpty = !fieldValue || fieldValue === '';
@@ -414,6 +478,10 @@
 		}
 		return member[key as keyof RosterMember];
 	}
+
+	function toggleFilters() {
+		filtersEnabled = !filtersEnabled;
+	}
 </script>
 
 <!-- Column Manager - Available to all users -->
@@ -486,126 +554,150 @@
 	filteredCount={filteredRoster.length}
 />
 
-<!-- ROSTER TABLE -->
-<div class="w-full overflow-x-auto rounded-lg border border-gray-700 bg-gray-800/50">
-	<table class="w-full min-w-max text-left text-sm">
-		<thead class="border-b border-gray-700 bg-gray-800 text-xs uppercase text-gray-300">
-			<tr>
-				{#each visibleColumns as column (column.key)}
-					<th class="whitespace-nowrap px-4 py-3">
-						{#if column.sortable}
-							<button
-								onclick={() => toggleSort(column.key)}
-								class="flex items-center gap-1 hover:text-white"
-							>
-								{column.label}
-								{#if sortKey === column.key}
-									<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-								{/if}
-							</button>
-						{:else}
-							{column.label}
-						{/if}
-					</th>
-				{/each}
-			</tr>
-		</thead>
-		<tbody>
-			{#each sortedRoster as member (member.name)}
-				{@const specs = WOW_SPECS[member.classFileName] || []}
-				{@const classColor = getClassColor(member.classFileName)}
-				{@const classIcon = getClassIcon(member.classFileName)}
-				{@const specIcon = getSpecIcon(member.classFileName, member.mainSpec || '')}
-				<tr class="border-b border-gray-700 hover:bg-gray-700/30">
+<!-- Filter Enable/Disable Toggle -->
+{#if filters.length > 0}
+	<div class="mb-4 flex items-center gap-2">
+		<button
+			onclick={toggleFilters}
+			class="rounded px-4 py-2 text-sm font-semibold text-white transition-colors {filtersEnabled
+				? 'bg-green-600 hover:bg-green-700'
+				: 'bg-gray-600 hover:bg-gray-700'}"
+		>
+			{filtersEnabled ? '✓ Filters Enabled' : 'Filters Disabled'}
+		</button>
+		<span class="text-xs text-gray-400">
+			{filters.length} {filters.length === 1 ? 'filter' : 'filters'} configured
+		</span>
+	</div>
+{/if}
+
+<!-- Loading state or table -->
+{#if !columnsLoaded}
+	<div class="flex items-center justify-center py-12">
+		<div class="text-gray-400">Loading roster...</div>
+	</div>
+{:else}
+	<!-- ROSTER TABLE -->
+	<div class="w-full overflow-x-auto rounded-lg border border-gray-700 bg-gray-800/50">
+		<table class="w-full min-w-max text-left text-sm">
+			<thead class="border-b border-gray-700 bg-gray-800 text-xs uppercase text-gray-300">
+				<tr>
 					{#each visibleColumns as column (column.key)}
-						<td class="whitespace-nowrap px-4 py-3">
-							{#if column.key === 'name'}
-								<span class="font-medium" style="color: {classColor}">{member.name}</span>
-							{:else if column.key === 'level'}
-								<span class="text-gray-300">{member.level}</span>
-							{:else if column.key === 'class'}
-								<div class="flex items-center gap-2">
-									{#if classIcon}
-										<img src={classIcon} alt={member.class} class="h-5 w-5" />
+						<th class="whitespace-nowrap px-4 py-3">
+							{#if column.sortable}
+								<button
+									onclick={() => toggleSort(column.key)}
+									class="flex items-center gap-1 hover:text-white"
+								>
+									{column.label}
+									{#if sortKey === column.key}
+										<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
 									{/if}
-									<span style="color: {classColor}">{member.class}</span>
-								</div>
-							{:else if column.key === 'mainSpec'}
-								{#if dev}
-									<div class="flex items-center gap-2">
-										{#if specIcon}
-											<img src={specIcon} alt={member.mainSpec} class="h-5 w-5 rounded" />
-										{/if}
-										<select
-											value={member.mainSpec || ''}
-											onchange={(e) => onSpecChange(member, e.currentTarget.value)}
-											class="min-w-30 w-full rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-200 focus:border-blue-500 focus:outline-none"
-										>
-											{#if !member.mainSpec}
-												<option value="">Select Spec</option>
-											{/if}
-											{#each specs as spec (spec.name)}
-												<option value={spec.name}>{spec.name}</option>
-											{/each}
-										</select>
-									</div>
-								{:else if member.mainSpec}
-									<div class="flex items-center gap-2">
-										{#if specIcon}
-											<img src={specIcon} alt={member.mainSpec} class="h-5 w-5 rounded" />
-										{/if}
-										<span class="text-gray-300">{member.mainSpec}</span>
-									</div>
-								{:else}
-									<span class="text-gray-500">Not set</span>
-								{/if}
-							{:else if column.key === 'mainRole'}
-								{#if member.mainRole}
-									<div class="flex items-center gap-2">
-										<img
-											src={ROLE_ICONS[member.mainRole]}
-											alt={member.mainRole}
-											class="h-5 w-5"
-										/>
-										<span class="{ROLE_COLORS[member.mainRole]} text-sm">{member.mainRole}</span>
-									</div>
-								{:else}
-									<span class="text-sm text-gray-500">-</span>
-								{/if}
-							{:else if column.key === 'rankName'}
-								<span class="text-gray-300">{member.rankName}</span>
-							{:else if column.key === 'note'}
-								{#if dev}
-									<input
-										type="text"
-										value={member.note}
-										oninput={(e) => onNoteChange(member, e.currentTarget.value)}
-										placeholder="Add note..."
-										class="min-w-32 w-full rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-300 placeholder-gray-500 focus:border-blue-500 focus:outline-none"
-									/>
-								{:else}
-									<span class="text-xs text-gray-400" title={member.note}>{member.note || '-'}</span>
-								{/if}
-							{:else if column.key === 'lastOnline'}
-								<span class="text-xs text-gray-400">{formatLastOnline(member.lastOnline)}</span>
-							{:else if column.key === 'zone'}
-								<span class="text-xs text-gray-400">{member.zone || '-'}</span>
-							{:else if column.key === 'achievementPoints'}
-								<span class="text-xs text-gray-300">{member.achievementPoints.toLocaleString()}</span>
-							{:else if column.key === 'daysOffline'}
-								{@const days = getDaysAgo(member.lastOnline)}
-								<span class="text-xs {days === 0 ? 'text-green-400' : days < 7 ? 'text-blue-400' : days < 30 ? 'text-yellow-400' : 'text-red-400'}">
-									{days === 0 ? 'Online' : `${days} days`}
-								</span>
-							{:else if column.key === 'realmName'}
-								<span class="text-xs text-gray-400">{member.realmName}</span>
+								</button>
 							{:else}
-								<span class="text-xs text-gray-400">{getCellValue(member, column.key) || '-'}</span>
+								{column.label}
 							{/if}
-						</td>
+						</th>
 					{/each}
 				</tr>
-			{/each}
-		</tbody>
-	</table>
-</div>
+			</thead>
+			<tbody>
+				{#each sortedRoster as member (member.name)}
+					{@const specs = WOW_SPECS[member.classFileName] || []}
+					{@const classColor = getClassColor(member.classFileName)}
+					{@const classIcon = getClassIcon(member.classFileName)}
+					{@const specIcon = getSpecIcon(member.classFileName, member.mainSpec || '')}
+					<tr class="border-b border-gray-700 hover:bg-gray-700/30">
+						{#each visibleColumns as column (column.key)}
+							<td class="whitespace-nowrap px-4 py-3">
+								{#if column.key === 'name'}
+									<span class="font-medium" style="color: {classColor}">{member.name}</span>
+								{:else if column.key === 'level'}
+									<span class="text-gray-300">{member.level}</span>
+								{:else if column.key === 'class'}
+									<div class="flex items-center gap-2">
+										{#if classIcon}
+											<img src={classIcon} alt={member.class} class="h-5 w-5" />
+										{/if}
+										<span style="color: {classColor}">{member.class}</span>
+									</div>
+								{:else if column.key === 'mainSpec'}
+									{#if dev}
+										<div class="flex items-center gap-2">
+											{#if specIcon}
+												<img src={specIcon} alt={member.mainSpec} class="h-5 w-5 rounded" />
+											{/if}
+											<select
+												value={member.mainSpec || ''}
+												onchange={(e) => onSpecChange(member, e.currentTarget.value)}
+												class="min-w-30 w-full rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-200 focus:border-blue-500 focus:outline-none"
+											>
+												{#if !member.mainSpec}
+													<option value="">Select Spec</option>
+												{/if}
+												{#each specs as spec (spec.name)}
+													<option value={spec.name}>{spec.name}</option>
+												{/each}
+											</select>
+										</div>
+									{:else if member.mainSpec}
+										<div class="flex items-center gap-2">
+											{#if specIcon}
+												<img src={specIcon} alt={member.mainSpec} class="h-5 w-5 rounded" />
+											{/if}
+											<span class="text-gray-300">{member.mainSpec}</span>
+										</div>
+									{:else}
+										<span class="text-gray-500">Not set</span>
+									{/if}
+								{:else if column.key === 'mainRole'}
+									{#if member.mainRole}
+										<div class="flex items-center gap-2">
+											<img
+												src={ROLE_ICONS[member.mainRole]}
+												alt={member.mainRole}
+												class="h-5 w-5"
+											/>
+											<span class="{ROLE_COLORS[member.mainRole]} text-sm">{member.mainRole}</span>
+										</div>
+									{:else}
+										<span class="text-sm text-gray-500">-</span>
+									{/if}
+								{:else if column.key === 'rankName'}
+									<span class="text-gray-300">{member.rankName}</span>
+								{:else if column.key === 'note'}
+									{#if dev}
+										<input
+											type="text"
+											value={member.note}
+											oninput={(e) => onNoteChange(member, e.currentTarget.value)}
+											placeholder="Add note..."
+											class="min-w-32 w-full rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-300 placeholder-gray-500 focus:border-blue-500 focus:outline-none"
+										/>
+									{:else}
+										<span class="text-xs text-gray-400" title={member.note}>{member.note || '-'}</span>
+									{/if}
+								{:else if column.key === 'lastOnline'}
+									<span class="text-xs text-gray-400">{formatLastOnline(member.lastOnline)}</span>
+								{:else if column.key === 'zone'}
+									<span class="text-xs text-gray-400">{member.zone || '-'}</span>
+								{:else if column.key === 'achievementPoints'}
+									<span class="text-xs text-gray-300">{member.achievementPoints.toLocaleString()}</span>
+								{:else if column.key === 'daysOffline'}
+									{@const days = getDaysAgo(member.lastOnline)}
+									<span class="text-xs {days === 0 ? 'text-green-400' : days < 7 ? 'text-blue-400' : days < 30 ? 'text-yellow-400' : 'text-red-400'}">
+										{days === 0 ? 'Online' : `${days} days`}
+									</span>
+								{:else if column.key === 'realmName'}
+									<span class="text-xs text-gray-400">{member.realmName}</span>
+								{:else}
+									<span class="text-xs text-gray-400">{getCellValue(member, column.key) || '-'}</span>
+								{/if}
+							</td>
+						{/each}
+					</tr>
+				{/each}
+			</tbody>
+		</table>
+	</div>
+{/if}

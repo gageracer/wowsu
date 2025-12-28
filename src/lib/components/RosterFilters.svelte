@@ -18,7 +18,13 @@
 	} = $props();
 
 	let showFilters = $state(false);
-	let filterIdCounter = $state(0);
+
+
+	let filterIdCounter = $derived.by(() => {
+		if (filters.length === 0) return 0;
+		const maxId = Math.max(...filters.map(f => f.id));
+		return maxId + 1;
+	});
 
 	const FILTER_FIELDS: { value: FilterField; label: string }[] = [
 		{ value: 'name', label: 'Name' },
@@ -54,8 +60,9 @@
 	const WOW_ROLES: Role[] = ['Tank', 'DPS', 'Healer'];
 
 	function addFilter() {
+		const newId = filterIdCounter;
 		filters.push({
-			id: filterIdCounter++,
+			id: newId,
 			field: 'name',
 			operator: 'contains',
 			value: ''
@@ -118,6 +125,7 @@
 		});
 	});
 </script>
+
 
 <div class="mb-4 rounded-lg border border-gray-700 bg-gray-900 p-3 sm:p-4">
 	<div class={`flex items-center justify-between${showFilters ? " mb-3":""}`}>
@@ -182,7 +190,7 @@
 									class="flex-1 rounded border border-gray-600 bg-gray-800 px-2 sm:px-3 py-2 text-xs sm:text-sm text-gray-200 focus:border-blue-500 focus:outline-none"
 								>
 									<option value="">Select Role...</option>
-									{#each WOW_ROLES as role,_ (role)}
+									{#each WOW_ROLES as role (role)}
 										<option value={role}>{role}</option>
 									{/each}
 								</select>
