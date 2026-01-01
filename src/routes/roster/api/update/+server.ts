@@ -1,7 +1,8 @@
 import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
+import { existsSync } from 'fs';
 import type { RosterMember } from '$lib/types/roster';
 
 function parseLuaAutoExport(luaText: string): any[] | null {
@@ -58,8 +59,12 @@ function parseLuaAutoExport(luaText: string): any[] | null {
 
 export const GET: RequestHandler = async () => {
 	try {
-		// Read the Lua file
+		// Read the Lua file - only exists in dev mode
 		const luaPath = join(process.cwd(), 'static', 'GuildRosterExport.lua');
+		if (!existsSync(luaPath)) {
+			return json({ hasUpdate: false, error: 'Lua file not found' });
+		}
+
 		const luaText = await readFile(luaPath, 'utf-8');
 
 		const luaData = parseLuaAutoExport(luaText);
@@ -71,12 +76,15 @@ export const GET: RequestHandler = async () => {
 		// Get the most recent lastOnline timestamp
 		const luaLastUpdated = Math.max(...luaData.map((m: any) => m.lastOnline));
 
-		// Read current roster to compare
-		const rosterPath = join(process.cwd(), 'static', 'roster.json');
-		const rosterText = await readFile(rosterPath, 'utf-8');
-		const rosterData = JSON.parse(rosterText);
+		// Read current roster to compare from lib folder
+		const rosterPath = join(process.cwd(), 'src', 'lib', 'data', 'roster.json');
+		let currentLastUpdated = 0;
 
-		const currentLastUpdated = rosterData.lastUpdated || 0;
+		if (existsSync(rosterPath)) {
+			const rosterText = await readFile(rosterPath, 'utf-8');
+			const rosterData = JSON.parse(rosterText);
+			currentLastUpdated = rosterData.lastUpdated || 0;
+		}
 
 		return json({
 			hasUpdate: luaLastUpdated > currentLastUpdated,
@@ -92,8 +100,12 @@ export const GET: RequestHandler = async () => {
 
 export const POST: RequestHandler = async () => {
 	try {
-		// Read the Lua file
+		// Read the Lua file - only exists in dev mode
 		const luaPath = join(process.cwd(), 'static', 'GuildRosterExport.lua');
+		if (!existsSync(luaPath)) {
+			return json({ success: false, error: 'Lua file not found' }, { status: 404 });
+		}
+
 		const luaText = await readFile(luaPath, 'utf-8');
 
 		const luaData = parseLuaAutoExport(luaText);
@@ -102,19 +114,50 @@ export const POST: RequestHandler = async () => {
 			return json({ success: false, error: 'Could not parse Lua file' }, { status: 400 });
 		}
 
-		// Read current roster to get existing role assignments
-		const rosterPath = join(process.cwd(), 'static', 'roster.json');
-		const rosterText = await readFile(rosterPath, 'utf-8');
-		const rosterData = JSON.parse(rosterText);
+		// Ensure data directories exist
+		const dataDir = join(process.cwd(), 'src', 'lib', 'data');
+		const rostersDir = join(dataDir, 'rosters');
 
-		// Handle both old and new format
-		let currentMembers: RosterMember[];
-		if (Array.isArray(rosterData)) {
-			currentMembers = rosterData;
-		} else if (rosterData.members && Array.isArray(rosterData.members)) {
-			currentMembers = rosterData.members;
-		} else {
-			return json({ success: false, error: 'Invalid roster format' }, { status: 400 });
+		if (!existsSync(dataDir)) {
+			await mkdir(dataDir, { recursive: true });
+		}
+		if (!existsSync(rostersDir)) {
+			await mkdir(rostersDir, { recursive: true });
+		}
+
+		// Read current roster to get existing role assignments AND save as historical
+		const rosterPath = join(dataDir, 'roster.json');
+		let currentMembers: RosterMember[] = [];
+		let oldRosterData: any = null;
+
+		if (existsSync(rosterPath)) {
+			const rosterText = await readFile(rosterPath, 'utf-8');
+			oldRosterData = JSON.parse(rosterText);
+
+			// Handle both old and new format
+			if (Array.isArray(oldRosterData)) {
+				currentMembers = oldRosterData;
+			} else if (oldRosterData.members && Array.isArray(oldRosterData.members)) {
+				currentMembers = oldRosterData.members;
+			}
+
+			// Save the OLD roster as a historical snapshot BEFORE we overwrite it
+			if (oldRosterData.lastUpdated) {
+				const oldTimestamp = new Date(oldRosterData.lastUpdated * 1000)
+					.toISOString()
+					.replace(/T/, '_')
+					.replace(/:/g, '')
+					.replace(/\..+/, '')
+					.substring(0, 15); // YYYY-MM-DD_HHMMSS format
+
+				const historicalPath = join(rostersDir, `${oldTimestamp}.json`);
+
+				// Only save if this timestamp doesn't already exist
+				if (!existsSync(historicalPath)) {
+					await writeFile(historicalPath, JSON.stringify(oldRosterData, null, 2), 'utf-8');
+					console.log(`Saved historical snapshot: ${oldTimestamp}`);
+				}
+			}
 		}
 
 		// Create a map of existing roles
@@ -151,14 +194,15 @@ export const POST: RequestHandler = async () => {
 			members: merged
 		};
 
-		// Write the updated roster back to the file
+		// Write the updated roster to the current roster file
 		await writeFile(rosterPath, JSON.stringify(newRosterData, null, 2), 'utf-8');
 
 		return json({
 			success: true,
 			memberCount: merged.length,
 			rolesPreserved: existingRoles.size,
-			lastUpdated: luaLastUpdated
+			lastUpdated: luaLastUpdated,
+			historicalSnapshotSaved: !!oldRosterData?.lastUpdated
 		});
 	} catch (error) {
 		console.error('Error updating roster:', error);

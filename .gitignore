@@ -25,4 +25,6 @@ vite.config.ts.timestamp-*
 
 # Paraglide
 src/lib/paraglide
+
+# WoW Addon exports (dev only)
 static/GuildRosterExport.lua

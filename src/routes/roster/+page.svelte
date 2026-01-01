@@ -56,7 +56,8 @@
 					`Roster updated successfully!\n\n` +
 					`• ${result.memberCount} members loaded\n` +
 					`• ${result.rolesPreserved} roles preserved\n` +
-					`• File saved to static/roster.json\n\n` +
+					`• File saved to src/lib/data/roster.json\n\n` +
+					`• Historical snapshot saved to src/lib/data/rosters/\n\n` +
 					`You can now commit and push the changes to GitHub!`
 				);
 			} else {

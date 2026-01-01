@@ -1,6 +1,7 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
-import type { RosterData, RosterMember } from '$lib/types/roster';
+import type { RosterMember } from '$lib/types/roster';
+import { dev } from '$app/environment';
 
 function parseLuaAutoExport(luaText: string): RosterMember[] | null {
 	try {
@@ -58,8 +59,8 @@ function parseLuaAutoExport(luaText: string): RosterMember[] | null {
 
 export const load: PageLoad = async ({ fetch }) => {
 	try {
-		// Load current roster
-		const rosterResponse = await fetch('/roster.json');
+		// Load current roster from API endpoint (serves from lib/data)
+		const rosterResponse = await fetch('/roster/api/data');
 		if (!rosterResponse.ok) {
 			throw new Error('Failed to load roster data');
 		}
@@ -84,23 +85,25 @@ export const load: PageLoad = async ({ fetch }) => {
 			throw new Error('Invalid roster data format');
 		}
 
-		// Try to load Lua file for update checking
+		// Try to load Lua file for update checking - ONLY IN DEV MODE
 		let luaData: RosterMember[] | null = null;
 		let luaLastUpdated: number | null = null;
 
-		try {
-			const luaResponse = await fetch('/GuildRosterExport.lua');
-			if (luaResponse.ok) {
-				const luaText = await luaResponse.text();
-				luaData = parseLuaAutoExport(luaText);
+		if (dev) {
+			try {
+				const luaResponse = await fetch('/GuildRosterExport.lua');
+				if (luaResponse.ok) {
+					const luaText = await luaResponse.text();
+					luaData = parseLuaAutoExport(luaText);
 
-				// Get the most recent lastOnline timestamp
-				if (luaData && luaData.length > 0) {
-					luaLastUpdated = Math.max(...luaData.map((m) => m.lastOnline));
+					// Get the most recent lastOnline timestamp
+					if (luaData && luaData.length > 0) {
+						luaLastUpdated = Math.max(...luaData.map((m) => m.lastOnline));
+					}
 				}
+			} catch (luaError) {
+				console.warn('Could not load Lua file for update checking:', luaError);
 			}
-		} catch (luaError) {
-			console.warn('Could not load Lua file for update checking:', luaError);
 		}
 
 		return {
