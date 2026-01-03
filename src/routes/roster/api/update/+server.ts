@@ -5,7 +5,7 @@ import { join } from 'path';
 import { existsSync } from 'fs';
 import type { RosterMember } from '$lib/types/roster';
 
-function parseLuaAutoExport(luaText: string): any[] | null {
+function parseLuaAutoExport(luaText: string) {
 	try {
 		// Find the start and end of autoExportSave
 		const startMarker = '["autoExportSave"] = "';
