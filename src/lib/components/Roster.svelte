@@ -484,91 +484,68 @@
 	}
 </script>
 
-<!-- Column Manager - Available to all users -->
-<div class="mb-4 flex flex-wrap gap-2">
-	<button
-		onclick={() => (showColumnManager = !showColumnManager)}
-		class="rounded bg-purple-600 px-4 py-2 text-sm font-semibold text-white hover:bg-purple-700"
-	>
-		{showColumnManager ? 'Hide' : 'Manage Columns'}
-	</button>
-</div>
-
-{#if showColumnManager}
-	<ColumnManager bind:columns={columns} onReset={resetColumns} />
-{/if}
-
-<!-- Dev-only features -->
+<!-- Dev Only-->
 {#if dev}
-	<div class="mb-4 flex flex-wrap gap-2">
-		<button
-			onclick={() => (showJsonExport = !showJsonExport)}
-			class="rounded bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
-		>
-			{showJsonExport ? 'Hide' : 'Export Updated JSON'}
-		</button>
-		<button
-			onclick={() => (showMergePanel = !showMergePanel)}
-			class="rounded bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-700"
-		>
-			{showMergePanel ? 'Hide' : 'Merge From JSON'}
-		</button>
-	</div>
-
-	{#if showMergePanel}
-		<MergePanel
-			bind:newRosterJson={newRosterJson}
-			{mergeError}
-			onPreview={() => mergeRosters()}
-			onCancel={() => {
-				showMergePanel = false;
-				newRosterJson = '';
-				mergeError = null;
-			}}
-		/>
-	{/if}
+    <div class="mb-4 flex flex-wrap gap-2">
+    	<!-- Dev-only features -->
+      		<button
+     			onclick={() => (showJsonExport = !showJsonExport)}
+     			class="rounded bg-blue-600 px-4 py-2 text-sm font-semibold text-white hover:bg-blue-700"
+      		>
+     			{showJsonExport ? 'Hide' : 'Export Updated JSON'}
+      		</button>
+      		<button
+     			onclick={() => (showMergePanel = !showMergePanel)}
+     			class="rounded bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-700"
+      		>
+     			{showMergePanel ? 'Hide' : 'Merge From JSON'}
+      		</button>
+    </div>
 {/if}
 
-{#if mergePreview}
-	<MergePreview
-		preview={mergePreview}
-		onApply={applyMerge}
-		onCancel={() => (mergePreview = null)}
-	/>
-{/if}
 
-{#if showJsonExport}
-	<JsonExport
-		{roster}
-		onCopy={copyToClipboard}
-		onDownload={downloadJson}
-		onClose={() => (showJsonExport = false)}
-	/>
+{#if dev}
+    {#if mergePreview}
+    	<MergePreview
+    		preview={mergePreview}
+    		onApply={applyMerge}
+    		onCancel={() => (mergePreview = null)}
+    	/>
+    {/if}
+    {#if showJsonExport}
+    	<JsonExport
+    		{roster}
+    		onCopy={copyToClipboard}
+    		onDownload={downloadJson}
+    		onClose={() => (showJsonExport = false)}
+    	/>
+    {/if}
+    {#if showMergePanel}
+    	<MergePanel
+    		bind:newRosterJson={newRosterJson}
+    		{mergeError}
+    		onPreview={() => mergeRosters()}
+    		onCancel={() => {
+    			showMergePanel = false;
+    			newRosterJson = '';
+    			mergeError = null;
+    		}}
+    	/>
+    {/if}
 {/if}
 
 <RosterFilters
 	bind:filters={filters}
 	bind:matchAll={matchAll}
 	bind:applied={filtersApplied}
+	{toggleFilters}
+	{filtersEnabled}
 	totalCount={roster.length}
 	filteredCount={filteredRoster.length}
 />
 
-<!-- Filter Enable/Disable Toggle -->
-{#if filters.length > 0}
-	<div class="mb-4 flex items-center gap-2">
-		<button
-			onclick={toggleFilters}
-			class="rounded px-4 py-2 text-sm font-semibold text-white transition-colors {filtersEnabled
-				? 'bg-green-600 hover:bg-green-700'
-				: 'bg-gray-600 hover:bg-gray-700'}"
-		>
-			{filtersEnabled ? '✓ Filters Enabled' : 'Filters Disabled'}
-		</button>
-		<span class="text-xs text-gray-400">
-			{filters.length} {filters.length === 1 ? 'filter' : 'filters'} configured
-		</span>
-	</div>
+{#if showColumnManager}
+	<ColumnManager bind:columns={columns} onReset={resetColumns} />
 {/if}
 
 <!-- Loading state or table -->
@@ -582,21 +559,32 @@
 		<table class="w-full min-w-max text-left text-sm">
 			<thead class="border-b border-gray-700 bg-gray-800 text-xs uppercase text-gray-300">
 				<tr>
-					{#each visibleColumns as column (column.key)}
+					{#each visibleColumns as column, index (column.key)}
 						<th class="whitespace-nowrap px-4 py-3">
-							{#if column.sortable}
-								<button
-									onclick={() => toggleSort(column.key)}
-									class="flex items-center gap-1 hover:text-white"
-								>
-									{column.label}
-									{#if sortKey === column.key}
-										<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
-									{/if}
-								</button>
-							{:else}
-								{column.label}
-							{/if}
+    						<div class="flex items-center justify-between">
+    						
+    							{#if column.sortable}
+    								<button
+    									onclick={() => toggleSort(column.key)}
+    									class="flex items-center gap-1 hover:text-white"
+    								>
+    									{column.label}
+    									{#if sortKey === column.key}
+    										<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
+    									{/if}
+    								</button>
+    							{:else}
+    								{column.label}
+    							{/if}
+    							{#if index === visibleColumns.length - 1}
+     							<button
+        								onclick={() => (showColumnManager = !showColumnManager)}
+        								class="rounded  px-1  text-sm font-semibold text-white hover:opacity-75"
+     							>
+        								⚙️
+     							</button>
+    							{/if}
+    						</div>
 						</th>
 					{/each}
 				</tr>

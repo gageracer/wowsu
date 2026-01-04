@@ -7,12 +7,16 @@
 		filters = $bindable([]),
 		matchAll = $bindable(true),
 		applied = $bindable(false),
+		toggleFilters = $bindable(() => {}),
+		filtersEnabled = $bindable(true),
 		totalCount = 0,
 		filteredCount = 0
 	}: {
 		filters: RosterFilter[];
 		matchAll: boolean;
 		applied: boolean;
+		toggleFilters: () => void;
+		filtersEnabled: boolean;
 		totalCount: number;
 		filteredCount: number;
 	} = $props();
@@ -126,10 +130,38 @@
 	});
 </script>
 
+{#snippet toggleFilter()}
+    <!-- Filter Enable/Disable Toggle -->
+    {#if filters.length > 0}
+	<div class="flex items-center gap-2">
+		<button
+			onclick={toggleFilters}
+			class="rounded px-2 py-1 text-sm font-semibold text-white transition-colors {filtersEnabled
+				? 'bg-green-600 hover:bg-green-700'
+				: 'bg-gray-600 hover:bg-gray-700'}"
+		>
+			{filtersEnabled ? '✓ Filters Enabled' : 'Filters Disabled'}
+		</button>
+		<span class="text-xs text-gray-400">
+			{filters.length} {filters.length === 1 ? 'filter' : 'filters'} configured
+		</span>
+	</div>
+    {/if}
+{/snippet}
 
-<div class="mb-4 rounded-lg border border-gray-700 bg-gray-900 p-3 sm:p-4">
+{#snippet result()}
+    <!-- Results Count -->
+	{#if applied && filters.length > 0}
+		<div class="text-xs sm:text-sm text-gray-400">
+			{filteredCount} {filteredCount === 1 ? 'member' : 'members'} found ({totalCount} total)
+		</div>
+	{/if}
+{/snippet}
+
+<div class="mb-4 rounded-lg border border-gray-700 bg-gray-900 p-3 sm:p-2">
 	<div class={`flex items-center justify-between${showFilters ? " mb-3":""}`}>
-		<h3 class="sm:text-lg font-semibold text-gray-200">Filters</h3>
+		{@render toggleFilter?.()}
+		{@render result()}
 		<button
 			onclick={() => (showFilters = !showFilters)}
 			class="text-xs sm:text-sm text-blue-400 hover:text-blue-300"
@@ -278,13 +310,6 @@
 					</button>
 				{/if}
 			</div>
-
-			<!-- Results Count -->
-			{#if applied && filters.length > 0}
-				<div class="text-xs sm:text-sm text-gray-400">
-					{filteredCount} {filteredCount === 1 ? 'member' : 'members'} found ({totalCount} total)
-				</div>
-			{/if}
 		</div>
 	{/if}
 </div>
