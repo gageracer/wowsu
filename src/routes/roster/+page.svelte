@@ -10,42 +10,58 @@
 	// Create bindable state from query result
 	let roster = $state<RosterMember[]>([]);
 	let lastUpdated = $state(0);
-	let initialLoad = $state(true);
 
 	// Sync query data to bindable state
 	$effect(() => {
 		if (rosterQuery.current) {
 			roster = rosterQuery.current.members;
 			lastUpdated = rosterQuery.current.lastUpdated;
-			// Mark that we've done the initial load
-			setTimeout(() => initialLoad = false, 100);
 		}
 	});
 
-	// Auto-save when roster changes (but not on initial load)
-	let saveTimeout: number | null = null;
+	// Auto-save state
+	let isSaving = $state(false);
+	let saveError = $state<string | null>(null);
+
+	// Auto-save when roster actually changes (using derived to detect deep changes)
+	let rosterSnapshot = $derived(JSON.stringify(roster));
+	let previousSnapshot = $state<string | null>(null);
+
 	$effect(() => {
-		// Track roster changes
-		roster;
+		// Track the snapshot
+		const currentSnapshot = rosterSnapshot;
 
-		// Don't save on initial load
-		if (initialLoad) return;
+		// Skip if this is the first run or data hasn't changed
+		if (previousSnapshot === null) {
+			previousSnapshot = currentSnapshot;
+			return;
+		}
 
-		// Debounce the save
-		untrack(() => {
-			if (saveTimeout) clearTimeout(saveTimeout);
+		if (previousSnapshot === currentSnapshot) {
+			return;
+		}
 
-			saveTimeout = setTimeout(async () => {
-				try {
-					console.log('Auto-saving roster...');
-					await saveRoster({ members: roster, lastUpdated });
-					console.log('Roster saved successfully');
-				} catch (error) {
-					console.error('Error auto-saving roster:', error);
-				}
-			}, 1000); // Save 1 second after changes stop
-		});
+		// Data has changed, save immediately with optimistic update
+		previousSnapshot = currentSnapshot;
+
+		(async () => {
+			isSaving = true;
+			saveError = null;
+			try {
+				await saveRoster({ members: roster, lastUpdated });
+				console.log('Roster saved successfully');
+				// Show saved indicator briefly
+				setTimeout(() => {
+					isSaving = false;
+				}, 500);
+			} catch (error) {
+				console.error('Error auto-saving roster:', error);
+				saveError = error instanceof Error ? error.message : 'Failed to save';
+				isSaving = false;
+			}
+		})();
 	});
+
 
 	let showUpdateNotification = $state(false);
 	let isUpdating = $state(false);
@@ -126,6 +142,19 @@
 <svelte:head>
 	<title>Guild Roster - The Hive Mind</title>
 </svelte:head>
+
+<!-- Save indicator -->
+{#if isSaving}
+	<div class="fixed right-4 top-4 z-50 rounded-lg bg-blue-900/90 px-4 py-2 text-sm text-blue-100 shadow-lg">
+		💾 Saving...
+	</div>
+{/if}
+
+{#if saveError}
+	<div class="fixed right-4 top-4 z-50 rounded-lg bg-red-900/90 px-4 py-2 text-sm text-red-100 shadow-lg">
+		❌ Save failed: {saveError}
+	</div>
+{/if}
 
 {#if showUpdateNotification}
 	<div class="mb-4 rounded-lg border-2 border-green-500 bg-green-900/30 p-4 shadow-lg">

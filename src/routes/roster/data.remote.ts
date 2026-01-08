@@ -1,10 +1,6 @@
 import { query, command } from '$app/server';
-import { read } from '$app/server';
 import type { RosterMember } from '$lib/types/roster';
-import rosterFile from '$lib/data/roster.json?url';
-import { readFile, writeFile, mkdir } from 'fs/promises';
 import { join } from 'path';
-import { existsSync } from 'fs';
 import { dev } from '$app/environment';
 import * as v from 'valibot';
 
@@ -53,9 +49,10 @@ function parseLuaAutoExport(luaText: string) {
 
 export const getRoster = query(async () => {
 	try {
-		const asset = read(rosterFile);
-		const text = await asset.text();
-		const rosterData = JSON.parse(text) as RosterData | RosterMember[];
+		// Use Bun's native file API
+		const rosterPath = join(process.cwd(), 'src', 'lib', 'data', 'roster.json');
+		const file = Bun.file(rosterPath);
+		const rosterData = await file.json() as RosterData | RosterMember[];
 
 		let members: RosterMember[];
 		let lastUpdated: number;
@@ -87,11 +84,15 @@ export const checkForUpdates = query(async () => {
 
 	try {
 		const luaPath = join(process.cwd(), 'static', 'GuildRosterExport.lua');
-		if (!existsSync(luaPath)) {
+		const luaFile = Bun.file(luaPath);
+
+		// Check if file exists
+		const exists = await luaFile.exists();
+		if (!exists) {
 			return { hasUpdate: false, error: 'Lua file not found' };
 		}
 
-		const luaText = await readFile(luaPath, 'utf-8');
+		const luaText = await luaFile.text();
 		const luaData = parseLuaAutoExport(luaText);
 
 		if (!luaData) {
@@ -101,10 +102,10 @@ export const checkForUpdates = query(async () => {
 		const luaLastUpdated = Math.max(...luaData.map((m: any) => m.lastOnline));
 
 		// Read current roster
-		const asset = read(rosterFile);
-		const text = await asset.text();
-		const rosterData = JSON.parse(text) as RosterData | RosterMember[];
-		
+		const rosterPath = join(process.cwd(), 'src', 'lib', 'data', 'roster.json');
+		const rosterFile = Bun.file(rosterPath);
+		const rosterData = await rosterFile.json() as RosterData | RosterMember[];
+
 		let currentLastUpdated = 0;
 		if (!Array.isArray(rosterData) && rosterData.lastUpdated) {
 			currentLastUpdated = rosterData.lastUpdated;
@@ -129,11 +130,14 @@ export const applyUpdate = command(async () => {
 
 	try {
 		const luaPath = join(process.cwd(), 'static', 'GuildRosterExport.lua');
-		if (!existsSync(luaPath)) {
+		const luaFile = Bun.file(luaPath);
+
+		const exists = await luaFile.exists();
+		if (!exists) {
 			throw new Error('Lua file not found');
 		}
 
-		const luaText = await readFile(luaPath, 'utf-8');
+		const luaText = await luaFile.text();
 		const luaData = parseLuaAutoExport(luaText);
 
 		if (!luaData) {
@@ -143,21 +147,19 @@ export const applyUpdate = command(async () => {
 		const dataDir = join(process.cwd(), 'src', 'lib', 'data');
 		const rostersDir = join(dataDir, 'rosters');
 
-		if (!existsSync(dataDir)) {
-			await mkdir(dataDir, { recursive: true });
-		}
-		if (!existsSync(rostersDir)) {
-			await mkdir(rostersDir, { recursive: true });
-		}
+		// Ensure directories exist using Bun's mkdir
+		await Bun.write(join(dataDir, '.keep'), ''); // Creates dir if it doesn't exist
+		await Bun.write(join(rostersDir, '.keep'), ''); // Creates dir if it doesn't exist
 
 		// Read current roster
 		const rosterPath = join(dataDir, 'roster.json');
+		const rosterFile = Bun.file(rosterPath);
 		let currentMembers: RosterMember[] = [];
 		let oldRosterData: any = null;
 
-		if (existsSync(rosterPath)) {
-			const rosterText = await readFile(rosterPath, 'utf-8');
-			oldRosterData = JSON.parse(rosterText);
+		const rosterExists = await rosterFile.exists();
+		if (rosterExists) {
+			oldRosterData = await rosterFile.json();
 
 			if (Array.isArray(oldRosterData)) {
 				currentMembers = oldRosterData;
@@ -175,9 +177,11 @@ export const applyUpdate = command(async () => {
 					.substring(0, 15);
 
 				const historicalPath = join(rostersDir, `${oldTimestamp}.json`);
+				const historicalFile = Bun.file(historicalPath);
+				const historicalExists = await historicalFile.exists();
 
-				if (!existsSync(historicalPath)) {
-					await writeFile(historicalPath, JSON.stringify(oldRosterData, null, 2), 'utf-8');
+				if (!historicalExists) {
+					await Bun.write(historicalPath, JSON.stringify(oldRosterData, null, 2));
 					console.log(`Saved historical snapshot: ${oldTimestamp}`);
 				}
 			}
@@ -215,7 +219,7 @@ export const applyUpdate = command(async () => {
 			members: merged
 		};
 
-		await writeFile(rosterPath, JSON.stringify(newRosterData, null, 2), 'utf-8');
+		await Bun.write(rosterPath, JSON.stringify(newRosterData, null, 2));
 
 		// Refresh the roster query after update
 		await getRoster().refresh();
@@ -249,9 +253,10 @@ export const saveRoster = command(
 				members: members
 			};
 
-			await writeFile(rosterPath, JSON.stringify(rosterData, null, 2), 'utf-8');
+			// Bun's native write
+			await Bun.write(rosterPath, JSON.stringify(rosterData, null, 2));
 
-			// Update the query with the new data directly (no need to re-read from disk)
+			// Update the query with the new data
 			getRoster().set(rosterData);
 
 			return { success: true };
@@ -261,4 +266,3 @@ export const saveRoster = command(
 		}
 	}
 );
-

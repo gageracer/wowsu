@@ -2005,7 +2005,7 @@
       "achievementRank": 198,
       "lastOnline": 1767333600,
       "realmName": "Sylvanas",
-      "mainSpec": "Arcane",
+      "mainSpec": "Fire",
       "mainRole": "DPS"
     },
     {
@@ -2022,7 +2022,9 @@
       "achievementPoints": 1890,
       "achievementRank": 390,
       "lastOnline": 1767254400,
-      "realmName": "Turalyon"
+      "realmName": "Turalyon",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer"
     },
     {
       "name": "Agna",
@@ -2038,7 +2040,9 @@
       "achievementPoints": 30925,
       "achievementRank": 5,
       "lastOnline": 1767362400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Protection",
+      "mainRole": "Tank"
     },
     {
       "name": "Ahuramazda",
