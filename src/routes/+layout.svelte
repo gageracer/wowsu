@@ -40,7 +40,7 @@
 					<h1 class="site-name text-4xl font-bold">{name}</h1>
 				{:else}
 					<div class="logo-container mb-4">
-						<a href="/">
+						<a href={resolve("/")}>
 							<img src="/images/logo-1.avif" alt={name} class="logo-image h-36 rounded-full" />
 						</a>
 					</div>

@@ -501,10 +501,6 @@
      			{showMergePanel ? 'Hide' : 'Merge From JSON'}
       		</button>
     </div>
-{/if}
-
-
-{#if dev}
     {#if mergePreview}
     	<MergePreview
     		preview={mergePreview}
@@ -562,7 +558,7 @@
 					{#each visibleColumns as column, index (column.key)}
 						<th class="whitespace-nowrap px-4 py-3">
     						<div class="flex items-center justify-between">
-    						
+
     							{#if column.sortable}
     								<button
     									onclick={() => toggleSort(column.key)}

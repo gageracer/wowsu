@@ -20,7 +20,12 @@ const config = {
 			}
 		})
 	],
-	kit: { adapter: adapter() },
+  kit: {
+    adapter: adapter(),
+  experimental:{remoteFunctions : true} },
+  compilerOptions: {
+    experimental :{async: true}
+  },
 	extensions: ['.svelte', '.svx']
 };
 
