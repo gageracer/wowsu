@@ -2106,7 +2106,9 @@
       "achievementPoints": 17220,
       "achievementRank": 116,
       "lastOnline": 1767117600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS"
     },
     {
       "name": "Alvôr",

@@ -1,6 +1,5 @@
 import { query, command } from '$app/server';
 import type { RosterMember } from '$lib/types/roster';
-import { join } from 'path';
 import { dev } from '$app/environment';
 import * as v from 'valibot';
 
@@ -12,6 +11,9 @@ interface RosterData {
 	lastUpdated?: number;
 	members: RosterMember[];
 }
+const luaPath = `${process.cwd()}/static/GuildRosterExport.lua`;
+const dataDir = `${process.cwd()}/src/lib/data`;
+const rosterPath = `${process.cwd()}/src/lib/data/roster.json`
 
 function parseLuaAutoExport(luaText: string) {
 	try {
@@ -59,7 +61,6 @@ export const getRoster = query(async () => {
 			data = rosterData;
 		} else {
 			// In dev mode, read from filesystem (allows live updates)
-			const rosterPath = join(process.cwd(), 'src', 'lib', 'data', 'roster.json');
 			const file = Bun.file(rosterPath);
 			const exists = await file.exists();
 
@@ -99,7 +100,6 @@ export const checkForUpdates = query(async () => {
 	}
 
 	try {
-		const luaPath = join(process.cwd(), 'static', 'GuildRosterExport.lua');
 		const luaFile = Bun.file(luaPath);
 
 		// Check if file exists
@@ -118,7 +118,6 @@ export const checkForUpdates = query(async () => {
 		const luaLastUpdated = Math.max(...luaData.map((m: any) => m.lastOnline));
 
 		// Read current roster
-		const rosterPath = join(process.cwd(), 'src', 'lib', 'data', 'roster.json');
 		const rosterFile = Bun.file(rosterPath);
 		const rosterData = await rosterFile.json() as RosterData | RosterMember[];
 
@@ -145,7 +144,6 @@ export const applyUpdate = command(async () => {
 	}
 
 	try {
-		const luaPath = join(process.cwd(), 'static', 'GuildRosterExport.lua');
 		const luaFile = Bun.file(luaPath);
 
 		const exists = await luaFile.exists();
@@ -160,15 +158,13 @@ export const applyUpdate = command(async () => {
 			throw new Error('Could not parse Lua file');
 		}
 
-		const dataDir = join(process.cwd(), 'src', 'lib', 'data');
-		const rostersDir = join(dataDir, 'rosters');
+		const rostersDir = `${dataDir}/rosters`;
 
 		// Ensure directories exist using Bun's mkdir
-		await Bun.write(join(dataDir, '.keep'), ''); // Creates dir if it doesn't exist
-		await Bun.write(join(rostersDir, '.keep'), ''); // Creates dir if it doesn't exist
+		await Bun.write(`${dataDir}.keep`, ''); // Creates dir if it doesn't exist
+		await Bun.write(`${rostersDir}.keep`, ''); // Creates dir if it doesn't exist
 
 		// Read current roster
-		const rosterPath = join(dataDir, 'roster.json');
 		const rosterFile = Bun.file(rosterPath);
 		let currentMembers: RosterMember[] = [];
 		let oldRosterData: any = null;
@@ -192,7 +188,7 @@ export const applyUpdate = command(async () => {
 					.replace(/\..+/, '')
 					.substring(0, 15);
 
-				const historicalPath = join(rostersDir, `${oldTimestamp}.json`);
+				const historicalPath = `rostersDir/${oldTimestamp}.json`;
 				const historicalFile = Bun.file(historicalPath);
 				const historicalExists = await historicalFile.exists();
 
@@ -273,9 +269,6 @@ export const saveRoster = command(
 		}
 
 		try {
-			const dataDir = join(process.cwd(), 'src', 'lib', 'data');
-			const rosterPath = join(dataDir, 'roster.json');
-
 			const rosterData = {
 				version: new Date().toISOString().split('T')[0].replace(/-/g, '.'),
 				lastUpdated: lastUpdated,
