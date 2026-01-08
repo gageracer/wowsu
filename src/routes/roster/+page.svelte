@@ -1,6 +1,6 @@
 <script lang="ts">
 	import RosterTable from '$lib/components/Roster.svelte';
-	import { onMount, untrack } from 'svelte';
+	import { onMount, tick } from 'svelte';
 	import { getRoster, checkForUpdates, applyUpdate, saveRoster } from './data.remote';
 	import type { RosterMember } from '$lib/types/roster';
 
@@ -11,11 +11,23 @@
 	let roster = $state<RosterMember[]>([]);
 	let lastUpdated = $state(0);
 
+	let hasScrolled = $state(false);
+	// Reference to the roster section
+	let rosterSection: HTMLElement | undefined = $state();
+
 	// Sync query data to bindable state
 	$effect(() => {
 		if (rosterQuery.current) {
 			roster = rosterQuery.current.members;
 			lastUpdated = rosterQuery.current.lastUpdated;
+
+			// Scroll to roster when data loads (only once)
+			if (!hasScrolled && rosterSection) {
+				tick().then(() => {
+					rosterSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					hasScrolled = true;
+				});
+			}
 		}
 	});
 
@@ -222,7 +234,7 @@
 		</div>
 	</div>
 {:else}
-	<section class="mb-8">
+	<section class="mb-8" bind:this={rosterSection}>
 		<h1 class="mb-2 text-center text-3xl font-bold text-gray-100">Guild Roster</h1>
 		<div class="flex justify-center gap-4 text-sm text-gray-400">
 			<p>Total Members: <span class="font-semibold text-gray-300">{roster.length}</span></p>
