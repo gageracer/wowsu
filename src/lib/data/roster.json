@@ -1,5 +1,5 @@
 {
-  "version": "2026.01.04",
+  "version": "2026.01.08",
   "lastUpdated": 1767556800,
   "members": [
     {
@@ -2004,7 +2004,9 @@
       "achievementPoints": 12155,
       "achievementRank": 198,
       "lastOnline": 1767333600,
-      "realmName": "Sylvanas"
+      "realmName": "Sylvanas",
+      "mainSpec": "Arcane",
+      "mainRole": "DPS"
     },
     {
       "name": "Acerhizm",
