@@ -4,6 +4,9 @@ import { join } from 'path';
 import { dev } from '$app/environment';
 import * as v from 'valibot';
 
+// Import the roster data directly - this will be bundled in production
+import rosterData from '$lib/data/roster.json';
+
 interface RosterData {
 	version?: string;
 	lastUpdated?: number;
@@ -49,23 +52,37 @@ function parseLuaAutoExport(luaText: string) {
 
 export const getRoster = query(async () => {
 	try {
-		// Use Bun's native file API
-		const rosterPath = join(process.cwd(), 'src', 'lib', 'data', 'roster.json');
-		const file = Bun.file(rosterPath);
-		const rosterData = await file.json() as RosterData | RosterMember[];
+		let data: RosterData | RosterMember[];
+
+		// In production, use the imported/bundled data
+		if (!dev) {
+			data = rosterData;
+		} else {
+			// In dev mode, read from filesystem (allows live updates)
+			const rosterPath = join(process.cwd(), 'src', 'lib', 'data', 'roster.json');
+			const file = Bun.file(rosterPath);
+			const exists = await file.exists();
+
+			if (!exists) {
+				// Fallback to bundled data if file doesn't exist
+				data = rosterData;
+			} else {
+				data = await file.json() as RosterData | RosterMember[];
+			}
+		}
 
 		let members: RosterMember[];
 		let lastUpdated: number;
 		let version: string;
 
-		if (Array.isArray(rosterData)) {
-			members = rosterData;
+		if (Array.isArray(data)) {
+			members = data;
 			lastUpdated = 0;
 			version = '1.0.0';
-		} else if (rosterData.members && Array.isArray(rosterData.members)) {
-			members = rosterData.members;
-			lastUpdated = rosterData.lastUpdated || 0;
-			version = rosterData.version || '1.0.0';
+		} else if (data.members && Array.isArray(data.members)) {
+			members = data.members;
+			lastUpdated = data.lastUpdated || 0;
+			version = data.version || '1.0.0';
 		} else {
 			throw new Error('Invalid roster data format');
 		}
@@ -76,7 +93,6 @@ export const getRoster = query(async () => {
 		throw new Error('Failed to load roster data');
 	}
 });
-
 export const checkForUpdates = query(async () => {
 	if (!dev) {
 		return { hasUpdate: false, error: 'Only available in dev mode' };
@@ -243,6 +259,19 @@ export const saveRoster = command(
 		lastUpdated: v.number()
 	}),
 	async ({ members, lastUpdated }) => {
+		// Only allow saves in dev mode (production uses bundled data)
+		if (!dev) {
+			console.warn('Roster editing is only available in development mode');
+			// Still update the query cache for optimistic UI
+			const rosterData = {
+				version: new Date().toISOString().split('T')[0].replace(/-/g, '.'),
+				lastUpdated: lastUpdated,
+				members: members
+			};
+			getRoster().set(rosterData);
+			return { success: true, devOnly: true };
+		}
+
 		try {
 			const dataDir = join(process.cwd(), 'src', 'lib', 'data');
 			const rosterPath = join(dataDir, 'roster.json');
@@ -253,10 +282,7 @@ export const saveRoster = command(
 				members: members
 			};
 
-			// Bun's native write
 			await Bun.write(rosterPath, JSON.stringify(rosterData, null, 2));
-
-			// Update the query with the new data
 			getRoster().set(rosterData);
 
 			return { success: true };
