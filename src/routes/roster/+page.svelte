@@ -1,21 +1,105 @@
 <script lang="ts">
 	import RosterTable from '$lib/components/Roster.svelte';
-	import type { PageData } from './$types';
-	import { onMount } from 'svelte';
-	import { invalidateAll } from '$app/navigation';
+	import { onMount, tick } from 'svelte';
+	import { getRoster, checkForUpdates, applyUpdate, saveRoster } from './data.remote';
+	import type { RosterMember } from '$lib/types/roster';
 
-	let { data }: { data: PageData } = $props();
-	let roster = $state(data.members);
-	let lastUpdated = $state(data.lastUpdated);
-	let showUpdateNotification = $state(data.hasUpdate || false);
+	// Call the query - it returns a reactive object
+	const rosterQuery = getRoster();
+
+	// Create bindable state from query result
+	let roster = $state<RosterMember[]>([]);
+	let lastUpdated = $state(0);
+
+	let hasScrolled = $state(false);
+	// Reference to the roster section
+	let rosterSection: HTMLElement | undefined = $state();
+
+	// Sync query data to bindable state
+	$effect(() => {
+		if (rosterQuery.current) {
+			roster = rosterQuery.current.members;
+			lastUpdated = rosterQuery.current.lastUpdated;
+
+			// Scroll to roster when data loads (only once)
+			if (!hasScrolled && rosterSection) {
+				tick().then(() => {
+					rosterSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+					hasScrolled = true;
+				});
+			}
+		}
+	});
+
+	// Auto-save state
+	let isSaving = $state(false);
+	let saveError = $state<string | null>(null);
+
+	// Auto-save when roster actually changes (using derived to detect deep changes)
+	let rosterSnapshot = $derived(JSON.stringify(roster));
+	let previousSnapshot = $state<string | null>(null);
+
+
+	let saveInProgress = false;
+	let queuedSnapshot: string | null = null;
+	async function saveCurrentRoster() {
+		isSaving = true;
+		saveError = null;
+		try {
+			await saveRoster({ members: roster, lastUpdated });
+			console.log('Roster saved successfully');
+			// Show saved indicator briefly
+			setTimeout(() => {
+				isSaving = false;
+				return clearTimeout
+			}, 500);
+		} catch (error) {
+			console.error('Error auto-saving roster:', error);
+			saveError = error instanceof Error ? error.message : 'Failed to save';
+			isSaving = false;
+		} finally {
+			const nextSnapshot = queuedSnapshot;
+			queuedSnapshot = null;
+			if (nextSnapshot && nextSnapshot !== previousSnapshot) {
+				// There were additional changes while saving; save the latest snapshot next.
+				previousSnapshot = nextSnapshot;
+				// Keep saveInProgress true while we start the next save in the queue.
+				saveInProgress = true;
+				void saveCurrentRoster();
+			} else {
+				saveInProgress = false;
+			}
+		}
+	}
+
+	$effect(() => {
+		// Track the snapshot
+		const currentSnapshot = rosterSnapshot;
+		// Skip if this is the first run
+		if (previousSnapshot === null) {
+			previousSnapshot = currentSnapshot;
+			return;
+		}
+		// Skip if data hasn't changed
+		if (previousSnapshot === currentSnapshot) {
+			return;
+		}
+		// Data has changed
+		if (saveInProgress) {
+			// A save is already in progress; queue the latest snapshot to be saved next.
+			queuedSnapshot = currentSnapshot;
+			return;
+		}
+		// No save in progress; start one immediately.
+		previousSnapshot = currentSnapshot;
+		saveInProgress = true;
+		saveCurrentRoster();
+	})
+
+	let showUpdateNotification = $state(false);
 	let isUpdating = $state(false);
 	let updateError = $state<string | null>(null);
-
-	// Watch for changes in data and update local state
-	$effect(() => {
-		roster = data.members;
-		lastUpdated = data.lastUpdated;
-	});
+	let updateData = $state<any>(null);
 
 	function formatDate(timestamp: number): string {
 		if (!timestamp) return 'Never';
@@ -29,28 +113,15 @@
 		});
 	}
 
-	async function applyUpdate() {
+	async function handleApplyUpdate() {
 		isUpdating = true;
 		updateError = null;
 
 		try {
-			const response = await fetch('/roster/api/update', {
-				method: 'POST'
-			});
-
-			if (!response.ok) {
-				const text = await response.text();
-				console.error('Server error:', text);
-				updateError = `Server error: ${response.status} ${response.statusText}`;
-				return;
-			}
-
-			const result = await response.json();
+			// This will refresh rosterQuery automatically
+			const result = await applyUpdate().updates(rosterQuery);
 
 			if (result.success) {
-				// Reload the page data to get the updated roster
-				await invalidateAll();
-
 				showUpdateNotification = false;
 				alert(
 					`Roster updated successfully!\n\n` +
@@ -60,8 +131,6 @@
 					`• Historical snapshot saved to src/lib/data/rosters/\n\n` +
 					`You can now commit and push the changes to GitHub!`
 				);
-			} else {
-				updateError = result.error || 'Failed to update roster';
 			}
 		} catch (error) {
 			console.error('Error applying update:', error);
@@ -70,22 +139,43 @@
 			isUpdating = false;
 		}
 	}
+	const updateChecker = (async () => {
+		try {
+			const result = await checkForUpdates();
+			if (result.hasUpdate) {
+				showUpdateNotification = true;
+				updateData = result;
+			}
+		} catch (error) {
+			console.error('Error checking for updates:', error);
+		}
+	})
 
-	// Check for updates periodically (every 5 minutes)
+	// Check for updates periodically
 	onMount(() => {
+		// Check immediately on mount
+		updateChecker();
+
+		// Scroll to roster when the component mounts (only once)
+		if (!hasScrolled) {
+			tick().then(() => {
+				rosterSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				hasScrolled = true;
+			});
+		}
+
+		// Then check every 5 minutes
 		const interval = setInterval(async () => {
 			try {
-				const response = await fetch('/roster/api/update');
-				const result = await response.json();
+				const result = await checkForUpdates();
 				if (result.hasUpdate) {
 					showUpdateNotification = true;
-					data.luaData = result.luaData;
-					data.luaLastUpdated = result.luaLastUpdated;
+					updateData = result;
 				}
 			} catch (error) {
 				console.error('Error checking for updates:', error);
 			}
-		}, 5 * 60 * 1000); // 5 minutes
+		}, 5 * 60 * 1000);
 
 		return () => clearInterval(interval);
 	});
@@ -94,6 +184,19 @@
 <svelte:head>
 	<title>Guild Roster - The Hive Mind</title>
 </svelte:head>
+
+<!-- Save indicator -->
+{#if isSaving}
+	<div class="fixed right-4 top-4 z-50 rounded-lg bg-blue-900/90 px-4 py-2 text-sm text-blue-100 shadow-lg">
+		💾 Saving...
+	</div>
+{/if}
+
+{#if saveError}
+	<div class="fixed right-4 top-4 z-50 rounded-lg bg-red-900/90 px-4 py-2 text-sm text-red-100 shadow-lg">
+		❌ Save failed: {saveError}
+	</div>
+{/if}
 
 {#if showUpdateNotification}
 	<div class="mb-4 rounded-lg border-2 border-green-500 bg-green-900/30 p-4 shadow-lg">
@@ -118,13 +221,13 @@
 					<h3 class="text-lg font-semibold text-green-100">Roster Update Available!</h3>
 					<p class="text-sm text-green-200">
 						New data detected in GuildRosterExport.lua (last activity:{' '}
-						{data.luaLastUpdated ? formatDate(data.luaLastUpdated) : 'Unknown'})
+						{updateData?.luaLastUpdated ? formatDate(updateData.luaLastUpdated) : 'Unknown'})
 					</p>
 				</div>
 			</div>
 			<div class="flex gap-2">
 				<button
-					onclick={applyUpdate}
+					onclick={handleApplyUpdate}
 					disabled={isUpdating}
 					class="rounded bg-green-600 px-4 py-2 text-sm font-semibold text-white hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-50"
 				>
@@ -146,20 +249,36 @@
 	</div>
 {/if}
 
-<section class="mb-8">
-	<h1 class="mb-2 text-center text-3xl font-bold text-gray-100">Guild Roster</h1>
-	<div class="flex justify-center gap-4 text-sm text-gray-400">
-		<p>Total Members: <span class="font-semibold text-gray-300">{roster.length}</span></p>
-		<span class="text-gray-600">•</span>
-		<p>
-			Last Updated: <span class="font-semibold text-gray-300">{formatDate(lastUpdated)}</span>
-		</p>
+{#if rosterQuery.error}
+	<div class="rounded-lg border-2 border-red-500 bg-red-900/30 p-6 text-center">
+		<p class="mb-4 text-red-300">Failed to load roster: {rosterQuery.error.message}</p>
+		<button onclick={() => rosterQuery.refresh()} class="rounded bg-red-600 px-4 py-2 text-white hover:bg-red-700">
+			Try Again
+		</button>
 	</div>
-</section>
+{:else if rosterQuery.loading}
+	<div class="flex items-center justify-center py-24">
+		<div class="text-center">
+			<div class="mb-4 text-gray-400">Loading roster...</div>
+			<div class="h-8 w-8 animate-spin rounded-full border-4 border-gray-600 border-t-blue-500"></div>
+		</div>
+	</div>
+{:else}
+	<section class="mb-8" bind:this={rosterSection}>
+		<h1 class="mb-2 text-center text-3xl font-bold text-gray-100">Guild Roster</h1>
+		<div class="flex justify-center gap-4 text-sm text-gray-400">
+			<p>Total Members: <span class="font-semibold text-gray-300">{roster.length}</span></p>
+			<span class="text-gray-600">•</span>
+			<p>
+				Last Updated: <span class="font-semibold text-gray-300">{formatDate(lastUpdated)}</span>
+			</p>
+		</div>
+	</section>
 
-<section class="mb-8">
-	<RosterTable bind:roster={roster} bind:lastUpdated={lastUpdated} />
-</section>
+	<section class="mb-8">
+		<RosterTable bind:roster={roster} bind:lastUpdated={lastUpdated} />
+	</section>
+{/if}
 
 <section class="mt-8 text-center">
 	<p class="text-xs text-gray-500">
