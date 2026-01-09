@@ -1,8 +1,6 @@
 <script lang="ts">
 	import {
 		WOW_SPECS,
-		ROLE_COLORS,
-		ROLE_ICONS,
 		getRoleForSpec,
 		getSpecIcon,
 		getClassIcon,
@@ -19,14 +17,23 @@
 	import { SvelteMap } from 'svelte/reactivity';
 	import { dev } from '$app/environment';
 	import { onMount } from 'svelte';
+	import SpecSelector from './SpecSelector.svelte';
+	import RoleDisplay from './RoleDisplay.svelte';
 
 	let {
 		roster = $bindable([]),
-		lastUpdated = $bindable(0)
+		lastUpdated = $bindable(0),
+		isTyping = $bindable(false),
+		applyRaiderIOData = (() => {})
 	}: {
 		roster: RosterMember[];
 		lastUpdated: number;
+		isTyping: boolean;
+		applyRaiderIOData: () => void;
 	} = $props();
+
+	let typingTimer: ReturnType<typeof setTimeout> | null = null;
+		const TYPING_TIMEOUT = 1000; // Consider user stopped typing after 1 second
 
 	// Column configuration
 	interface ColumnConfig {
@@ -49,8 +56,15 @@
 		{ key: 'zone', label: 'Zone', visible: false, sortable: true },
 		{ key: 'achievementPoints', label: 'Achievement Points', visible: false, sortable: true },
 		{ key: 'daysOffline', label: 'Days Offline', visible: false, sortable: true },
-		{ key: 'realmName', label: 'Realm', visible: false, sortable: true }
+		{ key: 'realmName', label: 'Realm', visible: false, sortable: true },
+		// Raider.IO columns
+		{ key: 'rioMythicPlusScore', label: 'M+ Score', visible: false, sortable: true },
+		{ key: 'rioRaidProgress', label: 'Raid Progress', visible: false, sortable: true },
+		{ key: 'rioLastCrawled', label: 'RIO Last Crawled', visible: false, sortable: true }
 	];
+
+
+
 
 	// Loading state to prevent flash
 	let columnsLoaded = $state(false);
@@ -64,6 +78,7 @@
 			const saved = localStorage.getItem('roster-columns');
 			if (saved) {
 				const savedConfig = JSON.parse(saved);
+				// Merge saved config with defaults (to handle new columns being added)
 				return defaultColumns.map(col => {
 					const savedCol = savedConfig.find((c: ColumnConfig) => c.key === col.key);
 					return savedCol ? { ...col, visible: savedCol.visible } : col;
@@ -74,6 +89,7 @@
 		}
 		return defaultColumns;
 	}
+
 
 	function saveColumnConfig(config: ColumnConfig[]) {
 		if (typeof window === 'undefined') return;
@@ -357,8 +373,16 @@
 		}
 	}
 
-	function onNoteChange(member: RosterMember, note: string) {
-		member.note = note;
+	function onNoteChange() {
+	  isTyping = true
+   	if (typingTimer) {
+    		clearTimeout(typingTimer);
+   	}
+
+	// Set a new timer to detect when user stops typing
+	typingTimer = setTimeout(() => {
+			isTyping = false;
+	}, TYPING_TIMEOUT);
 	}
 
 	function copyToClipboard() {
@@ -500,6 +524,12 @@
       		>
      			{showMergePanel ? 'Hide' : 'Merge From JSON'}
       		</button>
+            <button
+     			onclick={() => (applyRaiderIOData())}
+     			class="rounded bg-yellow-600 px-4 py-2 text-sm font-semibold text-white hover:bg-yellow-700"
+      		>
+     			Fetch & Merge Raider.IO Guild Data
+      		</button>
     </div>
     {#if mergePreview}
     	<MergePreview
@@ -594,8 +624,24 @@
 					<tr class="border-b border-gray-700 hover:bg-gray-700/30">
 						{#each visibleColumns as column (column.key)}
 							<td class="whitespace-nowrap px-4 py-3">
-								{#if column.key === 'name'}
-									<span class="font-medium" style="color: {classColor}">{member.name}</span>
+							{#if column.key === 'name'}
+								{#if member.rioProfileUrl}
+									<a
+										data-sveltekit-reload
+										href={member.rioProfileUrl}
+										target="_blank"
+										rel="noopener noreferrer"
+										class="font-medium hover:underline"
+										style="color: {classColor}"
+									>
+										{member.name}
+									</a>
+								{:else}
+									<span class="font-medium" style="color: {classColor}">
+										{member.name}
+									</span>
+								{/if}
+
 								{:else if column.key === 'level'}
 									<span class="text-gray-300">{member.level}</span>
 								{:else if column.key === 'class'}
@@ -607,23 +653,12 @@
 									</div>
 								{:else if column.key === 'mainSpec'}
 									{#if dev}
-										<div class="flex items-center gap-2">
-											{#if specIcon}
-												<img src={specIcon} alt={member.mainSpec} class="h-5 w-5 rounded" />
-											{/if}
-											<select
-												value={member.mainSpec || ''}
-												onchange={(e) => onSpecChange(member, e.currentTarget.value)}
-												class="min-w-30 w-full rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-200 focus:border-blue-500 focus:outline-none"
-											>
-												{#if !member.mainSpec}
-													<option value="">Select Spec</option>
-												{/if}
-												{#each specs as spec (spec.name)}
-													<option value={spec.name}>{spec.name}</option>
-												{/each}
-											</select>
-										</div>
+									<SpecSelector
+										bind:value={member.mainSpec}
+										{specs}
+										classFileName={member.classFileName}
+										onChange={(spec: string) => onSpecChange(member, spec)}
+									/>
 									{:else if member.mainSpec}
 										<div class="flex items-center gap-2">
 											{#if specIcon}
@@ -635,26 +670,15 @@
 										<span class="text-gray-500">Not set</span>
 									{/if}
 								{:else if column.key === 'mainRole'}
-									{#if member.mainRole}
-										<div class="flex items-center gap-2">
-											<img
-												src={ROLE_ICONS[member.mainRole]}
-												alt={member.mainRole}
-												class="h-5 w-5"
-											/>
-											<span class="{ROLE_COLORS[member.mainRole]} text-sm">{member.mainRole}</span>
-										</div>
-									{:else}
-										<span class="text-sm text-gray-500">-</span>
-									{/if}
+								    <RoleDisplay role={member.mainRole} />
 								{:else if column.key === 'rankName'}
 									<span class="text-gray-300">{member.rankName}</span>
 								{:else if column.key === 'note'}
 									{#if dev}
 										<input
 											type="text"
-											value={member.note}
-											oninput={(e) => onNoteChange(member, e.currentTarget.value)}
+											bind:value={member.note}
+											oninput={() => onNoteChange()}
 											placeholder="Add note..."
 											class="min-w-32 w-full rounded border border-gray-600 bg-gray-700 px-2 py-1 text-xs text-gray-300 placeholder-gray-500 focus:border-blue-500 focus:outline-none"
 										/>
@@ -672,11 +696,29 @@
 									<span class="text-xs {days === 0 ? 'text-green-400' : days < 7 ? 'text-blue-400' : days < 30 ? 'text-yellow-400' : 'text-red-400'}">
 										{days === 0 ? 'Online' : `${days} days`}
 									</span>
-								{:else if column.key === 'realmName'}
-									<span class="text-xs text-gray-400">{member.realmName}</span>
-								{:else}
-									<span class="text-xs text-gray-400">{getCellValue(member, column.key) || '-'}</span>
-								{/if}
+									{:else if column.key === 'realmName'}
+										<span class="text-xs text-gray-400">{member.realmName}</span>
+
+									{:else if column.key === 'rioMythicPlusScore'}
+										{#if member.rioMythicPlusScore}
+											<span class="text-xs font-semibold text-purple-400">{member.rioMythicPlusScore.toFixed(1)}</span>
+										{:else}
+											<span class="text-xs text-gray-500">-</span>
+										{/if}
+									{:else if column.key === 'rioRaidProgress'}
+										<span class="text-xs text-gray-300">{member.rioRaidProgress || '-'}</span>
+									{:else if column.key === 'rioLastCrawled'}
+										{#if member.rioLastCrawled}
+											<span class="text-xs text-gray-400" title={member.rioLastCrawled}>
+												{new Date(member.rioLastCrawled).toLocaleDateString()}
+											</span>
+										{:else}
+											<span class="text-xs text-gray-500">-</span>
+										{/if}
+									{:else}
+										<span class="text-xs text-gray-400">{getCellValue(member, column.key) || '-'}</span>
+									{/if}
+
 							</td>
 						{/each}
 					</tr>

@@ -103,7 +103,7 @@ export const ROLE_COLORS: Record<Role, string> = {
 
 export const ROLE_ICONS: Record<Role, string> = {
 	Tank: '/roles/Tank_icon.webp',
-	DPS: '/roles/Dps_icon.webp',
+	DPS: '/roles/DPS_icon.webp',
 	Healer: '/roles/Healer_icon.webp'
 };
 

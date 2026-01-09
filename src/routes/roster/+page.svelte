@@ -1,7 +1,7 @@
 <script lang="ts">
 	import RosterTable from '$lib/components/Roster.svelte';
 	import { onMount, tick } from 'svelte';
-	import { getRoster, checkForUpdates, applyUpdate, saveRoster } from './data.remote';
+	import { getRoster, checkForUpdates, applyUpdate, saveRoster,  applyRaiderIOData } from './data.remote';
 	import type { RosterMember } from '$lib/types/roster';
 
 	// Call the query - it returns a reactive object
@@ -10,7 +10,7 @@
 	// Create bindable state from query result
 	let roster = $state<RosterMember[]>([]);
 	let lastUpdated = $state(0);
-
+	let isTyping = $state(false);
 	let hasScrolled = $state(false);
 	// Reference to the roster section
 	let rosterSection: HTMLElement | undefined = $state();
@@ -83,6 +83,9 @@
 		// Skip if data hasn't changed
 		if (previousSnapshot === currentSnapshot) {
 			return;
+		}
+		if(isTyping){
+			return
 		}
 		// Data has changed
 		if (saveInProgress) {
@@ -276,7 +279,7 @@
 	</section>
 
 	<section class="mb-8">
-		<RosterTable bind:roster={roster} bind:lastUpdated={lastUpdated} />
+		<RosterTable bind:roster={roster} bind:lastUpdated={lastUpdated} bind:isTyping={isTyping} {applyRaiderIOData} />
 	</section>
 {/if}
 
