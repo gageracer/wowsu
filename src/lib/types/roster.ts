@@ -17,6 +17,13 @@ export interface RosterMember {
 	realmName: string;
 	mainSpec?: string;
 	mainRole?: Role;
+	// Raider.IO fields
+	rioMythicPlusScore?: number;
+	rioRaidProgress?: string;
+	rioActiveSpecName?: string;
+	rioActiveSpecRole?: string;
+	rioProfileUrl?: string;
+	rioLastCrawled?: string;
 }
 
 export interface RosterData {

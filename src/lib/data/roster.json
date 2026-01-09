@@ -1426,7 +1426,13 @@
       "achievementPoints": 800,
       "achievementRank": 426,
       "lastOnline": 1767286800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Aetherai",
+      "rioLastCrawled": "2025-12-28T06:25:23.000Z"
     },
     {
       "name": "Annenya",
@@ -1442,7 +1448,11 @@
       "achievementPoints": 4815,
       "achievementRank": 346,
       "lastOnline": 1748718000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Annenya",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Boynuzlukiz",
@@ -1458,7 +1468,13 @@
       "achievementPoints": 995,
       "achievementRank": 421,
       "lastOnline": 1722207600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Vengeance",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Vengeance",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Boynuzlukiz",
+      "rioLastCrawled": "2025-06-30T22:55:17.000Z"
     },
     {
       "name": "Braegor",
@@ -1474,7 +1490,13 @@
       "achievementPoints": 350,
       "achievementRank": 461,
       "lastOnline": 1724054400,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Marksmanship",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Marksmanship",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Braegor",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Faureola",
@@ -1490,7 +1512,13 @@
       "achievementPoints": 430,
       "achievementRank": 454,
       "lastOnline": 1722675600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Faureola",
+      "rioLastCrawled": "2025-06-30T22:55:17.000Z"
     },
     {
       "name": "Gødisnowhèrè",
@@ -1506,7 +1534,13 @@
       "achievementPoints": 5930,
       "achievementRank": 317,
       "lastOnline": 1755039600,
-      "realmName": "Turalyon"
+      "realmName": "Turalyon",
+      "mainSpec": "Windwalker",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Windwalker",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Gødisnowhèrè",
+      "rioLastCrawled": "2025-07-27T22:25:17.000Z"
     },
     {
       "name": "Neuroticfish",
@@ -1522,7 +1556,13 @@
       "achievementPoints": 110,
       "achievementRank": 479,
       "lastOnline": 1724605200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Neuroticfish",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Piêtro",
@@ -1538,7 +1578,13 @@
       "achievementPoints": 17420,
       "achievementRank": 114,
       "lastOnline": 1744286400,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Piêtro",
+      "rioLastCrawled": "2025-06-30T22:55:19.000Z"
     },
     {
       "name": "Selamishahin",
@@ -1570,7 +1616,11 @@
       "achievementPoints": 495,
       "achievementRank": 451,
       "lastOnline": 1723320000,
-      "realmName": "BurningLegion"
+      "realmName": "BurningLegion",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/burning-legion/Thuranbar",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Whynoheal",
@@ -1586,7 +1636,13 @@
       "achievementPoints": 15940,
       "achievementRank": 139,
       "lastOnline": 1753884000,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Whynoheal",
+      "rioLastCrawled": "2025-09-20T16:37:56.000Z"
     },
     {
       "name": "Âugir",
@@ -1602,7 +1658,11 @@
       "achievementPoints": 6265,
       "achievementRank": 308,
       "lastOnline": 1764594000,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Âugir",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Clêmêntine",
@@ -1618,7 +1678,13 @@
       "achievementPoints": 17700,
       "achievementRank": 109,
       "lastOnline": 1763226000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Clêmêntine",
+      "rioLastCrawled": "2025-06-30T22:55:19.000Z"
     },
     {
       "name": "Cânyon",
@@ -1634,7 +1700,13 @@
       "achievementPoints": 17500,
       "achievementRank": 113,
       "lastOnline": 1744675200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Cânyon",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Gødisnøwhere",
@@ -1650,7 +1722,13 @@
       "achievementPoints": 5690,
       "achievementRank": 322,
       "lastOnline": 1750521600,
-      "realmName": "Turalyon"
+      "realmName": "Turalyon",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Gødisnøwhere",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Merthewizard",
@@ -1666,7 +1744,13 @@
       "achievementPoints": 4060,
       "achievementRank": 357,
       "lastOnline": 1755212400,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Merthewizard",
+      "rioLastCrawled": "2025-08-10T20:42:34.000Z"
     },
     {
       "name": "Mesah",
@@ -1682,7 +1766,13 @@
       "achievementPoints": 2635,
       "achievementRank": 384,
       "lastOnline": 1761411600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Survival",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Survival",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Mesah",
+      "rioLastCrawled": "2025-11-08T02:51:52.000Z"
     },
     {
       "name": "Simcap",
@@ -1698,7 +1788,13 @@
       "achievementPoints": 25800,
       "achievementRank": 58,
       "lastOnline": 1765080000,
-      "realmName": "Saurfang"
+      "realmName": "Saurfang",
+      "mainSpec": "Subtlety",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Subtlety",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/saurfang/Simcap",
+      "rioLastCrawled": "2025-11-02T06:37:38.000Z"
     },
     {
       "name": "Xutna",
@@ -1730,7 +1826,13 @@
       "achievementPoints": 4815,
       "achievementRank": 345,
       "lastOnline": 1749045600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Youwarlock",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Gnin",
@@ -1746,7 +1848,13 @@
       "achievementPoints": 200,
       "achievementRank": 470,
       "lastOnline": 1736352000,
-      "realmName": "Azuremyst"
+      "realmName": "Azuremyst",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/azuremyst/Gnin",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Yoncalin",
@@ -1764,7 +1872,11 @@
       "lastOnline": 1767006000,
       "realmName": "Doomhammer",
       "mainSpec": "Balance",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Yoncalin",
+      "rioLastCrawled": "2026-01-09T06:02:05.000Z"
     },
     {
       "name": "Aristâlos",
@@ -1780,7 +1892,13 @@
       "achievementPoints": 17785,
       "achievementRank": 102,
       "lastOnline": 1763578800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Aristâlos",
+      "rioLastCrawled": "2025-06-30T22:55:18.000Z"
     },
     {
       "name": "Hopelien",
@@ -1796,7 +1914,13 @@
       "achievementPoints": 25920,
       "achievementRank": 56,
       "lastOnline": 1765076400,
-      "realmName": "Saurfang"
+      "realmName": "Saurfang",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/saurfang/Hopelien",
+      "rioLastCrawled": "2025-11-02T06:37:21.000Z"
     },
     {
       "name": "Soulharvster",
@@ -1812,7 +1936,13 @@
       "achievementPoints": 1160,
       "achievementRank": 416,
       "lastOnline": 1755154800,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Fire",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fire",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Soulharvster",
+      "rioLastCrawled": "2025-08-26T01:31:06.000Z"
     },
     {
       "name": "Dalerian",
@@ -1828,7 +1958,13 @@
       "achievementPoints": 6165,
       "achievementRank": 312,
       "lastOnline": 1753336800,
-      "realmName": "Darkspear"
+      "realmName": "Darkspear",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/darkspear/Dalerian",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Âthénâ",
@@ -1860,7 +1996,13 @@
       "achievementPoints": 5945,
       "achievementRank": 316,
       "lastOnline": 1756350000,
-      "realmName": "Turalyon"
+      "realmName": "Turalyon",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Gødisnowherè",
+      "rioLastCrawled": "2025-07-09T09:39:22.000Z"
     },
     {
       "name": "Nyhterr",
@@ -1876,7 +2018,13 @@
       "achievementPoints": 1265,
       "achievementRank": 413,
       "lastOnline": 1758142800,
-      "realmName": "Turalyon"
+      "realmName": "Turalyon",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Nyhterr",
+      "rioLastCrawled": "2025-09-18T05:18:31.000Z"
     },
     {
       "name": "Iro",
@@ -1892,7 +2040,13 @@
       "achievementPoints": 12640,
       "achievementRank": 190,
       "lastOnline": 1762596000,
-      "realmName": "Azuremyst"
+      "realmName": "Azuremyst",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/azuremyst/Iro",
+      "rioLastCrawled": "2025-06-30T22:55:19.000Z"
     },
     {
       "name": "Abramerlin",
@@ -1910,7 +2064,11 @@
       "lastOnline": 1767337200,
       "realmName": "Sylvanas",
       "mainSpec": "Fire",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/sylvanas/Abramerlin",
+      "rioLastCrawled": "2026-01-09T06:02:16.000Z"
     },
     {
       "name": "Acer",
@@ -1926,7 +2084,11 @@
       "achievementPoints": 7925,
       "achievementRank": 278,
       "lastOnline": 1767884400,
-      "realmName": "Dunemaul"
+      "realmName": "Dunemaul",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/dunemaul/Acer",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Acerhizm",
@@ -1962,7 +2124,11 @@
       "lastOnline": 1767362400,
       "realmName": "TwistingNether",
       "mainSpec": "Protection",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Agna",
+      "rioLastCrawled": "2026-01-09T06:02:18.000Z"
     },
     {
       "name": "Ahuramazda",
@@ -1980,7 +2146,11 @@
       "lastOnline": 1767816000,
       "realmName": "Auchindoun",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Ahuramazda",
+      "rioLastCrawled": "2026-01-09T06:02:08.000Z"
     },
     {
       "name": "Aimmiss",
@@ -1996,7 +2166,13 @@
       "achievementPoints": 17930,
       "achievementRank": 99,
       "lastOnline": 1763557200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Aimmiss",
+      "rioLastCrawled": "2025-11-21T05:10:25.000Z"
     },
     {
       "name": "Akrepnalan",
@@ -2012,7 +2188,13 @@
       "achievementPoints": 13515,
       "achievementRank": 177,
       "lastOnline": 1765695600,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Feral",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Feral",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Akrepnalan",
+      "rioLastCrawled": "2025-12-28T06:25:29.000Z"
     },
     {
       "name": "Aksakall",
@@ -2030,7 +2212,11 @@
       "lastOnline": 1767794400,
       "realmName": "Silvermoon",
       "mainSpec": "Assassination",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Outlaw",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Aksakall",
+      "rioLastCrawled": "2025-12-28T06:25:24.000Z"
     },
     {
       "name": "Alvôr",
@@ -2046,7 +2232,13 @@
       "achievementPoints": 1975,
       "achievementRank": 398,
       "lastOnline": 1764619200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Arms",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arms",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Alvôr",
+      "rioLastCrawled": "2025-09-04T03:24:52.000Z"
     },
     {
       "name": "Angrif",
@@ -2062,7 +2254,13 @@
       "achievementPoints": 16280,
       "achievementRank": 133,
       "lastOnline": 1762282800,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Angrif",
+      "rioLastCrawled": "2025-11-21T05:10:25.000Z"
     },
     {
       "name": "Arkacy",
@@ -2078,7 +2276,13 @@
       "achievementPoints": 1200,
       "achievementRank": 415,
       "lastOnline": 1738609200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Arkacy",
+      "rioLastCrawled": "2025-08-16T01:08:11.000Z"
     },
     {
       "name": "Arslana",
@@ -2094,7 +2298,13 @@
       "achievementPoints": 9970,
       "achievementRank": 250,
       "lastOnline": 1761555600,
-      "realmName": "BurningLegion"
+      "realmName": "BurningLegion",
+      "mainSpec": "Arcane",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arcane",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/burning-legion/Arslana",
+      "rioLastCrawled": "2025-11-18T12:30:25.000Z"
     },
     {
       "name": "Arslans",
@@ -2110,7 +2320,13 @@
       "achievementPoints": 9950,
       "achievementRank": 252,
       "lastOnline": 1759741200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Enhancement",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Arslans",
+      "rioLastCrawled": "2025-11-18T12:30:24.000Z"
     },
     {
       "name": "Arthel",
@@ -2126,7 +2342,13 @@
       "achievementPoints": 17860,
       "achievementRank": 101,
       "lastOnline": 1741806000,
-      "realmName": "Sylvanas"
+      "realmName": "Sylvanas",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/sylvanas/Arthel",
+      "rioLastCrawled": "2025-06-30T22:55:23.000Z"
     },
     {
       "name": "Asley",
@@ -2142,7 +2364,13 @@
       "achievementPoints": 11885,
       "achievementRank": 211,
       "lastOnline": 1767722400,
-      "realmName": "Auchindoun"
+      "realmName": "Auchindoun",
+      "mainSpec": "Arcane",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arcane",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Asley",
+      "rioLastCrawled": "2026-01-09T06:02:05.000Z"
     },
     {
       "name": "Atessultan",
@@ -2160,7 +2388,11 @@
       "lastOnline": 1767823200,
       "realmName": "Silvermoon",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Atessultan",
+      "rioLastCrawled": "2025-05-31T19:21:28.000Z"
     },
     {
       "name": "Badem",
@@ -2176,7 +2408,13 @@
       "achievementPoints": 11885,
       "achievementRank": 212,
       "lastOnline": 1767704400,
-      "realmName": "Auchindoun"
+      "realmName": "Auchindoun",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Badem",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Badiekrem",
@@ -2192,7 +2430,13 @@
       "achievementPoints": 12950,
       "achievementRank": 187,
       "lastOnline": 1762750800,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Windwalker",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Windwalker",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Badiekrem",
+      "rioLastCrawled": "2025-11-12T17:57:33.000Z"
     },
     {
       "name": "Balkiz",
@@ -2208,7 +2452,13 @@
       "achievementPoints": 11705,
       "achievementRank": 221,
       "lastOnline": 1761750000,
-      "realmName": "Frostwolf"
+      "realmName": "Frostwolf",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/frostwolf/Balkiz",
+      "rioLastCrawled": "2025-11-21T05:10:26.000Z"
     },
     {
       "name": "Banshra",
@@ -2224,7 +2474,13 @@
       "achievementPoints": 17700,
       "achievementRank": 110,
       "lastOnline": 1763226000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Banshra",
+      "rioLastCrawled": "2025-11-28T07:51:44.000Z"
     },
     {
       "name": "Barzodmg",
@@ -2242,7 +2498,11 @@
       "lastOnline": 1767913200,
       "realmName": "Silvermoon",
       "mainSpec": "Arms",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Barzodmg",
+      "rioLastCrawled": "2026-01-03T15:11:36.000Z"
     },
     {
       "name": "Baycofe",
@@ -2258,7 +2518,13 @@
       "achievementPoints": 23690,
       "achievementRank": 69,
       "lastOnline": 1766084400,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Baycofe",
+      "rioLastCrawled": "2025-12-28T06:25:28.000Z"
     },
     {
       "name": "Bgunz",
@@ -2274,7 +2540,13 @@
       "achievementPoints": 480,
       "achievementRank": 452,
       "lastOnline": 1765821600,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Marksmanship",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Marksmanship",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Bgunz",
+      "rioLastCrawled": "2025-12-13T13:29:25.000Z"
     },
     {
       "name": "Brutaldemonn",
@@ -2290,7 +2562,13 @@
       "achievementPoints": 8315,
       "achievementRank": 265,
       "lastOnline": 1765980000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Fire",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fire",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Brutaldemonn",
+      "rioLastCrawled": "2025-12-28T13:27:37.000Z"
     },
     {
       "name": "Bubobubo",
@@ -2308,7 +2586,11 @@
       "lastOnline": 1767902400,
       "realmName": "Silvermoon",
       "mainSpec": "Balance",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Bubobubo",
+      "rioLastCrawled": "2026-01-04T19:06:53.000Z"
     },
     {
       "name": "Bughantar",
@@ -2324,7 +2606,13 @@
       "achievementPoints": 14675,
       "achievementRank": 155,
       "lastOnline": 1758949200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Bughantar",
+      "rioLastCrawled": "2025-11-07T22:55:28.000Z"
     },
     {
       "name": "Bunekadar",
@@ -2340,7 +2628,13 @@
       "achievementPoints": 27850,
       "achievementRank": 33,
       "lastOnline": 1767837600,
-      "realmName": "Saurfang"
+      "realmName": "Saurfang",
+      "mainSpec": "Enhancement",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/saurfang/Bunekadar",
+      "rioLastCrawled": "2025-11-02T06:37:43.000Z"
     },
     {
       "name": "Busshranger",
@@ -2356,7 +2650,13 @@
       "achievementPoints": 1280,
       "achievementRank": 412,
       "lastOnline": 1755230400,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Busshranger",
+      "rioLastCrawled": "2025-11-12T07:25:33.000Z"
     },
     {
       "name": "Caciklover",
@@ -2372,7 +2672,13 @@
       "achievementPoints": 2235,
       "achievementRank": 393,
       "lastOnline": 1761112800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Feral",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Feral",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Caciklover",
+      "rioLastCrawled": "2025-11-13T06:51:36.000Z"
     },
     {
       "name": "Calibân",
@@ -2388,7 +2694,13 @@
       "achievementPoints": 17650,
       "achievementRank": 111,
       "lastOnline": 1762185600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Calibân",
+      "rioLastCrawled": "2025-12-04T10:56:55.000Z"
     },
     {
       "name": "Casdh",
@@ -2406,7 +2718,11 @@
       "lastOnline": 1767909600,
       "realmName": "TwistingNether",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Vengeance",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Casdh",
+      "rioLastCrawled": "2026-01-08T20:42:34.000Z"
     },
     {
       "name": "Cezzar",
@@ -2440,7 +2756,13 @@
       "achievementPoints": 17295,
       "achievementRank": 117,
       "lastOnline": 1767632400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Chekox",
+      "rioLastCrawled": "2025-09-25T12:00:21.000Z"
     },
     {
       "name": "Chitâ",
@@ -2456,7 +2778,13 @@
       "achievementPoints": 29640,
       "achievementRank": 13,
       "lastOnline": 1767531600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Chitâ",
+      "rioLastCrawled": "2026-01-09T06:02:17.000Z"
     },
     {
       "name": "Chocopanda",
@@ -2488,7 +2816,13 @@
       "achievementPoints": 5015,
       "achievementRank": 336,
       "lastOnline": 1755201600,
-      "realmName": "Turalyon"
+      "realmName": "Turalyon",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Chunkyboy",
+      "rioLastCrawled": "2025-11-19T13:30:06.000Z"
     },
     {
       "name": "Civcivl",
@@ -2504,7 +2838,13 @@
       "achievementPoints": 2720,
       "achievementRank": 382,
       "lastOnline": 1761724800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Civcivl",
+      "rioLastCrawled": "2025-11-21T05:10:27.000Z"
     },
     {
       "name": "Cizgi",
@@ -2536,7 +2876,13 @@
       "achievementPoints": 8255,
       "achievementRank": 270,
       "lastOnline": 1767250800,
-      "realmName": "Draenor"
+      "realmName": "Draenor",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/draenor/Coritø",
+      "rioLastCrawled": "2026-01-09T06:02:05.000Z"
     },
     {
       "name": "Corpsy",
@@ -2552,7 +2898,13 @@
       "achievementPoints": 25800,
       "achievementRank": 57,
       "lastOnline": 1765191600,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Mistweaver",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Mistweaver",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Corpsy",
+      "rioLastCrawled": "2025-12-28T06:25:23.000Z"
     },
     {
       "name": "Cotocku",
@@ -2568,7 +2920,13 @@
       "achievementPoints": 10305,
       "achievementRank": 248,
       "lastOnline": 1757322000,
-      "realmName": "Ravencrest"
+      "realmName": "Ravencrest",
+      "mainSpec": "Arcane",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arcane",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Cotocku",
+      "rioLastCrawled": "2025-11-07T22:55:28.000Z"
     },
     {
       "name": "Cutietale",
@@ -2602,7 +2960,11 @@
       "lastOnline": 1767819600,
       "realmName": "Executus",
       "mainSpec": "Protection",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Cücekartal",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Defnes",
@@ -2634,7 +2996,13 @@
       "achievementPoints": 7285,
       "achievementRank": 295,
       "lastOnline": 1753833600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Subtlety",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Subtlety",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Defnos",
+      "rioLastCrawled": "2025-08-16T01:08:13.000Z"
     },
     {
       "name": "Degisik",
@@ -2650,7 +3018,11 @@
       "achievementPoints": 4085,
       "achievementRank": 356,
       "lastOnline": 1767747600,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Degisik",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Dephne",
@@ -2666,7 +3038,13 @@
       "achievementPoints": 7665,
       "achievementRank": 287,
       "lastOnline": 1764716400,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Dephne",
+      "rioLastCrawled": "2025-12-06T04:26:17.000Z"
     },
     {
       "name": "Dhali",
@@ -2682,7 +3060,13 @@
       "achievementPoints": 9165,
       "achievementRank": 259,
       "lastOnline": 1764684000,
-      "realmName": "Sylvanas"
+      "realmName": "Sylvanas",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/sylvanas/Dhali",
+      "rioLastCrawled": "2025-12-06T04:26:16.000Z"
     },
     {
       "name": "Diccnight",
@@ -2698,7 +3082,13 @@
       "achievementPoints": 520,
       "achievementRank": 448,
       "lastOnline": 1727758800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Diccnight",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Diri",
@@ -2714,7 +3104,13 @@
       "achievementPoints": 12225,
       "achievementRank": 198,
       "lastOnline": 1746122400,
-      "realmName": "Azuremyst"
+      "realmName": "Azuremyst",
+      "mainSpec": "Windwalker",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Windwalker",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/azuremyst/Diri",
+      "rioLastCrawled": "2025-06-30T22:55:19.000Z"
     },
     {
       "name": "Ditos",
@@ -2730,7 +3126,13 @@
       "achievementPoints": 9490,
       "achievementRank": 258,
       "lastOnline": 1750611600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Outlaw",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Outlaw",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Ditos",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Ditosum",
@@ -2746,7 +3148,13 @@
       "achievementPoints": 9970,
       "achievementRank": 251,
       "lastOnline": 1761656400,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Ditosum",
+      "rioLastCrawled": "2025-11-07T04:58:14.000Z"
     },
     {
       "name": "Divoxis",
@@ -2762,7 +3170,13 @@
       "achievementPoints": 3115,
       "achievementRank": 370,
       "lastOnline": 1767034800,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Divoxis",
+      "rioLastCrawled": "2025-12-28T06:25:23.000Z"
     },
     {
       "name": "Drast",
@@ -2794,7 +3208,13 @@
       "achievementPoints": 675,
       "achievementRank": 435,
       "lastOnline": 1734534000,
-      "realmName": "Frostmane"
+      "realmName": "Frostmane",
+      "mainSpec": "Blood",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Blood",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/frostmane/Drastic",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Dustox",
@@ -2810,7 +3230,13 @@
       "achievementPoints": 4620,
       "achievementRank": 349,
       "lastOnline": 1741834800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Dustox",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Dzemko",
@@ -2826,7 +3252,13 @@
       "achievementPoints": 11050,
       "achievementRank": 242,
       "lastOnline": 1744466400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Unholy",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Unholy",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Dzemko",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Dârkknight",
@@ -2844,7 +3276,11 @@
       "lastOnline": 1767898800,
       "realmName": "Silvermoon",
       "mainSpec": "Blood",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Blood",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Dârkknight",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Dên",
@@ -2860,7 +3296,13 @@
       "achievementPoints": 15625,
       "achievementRank": 145,
       "lastOnline": 1748127600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Discipline",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Dên",
+      "rioLastCrawled": "2025-06-30T22:55:18.000Z"
     },
     {
       "name": "Ebsi",
@@ -2876,7 +3318,13 @@
       "achievementPoints": 11685,
       "achievementRank": 222,
       "lastOnline": 1761300000,
-      "realmName": "Blackhand"
+      "realmName": "Blackhand",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/blackhand/Ebsi",
+      "rioLastCrawled": "2025-10-25T12:29:13.000Z"
     },
     {
       "name": "Ebsii",
@@ -2892,7 +3340,13 @@
       "achievementPoints": 11655,
       "achievementRank": 223,
       "lastOnline": 1759500000,
-      "realmName": "Frostwolf"
+      "realmName": "Frostwolf",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/frostwolf/Ebsii",
+      "rioLastCrawled": "2025-10-25T02:44:01.000Z"
     },
     {
       "name": "Elendur",
@@ -2908,7 +3362,13 @@
       "achievementPoints": 12115,
       "achievementRank": 201,
       "lastOnline": 1764921600,
-      "realmName": "Sylvanas"
+      "realmName": "Sylvanas",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/sylvanas/Elendur",
+      "rioLastCrawled": "2025-12-24T14:34:07.000Z"
     },
     {
       "name": "Elmoinista",
@@ -2924,7 +3384,13 @@
       "achievementPoints": 25485,
       "achievementRank": 60,
       "lastOnline": 1740553200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Elmoinista",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Eloss",
@@ -2940,7 +3406,13 @@
       "achievementPoints": 4825,
       "achievementRank": 342,
       "lastOnline": 1759734000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Eloss",
+      "rioLastCrawled": "2025-11-10T08:43:22.000Z"
     },
     {
       "name": "Elphida",
@@ -2958,7 +3430,11 @@
       "lastOnline": 1767535200,
       "realmName": "Executus",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Elphida",
+      "rioLastCrawled": "2026-01-09T06:02:12.000Z"
     },
     {
       "name": "Elthariela",
@@ -2974,7 +3450,13 @@
       "achievementPoints": 11705,
       "achievementRank": 220,
       "lastOnline": 1767283200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Arcane",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arcane",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Elthariela",
+      "rioLastCrawled": "2025-12-28T06:25:28.000Z"
     },
     {
       "name": "Elunelord",
@@ -2990,7 +3472,13 @@
       "achievementPoints": 12355,
       "achievementRank": 194,
       "lastOnline": 1750885200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Elunelord",
+      "rioLastCrawled": "2025-07-27T22:25:17.000Z"
     },
     {
       "name": "Ennyssa",
@@ -3022,7 +3510,13 @@
       "achievementPoints": 12535,
       "achievementRank": 192,
       "lastOnline": 1759226400,
-      "realmName": "Azuremyst"
+      "realmName": "Azuremyst",
+      "mainSpec": "Elemental",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/azuremyst/Ernei",
+      "rioLastCrawled": "2025-11-12T17:57:32.000Z"
     },
     {
       "name": "Estela",
@@ -3038,7 +3532,13 @@
       "achievementPoints": 6830,
       "achievementRank": 301,
       "lastOnline": 1749898800,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Estela",
+      "rioLastCrawled": "2025-12-24T14:34:06.000Z"
     },
     {
       "name": "Fackfury",
@@ -3054,7 +3554,11 @@
       "achievementPoints": 23780,
       "achievementRank": 67,
       "lastOnline": 1767549600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Fackfury",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Fallencrow",
@@ -3070,7 +3574,13 @@
       "achievementPoints": 11555,
       "achievementRank": 226,
       "lastOnline": 1757163600,
-      "realmName": "Frostmane"
+      "realmName": "Frostmane",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/frostmane/Fallencrow",
+      "rioLastCrawled": "2025-11-12T07:25:33.000Z"
     },
     {
       "name": "Faranir",
@@ -3086,7 +3596,13 @@
       "achievementPoints": 19300,
       "achievementRank": 94,
       "lastOnline": 1760166000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Faranir",
+      "rioLastCrawled": "2025-11-12T07:25:32.000Z"
     },
     {
       "name": "Fateza",
@@ -3136,7 +3652,11 @@
       "lastOnline": 1767866400,
       "realmName": "Doomhammer",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Felhira",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Fener",
@@ -3154,7 +3674,11 @@
       "lastOnline": 1767254400,
       "realmName": "Silvermoon",
       "mainSpec": "Balance",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Fener",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Feârless",
@@ -3172,7 +3696,11 @@
       "lastOnline": 1767819600,
       "realmName": "Silvermoon",
       "mainSpec": "Guardian",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Guardian",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Feârless",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Fkey",
@@ -3188,7 +3716,13 @@
       "achievementPoints": 13995,
       "achievementRank": 172,
       "lastOnline": 1767819600,
-      "realmName": "BurningLegion"
+      "realmName": "BurningLegion",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/burning-legion/Fkey",
+      "rioLastCrawled": "2025-12-14T13:55:51.000Z"
     },
     {
       "name": "Floral",
@@ -3206,7 +3740,11 @@
       "lastOnline": 1767902400,
       "realmName": "TwistingNether",
       "mainSpec": "Balance",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Floral",
+      "rioLastCrawled": "2026-01-09T06:02:16.000Z"
     },
     {
       "name": "Floviana",
@@ -3222,7 +3760,13 @@
       "achievementPoints": 5785,
       "achievementRank": 321,
       "lastOnline": 1759219200,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Subtlety",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Subtlety",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Floviana",
+      "rioLastCrawled": "2025-12-04T10:56:56.000Z"
     },
     {
       "name": "Funghu",
@@ -3238,7 +3782,13 @@
       "achievementPoints": 23780,
       "achievementRank": 66,
       "lastOnline": 1767448800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Mistweaver",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Mistweaver",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Funghu",
+      "rioLastCrawled": "2026-01-09T06:02:18.000Z"
     },
     {
       "name": "Gaffelstein",
@@ -3254,7 +3804,13 @@
       "achievementPoints": 16600,
       "achievementRank": 129,
       "lastOnline": 1748142000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Enhancement",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Gaffelstein",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Ganyotçu",
@@ -3272,7 +3828,11 @@
       "lastOnline": 1767916800,
       "realmName": "Ravencrest",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Ganyotçu",
+      "rioLastCrawled": "2026-01-09T06:02:03.000Z"
     },
     {
       "name": "Gavínrad",
@@ -3306,7 +3866,11 @@
       "lastOnline": 1767520800,
       "realmName": "Silvermoon",
       "mainSpec": "Arcane",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arcane",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Gazozilla",
+      "rioLastCrawled": "2025-12-24T14:34:07.000Z"
     },
     {
       "name": "Gokhanzero",
@@ -3322,7 +3886,13 @@
       "achievementPoints": 9760,
       "achievementRank": 254,
       "lastOnline": 1761638400,
-      "realmName": "Draenor"
+      "realmName": "Draenor",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/draenor/Gokhanzero",
+      "rioLastCrawled": "2025-11-07T04:58:11.000Z"
     },
     {
       "name": "Gokki",
@@ -3338,7 +3908,13 @@
       "achievementPoints": 14000,
       "achievementRank": 171,
       "lastOnline": 1767823200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Gokki",
+      "rioLastCrawled": "2026-01-09T06:02:16.000Z"
     },
     {
       "name": "Goky",
@@ -3356,7 +3932,11 @@
       "lastOnline": 1767801600,
       "realmName": "Ravencrest",
       "mainSpec": "Devastation",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Devastation",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Goky",
+      "rioLastCrawled": "2026-01-09T06:02:08.000Z"
     },
     {
       "name": "Gosros",
@@ -3374,7 +3954,11 @@
       "lastOnline": 1767902400,
       "realmName": "TwistingNether",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Gosros",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Greyox",
@@ -3392,7 +3976,11 @@
       "lastOnline": 1767873600,
       "realmName": "TwistingNether",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Greyox",
+      "rioLastCrawled": "2025-12-28T06:25:23.000Z"
     },
     {
       "name": "Gwareth",
@@ -3408,7 +3996,13 @@
       "achievementPoints": 2310,
       "achievementRank": 389,
       "lastOnline": 1741471200,
-      "realmName": "Ravencrest"
+      "realmName": "Ravencrest",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Gwareth",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Gødisnowhère",
@@ -3424,7 +4018,13 @@
       "achievementPoints": 5945,
       "achievementRank": 315,
       "lastOnline": 1756306800,
-      "realmName": "Turalyon"
+      "realmName": "Turalyon",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Gødisnowhère",
+      "rioLastCrawled": "2025-10-09T10:46:42.000Z"
     },
     {
       "name": "Gøkii",
@@ -3442,7 +4042,11 @@
       "lastOnline": 1767902400,
       "realmName": "TwistingNether",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Gøkii",
+      "rioLastCrawled": "2026-01-09T06:02:08.000Z"
     },
     {
       "name": "Halg",
@@ -3458,7 +4062,13 @@
       "achievementPoints": 2295,
       "achievementRank": 390,
       "lastOnline": 1729101600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Enhancement",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Halg",
+      "rioLastCrawled": "2025-06-30T22:55:18.000Z"
     },
     {
       "name": "Hantaxgaming",
@@ -3474,7 +4084,13 @@
       "achievementPoints": 245,
       "achievementRank": 468,
       "lastOnline": 1734739200,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Windwalker",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Windwalker",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Hantaxgaming",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Hanzome",
@@ -3490,7 +4106,13 @@
       "achievementPoints": 9710,
       "achievementRank": 256,
       "lastOnline": 1760173200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Mistweaver",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Mistweaver",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Hanzome",
+      "rioLastCrawled": "2025-10-25T02:44:40.000Z"
     },
     {
       "name": "Healwho",
@@ -3506,7 +4128,13 @@
       "achievementPoints": 23750,
       "achievementRank": 68,
       "lastOnline": 1766854800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Discipline",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Healwho",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Hippocamp",
@@ -3522,7 +4150,13 @@
       "achievementPoints": 11910,
       "achievementRank": 208,
       "lastOnline": 1767549600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Hippocamp",
+      "rioLastCrawled": "2025-11-28T07:51:38.000Z"
     },
     {
       "name": "Hollywater",
@@ -3538,7 +4172,13 @@
       "achievementPoints": 14195,
       "achievementRank": 164,
       "lastOnline": 1767808800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Hollywater",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Honagger",
@@ -3554,7 +4194,13 @@
       "achievementPoints": 21305,
       "achievementRank": 85,
       "lastOnline": 1767538800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Honagger",
+      "rioLastCrawled": "2025-12-28T06:25:24.000Z"
     },
     {
       "name": "Icitrae",
@@ -3570,7 +4216,13 @@
       "achievementPoints": 17720,
       "achievementRank": 108,
       "lastOnline": 1763557200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Icitrae",
+      "rioLastCrawled": "2025-11-21T05:10:26.000Z"
     },
     {
       "name": "Ilidra",
@@ -3586,7 +4238,13 @@
       "achievementPoints": 10660,
       "achievementRank": 244,
       "lastOnline": 1766685600,
-      "realmName": "Auchindoun"
+      "realmName": "Auchindoun",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Ilidra",
+      "rioLastCrawled": "2025-12-28T06:25:28.000Z"
     },
     {
       "name": "Ilkeru",
@@ -3602,7 +4260,13 @@
       "achievementPoints": 8250,
       "achievementRank": 273,
       "lastOnline": 1767214800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Ilkeru",
+      "rioLastCrawled": "2025-02-11T07:21:03.000Z"
     },
     {
       "name": "Info",
@@ -3618,7 +4282,13 @@
       "achievementPoints": 15610,
       "achievementRank": 146,
       "lastOnline": 1759503600,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Discipline",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Info",
+      "rioLastCrawled": "2025-10-25T02:44:40.000Z"
     },
     {
       "name": "Inspra",
@@ -3636,7 +4306,11 @@
       "lastOnline": 1767538800,
       "realmName": "Silvermoon",
       "mainSpec": "Holy",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Inspra",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Iriak",
@@ -3652,7 +4326,13 @@
       "achievementPoints": 12630,
       "achievementRank": 191,
       "lastOnline": 1761638400,
-      "realmName": "Azuremyst"
+      "realmName": "Azuremyst",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/azuremyst/Iriak",
+      "rioLastCrawled": "2025-11-18T12:30:23.000Z"
     },
     {
       "name": "Isiciumhomi",
@@ -3668,7 +4348,13 @@
       "achievementPoints": 3145,
       "achievementRank": 369,
       "lastOnline": 1763539200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Isiciumhomi",
+      "rioLastCrawled": "2025-11-28T07:51:39.000Z"
     },
     {
       "name": "Isildur",
@@ -3684,7 +4370,13 @@
       "achievementPoints": 12155,
       "achievementRank": 200,
       "lastOnline": 1767330000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Isildur",
+      "rioLastCrawled": "2025-12-13T20:44:50.000Z"
     },
     {
       "name": "Ittifak",
@@ -3700,7 +4392,11 @@
       "achievementPoints": 3090,
       "achievementRank": 371,
       "lastOnline": 1758898800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Ittifak",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Iulubatli",
@@ -3734,7 +4430,11 @@
       "lastOnline": 1765144800,
       "realmName": "Ragnaros",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ragnaros/Jimbodh",
+      "rioLastCrawled": "2025-12-16T08:11:47.000Z"
     },
     {
       "name": "Johonemmi",
@@ -3750,7 +4450,13 @@
       "achievementPoints": 26610,
       "achievementRank": 54,
       "lastOnline": 1767265200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Elemental",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Johonemmi",
+      "rioLastCrawled": "2025-12-06T04:26:23.000Z"
     },
     {
       "name": "Jupperrowzz",
@@ -3766,7 +4472,13 @@
       "achievementPoints": 10755,
       "achievementRank": 243,
       "lastOnline": 1744574400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Jupperrowzz",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Kaanky",
@@ -3782,7 +4494,13 @@
       "achievementPoints": 2680,
       "achievementRank": 383,
       "lastOnline": 1746378000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Vengeance",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Vengeance",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Kaanky",
+      "rioLastCrawled": "2025-06-30T22:55:23.000Z"
     },
     {
       "name": "Kadimkaplan",
@@ -3798,7 +4516,13 @@
       "achievementPoints": 5625,
       "achievementRank": 323,
       "lastOnline": 1745334000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Kadimkaplan",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Kadimmbüyücü",
@@ -3814,7 +4538,13 @@
       "achievementPoints": 6925,
       "achievementRank": 299,
       "lastOnline": 1754521200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Kadimmbüyücü",
+      "rioLastCrawled": "2025-11-18T12:30:24.000Z"
     },
     {
       "name": "Kafkas",
@@ -3830,7 +4560,13 @@
       "achievementPoints": 13445,
       "achievementRank": 180,
       "lastOnline": 1765436400,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Kafkas",
+      "rioLastCrawled": "2022-06-01T19:39:44.000Z"
     },
     {
       "name": "Kahramaniac",
@@ -3862,7 +4598,13 @@
       "achievementPoints": 4825,
       "achievementRank": 341,
       "lastOnline": 1749880800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Vengeance",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Vengeance",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Kalamarsiz",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Kaplanpençe",
@@ -3894,7 +4636,13 @@
       "achievementPoints": 5615,
       "achievementRank": 324,
       "lastOnline": 1743786000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Unholy",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Unholy",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Karakuzgun",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Karpuz",
@@ -3912,7 +4660,11 @@
       "lastOnline": 1767574800,
       "realmName": "Executus",
       "mainSpec": "Outlaw",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Outlaw",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Karpuz",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Kasdeya",
@@ -3928,7 +4680,13 @@
       "achievementPoints": 16210,
       "achievementRank": 135,
       "lastOnline": 1759744800,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Kasdeya",
+      "rioLastCrawled": "2025-11-08T03:30:12.000Z"
     },
     {
       "name": "Kavalkotr",
@@ -3960,7 +4718,11 @@
       "achievementPoints": 20460,
       "achievementRank": 87,
       "lastOnline": 1751140800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Kedhi",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Kediceyhun",
@@ -3976,7 +4738,13 @@
       "achievementPoints": 3015,
       "achievementRank": 375,
       "lastOnline": 1751227200,
-      "realmName": "Lightbringer"
+      "realmName": "Lightbringer",
+      "mainSpec": "Enhancement",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/lightbringer/Kediceyhun",
+      "rioLastCrawled": "2025-07-07T01:41:21.000Z"
     },
     {
       "name": "Kenk",
@@ -3992,7 +4760,13 @@
       "achievementPoints": 1560,
       "achievementRank": 408,
       "lastOnline": 1731891600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Kenk",
+      "rioLastCrawled": "2025-06-30T22:55:17.000Z"
     },
     {
       "name": "Kenken",
@@ -4008,7 +4782,13 @@
       "achievementPoints": 17155,
       "achievementRank": 122,
       "lastOnline": 1745956800,
-      "realmName": "BronzeDragonflight"
+      "realmName": "BronzeDragonflight",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/bronze-dragonflight/Kenken",
+      "rioLastCrawled": "2025-06-30T22:55:19.000Z"
     },
     {
       "name": "Keyf",
@@ -4024,7 +4804,13 @@
       "achievementPoints": 6585,
       "achievementRank": 305,
       "lastOnline": 1765033200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Keyf",
+      "rioLastCrawled": "2025-12-24T14:34:06.000Z"
     },
     {
       "name": "Keyjk",
@@ -4040,7 +4826,13 @@
       "achievementPoints": 6585,
       "achievementRank": 304,
       "lastOnline": 1763157600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Keyjk",
+      "rioLastCrawled": "2025-11-22T22:28:02.000Z"
     },
     {
       "name": "Kharghoul",
@@ -4056,7 +4848,13 @@
       "achievementPoints": 17185,
       "achievementRank": 121,
       "lastOnline": 1767805200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Unholy",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Unholy",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Kharghoul",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Kivanç",
@@ -4072,7 +4870,13 @@
       "achievementPoints": 7680,
       "achievementRank": 282,
       "lastOnline": 1767567600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Blood",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Blood",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Kivanç",
+      "rioLastCrawled": "2025-02-13T20:29:38.000Z"
     },
     {
       "name": "Kleín",
@@ -4088,7 +4892,13 @@
       "achievementPoints": 21245,
       "achievementRank": 86,
       "lastOnline": 1763499600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Kleín",
+      "rioLastCrawled": "2025-11-21T05:10:26.000Z"
     },
     {
       "name": "Koisakk",
@@ -4104,7 +4914,13 @@
       "achievementPoints": 8255,
       "achievementRank": 268,
       "lastOnline": 1767790800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Koisakk",
+      "rioLastCrawled": "2026-01-09T06:02:17.000Z"
     },
     {
       "name": "Krinn",
@@ -4120,7 +4936,13 @@
       "achievementPoints": 27450,
       "achievementRank": 48,
       "lastOnline": 1766865600,
-      "realmName": "Saurfang"
+      "realmName": "Saurfang",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/saurfang/Krinn",
+      "rioLastCrawled": "2025-11-02T06:36:47.000Z"
     },
     {
       "name": "Kurak",
@@ -4136,7 +4958,13 @@
       "achievementPoints": 18020,
       "achievementRank": 98,
       "lastOnline": 1764622800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Kurak",
+      "rioLastCrawled": "2025-12-28T06:25:25.000Z"
     },
     {
       "name": "Kutatkubilik",
@@ -4152,7 +4980,13 @@
       "achievementPoints": 14070,
       "achievementRank": 167,
       "lastOnline": 1767474000,
-      "realmName": "Kazzak"
+      "realmName": "Kazzak",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/kazzak/Kutatkubilik",
+      "rioLastCrawled": "2025-11-07T04:58:13.000Z"
     },
     {
       "name": "Kyelz",
@@ -4168,7 +5002,13 @@
       "achievementPoints": 16905,
       "achievementRank": 127,
       "lastOnline": 1764442800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Kyelz",
+      "rioLastCrawled": "2025-12-28T06:25:23.000Z"
     },
     {
       "name": "Kyril",
@@ -4200,7 +5040,13 @@
       "achievementPoints": 6830,
       "achievementRank": 300,
       "lastOnline": 1749898800,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Marksmanship",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Marksmanship",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Laludra",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Lanhayah",
@@ -4216,7 +5062,13 @@
       "achievementPoints": 13445,
       "achievementRank": 179,
       "lastOnline": 1765429200,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Lanhayah",
+      "rioLastCrawled": "2025-12-28T06:25:22.000Z"
     },
     {
       "name": "Levoletti",
@@ -4232,7 +5084,13 @@
       "achievementPoints": 20215,
       "achievementRank": 89,
       "lastOnline": 1767776400,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Levoletti",
+      "rioLastCrawled": "2025-12-28T06:25:21.000Z"
     },
     {
       "name": "Liadrinsnfry",
@@ -4248,7 +5106,13 @@
       "achievementPoints": 7580,
       "achievementRank": 289,
       "lastOnline": 1760122800,
-      "realmName": "Draenor"
+      "realmName": "Draenor",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/draenor/Liadrinsnfry",
+      "rioLastCrawled": "2025-12-04T10:56:38.000Z"
     },
     {
       "name": "Lorrx",
@@ -4264,7 +5128,13 @@
       "achievementPoints": 4455,
       "achievementRank": 351,
       "lastOnline": 1756314000,
-      "realmName": "BurningLegion"
+      "realmName": "BurningLegion",
+      "mainSpec": "Arms",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arms",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/burning-legion/Lorrx",
+      "rioLastCrawled": "2025-11-18T12:30:24.000Z"
     },
     {
       "name": "Lowsodium",
@@ -4280,7 +5150,13 @@
       "achievementPoints": 5035,
       "achievementRank": 335,
       "lastOnline": 1758312000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Arcane",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arcane",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Lowsodium",
+      "rioLastCrawled": "2025-11-10T08:43:24.000Z"
     },
     {
       "name": "Lygos",
@@ -4311,7 +5187,13 @@
       "achievementPoints": 30280,
       "achievementRank": 6,
       "lastOnline": 1764694800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mdhunty",
+      "rioLastCrawled": "2025-12-24T14:34:06.000Z"
     },
     {
       "name": "Mediaternian",
@@ -4327,7 +5209,13 @@
       "achievementPoints": 7245,
       "achievementRank": 297,
       "lastOnline": 1767711600,
-      "realmName": "Auchindoun"
+      "realmName": "Auchindoun",
+      "mainSpec": "Demonology",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Demonology",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Mediaternian",
+      "rioLastCrawled": "2025-12-15T19:04:44.000Z"
     },
     {
       "name": "Megahérz",
@@ -4345,7 +5233,11 @@
       "lastOnline": 1767794400,
       "realmName": "Silvermoon",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Megahérz",
+      "rioLastCrawled": "2025-12-28T06:25:28.000Z"
     },
     {
       "name": "Melgrad",
@@ -4361,7 +5253,13 @@
       "achievementPoints": 2795,
       "achievementRank": 380,
       "lastOnline": 1758736800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Arcane",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arcane",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Melgrad",
+      "rioLastCrawled": "2025-11-07T22:55:29.000Z"
     },
     {
       "name": "Melodyn",
@@ -4377,7 +5275,13 @@
       "achievementPoints": 16215,
       "achievementRank": 134,
       "lastOnline": 1740873600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Melodyn",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Mercdh",
@@ -4393,7 +5297,13 @@
       "achievementPoints": 11515,
       "achievementRank": 239,
       "lastOnline": 1767135600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Vengeance",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Vengeance",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercdh",
+      "rioLastCrawled": "2026-01-09T06:02:12.000Z"
     },
     {
       "name": "Mercdht",
@@ -4409,7 +5319,13 @@
       "achievementPoints": 11545,
       "achievementRank": 235,
       "lastOnline": 1767834000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercdht",
+      "rioLastCrawled": "2025-12-28T06:25:33.000Z"
     },
     {
       "name": "Mercdkn",
@@ -4425,7 +5341,13 @@
       "achievementPoints": 11545,
       "achievementRank": 231,
       "lastOnline": 1767834000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Blood",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Blood",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercdkn",
+      "rioLastCrawled": "2025-12-28T06:25:23.000Z"
     },
     {
       "name": "Mercdudu",
@@ -4441,7 +5363,13 @@
       "achievementPoints": 11545,
       "achievementRank": 237,
       "lastOnline": 1767834000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercdudu",
+      "rioLastCrawled": "2026-01-09T06:02:19.000Z"
     },
     {
       "name": "Merclk",
@@ -4457,7 +5385,13 @@
       "achievementPoints": 11545,
       "achievementRank": 233,
       "lastOnline": 1767830400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Merclk",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Mercm",
@@ -4473,7 +5407,13 @@
       "achievementPoints": 11545,
       "achievementRank": 232,
       "lastOnline": 1767834000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Fire",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fire",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercm",
+      "rioLastCrawled": "2025-08-28T10:42:25.000Z"
     },
     {
       "name": "Mercmk",
@@ -4491,7 +5431,11 @@
       "lastOnline": 1767913200,
       "realmName": "TwistingNether",
       "mainSpec": "Windwalker",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Brewmaster",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercmk",
+      "rioLastCrawled": "2025-12-28T06:25:25.000Z"
     },
     {
       "name": "Mercp",
@@ -4507,7 +5451,13 @@
       "achievementPoints": 11545,
       "achievementRank": 230,
       "lastOnline": 1767834000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercp",
+      "rioLastCrawled": "2025-08-28T10:42:26.000Z"
     },
     {
       "name": "Mercpi",
@@ -4523,7 +5473,13 @@
       "achievementPoints": 11545,
       "achievementRank": 238,
       "lastOnline": 1767834000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercpi",
+      "rioLastCrawled": "2025-08-28T10:42:24.000Z"
     },
     {
       "name": "Mercrg",
@@ -4539,7 +5495,13 @@
       "achievementPoints": 11555,
       "achievementRank": 228,
       "lastOnline": 1767909600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercrg",
+      "rioLastCrawled": "2026-01-09T06:02:16.000Z"
     },
     {
       "name": "Mercsh",
@@ -4555,7 +5517,13 @@
       "achievementPoints": 11545,
       "achievementRank": 236,
       "lastOnline": 1767834000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercsh",
+      "rioLastCrawled": "2025-12-28T06:25:24.000Z"
     },
     {
       "name": "Mercwr",
@@ -4573,7 +5541,11 @@
       "lastOnline": 1767834000,
       "realmName": "TwistingNether",
       "mainSpec": "Fury",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercwr",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Mertayi",
@@ -4589,7 +5561,11 @@
       "achievementPoints": 4580,
       "achievementRank": 350,
       "lastOnline": 1761044400,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Mertayi",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Monnkaz",
@@ -4605,7 +5581,13 @@
       "achievementPoints": 12355,
       "achievementRank": 195,
       "lastOnline": 1751047200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Mistweaver",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Mistweaver",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Monnkaz",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Moripek",
@@ -4623,7 +5605,11 @@
       "lastOnline": 1767913200,
       "realmName": "Doomhammer",
       "mainSpec": "Balance",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Moripek",
+      "rioLastCrawled": "2026-01-09T06:02:04.000Z"
     },
     {
       "name": "Morvexaa",
@@ -4639,7 +5625,13 @@
       "achievementPoints": 1540,
       "achievementRank": 409,
       "lastOnline": 1759104000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Morvexaa",
+      "rioLastCrawled": "2025-10-25T02:44:39.000Z"
     },
     {
       "name": "Muhasebe",
@@ -4671,7 +5663,13 @@
       "achievementPoints": 14740,
       "achievementRank": 154,
       "lastOnline": 1758020400,
-      "realmName": "Auchindoun"
+      "realmName": "Auchindoun",
+      "mainSpec": "Windwalker",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Windwalker",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Murolix",
+      "rioLastCrawled": "2025-10-09T10:46:42.000Z"
     },
     {
       "name": "Méerkrieg",
@@ -4687,7 +5685,13 @@
       "achievementPoints": 15530,
       "achievementRank": 150,
       "lastOnline": 1745190000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Fire",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fire",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Méerkrieg",
+      "rioLastCrawled": "2025-06-30T22:55:17.000Z"
     },
     {
       "name": "Méstélla",
@@ -4703,7 +5707,13 @@
       "achievementPoints": 5400,
       "achievementRank": 329,
       "lastOnline": 1767909600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Méstélla",
+      "rioLastCrawled": "2026-01-09T06:02:07.000Z"
     },
     {
       "name": "Métin",
@@ -4719,7 +5729,13 @@
       "achievementPoints": 10610,
       "achievementRank": 246,
       "lastOnline": 1761760800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Métin",
+      "rioLastCrawled": "2025-11-21T05:10:30.000Z"
     },
     {
       "name": "Môîra",
@@ -4735,7 +5751,13 @@
       "achievementPoints": 17720,
       "achievementRank": 107,
       "lastOnline": 1763578800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Môîra",
+      "rioLastCrawled": "2025-11-01T03:23:14.000Z"
     },
     {
       "name": "Mükemmheal",
@@ -4751,7 +5773,13 @@
       "achievementPoints": 15220,
       "achievementRank": 152,
       "lastOnline": 1764428400,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Mükemmheal",
+      "rioLastCrawled": "2025-12-13T19:55:25.000Z"
     },
     {
       "name": "Narnci",
@@ -4767,7 +5795,13 @@
       "achievementPoints": 36970,
       "achievementRank": 2,
       "lastOnline": 1759381200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Narnci",
+      "rioLastCrawled": "2025-11-07T18:29:41.000Z"
     },
     {
       "name": "Naéyra",
@@ -4783,7 +5817,13 @@
       "achievementPoints": 12345,
       "achievementRank": 196,
       "lastOnline": 1758110400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Discipline",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Naéyra",
+      "rioLastCrawled": "2025-11-10T08:43:26.000Z"
     },
     {
       "name": "Nervosa",
@@ -4799,7 +5839,13 @@
       "achievementPoints": 11885,
       "achievementRank": 210,
       "lastOnline": 1767715200,
-      "realmName": "Auchindoun"
+      "realmName": "Auchindoun",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Nervosa",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Nevharis",
@@ -4815,7 +5861,13 @@
       "achievementPoints": 5540,
       "achievementRank": 326,
       "lastOnline": 1767916800,
-      "realmName": "Ravencrest"
+      "realmName": "Ravencrest",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Nevharis",
+      "rioLastCrawled": "2026-01-09T06:02:09.000Z"
     },
     {
       "name": "Nexat",
@@ -4831,7 +5883,13 @@
       "achievementPoints": 8780,
       "achievementRank": 261,
       "lastOnline": 1758466800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Nexat",
+      "rioLastCrawled": "2025-11-13T06:51:36.000Z"
     },
     {
       "name": "Nidoran",
@@ -4847,7 +5905,13 @@
       "achievementPoints": 15735,
       "achievementRank": 143,
       "lastOnline": 1762977600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Discipline",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Nidoran",
+      "rioLastCrawled": "2025-11-21T05:10:26.000Z"
     },
     {
       "name": "Nieytrie",
@@ -4863,7 +5927,13 @@
       "achievementPoints": 43075,
       "achievementRank": 1,
       "lastOnline": 1767877200,
-      "realmName": "DefiasBrotherhood"
+      "realmName": "DefiasBrotherhood",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/defias-brotherhood/Nieytrie",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Nightharion",
@@ -4879,7 +5949,13 @@
       "achievementPoints": 11725,
       "achievementRank": 218,
       "lastOnline": 1767394800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Nightharion",
+      "rioLastCrawled": "2025-12-28T13:27:38.000Z"
     },
     {
       "name": "Nimsy",
@@ -4895,7 +5971,13 @@
       "achievementPoints": 4365,
       "achievementRank": 354,
       "lastOnline": 1767891600,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Outlaw",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Outlaw",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Nimsy",
+      "rioLastCrawled": "2026-01-09T06:02:04.000Z"
     },
     {
       "name": "Nobran",
@@ -4913,7 +5995,11 @@
       "lastOnline": 1767747600,
       "realmName": "Auchindoun",
       "mainSpec": "Guardian",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Nobran",
+      "rioLastCrawled": "2026-01-09T06:02:10.000Z"
     },
     {
       "name": "Notsogirthy",
@@ -4929,7 +6015,13 @@
       "achievementPoints": 9710,
       "achievementRank": 255,
       "lastOnline": 1755504000,
-      "realmName": "Outland"
+      "realmName": "Outland",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/outland/Notsogirthy",
+      "rioLastCrawled": "2025-07-28T15:15:18.000Z"
     },
     {
       "name": "Néltharion",
@@ -4945,7 +6037,13 @@
       "achievementPoints": 16790,
       "achievementRank": 128,
       "lastOnline": 1767931200,
-      "realmName": "Deathwing"
+      "realmName": "Deathwing",
+      "mainSpec": "Augmentation",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Augmentation",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/deathwing/Néltharion",
+      "rioLastCrawled": "2026-01-09T06:02:12.000Z"
     },
     {
       "name": "Odysseis",
@@ -4961,7 +6059,13 @@
       "achievementPoints": 5160,
       "achievementRank": 332,
       "lastOnline": 1760817600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Elemental",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Odysseis",
+      "rioLastCrawled": "2025-11-07T04:58:13.000Z"
     },
     {
       "name": "Omerpasha",
@@ -4977,7 +6081,13 @@
       "achievementPoints": 2205,
       "achievementRank": 395,
       "lastOnline": 1742126400,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Omerpasha",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Onmyoji",
@@ -5011,7 +6121,11 @@
       "lastOnline": 1767744000,
       "realmName": "Silvermoon",
       "mainSpec": "Restoration",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Oresom",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Ozingas",
@@ -5043,7 +6157,13 @@
       "achievementPoints": 450,
       "achievementRank": 453,
       "lastOnline": 1732698000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Ozipaladin",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Panicpanda",
@@ -5059,7 +6179,11 @@
       "achievementPoints": 7825,
       "achievementRank": 280,
       "lastOnline": 1767830400,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Panicpanda",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Paranoiacc",
@@ -5075,7 +6199,13 @@
       "achievementPoints": 8125,
       "achievementRank": 275,
       "lastOnline": 1767024000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Arcane",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arcane",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Paranoiacc",
+      "rioLastCrawled": "2026-01-09T06:02:12.000Z"
     },
     {
       "name": "Passha",
@@ -5091,7 +6221,13 @@
       "achievementPoints": 18360,
       "achievementRank": 97,
       "lastOnline": 1763773200,
-      "realmName": "Ragnaros"
+      "realmName": "Ragnaros",
+      "mainSpec": "Arms",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arms",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ragnaros/Passha",
+      "rioLastCrawled": "2025-12-14T06:58:32.000Z"
     },
     {
       "name": "Pavane",
@@ -5107,7 +6243,13 @@
       "achievementPoints": 27330,
       "achievementRank": 49,
       "lastOnline": 1766912400,
-      "realmName": "TheVentureCo"
+      "realmName": "TheVentureCo",
+      "mainSpec": "Unholy",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Unholy",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/the-venture-co/Pavane",
+      "rioLastCrawled": "2025-11-02T06:36:08.000Z"
     },
     {
       "name": "Peaugiel",
@@ -5139,7 +6281,13 @@
       "achievementPoints": 7235,
       "achievementRank": 298,
       "lastOnline": 1767711600,
-      "realmName": "Auchindoun"
+      "realmName": "Auchindoun",
+      "mainSpec": "Blood",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Blood",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Pegass",
+      "rioLastCrawled": "2025-12-28T06:25:25.000Z"
     },
     {
       "name": "Pinkfløyd",
@@ -5155,7 +6303,13 @@
       "achievementPoints": 17185,
       "achievementRank": 120,
       "lastOnline": 1767891600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Pinkfløyd",
+      "rioLastCrawled": "2025-12-28T08:23:15.000Z"
     },
     {
       "name": "Pishman",
@@ -5171,7 +6325,11 @@
       "achievementPoints": 22565,
       "achievementRank": 70,
       "lastOnline": 1767592800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Pishman",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Pleiades",
@@ -5187,7 +6345,13 @@
       "achievementPoints": 5915,
       "achievementRank": 318,
       "lastOnline": 1759762800,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Discipline",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Pleiades",
+      "rioLastCrawled": "2025-11-07T22:55:28.000Z"
     },
     {
       "name": "Posmo",
@@ -5203,7 +6367,13 @@
       "achievementPoints": 3835,
       "achievementRank": 359,
       "lastOnline": 1758268800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Posmo",
+      "rioLastCrawled": "2025-11-09T12:44:26.000Z"
     },
     {
       "name": "Psikoknight",
@@ -5235,7 +6405,13 @@
       "achievementPoints": 14065,
       "achievementRank": 168,
       "lastOnline": 1741798800,
-      "realmName": "BurningLegion"
+      "realmName": "BurningLegion",
+      "mainSpec": "Subtlety",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Subtlety",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/burning-legion/Psikoshot",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Psikotrexex",
@@ -5251,7 +6427,13 @@
       "achievementPoints": 14505,
       "achievementRank": 156,
       "lastOnline": 1757761200,
-      "realmName": "BurningLegion"
+      "realmName": "BurningLegion",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/burning-legion/Psikotrexex",
+      "rioLastCrawled": "2025-11-10T08:43:28.000Z"
     },
     {
       "name": "Pâpoose",
@@ -5285,7 +6467,11 @@
       "lastOnline": 1767909600,
       "realmName": "TwistingNether",
       "mainSpec": "Elemental",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Qoki",
+      "rioLastCrawled": "2025-04-19T14:59:31.000Z"
     },
     {
       "name": "Qpd",
@@ -5301,7 +6487,13 @@
       "achievementPoints": 2775,
       "achievementRank": 381,
       "lastOnline": 1748448000,
-      "realmName": "Draenor"
+      "realmName": "Draenor",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/draenor/Qpd",
+      "rioLastCrawled": "2025-08-26T01:31:06.000Z"
     },
     {
       "name": "Qugu",
@@ -5317,7 +6509,13 @@
       "achievementPoints": 29640,
       "achievementRank": 11,
       "lastOnline": 1767531600,
-      "realmName": "Ravencrest"
+      "realmName": "Ravencrest",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Qugu",
+      "rioLastCrawled": "2026-01-09T06:02:14.000Z"
     },
     {
       "name": "Quzu",
@@ -5333,7 +6531,13 @@
       "achievementPoints": 29740,
       "achievementRank": 9,
       "lastOnline": 1767736800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Quzu",
+      "rioLastCrawled": "2026-01-09T06:02:18.000Z"
     },
     {
       "name": "Ragemeister",
@@ -5349,7 +6553,13 @@
       "achievementPoints": 690,
       "achievementRank": 434,
       "lastOnline": 1744484400,
-      "realmName": "Turalyon"
+      "realmName": "Turalyon",
+      "mainSpec": "Discipline",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Ragemeister",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Rakshasaz",
@@ -5365,7 +6575,13 @@
       "achievementPoints": 6370,
       "achievementRank": 306,
       "lastOnline": 1744959600,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Rakshasaz",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Ravanch",
@@ -5381,7 +6597,13 @@
       "achievementPoints": 12025,
       "achievementRank": 203,
       "lastOnline": 1766430000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Elemental",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Ravanch",
+      "rioLastCrawled": "2026-01-09T06:02:06.000Z"
     },
     {
       "name": "Reisist",
@@ -5397,7 +6619,11 @@
       "achievementPoints": 22565,
       "achievementRank": 71,
       "lastOnline": 1767510000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Reisist",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Rhallei",
@@ -5429,7 +6655,13 @@
       "achievementPoints": 18990,
       "achievementRank": 96,
       "lastOnline": 1765134000,
-      "realmName": "Ragnaros"
+      "realmName": "Ragnaros",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ragnaros/Rogerto",
+      "rioLastCrawled": "2025-11-03T15:43:11.000Z"
     },
     {
       "name": "Rosalyin",
@@ -5461,7 +6693,13 @@
       "achievementPoints": 13720,
       "achievementRank": 175,
       "lastOnline": 1765720800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Roxeris",
+      "rioLastCrawled": "2025-12-28T13:27:38.000Z"
     },
     {
       "name": "Roxêrix",
@@ -5479,7 +6717,11 @@
       "lastOnline": 1764169200,
       "realmName": "TwistingNether",
       "mainSpec": "Vengeance",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Roxêrix",
+      "rioLastCrawled": "2025-11-26T14:24:20.000Z"
     },
     {
       "name": "Râgnarog",
@@ -5495,7 +6737,13 @@
       "achievementPoints": 15810,
       "achievementRank": 142,
       "lastOnline": 1763820000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Râgnarog",
+      "rioLastCrawled": "2025-12-06T04:26:17.000Z"
     },
     {
       "name": "Rêiner",
@@ -5527,7 +6775,13 @@
       "achievementPoints": 7635,
       "achievementRank": 288,
       "lastOnline": 1762365600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Sabot",
+      "rioLastCrawled": "2026-01-07T14:18:31.000Z"
     },
     {
       "name": "Sadecefarm",
@@ -5543,7 +6797,13 @@
       "achievementPoints": 4815,
       "achievementRank": 347,
       "lastOnline": 1749045600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Devastation",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Devastation",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Sadecefarm",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Sadepriest",
@@ -5559,7 +6819,13 @@
       "achievementPoints": 3825,
       "achievementRank": 360,
       "lastOnline": 1757307600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Sadepriest",
+      "rioLastCrawled": "2025-10-09T10:46:42.000Z"
     },
     {
       "name": "Salurbey",
@@ -5575,7 +6841,13 @@
       "achievementPoints": 1940,
       "achievementRank": 401,
       "lastOnline": 1758114000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Salurbey",
+      "rioLastCrawled": "2025-11-10T08:43:22.000Z"
     },
     {
       "name": "Sarph",
@@ -5593,7 +6865,11 @@
       "lastOnline": 1767909600,
       "realmName": "TwistingNether",
       "mainSpec": "Protection",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Sarph",
+      "rioLastCrawled": "2026-01-09T06:02:09.000Z"
     },
     {
       "name": "Sayozi",
@@ -5609,7 +6885,13 @@
       "achievementPoints": 8485,
       "achievementRank": 263,
       "lastOnline": 1767654000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Sayozi",
+      "rioLastCrawled": "2025-11-08T03:30:09.000Z"
     },
     {
       "name": "Semill",
@@ -5625,7 +6907,13 @@
       "achievementPoints": 4880,
       "achievementRank": 340,
       "lastOnline": 1750683600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Elemental",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Semill",
+      "rioLastCrawled": "2025-06-30T22:55:23.000Z"
     },
     {
       "name": "Senemia",
@@ -5657,7 +6945,13 @@
       "achievementPoints": 15590,
       "achievementRank": 148,
       "lastOnline": 1748080800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Elemental",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Shambalî",
+      "rioLastCrawled": "2025-06-30T22:55:18.000Z"
     },
     {
       "name": "Shanru",
@@ -5673,7 +6967,13 @@
       "achievementPoints": 11895,
       "achievementRank": 209,
       "lastOnline": 1767729600,
-      "realmName": "Auchindoun"
+      "realmName": "Auchindoun",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Shanru",
+      "rioLastCrawled": "2026-01-09T06:02:09.000Z"
     },
     {
       "name": "Shardheart",
@@ -5689,7 +6989,11 @@
       "achievementPoints": 5145,
       "achievementRank": 333,
       "lastOnline": 1767902400,
-      "realmName": "Ravencrest"
+      "realmName": "Ravencrest",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Shardheart",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Sharingann",
@@ -5705,7 +7009,13 @@
       "achievementPoints": 740,
       "achievementRank": 429,
       "lastOnline": 1760389200,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Sharingann",
+      "rioLastCrawled": "2025-11-13T06:51:36.000Z"
     },
     {
       "name": "Shdwn",
@@ -5721,7 +7031,13 @@
       "achievementPoints": 5860,
       "achievementRank": 320,
       "lastOnline": 1764702000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Discipline",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Shdwn",
+      "rioLastCrawled": "2025-12-06T04:26:16.000Z"
     },
     {
       "name": "Shironeth",
@@ -5737,7 +7053,13 @@
       "achievementPoints": 4730,
       "achievementRank": 348,
       "lastOnline": 1744056000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Subtlety",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Subtlety",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Shironeth",
+      "rioLastCrawled": "2025-06-30T22:55:23.000Z"
     },
     {
       "name": "Shukuchii",
@@ -5753,7 +7075,13 @@
       "achievementPoints": 15625,
       "achievementRank": 144,
       "lastOnline": 1748124000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Shukuchii",
+      "rioLastCrawled": "2025-06-30T22:55:18.000Z"
     },
     {
       "name": "Shumen",
@@ -5785,7 +7113,13 @@
       "achievementPoints": 620,
       "achievementRank": 441,
       "lastOnline": 1737770400,
-      "realmName": "Anachronos"
+      "realmName": "Anachronos",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/anachronos/Siscobilisim",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Sistematik",
@@ -5801,7 +7135,13 @@
       "achievementPoints": 34980,
       "achievementRank": 4,
       "lastOnline": 1749902400,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Sistematik",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Skullwho",
@@ -5817,7 +7157,11 @@
       "achievementPoints": 23970,
       "achievementRank": 64,
       "lastOnline": 1767517200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Skullwho",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Smouldy",
@@ -5833,7 +7177,13 @@
       "achievementPoints": 21980,
       "achievementRank": 78,
       "lastOnline": 1767747600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Fire",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fire",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Smouldy",
+      "rioLastCrawled": "2026-01-09T06:02:18.000Z"
     },
     {
       "name": "Sowena",
@@ -5849,7 +7199,13 @@
       "achievementPoints": 16210,
       "achievementRank": 136,
       "lastOnline": 1759500000,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Sowena",
+      "rioLastCrawled": "2025-11-19T13:30:07.000Z"
     },
     {
       "name": "Spitfrost",
@@ -5867,7 +7223,11 @@
       "lastOnline": 1767780000,
       "realmName": "Auchindoun",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Spitfrost",
+      "rioLastCrawled": "2026-01-09T06:02:10.000Z"
     },
     {
       "name": "Spontne",
@@ -5883,7 +7243,13 @@
       "achievementPoints": 1780,
       "achievementRank": 407,
       "lastOnline": 1751821200,
-      "realmName": "Turalyon"
+      "realmName": "Turalyon",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Spontne",
+      "rioLastCrawled": "2025-07-26T03:41:22.000Z"
     },
     {
       "name": "Stompy",
@@ -5899,7 +7265,13 @@
       "achievementPoints": 24095,
       "achievementRank": 62,
       "lastOnline": 1761796800,
-      "realmName": "Saurfang"
+      "realmName": "Saurfang",
+      "mainSpec": "Protection",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/saurfang/Stompy",
+      "rioLastCrawled": "2025-11-02T06:37:38.000Z"
     },
     {
       "name": "Stonepally",
@@ -5915,7 +7287,13 @@
       "achievementPoints": 16570,
       "achievementRank": 130,
       "lastOnline": 1760166000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Stonepally",
+      "rioLastCrawled": "2025-11-21T05:10:26.000Z"
     },
     {
       "name": "Stormtide",
@@ -5931,7 +7309,13 @@
       "achievementPoints": 29815,
       "achievementRank": 7,
       "lastOnline": 1761685200,
-      "realmName": "Draenor"
+      "realmName": "Draenor",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/draenor/Stormtide",
+      "rioLastCrawled": "2025-11-07T22:55:29.000Z"
     },
     {
       "name": "Strexia",
@@ -5947,7 +7331,13 @@
       "achievementPoints": 1845,
       "achievementRank": 406,
       "lastOnline": 1756728000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Vengeance",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Vengeance",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Strexia",
+      "rioLastCrawled": "2025-09-03T13:49:04.000Z"
     },
     {
       "name": "Subükücü",
@@ -5963,7 +7353,13 @@
       "achievementPoints": 6640,
       "achievementRank": 303,
       "lastOnline": 1749837600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Enhancement",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Subükücü",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Sungjhinw",
@@ -5979,7 +7375,13 @@
       "achievementPoints": 13385,
       "achievementRank": 183,
       "lastOnline": 1760536800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Sungjhinw",
+      "rioLastCrawled": "2025-11-24T07:27:55.000Z"
     },
     {
       "name": "Sustakazim",
@@ -5995,7 +7397,13 @@
       "achievementPoints": 13445,
       "achievementRank": 182,
       "lastOnline": 1765436400,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Sustakazim",
+      "rioLastCrawled": "2025-12-28T06:25:27.000Z"
     },
     {
       "name": "Synth",
@@ -6011,7 +7419,13 @@
       "achievementPoints": 2615,
       "achievementRank": 385,
       "lastOnline": 1764183600,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Synth",
+      "rioLastCrawled": "2025-11-27T09:30:42.000Z"
     },
     {
       "name": "Sêarion",
@@ -6027,7 +7441,13 @@
       "achievementPoints": 17075,
       "achievementRank": 124,
       "lastOnline": 1758740400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Guardian",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Guardian",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Sêarion",
+      "rioLastCrawled": "2025-12-04T10:56:39.000Z"
     },
     {
       "name": "Takralus",
@@ -6059,7 +7479,13 @@
       "achievementPoints": 4880,
       "achievementRank": 338,
       "lastOnline": 1750500000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Brewmaster",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Brewmaster",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Talcidmide",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Tamturko",
@@ -6075,7 +7501,13 @@
       "achievementPoints": 7575,
       "achievementRank": 291,
       "lastOnline": 1761084000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Tamturko",
+      "rioLastCrawled": "2025-10-25T02:44:39.000Z"
     },
     {
       "name": "Tarz",
@@ -6091,7 +7523,13 @@
       "achievementPoints": 15540,
       "achievementRank": 149,
       "lastOnline": 1758222000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Tarz",
+      "rioLastCrawled": "2025-10-09T10:46:42.000Z"
     },
     {
       "name": "Taskafa",
@@ -6107,7 +7545,13 @@
       "achievementPoints": 27955,
       "achievementRank": 30,
       "lastOnline": 1767697200,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Mistweaver",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Mistweaver",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Taskafa",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Taurielz",
@@ -6123,7 +7567,13 @@
       "achievementPoints": 17870,
       "achievementRank": 100,
       "lastOnline": 1750924800,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Taurielz",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Tharionel",
@@ -6139,7 +7589,11 @@
       "achievementPoints": 5530,
       "achievementRank": 328,
       "lastOnline": 1767877200,
-      "realmName": "Ravencrest"
+      "realmName": "Ravencrest",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Tharionel",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Thelmaril",
@@ -6155,7 +7609,13 @@
       "achievementPoints": 15940,
       "achievementRank": 140,
       "lastOnline": 1753826400,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Demonology",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Demonology",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Thelmaril",
+      "rioLastCrawled": "2025-09-20T16:37:58.000Z"
     },
     {
       "name": "Thundêrfurry",
@@ -6171,7 +7631,13 @@
       "achievementPoints": 2240,
       "achievementRank": 392,
       "lastOnline": 1733864400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Guardian",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Guardian",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Thundêrfurry",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Tinglinq",
@@ -6187,7 +7653,13 @@
       "achievementPoints": 8255,
       "achievementRank": 269,
       "lastOnline": 1767805200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Tinglinq",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Tinycola",
@@ -6203,7 +7675,13 @@
       "achievementPoints": 12225,
       "achievementRank": 197,
       "lastOnline": 1740942000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Tinycola",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Tituba",
@@ -6219,7 +7697,11 @@
       "achievementPoints": 11880,
       "achievementRank": 213,
       "lastOnline": 1767646800,
-      "realmName": "Auchindoun"
+      "realmName": "Auchindoun",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/auchindoun/Tituba",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Torutan",
@@ -6235,7 +7717,13 @@
       "achievementPoints": 12055,
       "achievementRank": 202,
       "lastOnline": 1765245600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Torutan",
+      "rioLastCrawled": "2025-12-11T04:44:35.000Z"
     },
     {
       "name": "Trdovahkiin",
@@ -6251,7 +7739,13 @@
       "achievementPoints": 7730,
       "achievementRank": 281,
       "lastOnline": 1754658000,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Elemental",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Trdovahkiin",
+      "rioLastCrawled": "2025-10-25T02:44:03.000Z"
     },
     {
       "name": "Vagonnecmi",
@@ -6267,7 +7761,13 @@
       "achievementPoints": 13445,
       "achievementRank": 181,
       "lastOnline": 1765436400,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Vagonnecmi",
+      "rioLastCrawled": "2025-12-24T14:34:06.000Z"
     },
     {
       "name": "Varhein",
@@ -6283,7 +7783,13 @@
       "achievementPoints": 5540,
       "achievementRank": 327,
       "lastOnline": 1767898800,
-      "realmName": "Ravencrest"
+      "realmName": "Ravencrest",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Varhein",
+      "rioLastCrawled": "2026-01-09T06:02:08.000Z"
     },
     {
       "name": "Vindemiatrix",
@@ -6299,7 +7805,13 @@
       "achievementPoints": 10475,
       "achievementRank": 247,
       "lastOnline": 1767830400,
-      "realmName": "Kor'gall"
+      "realmName": "Kor'gall",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/korgall/Vindemiatrix",
+      "rioLastCrawled": "2026-01-09T06:02:09.000Z"
     },
     {
       "name": "Vord",
@@ -6315,7 +7827,13 @@
       "achievementPoints": 13385,
       "achievementRank": 184,
       "lastOnline": 1762099200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Blood",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Blood",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Vord",
+      "rioLastCrawled": "2025-11-09T12:29:48.000Z"
     },
     {
       "name": "Vîto",
@@ -6331,7 +7849,13 @@
       "achievementPoints": 3440,
       "achievementRank": 364,
       "lastOnline": 1734620400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Enhancement",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Vîto",
+      "rioLastCrawled": "2025-06-30T22:55:18.000Z"
     },
     {
       "name": "Wildecho",
@@ -6347,7 +7871,13 @@
       "achievementPoints": 21980,
       "achievementRank": 81,
       "lastOnline": 1767402000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Wildecho",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Wingflip",
@@ -6363,7 +7893,13 @@
       "achievementPoints": 21980,
       "achievementRank": 80,
       "lastOnline": 1767891600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Wingflip",
+      "rioLastCrawled": "2026-01-09T06:02:14.000Z"
     },
     {
       "name": "Wokeburner",
@@ -6379,7 +7915,13 @@
       "achievementPoints": 12470,
       "achievementRank": 193,
       "lastOnline": 1758654000,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Wokeburner",
+      "rioLastCrawled": "2025-10-08T19:58:35.000Z"
     },
     {
       "name": "Wolwarin",
@@ -6395,7 +7937,11 @@
       "achievementPoints": 23960,
       "achievementRank": 65,
       "lastOnline": 1767268800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Wolwarin",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Wrchf",
@@ -6411,7 +7957,13 @@
       "achievementPoints": 5100,
       "achievementRank": 334,
       "lastOnline": 1756774800,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Fury",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Wrchf",
+      "rioLastCrawled": "2025-10-09T10:46:42.000Z"
     },
     {
       "name": "Wrchief",
@@ -6427,7 +7979,13 @@
       "achievementPoints": 5860,
       "achievementRank": 319,
       "lastOnline": 1764720000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Marksmanship",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Marksmanship",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Wrchief",
+      "rioLastCrawled": "2025-12-13T19:55:25.000Z"
     },
     {
       "name": "Xarenthar",
@@ -6443,7 +8001,13 @@
       "achievementPoints": 4815,
       "achievementRank": 343,
       "lastOnline": 1748700000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Xarenthar",
+      "rioLastCrawled": "2025-06-30T22:55:22.000Z"
     },
     {
       "name": "Xarli",
@@ -6459,7 +8023,13 @@
       "achievementPoints": 26785,
       "achievementRank": 52,
       "lastOnline": 1767344400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Destruction",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Xarli",
+      "rioLastCrawled": "2026-01-09T06:02:12.000Z"
     },
     {
       "name": "Xosha",
@@ -6477,7 +8047,11 @@
       "lastOnline": 1766430000,
       "realmName": "TwistingNether",
       "mainSpec": "Subtlety",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Subtlety",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Xosha",
+      "rioLastCrawled": "2026-01-04T07:51:44.000Z"
     },
     {
       "name": "Yahshe",
@@ -6511,7 +8085,11 @@
       "lastOnline": 1765915200,
       "realmName": "Silvermoon",
       "mainSpec": "Balance",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Yaprakkiz",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Yausuklû",
@@ -6527,7 +8105,13 @@
       "achievementPoints": 11350,
       "achievementRank": 241,
       "lastOnline": 1767877200,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Yausuklû",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Yeprat",
@@ -6543,7 +8127,13 @@
       "achievementPoints": 3060,
       "achievementRank": 373,
       "lastOnline": 1744920000,
-      "realmName": "BurningLegion"
+      "realmName": "BurningLegion",
+      "mainSpec": "Discipline",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Discipline",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/burning-legion/Yeprat",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Yidrasil",
@@ -6559,7 +8149,13 @@
       "achievementPoints": 11980,
       "achievementRank": 207,
       "lastOnline": 1748073600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Elemental",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Yidrasil",
+      "rioLastCrawled": "2025-06-30T22:55:21.000Z"
     },
     {
       "name": "Yonâ",
@@ -6575,7 +8171,13 @@
       "achievementPoints": 17065,
       "achievementRank": 125,
       "lastOnline": 1758632400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Mistweaver",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Mistweaver",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Yonâ",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Yumewari",
@@ -6593,7 +8195,11 @@
       "lastOnline": 1767574800,
       "realmName": "ShatteredHand",
       "mainSpec": "Discipline",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/shattered-hand/Yumewari",
+      "rioLastCrawled": "2026-01-09T06:02:18.000Z"
     },
     {
       "name": "Yïppï",
@@ -6627,7 +8233,11 @@
       "lastOnline": 1767816000,
       "realmName": "TwistingNether",
       "mainSpec": "Protection",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Yücekartal",
+      "rioLastCrawled": "2026-01-09T06:02:16.000Z"
     },
     {
       "name": "Zamsag",
@@ -6643,7 +8253,13 @@
       "achievementPoints": 27850,
       "achievementRank": 32,
       "lastOnline": 1767758400,
-      "realmName": "Saurfang"
+      "realmName": "Saurfang",
+      "mainSpec": "Shadow",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/saurfang/Zamsag",
+      "rioLastCrawled": "2025-12-28T06:25:24.000Z"
     },
     {
       "name": "Zaqiel",
@@ -6659,7 +8275,13 @@
       "achievementPoints": 21910,
       "achievementRank": 83,
       "lastOnline": 1767801600,
-      "realmName": "Frostmane"
+      "realmName": "Frostmane",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/frostmane/Zaqiel",
+      "rioLastCrawled": "2025-12-13T02:52:21.000Z"
     },
     {
       "name": "Zarafêl",
@@ -6675,7 +8297,13 @@
       "achievementPoints": 6235,
       "achievementRank": 309,
       "lastOnline": 1756116000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Mistweaver",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Mistweaver",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Zarafêl",
+      "rioLastCrawled": "2025-10-25T02:44:39.000Z"
     },
     {
       "name": "Zynarok",
@@ -6691,7 +8319,13 @@
       "achievementPoints": 6830,
       "achievementRank": 302,
       "lastOnline": 1749934800,
-      "realmName": "Doomhammer"
+      "realmName": "Doomhammer",
+      "mainSpec": "Retribution",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/doomhammer/Zynarok",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Çelik",
@@ -6707,7 +8341,13 @@
       "achievementPoints": 4815,
       "achievementRank": 344,
       "lastOnline": 1749682800,
-      "realmName": "Ravencrest"
+      "realmName": "Ravencrest",
+      "mainSpec": "Balance",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Balance",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Çelik",
+      "rioLastCrawled": "2025-06-30T22:55:19.000Z"
     },
     {
       "name": "ßéck",
@@ -6725,7 +8365,11 @@
       "lastOnline": 1767931200,
       "realmName": "TwistingNether",
       "mainSpec": "Discipline",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/ßéck",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "ßß",
@@ -6741,7 +8385,13 @@
       "achievementPoints": 8255,
       "achievementRank": 266,
       "lastOnline": 1767798000,
-      "realmName": "Terokkar"
+      "realmName": "Terokkar",
+      "mainSpec": "Subtlety",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Subtlety",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/terokkar/ßß",
+      "rioLastCrawled": "2026-01-09T06:02:10.000Z"
     },
     {
       "name": "Anatolia",
@@ -6759,7 +8409,11 @@
       "lastOnline": 1767924000,
       "realmName": "LaughingSkull",
       "mainSpec": "Holy",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/laughing-skull/Anatolia",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Arslanknight",
@@ -6777,7 +8431,11 @@
       "lastOnline": 1761721200,
       "realmName": "BurningLegion",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/burning-legion/Arslanknight",
+      "rioLastCrawled": "2025-11-07T04:58:12.000Z"
     },
     {
       "name": "Avalkaval",
@@ -6795,7 +8453,11 @@
       "lastOnline": 1766268000,
       "realmName": "Silvermoon",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Avalkaval",
+      "rioLastCrawled": "2025-12-28T13:27:38.000Z"
     },
     {
       "name": "Bekolokoyu",
@@ -6813,7 +8475,11 @@
       "lastOnline": 1765245600,
       "realmName": "Silvermoon",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Bekolokoyu",
+      "rioLastCrawled": "2025-12-28T06:25:22.000Z"
     },
     {
       "name": "Coriito",
@@ -6829,7 +8495,13 @@
       "achievementPoints": 8255,
       "achievementRank": 271,
       "lastOnline": 1767801600,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Frost",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Coriito",
+      "rioLastCrawled": "2026-01-09T06:02:09.000Z"
     },
     {
       "name": "Ditoss",
@@ -6845,7 +8517,13 @@
       "achievementPoints": 10660,
       "achievementRank": 245,
       "lastOnline": 1765875600,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Ditoss",
+      "rioLastCrawled": "2025-12-28T06:25:29.000Z"
     },
     {
       "name": "Ebsí",
@@ -6863,7 +8541,11 @@
       "lastOnline": 1761595200,
       "realmName": "Frostwolf",
       "mainSpec": "Restoration",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/frostwolf/Ebsí",
+      "rioLastCrawled": "2025-11-07T04:58:11.000Z"
     },
     {
       "name": "Felvenom",
@@ -6881,7 +8563,11 @@
       "lastOnline": 1766163600,
       "realmName": "TwistingNether",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Felvenom",
+      "rioLastCrawled": "2025-12-28T06:25:23.000Z"
     },
     {
       "name": "Ferlina",
@@ -6899,7 +8585,11 @@
       "lastOnline": 1767531600,
       "realmName": "Silvermoon",
       "mainSpec": "Beast Mastery",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Ferlina",
+      "rioLastCrawled": "2026-01-09T06:02:17.000Z"
     },
     {
       "name": "Goldendk",
@@ -6917,7 +8607,11 @@
       "lastOnline": 1758301200,
       "realmName": "TwistingNether",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Blood",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Goldendk",
+      "rioLastCrawled": "2025-11-19T13:30:08.000Z"
     },
     {
       "name": "Gotopower",
@@ -6933,7 +8627,13 @@
       "achievementPoints": 19455,
       "achievementRank": 93,
       "lastOnline": 1764511200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Restoration",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Gotopower",
+      "rioLastCrawled": "2025-12-13T19:55:25.000Z"
     },
     {
       "name": "Huysuz",
@@ -6949,7 +8649,11 @@
       "achievementPoints": 3150,
       "achievementRank": 368,
       "lastOnline": 1759136400,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "rioActiveSpecName": null,
+      "rioActiveSpecRole": null,
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Huysuz",
+      "rioLastCrawled": "2017-01-19T00:00:00.000Z"
     },
     {
       "name": "Initial",
@@ -6965,7 +8669,13 @@
       "achievementPoints": 19455,
       "achievementRank": 92,
       "lastOnline": 1764511200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Initial",
+      "rioLastCrawled": "2025-12-08T05:24:14.000Z"
     },
     {
       "name": "Karides",
@@ -6981,7 +8691,13 @@
       "achievementPoints": 3665,
       "achievementRank": 362,
       "lastOnline": 1756116000,
-      "realmName": "Silvermoon"
+      "realmName": "Silvermoon",
+      "mainSpec": "Arcane",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Arcane",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Karides",
+      "rioLastCrawled": "2025-11-19T13:30:06.000Z"
     },
     {
       "name": "Magelanee",
@@ -7015,7 +8731,11 @@
       "lastOnline": 1767834000,
       "realmName": "TwistingNether",
       "mainSpec": "Devastation",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Devastation",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercevo",
+      "rioLastCrawled": "2025-12-13T09:56:37.000Z"
     },
     {
       "name": "Mercw",
@@ -7033,7 +8753,11 @@
       "lastOnline": 1767913200,
       "realmName": "TwistingNether",
       "mainSpec": "Fury",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Mercw",
+      "rioLastCrawled": "2026-01-09T06:02:09.000Z"
     },
     {
       "name": "Naxo",
@@ -7051,7 +8775,11 @@
       "lastOnline": 1758236400,
       "realmName": "TwistingNether",
       "mainSpec": "Holy",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Naxo",
+      "rioLastCrawled": "2025-11-18T12:30:24.000Z"
     },
     {
       "name": "Paranoiiac",
@@ -7069,7 +8797,11 @@
       "lastOnline": 1767798000,
       "realmName": "TwistingNether",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Paranoiiac",
+      "rioLastCrawled": "2026-01-09T06:02:10.000Z"
     },
     {
       "name": "Pashadin",
@@ -7087,7 +8819,11 @@
       "lastOnline": 1767560400,
       "realmName": "Silvermoon",
       "mainSpec": "Retribution",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Pashadin",
+      "rioLastCrawled": "2026-01-09T06:02:07.000Z"
     },
     {
       "name": "Safirâ",
@@ -7105,7 +8841,11 @@
       "lastOnline": 1767794400,
       "realmName": "TwistingNether",
       "mainSpec": "Retribution",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Safirâ",
+      "rioLastCrawled": "2026-01-09T06:02:17.000Z"
     },
     {
       "name": "Serdona",
@@ -7121,7 +8861,13 @@
       "achievementPoints": 5210,
       "achievementRank": 331,
       "lastOnline": 1756087200,
-      "realmName": "TwistingNether"
+      "realmName": "TwistingNether",
+      "mainSpec": "Havoc",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Serdona",
+      "rioLastCrawled": "2025-10-09T10:46:41.000Z"
     },
     {
       "name": "Sinsisinek",
@@ -7139,7 +8885,11 @@
       "lastOnline": 1758398400,
       "realmName": "TwistingNether",
       "mainSpec": "Assassination",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Sinsisinek",
+      "rioLastCrawled": "2025-12-04T10:56:46.000Z"
     },
     {
       "name": "Werdona",
@@ -7157,7 +8907,11 @@
       "lastOnline": 1759496400,
       "realmName": "TwistingNether",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Unholy",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Werdona",
+      "rioLastCrawled": "2025-11-21T05:10:25.000Z"
     },
     {
       "name": "Darktorn",
@@ -7175,7 +8929,11 @@
       "lastOnline": 1767870000,
       "realmName": "Executus",
       "mainSpec": "Beast Mastery",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Darktorn",
+      "rioLastCrawled": "2025-12-28T06:25:24.000Z"
     },
     {
       "name": "Gødisnowhere",
@@ -7193,7 +8951,11 @@
       "lastOnline": 1758650400,
       "realmName": "Turalyon",
       "mainSpec": "Blood",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Blood",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Gødisnowhere",
+      "rioLastCrawled": "2025-11-13T06:51:36.000Z"
     },
     {
       "name": "Johon",
@@ -7211,7 +8973,11 @@
       "lastOnline": 1767909600,
       "realmName": "TwistingNether",
       "mainSpec": "Beast Mastery",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Johon",
+      "rioLastCrawled": "2026-01-09T06:02:13.000Z"
     },
     {
       "name": "Palall",
@@ -7229,7 +8995,11 @@
       "lastOnline": 1750687200,
       "realmName": "Ravencrest",
       "mainSpec": "Protection",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/ravencrest/Palall",
+      "rioLastCrawled": "2025-06-30T22:55:20.000Z"
     },
     {
       "name": "Piatereth",
@@ -7265,7 +9035,11 @@
       "lastOnline": 1767906000,
       "realmName": "TwistingNether",
       "mainSpec": "Retribution",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Unclejohon",
+      "rioLastCrawled": "2025-12-28T13:27:38.000Z"
     },
     {
       "name": "Bigu",
@@ -7315,7 +9089,11 @@
       "lastOnline": 1767909600,
       "realmName": "Saurfang",
       "mainSpec": "Demonology",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Demonology",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/saurfang/Badaboom",
+      "rioLastCrawled": "2026-01-09T06:02:14.000Z"
     },
     {
       "name": "Bamgum",
@@ -7333,7 +9111,11 @@
       "lastOnline": 1767924000,
       "realmName": "ShatteredHand",
       "mainSpec": "Brewmaster",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Windwalker",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/shattered-hand/Bamgum",
+      "rioLastCrawled": "2026-01-09T06:02:10.000Z"
     },
     {
       "name": "Danath",
@@ -7351,7 +9133,11 @@
       "lastOnline": 1767466800,
       "realmName": "TheVentureCo",
       "mainSpec": "Restoration",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/the-venture-co/Danath",
+      "rioLastCrawled": "2026-01-09T06:02:14.000Z"
     },
     {
       "name": "Donbul",
@@ -7369,7 +9155,11 @@
       "lastOnline": 1767574800,
       "realmName": "Executus",
       "mainSpec": "Restoration",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Restoration",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Donbul",
+      "rioLastCrawled": "2026-01-09T06:02:19.000Z"
     },
     {
       "name": "Filhakika",
@@ -7387,7 +9177,11 @@
       "lastOnline": 1767384000,
       "realmName": "Saurfang",
       "mainSpec": "Guardian",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Guardian",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/saurfang/Filhakika",
+      "rioLastCrawled": "2025-12-28T06:25:23.000Z"
     },
     {
       "name": "Gødisnøwhèrè",
@@ -7405,7 +9199,11 @@
       "lastOnline": 1766790000,
       "realmName": "Turalyon",
       "mainSpec": "Vengeance",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Vengeance",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/turalyon/Gødisnøwhèrè",
+      "rioLastCrawled": "2026-01-09T06:02:10.000Z"
     },
     {
       "name": "Karub",
@@ -7423,7 +9221,11 @@
       "lastOnline": 1766692800,
       "realmName": "Azuremyst",
       "mainSpec": "Protection",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/azuremyst/Karub",
+      "rioLastCrawled": "2025-12-28T06:25:24.000Z"
     },
     {
       "name": "Lirianth",
@@ -7439,7 +9241,13 @@
       "achievementPoints": 25475,
       "achievementRank": 61,
       "lastOnline": 1764291600,
-      "realmName": "Saurfang"
+      "realmName": "Saurfang",
+      "mainSpec": "Assassination",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Assassination",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/saurfang/Lirianth",
+      "rioLastCrawled": "2025-12-06T04:26:17.000Z"
     },
     {
       "name": "Lunavine",
@@ -7473,7 +9281,11 @@
       "lastOnline": 1767819600,
       "realmName": "ShatteredHand",
       "mainSpec": "Protection",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/shattered-hand/Mupsie",
+      "rioLastCrawled": "2026-01-01T22:46:10.000Z"
     },
     {
       "name": "Ode",
@@ -7491,7 +9303,11 @@
       "lastOnline": 1767744000,
       "realmName": "Executus",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Ode",
+      "rioLastCrawled": "2026-01-09T06:02:16.000Z"
     },
     {
       "name": "Piic",
@@ -7509,7 +9325,11 @@
       "lastOnline": 1767510000,
       "realmName": "TwistingNether",
       "mainSpec": "Holy",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Piic",
+      "rioLastCrawled": "2026-01-09T06:02:14.000Z"
     },
     {
       "name": "Purplebeard",
@@ -7527,7 +9347,11 @@
       "lastOnline": 1767837600,
       "realmName": "Executus",
       "mainSpec": "Outlaw",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Outlaw",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Purplebeard",
+      "rioLastCrawled": "2026-01-09T06:22:05.000Z"
     },
     {
       "name": "Roin",
@@ -7545,7 +9369,11 @@
       "lastOnline": 1766703600,
       "realmName": "Azuremyst",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/azuremyst/Roin",
+      "rioLastCrawled": "2025-12-29T13:52:27.000Z"
     },
     {
       "name": "Zinhar",
@@ -7563,7 +9391,11 @@
       "lastOnline": 1767578400,
       "realmName": "ShatteredHand",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Havoc",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/shattered-hand/Zinhar",
+      "rioLastCrawled": "2025-12-29T05:01:07.000Z"
     },
     {
       "name": "Êfaecalis",
@@ -7581,7 +9413,11 @@
       "lastOnline": 1767877200,
       "realmName": "TwistingNether",
       "mainSpec": "Destruction",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Destruction",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Êfaecalis",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Legebrill",
@@ -7615,7 +9451,11 @@
       "lastOnline": 1767819600,
       "realmName": "Executus",
       "mainSpec": "Fury",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fury",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Asabi",
+      "rioLastCrawled": "2026-01-09T06:02:09.000Z"
     },
     {
       "name": "Bloodcry",
@@ -7631,7 +9471,13 @@
       "achievementPoints": 27975,
       "achievementRank": 15,
       "lastOnline": 1767888000,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Holy",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Bloodcry",
+      "rioLastCrawled": "2025-11-02T06:36:10.000Z"
     },
     {
       "name": "Bombaren",
@@ -7649,7 +9495,11 @@
       "lastOnline": 1767700800,
       "realmName": "Executus",
       "mainSpec": "Mistweaver",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Windwalker",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Bombaren",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Boyali",
@@ -7667,7 +9517,11 @@
       "lastOnline": 1767736800,
       "realmName": "Executus",
       "mainSpec": "Havoc",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Vengeance",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Boyali",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Chaarge",
@@ -7683,7 +9537,13 @@
       "achievementPoints": 27460,
       "achievementRank": 47,
       "lastOnline": 1767013200,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Beast Mastery",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Beast Mastery",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Chaarge",
+      "rioLastCrawled": "2026-01-09T06:02:06.000Z"
     },
     {
       "name": "Dierdre",
@@ -7701,7 +9561,11 @@
       "lastOnline": 1767830400,
       "realmName": "Executus",
       "mainSpec": "Destruction",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Demonology",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Dierdre",
+      "rioLastCrawled": "2025-11-02T06:36:26.000Z"
     },
     {
       "name": "Dreade",
@@ -7719,7 +9583,11 @@
       "lastOnline": 1767308400,
       "realmName": "Executus",
       "mainSpec": "Frost",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Frost",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Dreade",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Emori",
@@ -7737,7 +9605,11 @@
       "lastOnline": 1767927600,
       "realmName": "Executus",
       "mainSpec": "Retribution",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Retribution",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Emori",
+      "rioLastCrawled": "2026-01-09T06:02:14.000Z"
     },
     {
       "name": "Eranthel",
@@ -7755,7 +9627,11 @@
       "lastOnline": 1767376800,
       "realmName": "ShatteredHand",
       "mainSpec": "Beast Mastery",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Survival",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/shattered-hand/Eranthel",
+      "rioLastCrawled": "2025-12-28T13:27:37.000Z"
     },
     {
       "name": "Fuiry",
@@ -7771,7 +9647,13 @@
       "achievementPoints": 27850,
       "achievementRank": 35,
       "lastOnline": 1767830400,
-      "realmName": "TheVentureCo"
+      "realmName": "TheVentureCo",
+      "mainSpec": "Vengeance",
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Vengeance",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/the-venture-co/Fuiry",
+      "rioLastCrawled": "2025-12-28T06:25:23.000Z"
     },
     {
       "name": "Fujina",
@@ -7789,7 +9671,11 @@
       "lastOnline": 1767927600,
       "realmName": "ShatteredHand",
       "mainSpec": "Fire",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Fire",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/shattered-hand/Fujina",
+      "rioLastCrawled": "2025-12-28T06:25:24.000Z"
     },
     {
       "name": "Geyman",
@@ -7807,7 +9693,11 @@
       "lastOnline": 1767913200,
       "realmName": "TwistingNether",
       "mainSpec": "Elemental",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Elemental",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Geyman",
+      "rioLastCrawled": "2026-01-09T06:02:11.000Z"
     },
     {
       "name": "Minidai",
@@ -7825,7 +9715,11 @@
       "lastOnline": 1767762000,
       "realmName": "Executus",
       "mainSpec": "Protection",
-      "mainRole": "Tank"
+      "mainRole": "Tank",
+      "rioActiveSpecName": "Protection",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Minidai",
+      "rioLastCrawled": "2026-01-09T06:02:05.000Z"
     },
     {
       "name": "Ragriel",
@@ -7841,7 +9735,13 @@
       "achievementPoints": 27590,
       "achievementRank": 45,
       "lastOnline": 1767380400,
-      "realmName": "ShatteredHand"
+      "realmName": "ShatteredHand",
+      "mainSpec": "Enhancement",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/shattered-hand/Ragriel",
+      "rioLastCrawled": "2026-01-09T06:02:15.000Z"
     },
     {
       "name": "Salvanos",
@@ -7859,7 +9759,11 @@
       "lastOnline": 1767880800,
       "realmName": "Executus",
       "mainSpec": "Discipline",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Shadow",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Salvanos",
+      "rioLastCrawled": "2026-01-09T06:02:18.000Z"
     },
     {
       "name": "Shine",
@@ -7875,7 +9779,13 @@
       "achievementPoints": 27975,
       "achievementRank": 21,
       "lastOnline": 1767826800,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Demonology",
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Demonology",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Shine",
+      "rioLastCrawled": "2025-11-02T06:36:20.000Z"
     },
     {
       "name": "Sikso",
@@ -7893,7 +9803,11 @@
       "lastOnline": 1767920400,
       "realmName": "TwistingNether",
       "mainSpec": "Mistweaver",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Mistweaver",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Sikso",
+      "rioLastCrawled": "2026-01-09T06:02:09.000Z"
     },
     {
       "name": "Thumai",
@@ -7911,7 +9825,11 @@
       "lastOnline": 1767834000,
       "realmName": "Silvermoon",
       "mainSpec": "Holy",
-      "mainRole": "Healer"
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Holy",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/silvermoon/Thumai",
+      "rioLastCrawled": "2026-01-09T06:02:17.000Z"
     },
     {
       "name": "Toadwing",
@@ -7927,7 +9845,13 @@
       "achievementPoints": 27625,
       "achievementRank": 39,
       "lastOnline": 1767614400,
-      "realmName": "Executus"
+      "realmName": "Executus",
+      "mainSpec": "Preservation",
+      "mainRole": "Healer",
+      "rioActiveSpecName": "Preservation",
+      "rioActiveSpecRole": "HEALING",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Toadwing",
+      "rioLastCrawled": "2025-12-17T20:20:52.000Z"
     },
     {
       "name": "Wrathia",
@@ -7945,7 +9869,11 @@
       "lastOnline": 1767823200,
       "realmName": "Executus",
       "mainSpec": "Enhancement",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Wrathia",
+      "rioLastCrawled": "2026-01-09T06:02:14.000Z"
     },
     {
       "name": "Zengin",
@@ -7963,7 +9891,11 @@
       "lastOnline": 1767931200,
       "realmName": "TwistingNether",
       "mainSpec": "Elemental",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Enhancement",
+      "rioActiveSpecRole": "DPS",
+      "rioProfileUrl": "https://raider.io/characters/eu/twisting-nether/Zengin",
+      "rioLastCrawled": "2026-01-09T06:02:14.000Z"
     },
     {
       "name": "Nepenthe",
@@ -7981,7 +9913,11 @@
       "lastOnline": 1767931200,
       "realmName": "Executus",
       "mainSpec": "Feral",
-      "mainRole": "DPS"
+      "mainRole": "DPS",
+      "rioActiveSpecName": "Guardian",
+      "rioActiveSpecRole": "TANK",
+      "rioProfileUrl": "https://raider.io/characters/eu/executus/Nepenthe",
+      "rioLastCrawled": "2026-01-09T06:02:18.000Z"
     }
   ]
 }

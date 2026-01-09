@@ -6,14 +6,21 @@ import * as v from 'valibot';
 // Import the roster data directly - this will be bundled in production
 import rosterData from '$lib/data/roster.json';
 
+// Raider.IO Role mapping
+const RIO_ROLE_MAP: Record<string, 'Tank' | 'DPS' | 'Healer'> = {
+	TANK: 'Tank',
+	DPS: 'DPS',
+	HEALING: 'Healer'
+};
+
 // Define Valibot schema for RosterMember
-const RosterMemberSchema = v.object({
+const RosterMemberSchema = v.looseObject({
 	name: v.string(),
 	rankName: v.string(),
 	rankIndex: v.number(),
 	level: v.number(),
 	class: v.string(),
-	zone: v.optional(v.string()),
+	zone: v.optional(v.nullable(v.string())),
 	note: v.string(),
 	officerNote: v.string(),
 	status: v.number(),
@@ -22,8 +29,17 @@ const RosterMemberSchema = v.object({
 	achievementRank: v.number(),
 	lastOnline: v.number(),
 	realmName: v.string(),
-	mainSpec: v.optional(v.string()),
-	mainRole: v.optional(v.union([v.literal('Tank'), v.literal('DPS'), v.literal('Healer')]))
+	mainSpec: v.optional(v.nullable(v.string())),
+	mainRole: v.optional(
+		v.nullable(v.union([v.literal('Tank'), v.literal('DPS'), v.literal('Healer')]))
+	),
+	// Raider.IO fields
+	rioMythicPlusScore: v.optional(v.nullable(v.number())),
+	rioRaidProgress: v.optional(v.nullable(v.string())),
+	rioActiveSpecName: v.optional(v.nullable(v.string())),
+	rioActiveSpecRole: v.optional(v.nullable(v.string())),
+	rioProfileUrl: v.optional(v.nullable(v.string())),
+	rioLastCrawled: v.optional(v.nullable(v.string()))
 });
 
 interface RosterData {
@@ -111,6 +127,7 @@ export const getRoster = query(async () => {
 		throw new Error('Failed to load roster data');
 	}
 });
+
 export const checkForUpdates = query(async () => {
 	if (!dev) {
 		return { hasUpdate: false, error: 'Only available in dev mode' };
@@ -302,3 +319,151 @@ export const saveRoster = command(
 		}
 	}
 );
+
+// New function to fetch Raider.IO guild data
+export const fetchRaiderIOGuildData = query(async () => {
+	if (!dev) {
+		return { success: false, error: 'Only available in dev mode' };
+	}
+
+	try {
+		const apiKey = process.env.RAIDERIO_API_KEY;
+		const region = process.env.RAIDERIO_GUILD_REGION || 'eu';
+		const realm = process.env.RAIDERIO_GUILD_REALM || 'Executus';
+		const guildName = process.env.RAIDERIO_GUILD_NAME || 'The Hive';
+
+		if (!apiKey) {
+			throw new Error('RAIDERIO_API_KEY not found in environment variables');
+		}
+
+		const url = `https://raider.io/api/v1/guilds/profile?access_key=${apiKey}&region=${region}&realm=${encodeURIComponent(realm)}&name=${encodeURIComponent(guildName)}&fields=members`;
+
+		const response = await fetch(url);
+
+		if (!response.ok) {
+			throw new Error(`Raider.IO API error: ${response.status} ${response.statusText}`);
+		}
+
+		const data = await response.json();
+
+		if (!data.members || !Array.isArray(data.members)) {
+			throw new Error('Invalid response from Raider.IO API');
+		}
+
+		console.log(`Fetched ${data.members.length} members from Raider.IO`);
+
+		return {
+			success: true,
+			members: data.members,
+			lastCrawled: data.last_crawled_at
+		};
+	} catch (error) {
+		console.error('Error fetching Raider.IO data:', error);
+		return {
+			success: false,
+			error: error instanceof Error ? error.message : 'Failed to fetch Raider.IO data'
+		};
+	}
+});
+
+// New command to apply Raider.IO data to roster
+export const applyRaiderIOData = command(async () => {
+	if (!dev) {
+		throw new Error('Only available in dev mode');
+	}
+
+	try {
+		// Fetch Raider.IO data
+		const rioResult = await fetchRaiderIOGuildData();
+
+		if (!rioResult.success || !rioResult.members) {
+			throw new Error(rioResult.error || 'Failed to fetch Raider.IO data');
+		}
+
+		// Read current roster
+		const rosterFile = Bun.file(rosterPath);
+		const exists = await rosterFile.exists();
+
+		if (!exists) {
+			throw new Error('Roster file not found');
+		}
+
+		const currentRoster = (await rosterFile.json()) as RosterData;
+		if (!currentRoster.members || !Array.isArray(currentRoster.members)) {
+			throw new Error('Invalid roster data');
+		}
+
+		// Create a map of Raider.IO data by character name
+		const rioDataMap = new Map();
+		rioResult.members.forEach((rioMember: any) => {
+			const char = rioMember.character;
+			if (char && char.name) {
+				rioDataMap.set(char.name.toLowerCase(), {
+					rioActiveSpecName: char.active_spec_name,
+					rioActiveSpecRole: char.active_spec_role,
+					rioProfileUrl: char.profile_url,
+					rioLastCrawled: char.last_crawled_at
+					// Note: M+ score and raid progress would need additional API calls
+					// with more specific fields in the query
+				});
+			}
+		});
+
+		// Merge Raider.IO data into roster
+		let updatedCount = 0;
+		let roleUpdatedCount = 0;
+
+		const updatedMembers = currentRoster.members.map((member) => {
+			const rioData = rioDataMap.get(member.name.toLowerCase());
+
+			if (rioData) {
+				updatedCount++;
+
+				// Update mainRole and mainSpec from Raider.IO if not set
+				const shouldUpdateRole = !member.mainRole && rioData.rioActiveSpecRole;
+				if (shouldUpdateRole) {
+					const mappedRole = RIO_ROLE_MAP[rioData.rioActiveSpecRole];
+					if (mappedRole) {
+						member.mainRole = mappedRole;
+						roleUpdatedCount++;
+					}
+				}
+
+				if (!member.mainSpec && rioData.rioActiveSpecName) {
+					member.mainSpec = rioData.rioActiveSpecName;
+				}
+
+				return {
+					...member,
+					...rioData
+				};
+			}
+
+			return member;
+		});
+
+		// Save updated roster
+		const updatedRosterData = {
+			...currentRoster,
+			members: updatedMembers,
+			lastUpdated: currentRoster.lastUpdated || Math.floor(Date.now() / 1000)
+		};
+
+		await Bun.write(rosterPath, JSON.stringify(updatedRosterData, null, 2));
+
+		// Refresh the roster query
+		await getRoster().refresh();
+
+		return {
+			success: true,
+			updatedCount,
+			roleUpdatedCount,
+			totalMembers: updatedMembers.length,
+			rioMembersFound: rioDataMap.size,
+			lastCrawled: rioResult.lastCrawled
+		};
+	} catch (error) {
+		console.error('Error applying Raider.IO data:', error);
+		throw new Error(error instanceof Error ? error.message : 'Failed to apply Raider.IO data');
+	}
+});
