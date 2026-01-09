@@ -39,41 +39,62 @@
 	let rosterSnapshot = $derived(JSON.stringify(roster));
 	let previousSnapshot = $state<string | null>(null);
 
+
+	let saveInProgress = false;
+	let queuedSnapshot: string | null = null;
+	async function saveCurrentRoster() {
+		isSaving = true;
+		saveError = null;
+		try {
+			await saveRoster({ members: roster, lastUpdated });
+			console.log('Roster saved successfully');
+			// Show saved indicator briefly
+			setTimeout(() => {
+				isSaving = false;
+				return clearTimeout
+			}, 500);
+		} catch (error) {
+			console.error('Error auto-saving roster:', error);
+			saveError = error instanceof Error ? error.message : 'Failed to save';
+			isSaving = false;
+		} finally {
+			const nextSnapshot = queuedSnapshot;
+			queuedSnapshot = null;
+			if (nextSnapshot && nextSnapshot !== previousSnapshot) {
+				// There were additional changes while saving; save the latest snapshot next.
+				previousSnapshot = nextSnapshot;
+				// Keep saveInProgress true while we start the next save in the queue.
+				saveInProgress = true;
+				void saveCurrentRoster();
+			} else {
+				saveInProgress = false;
+			}
+		}
+	}
+
 	$effect(() => {
 		// Track the snapshot
 		const currentSnapshot = rosterSnapshot;
-
-		// Skip if this is the first run or data hasn't changed
+		// Skip if this is the first run
 		if (previousSnapshot === null) {
 			previousSnapshot = currentSnapshot;
 			return;
 		}
-
+		// Skip if data hasn't changed
 		if (previousSnapshot === currentSnapshot) {
 			return;
 		}
-
-		// Data has changed, save immediately with optimistic update
+		// Data has changed
+		if (saveInProgress) {
+			// A save is already in progress; queue the latest snapshot to be saved next.
+			queuedSnapshot = currentSnapshot;
+			return;
+		}
+		// No save in progress; start one immediately.
 		previousSnapshot = currentSnapshot;
-
-		(async () => {
-			isSaving = true;
-			saveError = null;
-			try {
-				await saveRoster({ members: roster, lastUpdated });
-				console.log('Roster saved successfully');
-				// Show saved indicator briefly
-				setTimeout(() => {
-					isSaving = false;
-				}, 500);
-			} catch (error) {
-				console.error('Error auto-saving roster:', error);
-				saveError = error instanceof Error ? error.message : 'Failed to save';
-				isSaving = false;
-			}
-		})();
-	});
-
+		saveInProgress = true;
+		saveCurrentRoster();
+	})
 
 	let showUpdateNotification = $state(false);
 	let isUpdating = $state(false);
@@ -118,21 +139,30 @@
 			isUpdating = false;
 		}
 	}
+	const updateChecker = (async () => {
+		try {
+			const result = await checkForUpdates();
+			if (result.hasUpdate) {
+				showUpdateNotification = true;
+				updateData = result;
+			}
+		} catch (error) {
+			console.error('Error checking for updates:', error);
+		}
+	})
 
 	// Check for updates periodically
 	onMount(() => {
 		// Check immediately on mount
-		(async () => {
-			try {
-				const result = await checkForUpdates();
-				if (result.hasUpdate) {
-					showUpdateNotification = true;
-					updateData = result;
-				}
-			} catch (error) {
-				console.error('Error checking for updates:', error);
-			}
-		})();
+		updateChecker();
+
+		// Scroll to roster when the component mounts (only once)
+		if (!hasScrolled) {
+			tick().then(() => {
+				rosterSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				hasScrolled = true;
+			});
+		}
 
 		// Then check every 5 minutes
 		const interval = setInterval(async () => {

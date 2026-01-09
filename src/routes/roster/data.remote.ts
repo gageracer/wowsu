@@ -6,6 +6,26 @@ import * as v from 'valibot';
 // Import the roster data directly - this will be bundled in production
 import rosterData from '$lib/data/roster.json';
 
+// Define Valibot schema for RosterMember
+const RosterMemberSchema = v.object({
+	name: v.string(),
+	rankName: v.string(),
+	rankIndex: v.number(),
+	level: v.number(),
+	class: v.string(),
+	zone: v.optional(v.string()),
+	note: v.string(),
+	officerNote: v.string(),
+	status: v.number(),
+	classFileName: v.string(),
+	achievementPoints: v.number(),
+	achievementRank: v.number(),
+	lastOnline: v.number(),
+	realmName: v.string(),
+	mainSpec: v.optional(v.string()),
+	mainRole: v.optional(v.union([v.literal('Tank'), v.literal('DPS'), v.literal('Healer')]))
+});
+
 interface RosterData {
 	version?: string;
 	lastUpdated?: number;
@@ -13,7 +33,7 @@ interface RosterData {
 }
 const luaPath = `${process.cwd()}/static/GuildRosterExport.lua`;
 const dataDir = `${process.cwd()}/src/lib/data`;
-const rosterPath = `${process.cwd()}/src/lib/data/roster.json`
+const rosterPath = `${process.cwd()}/src/lib/data/roster.json`;
 
 function parseLuaAutoExport(luaText: string) {
 	try {
@@ -40,10 +60,7 @@ function parseLuaAutoExport(luaText: string) {
 		if (jsonEnd === -1) return null;
 
 		let jsonString = luaText.substring(jsonStart, jsonEnd);
-		jsonString = jsonString
-			.replace(/\\n/g, '')
-			.replace(/\\\\/g, '\\')
-			.replace(/\\"/g, '"');
+		jsonString = jsonString.replace(/\\n/g, '').replace(/\\\\/g, '\\').replace(/\\"/g, '"');
 
 		return JSON.parse(jsonString);
 	} catch (err) {
@@ -68,7 +85,7 @@ export const getRoster = query(async () => {
 				// Fallback to bundled data if file doesn't exist
 				data = rosterData;
 			} else {
-				data = await file.json() as RosterData | RosterMember[];
+				data = (await file.json()) as RosterData | RosterMember[];
 			}
 		}
 
@@ -119,7 +136,7 @@ export const checkForUpdates = query(async () => {
 
 		// Read current roster
 		const rosterFile = Bun.file(rosterPath);
-		const rosterData = await rosterFile.json() as RosterData | RosterMember[];
+		const rosterData = (await rosterFile.json()) as RosterData | RosterMember[];
 
 		let currentLastUpdated = 0;
 		if (!Array.isArray(rosterData) && rosterData.lastUpdated) {
@@ -188,7 +205,7 @@ export const applyUpdate = command(async () => {
 					.replace(/\..+/, '')
 					.substring(0, 15);
 
-				const historicalPath = `rostersDir/${oldTimestamp}.json`;
+				const historicalPath = `${rostersDir}/${oldTimestamp}.json`;
 				const historicalFile = Bun.file(historicalPath);
 				const historicalExists = await historicalFile.exists();
 
@@ -251,7 +268,7 @@ export const applyUpdate = command(async () => {
 
 export const saveRoster = command(
 	v.object({
-		members: v.array(v.any()),
+		members: v.array(RosterMemberSchema),
 		lastUpdated: v.number()
 	}),
 	async ({ members, lastUpdated }) => {
@@ -262,7 +279,7 @@ export const saveRoster = command(
 			const rosterData = {
 				version: new Date().toISOString().split('T')[0].replace(/-/g, '.'),
 				lastUpdated: lastUpdated,
-				members: members
+				members: members as RosterMember[]
 			};
 			getRoster().set(rosterData);
 			return { success: true, devOnly: true };
