@@ -118,16 +118,6 @@
 		}
 		return '';
 	}
-
-	// Reactive: update value when field changes
-	$effect(() => {
-		filters.forEach((filter) => {
-			// If field changed and current value is empty, set default
-			if (!filter.value && filter.field === 'level') {
-				filter.value = '80';
-			}
-		});
-	});
 </script>
 
 {#snippet toggleFilter()}

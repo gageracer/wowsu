@@ -16,7 +16,7 @@
 	import JsonExport from './JsonExport.svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { dev } from '$app/environment';
-	import { onMount } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import SpecSelector from './SpecSelector.svelte';
 	import RoleDisplay from './RoleDisplay.svelte';
 
@@ -151,22 +151,40 @@
 		filtersApplied = savedFilters.filtersEnabled && savedFilters.filters.length > 0;
 		filtersLoaded = true;
 	});
+	// Debounce timer for localStorage saves
+	let saveTimer: ReturnType<typeof setTimeout> | null = null;
+	const SAVE_DEBOUNCE_MS = 300;
 
-	// Save columns whenever they change
+	function debouncedSave(callback: () => void) {
+		if (saveTimer) clearTimeout(saveTimer);
+		saveTimer = setTimeout(callback, SAVE_DEBOUNCE_MS);
+	}
+
+	// OPTIMIZED: Single consolidated effect with untrack for side effects
 	$effect(() => {
-		if (columnsLoaded) {
-			saveColumnConfig(columns);
-		}
+		// Track reactive dependencies
+		const currentColumns = columns;
+		const currentFilters = filters;
+		const currentMatchAll = matchAll;
+		const currentFiltersEnabled = filtersEnabled;
+		const isColumnsReady = columnsLoaded;
+		const isFiltersReady = filtersLoaded;
+
+		// Use untrack to perform side effects without creating reactive dependencies
+		untrack(() => {
+			// Save columns (debounced)
+			if (isColumnsReady) {
+				debouncedSave(() => saveColumnConfig(currentColumns));
+			}
+
+			// Save filters (debounced)
+			if (isFiltersReady) {
+				debouncedSave(() => saveFilters(currentFilters, currentMatchAll, currentFiltersEnabled));
+			}
+		});
 	});
 
-	// Save filters whenever they change
-	$effect(() => {
-		if (filtersLoaded) {
-			saveFilters(filters, matchAll, filtersEnabled);
-		}
-	});
-
-	// Update filtersApplied when filtersEnabled changes
+	// OPTIMIZED: Separate effect for filtersApplied (UI state only, no side effects)
 	$effect(() => {
 		if (filtersLoaded) {
 			filtersApplied = filtersEnabled && filters.length > 0;
@@ -317,6 +335,35 @@
 		}
 	}
 
+	// OPTIMIZED: Pre-compute class metadata cache
+	interface ClassMetadata {
+		color: string;
+		icon: string;
+		specIcons: Map<string, string>;
+	}
+
+	const classMetadataCache = $derived.by(() => {
+		const cache = new SvelteMap<string, ClassMetadata>();
+		const allClasses = Object.keys(WOW_SPECS);
+
+		for (const className of allClasses) {
+			const specIcons = new SvelteMap<string, string>();
+			const specs = WOW_SPECS[className] || [];
+
+			for (const spec of specs) {
+				specIcons.set(spec.name, getSpecIcon(className, spec.name)!);
+			}
+
+			cache.set(className, {
+				color: getClassColor(className),
+				icon: getClassIcon(className),
+				specIcons
+			});
+		}
+
+		return cache;
+	});
+
 	const filteredRoster = $derived.by(() => {
 		if (!filtersApplied || filters.length === 0) {
 			return roster;
@@ -331,30 +378,55 @@
 		});
 	});
 
-	const sortedRoster = $derived(
-		[...filteredRoster].sort((a, b) => {
-			let aVal: string | number | undefined;
-			let bVal: string | number | undefined;
+	// OPTIMIZED: Debounced async sorting
+	let sortedRoster = $state<RosterMember[]>([]);
+	let sortTimer: ReturnType<typeof setTimeout> | null = null;
+	const SORT_DEBOUNCE_MS = 50;
 
-			if (sortKey === 'daysOffline') {
-				aVal = getDaysAgo(a.lastOnline);
-				bVal = getDaysAgo(b.lastOnline);
-			} else {
-				aVal = a[sortKey as keyof RosterMember];
-				bVal = b[sortKey as keyof RosterMember];
-			}
+	$effect(() => {
+		const toSort = filteredRoster;
+		const currentSortKey = sortKey;
+		const currentSortDirection = sortDirection;
 
-			if (typeof aVal === 'string' && typeof bVal === 'string') {
-				aVal = aVal.toLowerCase();
-				bVal = bVal.toLowerCase();
-			}
+		// Clear any pending sort
+		if (sortTimer) clearTimeout(sortTimer);
 
-			if (aVal === undefined || bVal === undefined) return 0;
-			if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
-			if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
-			return 0;
-		})
-	);
+		// Debounce the sort to avoid rapid updates during filter changes
+		sortTimer = setTimeout(() => {
+			// Use requestIdleCallback for non-blocking work
+			const scheduleWork = window.requestIdleCallback ||
+				((cb: any) => setTimeout(cb, 0));
+
+			scheduleWork(() => {
+				const result = toSort.slice().sort((a, b) => {
+					let aVal: string | number | undefined;
+					let bVal: string | number | undefined;
+
+					if (currentSortKey === 'daysOffline') {
+						aVal = getDaysAgo(a.lastOnline);
+						bVal = getDaysAgo(b.lastOnline);
+					} else {
+						aVal = a[currentSortKey as keyof RosterMember];
+						bVal = b[currentSortKey as keyof RosterMember];
+					}
+
+					if (typeof aVal === 'string' && typeof bVal === 'string') {
+						aVal = aVal.toLowerCase();
+						bVal = bVal.toLowerCase();
+					}
+
+					if (aVal === undefined || bVal === undefined) return 0;
+					if (aVal < bVal) return currentSortDirection === 'asc' ? -1 : 1;
+					if (aVal > bVal) return currentSortDirection === 'asc' ? 1 : -1;
+					return 0;
+				});
+
+				sortedRoster = result;
+			});
+		}, SORT_DEBOUNCE_MS);
+	});
+
+
 
 	function toggleSort(key: keyof RosterMember | 'daysOffline') {
 		if (sortKey === key) {
@@ -616,12 +688,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				{#each sortedRoster as member (member.name)}
-					{@const specs = WOW_SPECS[member.classFileName] || []}
-					{@const classColor = getClassColor(member.classFileName)}
-					{@const classIcon = getClassIcon(member.classFileName)}
-					{@const specIcon = getSpecIcon(member.classFileName, member.mainSpec || '')}
-					<tr class="border-b border-gray-700 hover:bg-gray-700/30">
+    			{#each sortedRoster as member (member.name)}
+    				{@const specs = WOW_SPECS[member.classFileName] || []}
+    				{@const metadata = classMetadataCache.get(member.classFileName)}
+    				{@const classColor = metadata?.color || '#999'}
+    				{@const classIcon = metadata?.icon || ''}
+    				{@const specIcon = metadata?.specIcons.get(member.mainSpec || '') || ''}
+    				<tr class="border-b border-gray-700 hover:bg-gray-700/30">
 						{#each visibleColumns as column (column.key)}
 							<td class="whitespace-nowrap px-4 py-3">
 							{#if column.key === 'name'}
