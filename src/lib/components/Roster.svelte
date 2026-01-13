@@ -19,6 +19,7 @@
 	import { onMount, untrack } from 'svelte';
 	import SpecSelector from './SpecSelector.svelte';
 	import RoleDisplay from './RoleDisplay.svelte';
+	import { resource, useDebounce } from 'runed';
 
 	let {
 		roster = $bindable([]),
@@ -32,8 +33,10 @@
 		applyRaiderIOData: () => void;
 	} = $props();
 
-	let typingTimer: ReturnType<typeof setTimeout> | null = null;
-		const TYPING_TIMEOUT = 1000; // Consider user stopped typing after 1 second
+	const setTypingStopped = useDebounce(() => {
+      isTyping = false;
+    }, 1000);
+
 
 	// Column configuration
 	interface ColumnConfig {
@@ -378,55 +381,74 @@
 		});
 	});
 
-	// OPTIMIZED: Debounced async sorting
-	let sortedRoster = $state<RosterMember[]>([]);
-	let sortTimer: ReturnType<typeof setTimeout> | null = null;
-	const SORT_DEBOUNCE_MS = 50;
+	// OPTIMIZED: Non-blocking sorting with runed resource
+    const sortedRoster = resource(
+      () => ({ roster: filteredRoster, sortKey, sortDirection }),
+      async ({ roster, sortKey, sortDirection }) => {
+        // SSR: sort synchronously
+        if (typeof window === 'undefined') {
+          return roster.slice().sort((a, b) => {
+            let aVal: string | number | undefined;
+            let bVal: string | number | undefined;
 
-	$effect(() => {
-		const toSort = filteredRoster;
-		const currentSortKey = sortKey;
-		const currentSortDirection = sortDirection;
+            if (sortKey === 'daysOffline') {
+              aVal = getDaysAgo(a.lastOnline);
+              bVal = getDaysAgo(b.lastOnline);
+            } else {
+              aVal = a[sortKey as keyof RosterMember];
+              bVal = b[sortKey as keyof RosterMember];
+            }
 
-		// Clear any pending sort
-		if (sortTimer) clearTimeout(sortTimer);
+            if (typeof aVal === 'string' && typeof bVal === 'string') {
+              aVal = aVal.toLowerCase();
+              bVal = bVal.toLowerCase();
+            }
 
-		// Debounce the sort to avoid rapid updates during filter changes
-		sortTimer = setTimeout(() => {
-			// Use requestIdleCallback for non-blocking work
-			const scheduleWork = window.requestIdleCallback ||
-				((cb: any) => setTimeout(cb, 0));
+            if (aVal === undefined || bVal === undefined) return 0;
+            if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
+            if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
+            return 0;
+          });
+        }
 
-			scheduleWork(() => {
-				const result = toSort.slice().sort((a, b) => {
-					let aVal: string | number | undefined;
-					let bVal: string | number | undefined;
+        // Browser: wrap in Promise for non-blocking
+        return new Promise<RosterMember[]>((resolve) => {
+          const scheduleWork = window.requestIdleCallback ||
+            ((cb: IdleRequestCallback) => setTimeout(cb, 0));
 
-					if (currentSortKey === 'daysOffline') {
-						aVal = getDaysAgo(a.lastOnline);
-						bVal = getDaysAgo(b.lastOnline);
-					} else {
-						aVal = a[currentSortKey as keyof RosterMember];
-						bVal = b[currentSortKey as keyof RosterMember];
-					}
+          scheduleWork(() => {
+            const result = roster.slice().sort((a, b) => {
+              let aVal: string | number | undefined;
+              let bVal: string | number | undefined;
 
-					if (typeof aVal === 'string' && typeof bVal === 'string') {
-						aVal = aVal.toLowerCase();
-						bVal = bVal.toLowerCase();
-					}
+              if (sortKey === 'daysOffline') {
+                aVal = getDaysAgo(a.lastOnline);
+                bVal = getDaysAgo(b.lastOnline);
+              } else {
+                aVal = a[sortKey as keyof RosterMember];
+                bVal = b[sortKey as keyof RosterMember];
+              }
 
-					if (aVal === undefined || bVal === undefined) return 0;
-					if (aVal < bVal) return currentSortDirection === 'asc' ? -1 : 1;
-					if (aVal > bVal) return currentSortDirection === 'asc' ? 1 : -1;
-					return 0;
-				});
+              if (typeof aVal === 'string' && typeof bVal === 'string') {
+                aVal = aVal.toLowerCase();
+                bVal = bVal.toLowerCase();
+              }
 
-				sortedRoster = result;
-			});
-		}, SORT_DEBOUNCE_MS);
-	});
+              if (aVal === undefined || bVal === undefined) return 0;
+              if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
+              if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
+              return 0;
+            });
 
-
+            resolve(result);
+          });
+        });
+      },
+      {
+        debounce: 50,
+        initialValue: []
+      }
+    );
 
 	function toggleSort(key: keyof RosterMember | 'daysOffline') {
 		if (sortKey === key) {
@@ -446,16 +468,10 @@
 	}
 
 	function onNoteChange() {
-	  isTyping = true
-   	if (typingTimer) {
-    		clearTimeout(typingTimer);
-   	}
+      isTyping = true;
+      setTypingStopped();
+    }
 
-	// Set a new timer to detect when user stops typing
-	typingTimer = setTimeout(() => {
-			isTyping = false;
-	}, TYPING_TIMEOUT);
-	}
 
 	function copyToClipboard() {
 		const rosterData = {
@@ -688,7 +704,7 @@
 				</tr>
 			</thead>
 			<tbody>
-    			{#each sortedRoster as member (member.name)}
+			    {#each sortedRoster.current ?? [] as member (member.name)}
     				{@const specs = WOW_SPECS[member.classFileName] || []}
     				{@const metadata = classMetadataCache.get(member.classFileName)}
     				{@const classColor = metadata?.color || '#999'}
