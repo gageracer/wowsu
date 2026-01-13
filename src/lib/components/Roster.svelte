@@ -16,7 +16,7 @@
 	import JsonExport from './JsonExport.svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { dev } from '$app/environment';
-	import { onMount, untrack } from 'svelte';
+	import { onMount } from 'svelte';
 	import SpecSelector from './SpecSelector.svelte';
 	import RoleDisplay from './RoleDisplay.svelte';
 	import { resource, useDebounce } from 'runed';
@@ -66,133 +66,46 @@
 		{ key: 'rioLastCrawled', label: 'RIO Last Crawled', visible: false, sortable: true }
 	];
 
+	// OPTIMIZED: Auto-persisted state with cross-tab sync
+    const columnsState = new PersistedState('roster-columns', defaultColumns, {
+      syncTabs: true
+    });
 
+    const filtersState = new PersistedState('roster-filters', {
+      filters: [] as RosterFilter[],
+      matchAll: true,
+      filtersEnabled: false
+    }, {
+      syncTabs: true
+    });
 
+    let columns = $state<ColumnConfig[]>([]);
+    let showColumnManager = $state(false);
+    const visibleColumns = $derived(columns.filter(col => col.visible));
 
-	// Loading state to prevent flash
-	let columnsLoaded = $state(false);
-	let filtersLoaded = $state(false);
+    // Filter state
+    let filters = $state<RosterFilter[]>([]);
+    let matchAll = $state(true);
+    let filtersEnabled = $state(false);
+    let filtersApplied = $derived(filtersEnabled && filters.length > 0);
 
-	// Load column config from localStorage or use defaults
-	function loadColumnConfig(): ColumnConfig[] {
-		if (typeof window === 'undefined') return defaultColumns;
+    // Initialize filtersApplied on mount
+    onMount(() => {
+      filtersApplied = filtersEnabled && filters.length > 0;
+    });
 
-		try {
-			const saved = localStorage.getItem('roster-columns');
-			if (saved) {
-				const savedConfig = JSON.parse(saved);
-				// Merge saved config with defaults (to handle new columns being added)
-				return defaultColumns.map(col => {
-					const savedCol = savedConfig.find((c: ColumnConfig) => c.key === col.key);
-					return savedCol ? { ...col, visible: savedCol.visible } : col;
-				});
-			}
-		} catch (e) {
-			console.error('Failed to load column config:', e);
-		}
-		return defaultColumns;
-	}
+    // OPTIMIZED: Auto-save to PersistedState
+    $effect(() => {
+      columnsState.current = columns;
+    });
 
-
-	function saveColumnConfig(config: ColumnConfig[]) {
-		if (typeof window === 'undefined') return;
-		try {
-			localStorage.setItem('roster-columns', JSON.stringify(config));
-		} catch (e) {
-			console.error('Failed to save column config:', e);
-		}
-	}
-
-	// Load filters from localStorage
-	function loadFilters(): { filters: RosterFilter[]; matchAll: boolean; filtersEnabled: boolean } {
-		if (typeof window === 'undefined') return { filters: [], matchAll: true, filtersEnabled: false };
-
-		try {
-			const saved = localStorage.getItem('roster-filters');
-			if (saved) {
-				const parsed = JSON.parse(saved);
-				return {
-					filters: parsed.filters || [],
-					matchAll: parsed.matchAll ?? true,
-					filtersEnabled: parsed.filtersEnabled ?? false
-				};
-			}
-		} catch (e) {
-			console.error('Failed to load filters:', e);
-		}
-		return { filters: [], matchAll: true, filtersEnabled: false };
-	}
-
-	function saveFilters(filters: RosterFilter[], matchAll: boolean, filtersEnabled: boolean) {
-		if (typeof window === 'undefined') return;
-		try {
-			localStorage.setItem('roster-filters', JSON.stringify({ filters, matchAll, filtersEnabled }));
-		} catch (e) {
-			console.error('Failed to save filters:', e);
-		}
-	}
-
-	let columns = $state<ColumnConfig[]>([]);
-	let showColumnManager = $state(false);
-	const visibleColumns = $derived(columns.filter(col => col.visible));
-
-	// Filter state
-	let filters = $state<RosterFilter[]>([]);
-	let matchAll = $state(true);
-	let filtersApplied = $state(false);
-	let filtersEnabled = $state(false);
-
-	// Load from localStorage on mount
-	onMount(() => {
-		columns = loadColumnConfig();
-		columnsLoaded = true;
-
-		const savedFilters = loadFilters();
-		filters = savedFilters.filters;
-		matchAll = savedFilters.matchAll;
-		filtersEnabled = savedFilters.filtersEnabled;
-		filtersApplied = savedFilters.filtersEnabled && savedFilters.filters.length > 0;
-		filtersLoaded = true;
-	});
-	// Debounce timer for localStorage saves
-	let saveTimer: ReturnType<typeof setTimeout> | null = null;
-	const SAVE_DEBOUNCE_MS = 300;
-
-	function debouncedSave(callback: () => void) {
-		if (saveTimer) clearTimeout(saveTimer);
-		saveTimer = setTimeout(callback, SAVE_DEBOUNCE_MS);
-	}
-
-	// OPTIMIZED: Single consolidated effect with untrack for side effects
-	$effect(() => {
-		// Track reactive dependencies
-		const currentColumns = columns;
-		const currentFilters = filters;
-		const currentMatchAll = matchAll;
-		const currentFiltersEnabled = filtersEnabled;
-		const isColumnsReady = columnsLoaded;
-		const isFiltersReady = filtersLoaded;
-
-		// Use untrack to perform side effects without creating reactive dependencies
-		untrack(() => {
-			// Save columns (debounced)
-			if (isColumnsReady) {
-				debouncedSave(() => saveColumnConfig(currentColumns));
-			}
-
-			// Save filters (debounced)
-			if (isFiltersReady) {
-				debouncedSave(() => saveFilters(currentFilters, currentMatchAll, currentFiltersEnabled));
-			}
-		});
-	});
-
-	// OPTIMIZED: Separate effect for filtersApplied (UI state only, no side effects)
-	$effect(() => {
-		if (filtersLoaded) {
-			filtersApplied = filtersEnabled && filters.length > 0;
-		}
-	});
+    $effect(() => {
+      filtersState.current = {
+        filters,
+        matchAll,
+        filtersEnabled
+      };
+    });
 
 	// Existing state
 	let sortKey = $state<keyof RosterMember | 'daysOffline'>('name');
@@ -581,8 +494,10 @@
 	}
 
 	function resetColumns() {
-		columns = defaultColumns.map(col => ({ ...col }));
-	}
+      columns = defaultColumns.map(col => ({ ...col }));
+      columnsState.current = columns;
+    }
+
 
 	function getCellValue(member: RosterMember, key: keyof RosterMember | 'daysOffline'): unknown {
 		if (key === 'daysOffline') {
@@ -663,7 +578,7 @@
 {/if}
 
 <!-- Loading state or table -->
-{#if !columnsLoaded}
+{#if columns.length === 0}
 	<div class="flex items-center justify-center py-12">
 		<div class="text-gray-400">Loading roster...</div>
 	</div>
