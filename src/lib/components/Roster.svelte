@@ -19,7 +19,7 @@
 	import { onMount } from 'svelte';
 	import SpecSelector from './SpecSelector.svelte';
 	import RoleDisplay from './RoleDisplay.svelte';
-	import { resource, useDebounce } from 'runed';
+	import { PersistedState, resource, useDebounce } from 'runed';
 
 	let {
 		roster = $bindable([]),
@@ -79,20 +79,16 @@
       syncTabs: true
     });
 
-    let columns = $state<ColumnConfig[]>([]);
+    let columns = $state(columnsState.current);
     let showColumnManager = $state(false);
     const visibleColumns = $derived(columns.filter(col => col.visible));
 
     // Filter state
-    let filters = $state<RosterFilter[]>([]);
-    let matchAll = $state(true);
-    let filtersEnabled = $state(false);
+    let filters = $state(filtersState.current.filters);
+    let matchAll = $state(filtersState.current.matchAll);
+    let filtersEnabled = $state(filtersState.current.filtersEnabled);
     let filtersApplied = $derived(filtersEnabled && filters.length > 0);
 
-    // Initialize filtersApplied on mount
-    onMount(() => {
-      filtersApplied = filtersEnabled && filters.length > 0;
-    });
 
     // OPTIMIZED: Auto-save to PersistedState
     $effect(() => {
@@ -495,8 +491,11 @@
 
 	function resetColumns() {
       columns = defaultColumns.map(col => ({ ...col }));
-      columnsState.current = columns;
+      if (typeof window !== 'undefined') {
+        columnsState.current = columns;
+      }
     }
+
 
 
 	function getCellValue(member: RosterMember, key: keyof RosterMember | 'daysOffline'): unknown {
@@ -619,7 +618,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			    {#each sortedRoster.current ?? [] as member (member.name)}
+			    {#each sortedRoster.current as member (member.name)}
     				{@const specs = WOW_SPECS[member.classFileName] || []}
     				{@const metadata = classMetadataCache.get(member.classFileName)}
     				{@const classColor = metadata?.color || '#999'}
