@@ -16,93 +16,86 @@
 	let rosterSection: HTMLElement | undefined = $state();
 
 	// Sync query data to bindable state
-	$effect(() => {
-		if (rosterQuery.current) {
-			roster = rosterQuery.current.members;
-			lastUpdated = rosterQuery.current.lastUpdated;
+    $effect(() => {
+  		if (rosterQuery.current) {
+ 			const newData = rosterQuery.current.members;
 
-			// Scroll to roster when data loads (only once)
-			if (!hasScrolled && rosterSection) {
-				tick().then(() => {
-					rosterSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-					hasScrolled = true;
-				});
-			}
+ 			// Only sync if data is actually different (deep comparison)
+ 			if (JSON.stringify(roster) !== JSON.stringify(newData)) {
+  				roster = newData;
+  				lastUpdated = rosterQuery.current.lastUpdated;
+ 			}
+
+ 			// Scroll to roster when data loads (only once)
+ 			if (!hasScrolled && rosterSection) {
+  				tick().then(() => {
+ 					rosterSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+ 					hasScrolled = true;
+  				});
+            }
+  		}
+    });
+
+    // Auto-save state
+    let isSaving = $state(false);
+    let saveError = $state<string | null>(null);
+    let lastSavedSnapshot = $state<string | null>(null);
+    let hasInitiallyLoaded = $state(false);  // ← ADD THIS
+    
+    // Simple debounced auto-save with $effect
+    let saveTimer: ReturnType<typeof setTimeout> | null = null;
+    
+    $effect(() => {
+	const currentSnapshot = JSON.stringify(roster);
+	
+	// Skip initial load - wait until we've loaded data at least once
+	if (!hasInitiallyLoaded) {
+		if (roster.length > 0) {
+			hasInitiallyLoaded = true;
+			lastSavedSnapshot = currentSnapshot;
 		}
-	});
-
-	// Auto-save state
-	let isSaving = $state(false);
-	let saveError = $state<string | null>(null);
-
-	// Auto-save when roster actually changes (using derived to detect deep changes)
-	let rosterSnapshot = $derived(JSON.stringify(roster));
-	let previousSnapshot = $state<string | null>(null);
-
-
-	let saveInProgress = false;
-	let queuedSnapshot: string | null = null;
-	async function saveCurrentRoster() {
+		return;  // ← ADD THIS EARLY RETURN
+	}
+	
+	// Skip if typing, saving, or data hasn't changed
+	if (isTyping || isSaving || currentSnapshot === lastSavedSnapshot) {
+		return;
+	}
+	
+	// Skip if this is initial load (no previous snapshot)
+	if (lastSavedSnapshot === null) {
+		lastSavedSnapshot = currentSnapshot;
+		return;
+	}
+	
+	// Debounce the save
+	if (saveTimer) clearTimeout(saveTimer);
+	
+	saveTimer = setTimeout(async () => {
 		isSaving = true;
 		saveError = null;
+		
 		try {
-			await saveRoster({ members: roster, lastUpdated });
-			console.log('Roster saved successfully');
-			// Show saved indicator briefly
+			await saveRoster({ members: [...roster], lastUpdated });
+			lastSavedSnapshot = currentSnapshot;
+			console.log('Roster auto-saved');
+			
 			setTimeout(() => {
 				isSaving = false;
-				return clearTimeout
 			}, 500);
 		} catch (error) {
-			console.error('Error auto-saving roster:', error);
+			console.error('Error auto-saving:', error);
 			saveError = error instanceof Error ? error.message : 'Failed to save';
 			isSaving = false;
-		} finally {
-			const nextSnapshot = queuedSnapshot;
-			queuedSnapshot = null;
-			if (nextSnapshot && nextSnapshot !== previousSnapshot) {
-				// There were additional changes while saving; save the latest snapshot next.
-				previousSnapshot = nextSnapshot;
-				// Keep saveInProgress true while we start the next save in the queue.
-				saveInProgress = true;
-				void saveCurrentRoster();
-			} else {
-				saveInProgress = false;
-			}
 		}
-	}
+	}, 2000);
+    });
 
-	$effect(() => {
-		// Track the snapshot
-		const currentSnapshot = rosterSnapshot;
-		// Skip if this is the first run
-		if (previousSnapshot === null) {
-			previousSnapshot = currentSnapshot;
-			return;
-		}
-		// Skip if data hasn't changed
-		if (previousSnapshot === currentSnapshot) {
-			return;
-		}
-		if(isTyping){
-			return
-		}
-		// Data has changed
-		if (saveInProgress) {
-			// A save is already in progress; queue the latest snapshot to be saved next.
-			queuedSnapshot = currentSnapshot;
-			return;
-		}
-		// No save in progress; start one immediately.
-		previousSnapshot = currentSnapshot;
-		saveInProgress = true;
-		saveCurrentRoster();
-	})
 
 	let showUpdateNotification = $state(false);
 	let isUpdating = $state(false);
 	let updateError = $state<string | null>(null);
-	let updateData = $state<any>(null);
+	let updateData = $state<Record<string, unknown> | null>(null);
 
 	function formatDate(timestamp: number): string {
 		if (!timestamp) return 'Never';

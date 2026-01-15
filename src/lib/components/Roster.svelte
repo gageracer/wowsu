@@ -16,10 +16,9 @@
 	import JsonExport from './JsonExport.svelte';
 	import { SvelteMap } from 'svelte/reactivity';
 	import { dev } from '$app/environment';
-	import { onMount } from 'svelte';
 	import SpecSelector from './SpecSelector.svelte';
 	import RoleDisplay from './RoleDisplay.svelte';
-	import { PersistedState, resource, useDebounce } from 'runed';
+	import { PersistedState, useDebounce } from 'runed';
 
 	let {
 		roster = $bindable([]),
@@ -66,12 +65,12 @@
 		{ key: 'rioLastCrawled', label: 'RIO Last Crawled', visible: false, sortable: true }
 	];
 
-	// OPTIMIZED: Auto-persisted state with cross-tab sync
-    const columnsState = new PersistedState('roster-columns', defaultColumns, {
+	// OPTIMIZED: Auto-persisted state with cross-tab sync - use directly as source of truth
+    const columns = new PersistedState('roster-columns', defaultColumns, {
       syncTabs: true
     });
 
-    const filtersState = new PersistedState('roster-filters', {
+    const persistedFilters = new PersistedState('roster-filters', {
       filters: [] as RosterFilter[],
       matchAll: true,
       filtersEnabled: false
@@ -79,29 +78,17 @@
       syncTabs: true
     });
 
-    let columns = $state(columnsState.current);
     let showColumnManager = $state(false);
-    const visibleColumns = $derived(columns.filter(col => col.visible));
+    const visibleColumns = $derived(columns.current.filter(col => col.visible));
 
-    // Filter state
-    let filters = $state(filtersState.current.filters);
-    let matchAll = $state(filtersState.current.matchAll);
-    let filtersEnabled = $state(filtersState.current.filtersEnabled);
-    let filtersApplied = $derived(filtersEnabled && filters.length > 0);
+    // State for filters applied (needs to be bindable)
+    let filtersApplied = $state(false);
 
-
-    // OPTIMIZED: Auto-save to PersistedState
+    // Sync filtersApplied when filter state changes
     $effect(() => {
-      columnsState.current = columns;
+      filtersApplied = persistedFilters.current.filtersEnabled && persistedFilters.current.filters.length > 0;
     });
 
-    $effect(() => {
-      filtersState.current = {
-        filters,
-        matchAll,
-        filtersEnabled
-      };
-    });
 
 	// Existing state
 	let sortKey = $state<keyof RosterMember | 'daysOffline'>('name');
@@ -277,87 +264,48 @@
 	});
 
 	const filteredRoster = $derived.by(() => {
-		if (!filtersApplied || filters.length === 0) {
-			return roster;
-		}
-
-		return roster.filter((member) => {
-			if (matchAll) {
-				return filters.every((filter) => matchFilter(member, filter));
-			} else {
-				return filters.some((filter) => matchFilter(member, filter));
-			}
-		});
-	});
-
-	// OPTIMIZED: Non-blocking sorting with runed resource
-    const sortedRoster = resource(
-      () => ({ roster: filteredRoster, sortKey, sortDirection }),
-      async ({ roster, sortKey, sortDirection }) => {
-        // SSR: sort synchronously
-        if (typeof window === 'undefined') {
-          return roster.slice().sort((a, b) => {
-            let aVal: string | number | undefined;
-            let bVal: string | number | undefined;
-
-            if (sortKey === 'daysOffline') {
-              aVal = getDaysAgo(a.lastOnline);
-              bVal = getDaysAgo(b.lastOnline);
-            } else {
-              aVal = a[sortKey as keyof RosterMember];
-              bVal = b[sortKey as keyof RosterMember];
-            }
-
-            if (typeof aVal === 'string' && typeof bVal === 'string') {
-              aVal = aVal.toLowerCase();
-              bVal = bVal.toLowerCase();
-            }
-
-            if (aVal === undefined || bVal === undefined) return 0;
-            if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
-            if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
-            return 0;
-          });
-        }
-
-        // Browser: wrap in Promise for non-blocking
-        return new Promise<RosterMember[]>((resolve) => {
-          const scheduleWork = window.requestIdleCallback ||
-            ((cb: IdleRequestCallback) => setTimeout(cb, 0));
-
-          scheduleWork(() => {
-            const result = roster.slice().sort((a, b) => {
-              let aVal: string | number | undefined;
-              let bVal: string | number | undefined;
-
-              if (sortKey === 'daysOffline') {
-                aVal = getDaysAgo(a.lastOnline);
-                bVal = getDaysAgo(b.lastOnline);
-              } else {
-                aVal = a[sortKey as keyof RosterMember];
-                bVal = b[sortKey as keyof RosterMember];
-              }
-
-              if (typeof aVal === 'string' && typeof bVal === 'string') {
-                aVal = aVal.toLowerCase();
-                bVal = bVal.toLowerCase();
-              }
-
-              if (aVal === undefined || bVal === undefined) return 0;
-              if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
-              if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
-              return 0;
-            });
-
-            resolve(result);
-          });
-        });
-      },
-      {
-        debounce: 50,
-        initialValue: []
+      if (!filtersApplied || persistedFilters.current.filters.length === 0) {
+        return roster;
       }
-    );
+
+      return roster.filter((member) => {
+        if (persistedFilters.current.matchAll) {
+          return persistedFilters.current.filters.every((filter) => matchFilter(member, filter));
+        } else {
+          return persistedFilters.current.filters.some((filter) => matchFilter(member, filter));
+        }
+      });
+    });
+
+
+	// Simple synchronous sorted roster (no async complexity)
+    const sortedRoster = $derived.by(() => {
+    		const toSort = filteredRoster.slice();
+
+    		return toSort.sort((a, b) => {
+   			let aVal: string | number | undefined;
+   			let bVal: string | number | undefined;
+
+   			if (sortKey === 'daysOffline') {
+    				aVal = getDaysAgo(a.lastOnline);
+    				bVal = getDaysAgo(b.lastOnline);
+   			} else {
+    				aVal = a[sortKey as keyof RosterMember];
+    				bVal = b[sortKey as keyof RosterMember];
+   			}
+
+   			if (typeof aVal === 'string' && typeof bVal === 'string') {
+    				aVal = aVal.toLowerCase();
+    				bVal = bVal.toLowerCase();
+   			}
+
+   			if (aVal === undefined || bVal === undefined) return 0;
+   			if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
+   			if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
+   			return 0;
+    		});
+    });
+
 
 	function toggleSort(key: keyof RosterMember | 'daysOffline') {
 		if (sortKey === key) {
@@ -490,11 +438,9 @@
 	}
 
 	function resetColumns() {
-      columns = defaultColumns.map(col => ({ ...col }));
-      if (typeof window !== 'undefined') {
-        columnsState.current = columns;
-      }
+      columns.current = defaultColumns.map(col => ({ ...col }));
     }
+
 
 
 
@@ -506,8 +452,9 @@
 	}
 
 	function toggleFilters() {
-		filtersEnabled = !filtersEnabled;
-	}
+      persistedFilters.current.filtersEnabled = !persistedFilters.current.filtersEnabled;
+    }
+
 </script>
 
 <!-- Dev Only-->
@@ -563,21 +510,22 @@
 {/if}
 
 <RosterFilters
-	bind:filters={filters}
-	bind:matchAll={matchAll}
-	bind:applied={filtersApplied}
-	{toggleFilters}
-	{filtersEnabled}
-	totalCount={roster.length}
-	filteredCount={filteredRoster.length}
+  bind:filters={persistedFilters.current.filters}
+  bind:matchAll={persistedFilters.current.matchAll}
+  bind:applied={filtersApplied}
+  {toggleFilters}
+  filtersEnabled={persistedFilters.current.filtersEnabled}
+  totalCount={roster.length}
+  filteredCount={filteredRoster.length}
 />
 
+
 {#if showColumnManager}
-	<ColumnManager bind:columns={columns} onReset={resetColumns} />
+    <ColumnManager bind:columns={columns.current} onReset={resetColumns} />
 {/if}
 
 <!-- Loading state or table -->
-{#if columns.length === 0}
+{#if columns.current.length === 0}
 	<div class="flex items-center justify-center py-12">
 		<div class="text-gray-400">Loading roster...</div>
 	</div>
@@ -618,7 +566,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			    {#each sortedRoster.current as member (member.name)}
+                {#each sortedRoster as member (`${member.name}-${member.realmName}`)}
     				{@const specs = WOW_SPECS[member.classFileName] || []}
     				{@const metadata = classMetadataCache.get(member.classFileName)}
     				{@const classColor = metadata?.color || '#999'}
