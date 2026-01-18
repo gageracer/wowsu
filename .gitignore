@@ -29,3 +29,6 @@ src/lib/paraglide
 # WoW Addon exports (dev only)
 static/GuildRosterExport.lua
 .env
+
+# btca
+.btca

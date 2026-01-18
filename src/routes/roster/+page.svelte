@@ -2,28 +2,29 @@
 	import RosterTable from '$lib/components/Roster.svelte';
 	import { onMount, tick } from 'svelte';
 	import { getRoster, checkForUpdates, applyUpdate, saveRoster,  applyRaiderIOData } from './data.remote';
-	import type { RosterMember } from '$lib/types/roster';
+	import { RosterState } from '$lib/components/roster/roster.state.svelte';
+	import { rosterContext } from '$lib/components/roster/context/roster';
 
 	// Call the query - it returns a reactive object
 	const rosterQuery = getRoster();
 
-	// Create bindable state from query result
-	let roster = $state<RosterMember[]>([]);
-	let lastUpdated = $state(0);
-	let isTyping = $state(false);
+	// Create RosterState instance
+	const rosterState = new RosterState();
+
+	// Set roster context for child components
+	rosterContext.set(rosterState);
+
 	let hasScrolled = $state(false);
-	// Reference to the roster section
 	let rosterSection: HTMLElement | undefined = $state();
 
-	// Sync query data to bindable state
+	// Sync query data to roster state
     $effect(() => {
   		if (rosterQuery.current) {
  			const newData = rosterQuery.current.members;
 
  			// Only sync if data is actually different (deep comparison)
- 			if (JSON.stringify(roster) !== JSON.stringify(newData)) {
-  				roster = newData;
-  				lastUpdated = rosterQuery.current.lastUpdated;
+ 			if (JSON.stringify(rosterState.roster) !== JSON.stringify(newData)) {
+  				rosterState.setRoster(newData, rosterQuery.current.lastUpdated);
  			}
 
  			// Scroll to roster when data loads (only once)
@@ -40,46 +41,46 @@
     let isSaving = $state(false);
     let saveError = $state<string | null>(null);
     let lastSavedSnapshot = $state<string | null>(null);
-    let hasInitiallyLoaded = $state(false);  // ← ADD THIS
-    
+    let hasInitiallyLoaded = $state(false);
+
     // Simple debounced auto-save with $effect
     let saveTimer: ReturnType<typeof setTimeout> | null = null;
-    
+
     $effect(() => {
-	const currentSnapshot = JSON.stringify(roster);
-	
+	const currentSnapshot = JSON.stringify(rosterState.roster);
+
 	// Skip initial load - wait until we've loaded data at least once
 	if (!hasInitiallyLoaded) {
-		if (roster.length > 0) {
+		if (rosterState.roster.length > 0) {
 			hasInitiallyLoaded = true;
 			lastSavedSnapshot = currentSnapshot;
 		}
-		return;  // ← ADD THIS EARLY RETURN
-	}
-	
-	// Skip if typing, saving, or data hasn't changed
-	if (isTyping || isSaving || currentSnapshot === lastSavedSnapshot) {
 		return;
 	}
-	
+
+	// Skip if typing, saving, or data hasn't changed
+	if (rosterState.isTyping || isSaving || currentSnapshot === lastSavedSnapshot) {
+		return;
+	}
+
 	// Skip if this is initial load (no previous snapshot)
 	if (lastSavedSnapshot === null) {
 		lastSavedSnapshot = currentSnapshot;
 		return;
 	}
-	
+
 	// Debounce the save
 	if (saveTimer) clearTimeout(saveTimer);
-	
+
 	saveTimer = setTimeout(async () => {
 		isSaving = true;
 		saveError = null;
-		
+
 		try {
-			await saveRoster({ members: [...roster], lastUpdated });
+			await saveRoster({ members: [...rosterState.roster], lastUpdated: rosterState.lastUpdated });
 			lastSavedSnapshot = currentSnapshot;
 			console.log('Roster auto-saved');
-			
+
 			setTimeout(() => {
 				isSaving = false;
 			}, 500);
@@ -263,16 +264,16 @@
 	<section class="mb-8" bind:this={rosterSection}>
 		<h1 class="mb-2 text-center text-3xl font-bold text-gray-100">Guild Roster</h1>
 		<div class="flex justify-center gap-4 text-sm text-gray-400">
-			<p>Total Members: <span class="font-semibold text-gray-300">{roster.length}</span></p>
+			<p>Total Members: <span class="font-semibold text-gray-300">{rosterState.roster.length}</span></p>
 			<span class="text-gray-600">•</span>
 			<p>
-				Last Updated: <span class="font-semibold text-gray-300">{formatDate(lastUpdated)}</span>
+				Last Updated: <span class="font-semibold text-gray-300">{formatDate(rosterState.lastUpdated)}</span>
 			</p>
 		</div>
 	</section>
 
 	<section class="mb-8">
-		<RosterTable bind:roster={roster} bind:lastUpdated={lastUpdated} bind:isTyping={isTyping} {applyRaiderIOData} />
+		<RosterTable {applyRaiderIOData} />
 	</section>
 {/if}
 
