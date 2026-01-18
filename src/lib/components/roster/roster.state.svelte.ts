@@ -1,6 +1,7 @@
 import type { RosterMember } from '$lib/types/roster';
 import type { Role } from '$lib/wow-specs';
 import type { RosterFilter } from '$lib/types/filters';
+import { SvelteDate, SvelteMap, SvelteSet } from 'svelte/reactivity';
 
 export interface ColumnConfig {
 	key: keyof RosterMember | 'daysOffline';
@@ -241,7 +242,7 @@ export class RosterState {
 				return;
 			}
 
-			const existingRoles = new Map<string, { spec: string; role: Role }>();
+			const existingRoles = new SvelteMap<string, { spec: string; role: Role }>();
 			this.roster.forEach((member) => {
 				if (member.mainSpec && member.mainRole) {
 					existingRoles.set(member.name, {
@@ -251,7 +252,7 @@ export class RosterState {
 				}
 			});
 
-			const existingNames = new Set(this.roster.map((m) => m.name));
+			const existingNames = new SvelteSet(this.roster.map((m) => m.name));
 			const changes: Array<{ name: string; classFileName: string; message: string }> = [];
 			let rolesPreserved = 0;
 			let newPlayers = 0;
@@ -332,7 +333,7 @@ export class RosterState {
 	 */
 	getExportData() {
 		return {
-			version: new Date().toISOString().split('T')[0].replace(/-/g, '.'),
+			version: new SvelteDate().toISOString().split('T')[0].replace(/-/g, '.'),
 			lastUpdated: this.lastUpdated,
 			members: this.roster
 		};
@@ -345,8 +346,8 @@ export class RosterState {
 	 */
 	getDaysAgo(lastOnline: number): number {
 		if (!lastOnline) return -1;
-		const date = new Date(lastOnline * 1000);
-		const now = new Date();
+		const date = new SvelteDate(lastOnline * 1000);
+		const now = new SvelteDate();
 		const diffMs = now.getTime() - date.getTime();
 		return Math.floor(diffMs / (1000 * 60 * 60 * 24));
 	}
@@ -356,8 +357,8 @@ export class RosterState {
 	 */
 	formatLastOnline(lastOnline: number): string {
 		if (!lastOnline) return 'Never';
-		const date = new Date(lastOnline * 1000);
-		const now = new Date();
+		const date = new SvelteDate(lastOnline * 1000);
+		const now = new SvelteDate();
 		const diffMs = now.getTime() - date.getTime();
 		const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
@@ -392,7 +393,7 @@ export class RosterState {
 
 		let fieldValue: string | number | undefined | null;
 
-		if (field === 'daysOffline') {
+		if (field === 'lastOnline') {
 			fieldValue = this.getDaysAgo(member.lastOnline);
 		} else {
 			fieldValue = member[field as keyof RosterMember] as string | number | undefined;
@@ -410,15 +411,15 @@ export class RosterState {
 
 		let memberValue: number | string | null = fieldValue ?? null;
 
-		if (operator === 'isEmpty') {
+		if (operator === 'is_empty') {
 			return isEmpty;
 		}
 
-		if (operator === 'isNotEmpty') {
+		if (operator === 'is_not_empty') {
 			return !isEmpty;
 		}
 
-		if (isEmpty && operator !== 'isEmpty' && operator !== 'isNotEmpty') {
+		if (isEmpty) {
 			return false;
 		}
 
@@ -442,9 +443,9 @@ export class RosterState {
 		}
 
 		switch (operator) {
-			case 'equals':
+			case '=':
 				return memberValue === compareValue;
-			case 'notEquals':
+			case '!=':
 				return memberValue !== compareValue;
 			case 'contains':
 				return (
@@ -452,43 +453,43 @@ export class RosterState {
 					typeof compareValue === 'string' &&
 					memberValue.includes(compareValue)
 				);
-			case 'notContains':
+			case 'not_contains':
 				return (
 					typeof memberValue === 'string' &&
 					typeof compareValue === 'string' &&
 					!memberValue.includes(compareValue)
 				);
-			case 'startsWith':
+			case 'starts_with':
 				return (
 					typeof memberValue === 'string' &&
 					typeof compareValue === 'string' &&
 					memberValue.startsWith(compareValue)
 				);
-			case 'endsWith':
+			case 'ends_with':
 				return (
 					typeof memberValue === 'string' &&
 					typeof compareValue === 'string' &&
 					memberValue.endsWith(compareValue)
 				);
-			case 'greaterThan':
+			case '>':
 				return (
 					typeof memberValue === 'number' &&
 					typeof compareValue === 'number' &&
 					memberValue > compareValue
 				);
-			case 'lessThan':
+			case '<':
 				return (
 					typeof memberValue === 'number' &&
 					typeof compareValue === 'number' &&
 					memberValue < compareValue
 				);
-			case 'greaterThanOrEqual':
+			case '>=':
 				return (
 					typeof memberValue === 'number' &&
 					typeof compareValue === 'number' &&
 					memberValue >= compareValue
 				);
-			case 'lessThanOrEqual':
+			case '<=':
 				return (
 					typeof memberValue === 'number' &&
 					typeof compareValue === 'number' &&

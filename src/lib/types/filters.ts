@@ -10,7 +10,7 @@ export type FilterField =
 	| 'achievementPoints'
 	| 'lastOnline';
 
-export type FilterOperator = '=' | '!=' | '>' | '<' | '>=' | '<=' | 'contains' | 'not_contains' | 'is_empty' | 'is_not_empty';
+export type FilterOperator = '=' | '!=' | '>' | '<' | '>=' | '<=' | 'contains' | 'not_contains' | 'is_empty' | 'is_not_empty' | 'starts_with' | 'ends_with';
 
 export interface RosterFilter {
 	id: number;
