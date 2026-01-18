@@ -77,7 +77,7 @@
 		saveError = null;
 
 		try {
-			await saveRoster({ members: [...rosterState.roster], lastUpdated: rosterState.lastUpdated });
+			await saveRoster({ members: rosterState.roster, lastUpdated: rosterState.lastUpdated });
 			lastSavedSnapshot = currentSnapshot;
 			console.log('Roster auto-saved');
 

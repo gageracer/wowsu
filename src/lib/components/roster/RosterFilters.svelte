@@ -95,7 +95,7 @@
 			return OPERATORS.filter((op) => ['=', '!='].includes(op.value));
 		} else if (field === 'mainRole' || field === 'mainSpec') {
 			// Optional fields with dropdowns: exact match + empty checks
-			return OPERATORS.filter((op) => ['=', '!=', 'is_empty', 'is_not_empty'].includes(op.value));
+			return OPERATORS.filter((op) => ['contains','not_contains','=', '!=', 'is_empty', 'is_not_empty'].includes(op.value));
 		} else if (optionalFields.includes(field)) {
 			// Other optional text fields: all operators
 			return OPERATORS;
