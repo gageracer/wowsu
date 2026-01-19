@@ -16,16 +16,15 @@
 
 	let hasScrolled = $state(false);
 	let rosterSection: HTMLElement | undefined = $state();
-
+	let hasInitialized = $state(false);
+	
 	// Sync query data to roster state
-    $effect(() => {
-  		if (rosterQuery.current) {
+	$effect(() => {
+  		if (rosterQuery.current && !hasInitialized) {
  			const newData = rosterQuery.current.members;
-
- 			// Only sync if data is actually different (deep comparison)
- 			if (JSON.stringify(rosterState.roster) !== JSON.stringify(newData)) {
-  				rosterState.setRoster(newData, rosterQuery.current.lastUpdated);
- 			}
+  			rosterState.setRoster(newData, rosterQuery.current.lastUpdated);
+            hasInitialized = true;
+            console.log('Initial roster data loaded');
 
  			// Scroll to roster when data loads (only once)
  			if (!hasScrolled && rosterSection) {
@@ -37,59 +36,57 @@
   		}
     });
 
-    // Auto-save state
+	// Auto-save with Debounced - simple and clean
+    import { Debounced } from 'runed';
+    
     let isSaving = $state(false);
     let saveError = $state<string | null>(null);
     let lastSavedSnapshot = $state<string | null>(null);
-    let hasInitiallyLoaded = $state(false);
-
-    // Simple debounced auto-save with $effect
-    let saveTimer: ReturnType<typeof setTimeout> | null = null;
+    
+    const debouncedRoster = new Debounced(() => rosterState.roster, 2000);
 
     $effect(() => {
-	const currentSnapshot = JSON.stringify(rosterState.roster);
+        const roster = debouncedRoster.current;
+        const currentSnapshot = JSON.stringify(roster);
+        
+        // Skip if no data or not initialized yet
+        if (!roster || roster.length === 0 || !hasInitialized) {
+            return;
+        }
 
-	// Skip initial load - wait until we've loaded data at least once
-	if (!hasInitiallyLoaded) {
-		if (rosterState.roster.length > 0) {
-			hasInitiallyLoaded = true;
-			lastSavedSnapshot = currentSnapshot;
-		}
-		return;
-	}
+        // Skip if already saved this exact snapshot
+        if (currentSnapshot === lastSavedSnapshot) {
+            return;
+        }
 
-	// Skip if typing, saving, or data hasn't changed
-	if (rosterState.isTyping || isSaving || currentSnapshot === lastSavedSnapshot) {
-		return;
-	}
+        // Set initial snapshot without saving
+        if (lastSavedSnapshot === null) {
+            lastSavedSnapshot = currentSnapshot;
+            console.log('Initial snapshot set');
+            return;
+        }
 
-	// Skip if this is initial load (no previous snapshot)
-	if (lastSavedSnapshot === null) {
-		lastSavedSnapshot = currentSnapshot;
-		return;
-	}
-
-	// Debounce the save
-	if (saveTimer) clearTimeout(saveTimer);
-
-	saveTimer = setTimeout(async () => {
-		isSaving = true;
-		saveError = null;
-
-		try {
-			await saveRoster({ members: rosterState.roster, lastUpdated: rosterState.lastUpdated });
-			lastSavedSnapshot = currentSnapshot;
-			console.log('Roster auto-saved');
-
-			setTimeout(() => {
-				isSaving = false;
-			}, 500);
-		} catch (error) {
-			console.error('Error auto-saving:', error);
-			saveError = error instanceof Error ? error.message : 'Failed to save';
-			isSaving = false;
-		}
-	}, 2000);
+        // Queue the save using untrack to prevent reading reactive state
+        console.log('Queueing save...');
+        queueMicrotask(() => {
+            saveRoster({ 
+                members: roster, 
+                lastUpdated: rosterState.lastUpdated 
+            })
+            .then(() => {
+                lastSavedSnapshot = currentSnapshot;
+                isSaving = false;
+                console.log('Roster auto-saved');
+            })
+            .catch((error) => {
+                console.error('Error auto-saving:', error);
+                saveError = error instanceof Error ? error.message : 'Failed to save';
+                isSaving = false;
+            });
+            
+            isSaving = true;
+            saveError = null;
+        });
     });
 
 
@@ -273,7 +270,7 @@
 	</section>
 
 	<section class="mb-8">
-		<RosterTable {applyRaiderIOData} />
+		<RosterTable/>
 	</section>
 {/if}
 

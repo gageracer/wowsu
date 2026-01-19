@@ -18,15 +18,10 @@
 	import SpecSelector from './SpecSelector.svelte';
 	import RoleDisplay from './RoleDisplay.svelte';
 	import { dev } from '$app/environment';
-	import { PersistedState, useDebounce } from 'runed';
+	import { PersistedState } from 'runed';
 
 	// Get roster state from context - ONLY for roster data
 	const rosterState = rosterContext.get();
-
-	// Debounce typing state for auto-save
-	const setTypingStopped = useDebounce(() => {
-		rosterState.setIsTyping(false);
-	}, 1000);
 
 	// Column configuration with PersistedState
 	interface ColumnConfig {
@@ -77,7 +72,16 @@
 	// Local state for sorting (keep local since it's UI-only)
 	let sortKey = $state<keyof RosterMember | 'daysOffline'>('name');
 	let sortDirection = $state<'asc' | 'desc'>('asc');
-
+	// DEBUG: Watch for roster changes
+		$effect(() => {
+			console.log('RosterTable sees roster change:', {
+				length: rosterState.roster.length,
+				firstMember: rosterState.roster[0]?.name,
+				firstSpec: rosterState.roster[0]?.mainSpec,
+				note: rosterState.roster[0]?.note,
+				snapshot: JSON.stringify(rosterState.roster).slice(0, 125)
+			});
+		});
 	// Helper functions
 	function getDaysAgo(timestamp: number): number {
 		if (timestamp === 0) return 0;
@@ -254,18 +258,10 @@
 		columns.current = defaultColumns.map(col => ({ ...col }));
 	}
 
-	// Event handlers
-	function onSpecChange(member: RosterMember, spec: string) {
-		const role = getRoleForSpec(member.classFileName, spec);
-		if (role && spec) {
-			rosterState.updateMemberSpec(member, spec, role);
-		}
-	}
 
 	function onNoteChange(member: RosterMember, note: string) {
 		rosterState.setIsTyping(true);
 		rosterState.updateMemberNote(member, note);
-		setTypingStopped();
 	}
 
 	function copyToClipboard() {
@@ -432,7 +428,6 @@
 											bind:value={member.mainSpec}
 											{specs}
 											classFileName={member.classFileName}
-											onChange={(spec) => onSpecChange(member, spec)}
 										/>
 									{:else if member.mainSpec}
 										<div class="flex items-center gap-2">
