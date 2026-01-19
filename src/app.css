@@ -12,6 +12,7 @@
 	--color-primary-section: #1b963d;
 	--color-secondary-section: #81c745;
 	--color-accent-section: #ffa0d6;
+	--color-secondary-midnight: #b0a3e4;
 }
 
 @layer base {
@@ -30,7 +31,7 @@
 	}
 
 	a {
-		@apply text-accent inline-block transition-all duration-300 ease-in-out hover:-translate-y-1 hover:underline;
+		@apply inline-block text-accent transition-all duration-300 ease-in-out hover:-translate-y-1 hover:underline;
 	}
 
 	img {
@@ -46,14 +47,23 @@
 	.bg-leather {
 		background-image: url('/images/bg-leather.jpg');
 	}
+	.bg-midnight {
+		background-image: url('/images/bg-midnight.jpg');
+	}
 
 	.bg-mobile {
 		background-image: url('/images/960_BG_Mobile.jpg');
+	}
+	.bg-mobile-midnight {
+		background-image: url('/images/bg-midnight.jpg');
 	}
 
 	@media (min-width: 768px) {
 		.md\:bg-leather {
 			background-image: url('/images/bg-leather.jpg');
+		}
+		.md\:bg-midnight {
+			background-image: url('/images/bg-midnight.jpg');
 		}
 	}
 }

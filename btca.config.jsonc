@@ -1,0 +1,88 @@
+{
+	"$schema": "https://btca.dev/btca.schema.json",
+	"providerTimeoutMs": 300000,
+	"resources": [
+		{
+			"type": "git",
+			"name": "svelte",
+			"url": "https://github.com/sveltejs/svelte.dev",
+			"branch": "main",
+			"searchPath": "apps/svelte.dev/content",
+			"specialNotes": "Svelte 5 documentation. Focus on content directory for markdown docs and examples."
+		},
+		{
+			"type": "git",
+			"name": "svelteKit",
+			"url": "https://github.com/sveltejs/kit",
+			"branch": "main",
+			"searchPath": "documentation",
+			"specialNotes": "SvelteKit framework documentation. Check documentation/docs for guides and API reference."
+		},
+		{
+			"type": "git",
+			"name": "tailwindcss",
+			"url": "https://github.com/tailwindlabs/tailwindcss.com",
+			"branch": "master",
+			"searchPath": "src/pages/docs",
+			"specialNotes": "Tailwind CSS v4 documentation. Focus on docs pages for utility classes and configuration."
+		},
+		{
+			"type": "git",
+			"name": "vite",
+			"url": "https://github.com/vitejs/vite",
+			"branch": "main",
+			"searchPath": "docs",
+			"specialNotes": "Vite build tool documentation. Check docs for configuration and plugin guides."
+		},
+		{
+			"type": "git",
+			"name": "typescript",
+			"url": "https://github.com/microsoft/TypeScript-Website",
+			"branch": "v2",
+			"searchPath": "packages/documentation/copy",
+			"specialNotes": "TypeScript documentation and handbook."
+		},
+		{
+			"type": "git",
+			"name": "runed",
+			"url": "https://github.com/svecosystem/runed",
+			"branch": "main",
+			"searchPath": "sites/docs",
+			"specialNotes": "Runed utilities for Svelte. Focus on sites/docs directory for documentation."
+		},
+		{
+			"type": "git",
+			"name": "valibot",
+			"url": "https://github.com/fabian-hiller/valibot",
+			"branch": "main",
+			"searchPath": "website/src/routes",
+			"specialNotes": "Valibot schema validation library. Check routes for API documentation and guides."
+		},
+		{
+			"type": "git",
+			"name": "vitest",
+			"url": "https://github.com/vitest-dev/vitest",
+			"branch": "main",
+			"searchPath": "docs",
+			"specialNotes": "Vitest testing framework documentation. Focus on docs for API and configuration."
+		},
+		{
+			"type": "git",
+			"name": "playwright",
+			"url": "https://github.com/microsoft/playwright",
+			"branch": "main",
+			"searchPath": "docs/src",
+			"specialNotes": "Playwright E2E testing documentation."
+		},
+		{
+			"type": "git",
+			"name": "mdsvex",
+			"url": "https://github.com/pngwn/MDsveX",
+			"branch": "master",
+			"searchPath": "packages/mdsvex",
+			"specialNotes": "MDsveX - Markdown preprocessor for Svelte. Check packages/mdsvex for documentation and source."
+		}
+	],
+	"model": "claude-haiku-4.5",
+	"provider": "github-copilot"
+}

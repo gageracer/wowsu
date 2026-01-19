@@ -1,28 +1,27 @@
 <script lang="ts">
 	import { WOW_SPECS } from '$lib/wow-specs';
 	import type { Role } from '$lib/wow-specs';
-	import type { RosterFilter, FilterField, FilterOperator } from '$lib/types/filters';
+	import type { FilterField, FilterOperator, RosterFilter } from '$lib/types/filters';
 
 	let {
-		filters = $bindable([]),
-		matchAll = $bindable(true),
+	    filters = $bindable([]),
+	    matchAll = $bindable(false),
+	    filtersEnabled = $bindable(false),
 		applied = $bindable(false),
 		toggleFilters = $bindable(() => {}),
-		filtersEnabled = $bindable(true),
 		totalCount = 0,
 		filteredCount = 0
 	}: {
-		filters: RosterFilter[];
-		matchAll: boolean;
+	    filters: RosterFilter[];
+	    matchAll: boolean;
+	    filtersEnabled: boolean;
 		applied: boolean;
 		toggleFilters: () => void;
-		filtersEnabled: boolean;
 		totalCount: number;
 		filteredCount: number;
 	} = $props();
 
 	let showFilters = $state(false);
-
 
 	let filterIdCounter = $derived.by(() => {
 		if (filters.length === 0) return 0;
@@ -64,9 +63,8 @@
 	const WOW_ROLES: Role[] = ['Tank', 'DPS', 'Healer'];
 
 	function addFilter() {
-		const newId = filterIdCounter;
 		filters.push({
-			id: newId,
+			id: filterIdCounter,
 			field: 'name',
 			operator: 'contains',
 			value: ''
@@ -74,7 +72,7 @@
 	}
 
 	function removeFilter(id: number) {
-		filters = filters.filter((f) => f.id !== id);
+	  filters = filters.filter((f) => f.id !== id);
 	}
 
 	function applyFilters() {
@@ -97,7 +95,7 @@
 			return OPERATORS.filter((op) => ['=', '!='].includes(op.value));
 		} else if (field === 'mainRole' || field === 'mainSpec') {
 			// Optional fields with dropdowns: exact match + empty checks
-			return OPERATORS.filter((op) => ['=', '!=', 'is_empty', 'is_not_empty'].includes(op.value));
+			return OPERATORS.filter((op) => ['contains','not_contains','=', '!=', 'is_empty', 'is_not_empty'].includes(op.value));
 		} else if (optionalFields.includes(field)) {
 			// Other optional text fields: all operators
 			return OPERATORS;
@@ -162,7 +160,7 @@
 
 	{#if showFilters}
 		<div class="space-y-3">
-			{#each filters as filter (filter.id)}
+			{#each filters as filter, i (`${i}-${filter.id}`)}
 				<!-- Mobile: Stack vertically, Desktop: Flex row -->
 				<div class="flex flex-col sm:flex-row gap-2 sm:items-start">
 					<!-- Top row on mobile: Field and Operator -->

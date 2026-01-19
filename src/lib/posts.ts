@@ -29,7 +29,8 @@ export function getPosts(): Post[] {
 			};
 		})
 		.filter((post) => post.slug !== 'guildrules')
-		.sort((a, b) => (a.date < b.date ? 1 : -1));
+		.filter((post) => new Date(post.date) <= new Date())
+		.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
 }
 
 export async function getPost(slug: string): Promise<Post | undefined> {

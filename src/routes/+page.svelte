@@ -5,21 +5,28 @@
 	import { getPosts } from '$lib/posts';
 
 	const posts = getPosts();
+
+	const hrDates = [new Date('2026-1-20')]
+	const midnight = $derived(new Date()>= hrDates[0] ? '-midnight' : '');
+	function isAfterCutoff(dateStr: string) {
+			return new Date(dateStr) > hrDates[0];
+	}
+
 </script>
 
 <Layout>
 	<section class="mb-8">
-		<h2 class="text-center text-2xl font-bold">Önemli Linkler</h2>
+		<h2 class={`text-center text-2xl font-bold text-secondary${midnight}`}>Önemli Linkler</h2>
 		<Nav />
 	</section>
 	<section class="flex flex-col items-center">
-		<h2 class="mb-6 text-center text-2xl font-bold">Rehber ve Yazılar</h2>
+		<h2 class={`mb-6 text-center text-2xl font-bold text-secondary${midnight}`} >Rehber ve Yazılar</h2>
 		<ul class="mx-auto grid gap-4">
-			{#each posts as post (post.slug)}
+			{#each posts as post, index (post.slug)}
 				<li class="grid grid-cols-[auto_1fr_auto] items-center gap-4">
 					<a
 						href={resolve(`/posts/${post.slug}`)}
-						class="flex items-center gap-4 text-secondary sm:w-80"
+						class={`flex items-center gap-4 text-secondary${midnight} sm:w-80`}
 					>
 						{#if post.img}
 							<img
@@ -33,6 +40,9 @@
 					</a>
 					<span class="text-xs whitespace-nowrap text-gray-200">{post.date}</span>
 				</li>
+				{#if (index !== posts.length - 1 && !isAfterCutoff(posts[index + 1].date)) && isAfterCutoff(post.date)}
+				    <hr>
+				{/if}
 			{/each}
 		</ul>
 	</section>

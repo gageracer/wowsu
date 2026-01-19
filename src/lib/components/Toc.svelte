@@ -116,13 +116,13 @@
 
 <nav aria-label="İçindekiler" class="text-sm">
 	<ul class="space-y-1">
-		{#each headings as h, i}
+		{#each headings as h (h.id)}
 			<li>
 				<button
 					type="button"
 					onclick={() => onClick(h.id)}
 					class={`block w-full text-left hover:underline ${
-						activeId === h.id ? 'text-secondary' : 'text-text'
+						activeId === h.id ? 'text-text' : 'text-secondary-midnight'
 					}`}
 					style={`padding-left: ${Math.max(0, (h.level - minLevel) * 12)}px`}
 				>
