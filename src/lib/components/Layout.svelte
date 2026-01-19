@@ -8,7 +8,7 @@
 	<title>{siteTitle}</title>
 </svelte:head>
 <div class="container mx-auto max-w-2xl p-12">
-	<section class="prose mb-8 text-center prose-invert">
+	<section class="prose mb-8 text-center prose-invert mx-auto">
 		<p>
 			The Hive Guild'inin gizli defterine hoş geldin. Taktikler, bilgiler ve rehberler sana
 			yolculuğunda yardımcı olacak. Raid için gerekenler, Boss bilgileri, hangi Addon'lar gibi
