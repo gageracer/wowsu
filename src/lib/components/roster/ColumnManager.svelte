@@ -18,13 +18,6 @@
 	} = $props();
 
 	const visibleColumns = $derived(columns.filter(col => col.visible));
-
-	function toggleColumn(key: keyof RosterMember | 'daysOffline') {
-		const col = columns.find(c => c.key === key);
-		if (col && !col.alwaysVisible) {
-			col.visible = !col.visible;
-		}
-	}
 </script>
 
 <div class="mb-4 rounded-lg border border-purple-600 bg-gray-900 p-4">
@@ -51,9 +44,8 @@
 			>
 				<input
 					type="checkbox"
-					checked={column.visible}
+					bind:checked={column.visible}
 					disabled={column.alwaysVisible}
-					onchange={() => toggleColumn(column.key)}
 					class="h-4 w-4 rounded border-gray-500 bg-gray-700 text-purple-600 focus:ring-2 focus:ring-purple-500 disabled:cursor-not-allowed"
 				/>
 				<span class="text-sm text-gray-300">

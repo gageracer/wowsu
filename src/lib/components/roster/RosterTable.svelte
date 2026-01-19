@@ -8,7 +8,7 @@
 	} from '$lib/wow-specs';
 	import type { RosterMember } from '$lib/types/roster';
 	import type { RosterFilter } from '$lib/types/filters';
-	import { filterContext, rosterContext } from './context/roster';
+	import { rosterContext } from './context/roster';
 	import { SvelteMap } from 'svelte/reactivity';
 	import RosterFilters from './RosterFilters.svelte';
 	import ColumnManager from './ColumnManager.svelte';
@@ -370,6 +370,7 @@
 	</div>
 {:else}
 	<div class="w-full overflow-x-auto rounded-lg border border-gray-700 bg-gray-800/50">
+	{#key visibleColumns.length}
 		<table class="w-full min-w-max text-left text-sm">
 			<thead class="border-b border-gray-700 bg-gray-800 text-xs uppercase text-gray-300">
 				<tr>
@@ -518,5 +519,6 @@
 				{/each}
 			</tbody>
 		</table>
+	{/key}
 	</div>
 {/if}

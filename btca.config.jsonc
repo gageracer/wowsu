@@ -1,6 +1,6 @@
 {
 	"$schema": "https://btca.dev/btca.schema.json",
-	"providerTimeoutMs": 300000,
+	"providerTimeoutMs": 3000000,
 	"resources": [
 		{
 			"type": "git",
