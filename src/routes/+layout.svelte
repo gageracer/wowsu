@@ -13,7 +13,7 @@
 	const hrDates = [new Date('2026-1-19')]
 
 	const midnight = $derived(new Date()>= hrDates[0] ? '-midnight' : '');
-	const icon = $derived(new Date()>= hrDates[0] ? '/images/midnight-logo-1.avif' : '/images/logo-1.avif');
+	const icon = $derived(new Date()< hrDates[0]  ? '/images/logo-1.avif': '/images/midnight-logo-1.avif');
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
 
