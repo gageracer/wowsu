@@ -1,5 +1,5 @@
 {
-  "version": "2026.01.18",
+  "version": "2026.01.19",
   "lastUpdated": 1768705200,
   "members": [
     {
@@ -8586,7 +8586,7 @@
       "achievementRank": 74,
       "lastOnline": 1768705200,
       "realmName": "TwistingNether",
-      "mainSpec": "Elemental",
+      "mainSpec": "Enhancement",
       "mainRole": "DPS"
     },
     {

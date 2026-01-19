@@ -1,7 +1,6 @@
 <script lang="ts">
 	import {
 		WOW_SPECS,
-		getRoleForSpec,
 		getSpecIcon,
 		getClassIcon,
 		getClassColor
@@ -54,6 +53,24 @@
 		syncTabs: true
 	});
 
+	const sortSettings = new PersistedState('roster-sort', {
+		sortKey: 'name' as keyof RosterMember | 'daysOffline',
+		sortDirection: 'asc' as 'asc' | 'desc'
+	}, {
+		syncTabs: true
+	});
+
+	// Sync persisted sort settings to RosterState on load
+	rosterState.sortKey = sortSettings.current.sortKey;
+	rosterState.sortDirection = sortSettings.current.sortDirection;
+
+	// Sync RosterState back to PersistedState when it changes
+	$effect(() => {
+		sortSettings.current = {
+			sortKey: rosterState.sortKey,
+			sortDirection: rosterState.sortDirection
+		};
+	});
 
 	const filters = new PersistedState('roster-filters', {
      	filters: [] as RosterFilter[],
@@ -71,17 +88,7 @@
 
 	// Local state for sorting (keep local since it's UI-only)
 	let sortKey = $state<keyof RosterMember | 'daysOffline'>('name');
-	let sortDirection = $state<'asc' | 'desc'>('asc');
-	// DEBUG: Watch for roster changes
-		$effect(() => {
-			console.log('RosterTable sees roster change:', {
-				length: rosterState.roster.length,
-				firstMember: rosterState.roster[0]?.name,
-				firstSpec: rosterState.roster[0]?.mainSpec,
-				note: rosterState.roster[0]?.note,
-				snapshot: JSON.stringify(rosterState.roster).slice(0, 125)
-			});
-		});
+
 	// Helper functions
 	function getDaysAgo(timestamp: number): number {
 		if (timestamp === 0) return 0;
@@ -192,8 +199,8 @@
 				aVal = getDaysAgo(a.lastOnline);
 				bVal = getDaysAgo(b.lastOnline);
 			} else {
-				aVal = a[sortKey as keyof RosterMember];
-				bVal = b[sortKey as keyof RosterMember];
+				aVal = a[rosterState.sortKey as keyof RosterMember];
+				bVal = b[rosterState.sortKey as keyof RosterMember];
 			}
 
 			if (typeof aVal === 'string' && typeof bVal === 'string') {
@@ -202,8 +209,8 @@
 			}
 
 			if (aVal === undefined || bVal === undefined) return 0;
-			if (aVal < bVal) return sortDirection === 'asc' ? -1 : 1;
-			if (aVal > bVal) return sortDirection === 'asc' ? 1 : -1;
+			if (aVal < bVal) return rosterState.sortDirection === 'asc' ? -1 : 1;
+			if (aVal > bVal) return rosterState.sortDirection === 'asc' ? 1 : -1;
 			return 0;
 		});
 	});
@@ -240,15 +247,6 @@
 		return cache;
 	});
 
-	// Local functions
-	function toggleSort(key: keyof RosterMember | 'daysOffline') {
-		if (sortKey === key) {
-			sortDirection = sortDirection === 'asc' ? 'desc' : 'asc';
-		} else {
-			sortKey = key;
-			sortDirection = 'asc';
-		}
-	}
 
 	function toggleFilters() {
 		filters.current.filtersEnabled = !filters.current.filtersEnabled;
@@ -258,11 +256,6 @@
 		columns.current = defaultColumns.map(col => ({ ...col }));
 	}
 
-
-	function onNoteChange(member: RosterMember, note: string) {
-		rosterState.setIsTyping(true);
-		rosterState.updateMemberNote(member, note);
-	}
 
 	function copyToClipboard() {
 		const rosterData = rosterState.getExportData();
@@ -363,12 +356,12 @@
 							<div class="flex items-center justify-between">
 								{#if column.sortable}
 									<button
-										onclick={() => toggleSort(column.key)}
+										onclick={() => rosterState.toggleSort(column.key)}
 										class="flex items-center gap-1 hover:text-white"
 									>
 										{column.label}
-										{#if sortKey === column.key}
-											<span>{sortDirection === 'asc' ? '↑' : '↓'}</span>
+										{#if rosterState.sortKey === column.key}
+											<span>{rosterState.sortDirection === 'asc' ? '↑' : '↓'}</span>
 										{/if}
 									</button>
 								{:else}
@@ -447,8 +440,7 @@
 									{#if dev}
 										<input
 											type="text"
-											value={member.note || ''}
-											oninput={(e) => onNoteChange(member, e.currentTarget.value)}
+											bind:value={member.note}
 											class="w-full bg-gray-700 px-2 py-1 text-xs text-gray-300"
 										/>
 									{:else}
