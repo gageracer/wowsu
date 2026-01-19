@@ -25,7 +25,9 @@
 		});
 	});
 </script>
-
+<svelte:head>
+	<link rel="icon" href={icon} />
+</svelte:head>
 <div class={`bg-mobile${midnight} md:bg-leather${midnight} min-h-screen bg-contain text-text`}>
 	<main class="container mx-auto px-4 py-8">
 		{#if !dc}
