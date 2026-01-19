@@ -1,6 +1,6 @@
 ---
 title: 'Midnight Guild Planı'
-date: '2026-1-20'
+date: '2026-1-19'
 img: 'midnight-logo-1.avif'
 ---
 
