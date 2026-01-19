@@ -6,7 +6,7 @@
 
 	const posts = getPosts();
 
-	const hrDates = [new Date('2026-1-19')]
+	const hrDates = [new Date('2026-1-20')]
 	const midnight = $derived(new Date()>= hrDates[0] ? '-midnight' : '');
 	function isAfterCutoff(dateStr: string) {
 			return new Date(dateStr) > hrDates[0];

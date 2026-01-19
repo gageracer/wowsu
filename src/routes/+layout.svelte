@@ -10,7 +10,7 @@
 	const dc = $derived(page.url.pathname.startsWith('/dc'));
 
 	const name = 'The Hive Topluluğu';
-	const hrDates = [new Date('2026-1-19')]
+	const hrDates = [new Date('2026-1-20')]
 
 	const midnight = $derived(new Date()>= hrDates[0] ? '-midnight' : '');
 	const icon = $derived(new Date()< hrDates[0]  ? '/images/logo-1.avif': '/images/midnight-logo-1.avif');
