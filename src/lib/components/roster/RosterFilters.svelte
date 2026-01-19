@@ -160,6 +160,7 @@
 
 	{#if showFilters}
 		<div class="space-y-3">
+		{#key filters.length}
 			{#each filters as filter, i (`${i}-${filter.id}`)}
 				<!-- Mobile: Stack vertically, Desktop: Flex row -->
 				<div class="flex flex-col sm:flex-row gap-2 sm:items-start">
@@ -253,7 +254,7 @@
 					</div>
 				</div>
 			{/each}
-
+		{/key}
 			<!-- Add Filter Button -->
 			<div>
 				<button

@@ -60,7 +60,7 @@
 	});
 
 
-	const persistedFilters = new PersistedState('roster-filters', {
+	const filters = new PersistedState('roster-filters', {
      	filters: [] as RosterFilter[],
      	matchAll: true,
      	filtersEnabled: false
@@ -68,23 +68,11 @@
 		syncTabs: true
 	});
 
-    let filters = $state(persistedFilters.current.filters);
-    let matchAll = $state(persistedFilters.current.matchAll);
-    let filtersEnabled = $state(persistedFilters.current.filtersEnabled)
-
-    $effect(() => {
-        persistedFilters.current = {
-            filters: filters,
-            matchAll: matchAll,
-            filtersEnabled: filtersEnabled
-        };
-    });
-
 	let showColumnManager = $state(false);
 	const visibleColumns = $derived(columns.current.filter(col => col.visible));
 
 	// State for filters applied
-	let filtersApplied = $derived(persistedFilters.current.filtersEnabled && persistedFilters.current.filters.length > 0);
+	let filtersApplied = $derived(filters.current.filtersEnabled && filters.current.filters.length > 0);
 
 	// Local state for sorting (keep local since it's UI-only)
 	let sortKey = $state<keyof RosterMember | 'daysOffline'>('name');
@@ -175,15 +163,15 @@
 
 	// Computed filtered roster (local filtering)
 	const filteredRoster = $derived.by(() => {
-		if (!filtersApplied || persistedFilters.current.filters.length === 0) {
+		if (!filtersApplied || filters.current.filters.length === 0) {
 			return rosterState.roster;
 		}
 
 		return rosterState.roster.filter((member) => {
-			if (persistedFilters.current.matchAll) {
-				return persistedFilters.current.filters.every((filter) => matchFilter(member, filter));
+			if (filters.current.matchAll) {
+				return filters.current.filters.every((filter) => matchFilter(member, filter));
 			} else {
-				return persistedFilters.current.filters.some((filter) => matchFilter(member, filter));
+				return filters.current.filters.some((filter) => matchFilter(member, filter));
 			}
 		});
 	});
@@ -259,7 +247,7 @@
 	}
 
 	function toggleFilters() {
-		filtersEnabled = !filtersEnabled;
+		filters.current.filtersEnabled = !filters.current.filtersEnabled;
 	}
 
 	function resetColumns() {
@@ -351,9 +339,9 @@
 {/if}
 
 <RosterFilters
-    bind:filters={filters}
-    bind:matchAll={matchAll}
-    bind:filtersEnabled={filtersEnabled}
+    bind:filters={filters.current.filters}
+    bind:matchAll={filters.current.matchAll}
+    bind:filtersEnabled={filters.current.filtersEnabled}
 	bind:applied={filtersApplied}
 	{toggleFilters}
 	totalCount={rosterState.roster.length}
