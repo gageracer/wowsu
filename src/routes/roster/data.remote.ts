@@ -201,7 +201,7 @@ export const applyUpdate = command(async () => {
 		// Read current roster
 		const rosterFile = Bun.file(rosterPath);
 		let currentMembers: RosterMember[] = [];
-		let oldRosterData: any = null;
+		let oldRosterData: RosterData;
 
 		const rosterExists = await rosterFile.exists();
 		if (rosterExists) {
@@ -310,7 +310,7 @@ export const saveRoster = command(
 			};
 
 			await Bun.write(rosterPath, JSON.stringify(rosterData, null, 2));
-			getRoster().set(rosterData);
+			getRoster().set(rosterData as RosterData);
 
 			return { success: true };
 		} catch (error) {

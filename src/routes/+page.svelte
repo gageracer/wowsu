@@ -5,6 +5,13 @@
 	import { getPosts } from '$lib/posts';
 
 	const posts = getPosts();
+
+	const hrDates = [new Date('2025-12-31')]
+
+	function isAfterCutoff(dateStr: string) {
+			return new Date(dateStr) > hrDates[0];
+	}
+
 </script>
 
 <Layout>
@@ -15,7 +22,7 @@
 	<section class="flex flex-col items-center">
 		<h2 class="mb-6 text-center text-2xl font-bold">Rehber ve Yazılar</h2>
 		<ul class="mx-auto grid gap-4">
-			{#each posts as post (post.slug)}
+			{#each posts as post, index (post.slug)}
 				<li class="grid grid-cols-[auto_1fr_auto] items-center gap-4">
 					<a
 						href={resolve(`/posts/${post.slug}`)}
@@ -33,6 +40,9 @@
 					</a>
 					<span class="text-xs whitespace-nowrap text-gray-200">{post.date}</span>
 				</li>
+				{#if (index !== posts.length - 1 && !isAfterCutoff(posts[index + 1].date)) && isAfterCutoff(post.date)}
+				    <hr>
+				{/if}
 			{/each}
 		</ul>
 	</section>
