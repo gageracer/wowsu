@@ -24,15 +24,15 @@ Kısacası: “Gel–gir–oyna–çık” değil; birlikte oynayıp gelişen bi
 
 ## 🌒 Midnight’ta Bizi Neler Bekliyor?
 Midnight, birlikte oynamak için çok güçlü sistemler sunuyor ve biz bu içeriklerin tamamını guild çatısı altında değerlendirmeyi hedefliyoruz.
-🏰 Housing & Guild Alanları
+### 🏰 Housing & Guild Alanları
 - Housing sistemini sadece dekorasyon değil, sosyal bir alan olarak kullanacağız
 - Guild buluşmaları, ev ziyaretleri ve minik quizlere başladık bile.
 - Mahalleyi guildce kalkındıralım istiyoruz.
-🧭 Endeavour İçerikleri
+### 🧭 Endeavour İçerikleri
 - Günlük/haftalık Endeavour’ları solo zorunluluk olmaktan çıkarıp
 - Guild gruplarıyla hızlı, verimli ve eğlenceli şekilde tamamlama
 - Katılımı teşvik eden ama zorlamayan organizasyon yapısı
-🗝️ Mythic+ Organizasyonları
+### 🗝️ Mythic+ Organizasyonları
 - Farklı skill seviyelerine uygun M+ grupları
 - Anahtar yakmayan, öğrenmeye açık, toksik olmayan ortam
 - Push isteyenler ve haftalık tamamlamak isteyenler için ayrı planlama
@@ -41,7 +41,7 @@ Midnight, birlikte oynamak için çok güçlü sistemler sunuyor ve biz bu içer
 - Net gün/saat planlaması
 - Yedekli sistem, şeffaf loot yaklaşımı
 - “Bir akşam kaçırdım, bittim” baskısı olmadan sürdürülebilir raid yapısı
-🌾 Farming & Destek Etkinlikleri
+### 🌾 Farming & Destek Etkinlikleri
 - Reputation, materyal, gold ve alt character farm grupları
 - Yeni veya geri dönen oyuncular için catch-up destekleri
 - Guild içi yardımlaşmayı canlı tutan etkinlikler
