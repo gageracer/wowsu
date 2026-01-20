@@ -19,9 +19,25 @@ const posts = import.meta.glob<{
 	eager: true
 });
 
+/**
+ * Normalize date string to UTC midnight
+ * Handles dates like '2025-2-18' and converts to proper ISO format
+ */
+function parsePostDate(dateStr: string): Date {
+	const parts = dateStr.split('-');
+	if (parts.length !== 3) return new Date(dateStr); // fallback
+	
+	const year = parts[0];
+	const month = parts[1].padStart(2, '0');
+	const day = parts[2].padStart(2, '0');
+	
+	return new Date(`${year}-${month}-${day}T00:00:00Z`);
+}
+
 export function getPosts(): Post[] {
- 	const now = new Date();
-  const nowUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+	// Get current timestamp for comparison
+	const now = new Date();
+	
 	return Object.entries(posts)
 		.map(([path, post]) => {
 			const slug = path.split('/').pop()?.replace('.svx', '');
@@ -31,8 +47,9 @@ export function getPosts(): Post[] {
 			};
 		})
 		.filter((post) => post.slug !== 'guildrules')
-		.filter((post) => new Date(`${post.date}T00:00:00Z`) <= nowUTC)
-		.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
+		// Parse post date as UTC midnight and compare with current time
+		.filter((post) => parsePostDate(post.date) <= now)
+		.sort((a, b) => (parsePostDate(a.date) < parsePostDate(b.date) ? 1 : -1));
 }
 
 export async function getPost(slug: string): Promise<Post | undefined> {
