@@ -1,7 +1,7 @@
 <script lang="ts">
 	import RosterTable from '$lib/components/Roster.svelte';
 	import { onMount, tick } from 'svelte';
-	import { getRoster, checkForUpdates, applyUpdate, saveRoster } from './data.remote';
+	import { getRoster, checkForUpdates, applyUpdate, saveRoster, applyRaiderIOData } from './data.remote';
 	import { RosterState } from '$lib/components/roster/roster.state.svelte';
 	import { rosterContext } from '$lib/components/roster/context/roster';
 
@@ -17,7 +17,7 @@
 	let hasScrolled = $state(false);
 	let rosterSection: HTMLElement | undefined = $state();
 	let hasInitialized = $state(false);
-	
+
 	// Sync query data to roster state
 	$effect(() => {
   		if (rosterQuery.current && !hasInitialized) {
@@ -38,17 +38,18 @@
 
 	// Auto-save with Debounced - simple and clean
     import { Debounced } from 'runed';
-    
+	import DevTools from '$lib/components/roster/DevTools.svelte';
+
     let isSaving = $state(false);
     let saveError = $state<string | null>(null);
     let lastSavedSnapshot = $state<string | null>(null);
-    
+
     const debouncedRoster = new Debounced(() => rosterState.roster, 2000);
 
     $effect(() => {
         const roster = debouncedRoster.current;
         const currentSnapshot = JSON.stringify(roster);
-        
+
         // Skip if no data or not initialized yet
         if (!roster || roster.length === 0 || !hasInitialized) {
             return;
@@ -69,9 +70,9 @@
         // Queue the save using untrack to prevent reading reactive state
         console.log('Queueing save...');
         queueMicrotask(() => {
-            saveRoster({ 
-                members: roster, 
-                lastUpdated: rosterState.lastUpdated 
+            saveRoster({
+                members: roster,
+                lastUpdated: rosterState.lastUpdated
             })
             .then(() => {
                 lastSavedSnapshot = currentSnapshot;
@@ -83,7 +84,7 @@
                 saveError = error instanceof Error ? error.message : 'Failed to save';
                 isSaving = false;
             });
-            
+
             isSaving = true;
             saveError = null;
         });
@@ -270,6 +271,7 @@
 	</section>
 
 	<section class="mb-8">
+	<DevTools applyRaiderIOData={()=>applyRaiderIOData()}/>
 		<RosterTable/>
 	</section>
 {/if}
