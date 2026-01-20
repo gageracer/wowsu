@@ -20,6 +20,8 @@ const posts = import.meta.glob<{
 });
 
 export function getPosts(): Post[] {
+ 	const now = new Date();
+  const nowUTC = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
 	return Object.entries(posts)
 		.map(([path, post]) => {
 			const slug = path.split('/').pop()?.replace('.svx', '');
@@ -29,7 +31,7 @@ export function getPosts(): Post[] {
 			};
 		})
 		.filter((post) => post.slug !== 'guildrules')
-		.filter((post) => new Date(post.date) <= new Date())
+		.filter((post) => new Date(`${post.date}T00:00:00Z`) <= nowUTC)
 		.sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1));
 }
 
