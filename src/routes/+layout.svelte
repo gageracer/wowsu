@@ -10,10 +10,11 @@
 	const dc = $derived(page.url.pathname.startsWith('/dc'));
 
 	const name = 'The Hive Topluluğu';
-	const hrDates = [new Date('2026-1-20')]
+	// Use UTC midnight for consistent timezone handling
+	const hrDates = [new Date('2026-01-20T00:00:00Z')]
 
-	const midnight = $derived(new Date()>= hrDates[0] ? '-midnight' : '');
-	const icon = $derived(new Date()< hrDates[0]  ? '/images/logo-1.avif': '/images/midnight-logo-1.avif');
+	const midnight = $derived(new Date() >= hrDates[0] ? '-midnight' : '');
+	const icon = $derived(new Date() < hrDates[0] ? '/images/logo-1.avif': '/images/midnight-logo-1.avif');
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
 

@@ -6,10 +6,12 @@
 
 	const posts = getPosts();
 
-	const hrDates = [new Date('2026-1-20')]
-	const midnight = $derived(new Date()>= hrDates[0] ? '-midnight' : '');
+	// Use UTC midnight for consistent timezone handling
+	const hrDates = [new Date('2026-01-20T00:00:00Z')]
+	const midnight = $derived(new Date() >= hrDates[0] ? '-midnight' : '');
 	function isAfterCutoff(dateStr: string) {
-			return new Date(dateStr) > hrDates[0];
+		// Parse the date string as UTC midnight for consistent comparison
+		return new Date(`${dateStr}T00:00:00Z`) > hrDates[0];
 	}
 
 </script>
