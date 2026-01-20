@@ -7,11 +7,27 @@
 	const posts = getPosts();
 
 	// Use UTC midnight for consistent timezone handling
-	const hrDates = [new Date('2026-01-20T00:00:00Z')]
+	const hrDates = [new Date('2026-01-01T00:00:00Z')]
 	const midnight = $derived(new Date() >= hrDates[0] ? '-midnight' : '');
+
+	/**
+	 * Parse date string with zero-padding for Bun compatibility
+	 * Handles dates like '2025-2-18' and converts to proper ISO format
+	 */
+	function parsePostDate(dateStr: string): Date {
+		const parts = dateStr.split('-');
+		if (parts.length !== 3) return new Date(dateStr); // fallback
+
+		const year = parts[0];
+		const month = parts[1].padStart(2, '0');
+		const day = parts[2].padStart(2, '0');
+
+		return new Date(`${year}-${month}-${day}T00:00:00Z`);
+	}
+
 	function isAfterCutoff(dateStr: string) {
 		// Parse the date string as UTC midnight for consistent comparison
-		return new Date(`${dateStr}T00:00:00Z`) > hrDates[0];
+		return parsePostDate(dateStr) > hrDates[0];
 	}
 
 </script>
@@ -43,7 +59,7 @@
 					<span class="text-xs whitespace-nowrap text-gray-200">{post.date}</span>
 				</li>
 				{#if (index !== posts.length - 1 && !isAfterCutoff(posts[index + 1].date)) && isAfterCutoff(post.date)}
-				    <hr>
+				    <hr class="text-secondary-midnight">
 				{/if}
 			{/each}
 		</ul>

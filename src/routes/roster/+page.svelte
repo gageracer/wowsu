@@ -1,7 +1,7 @@
 <script lang="ts">
 	import RosterTable from '$lib/components/Roster.svelte';
 	import { onMount, tick } from 'svelte';
-	import { getRoster, checkForUpdates, applyUpdate, saveRoster,  applyRaiderIOData } from './data.remote';
+	import { getRoster, checkForUpdates, applyUpdate, saveRoster } from './data.remote';
 	import { RosterState } from '$lib/components/roster/roster.state.svelte';
 	import { rosterContext } from '$lib/components/roster/context/roster';
 
