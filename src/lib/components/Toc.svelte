@@ -122,7 +122,7 @@
 					type="button"
 					onclick={() => onClick(h.id)}
 					class={`block w-full text-left hover:underline ${
-						activeId === h.id ? 'text-text' : 'text-secondary-midnight'
+						activeId === h.id ? 'text-text' : 'text-secondary'
 					}`}
 					style={`padding-left: ${Math.max(0, (h.level - minLevel) * 12)}px`}
 				>

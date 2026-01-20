@@ -8,8 +8,6 @@
 
 	// Use UTC midnight for consistent timezone handling
 	const hrDates = [new Date('2026-01-01T00:00:00Z')]
-	const midnight = $derived(new Date() >= hrDates[0] ? '-midnight' : '');
-
 	/**
 	 * Parse date string with zero-padding for Bun compatibility
 	 * Handles dates like '2025-2-18' and converts to proper ISO format
@@ -34,17 +32,17 @@
 
 <Layout>
 	<section class="mb-8">
-		<h2 class={`text-center text-2xl font-bold text-secondary${midnight}`}>Önemli Linkler</h2>
+		<h2 class="text-center text-2xl font-bold text-secondary">Önemli Linkler</h2>
 		<Nav />
 	</section>
 	<section class="flex flex-col items-center">
-		<h2 class={`mb-6 text-center text-2xl font-bold text-secondary${midnight}`} >Rehber ve Yazılar</h2>
+		<h2 class="mb-6 text-center text-2xl font-bold text-secondary" >Rehber ve Yazılar</h2>
 		<ul class="mx-auto grid gap-4">
 			{#each posts as post, index (post.slug)}
 				<li class="grid grid-cols-[auto_1fr_auto] items-center gap-4">
 					<a
 						href={resolve(`/posts/${post.slug}`)}
-						class={`flex items-center gap-4 text-secondary${midnight} sm:w-80`}
+						class="flex items-center gap-4 text-secondary sm:w-80"
 					>
 						{#if post.img}
 							<img
@@ -59,7 +57,7 @@
 					<span class="text-xs whitespace-nowrap text-gray-200">{post.date}</span>
 				</li>
 				{#if (index !== posts.length - 1 && !isAfterCutoff(posts[index + 1].date)) && isAfterCutoff(post.date)}
-				    <hr class="text-secondary-midnight">
+				    <hr class="border-secondary">
 				{/if}
 			{/each}
 		</ul>

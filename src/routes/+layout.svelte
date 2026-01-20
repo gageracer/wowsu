@@ -13,7 +13,7 @@
 	// Use UTC midnight for consistent timezone handling
 	const hrDates = [new Date('2026-01-20T00:00:00Z')]
 
-	const midnight = $derived(new Date() >= hrDates[0] ? '-midnight' : '');
+	const midnight = $derived(new Date() >= hrDates[0] ? 'midnight' : 'leather');
 	const icon = $derived(new Date() < hrDates[0] ? '/images/logo-1.avif': '/images/midnight-logo-1.avif');
 	onNavigate((navigation) => {
 		if (!document.startViewTransition) return;
@@ -29,7 +29,7 @@
 <svelte:head>
 	<link rel="icon" href={icon} />
 </svelte:head>
-<div class={`bg-mobile${midnight} md:bg-leather${midnight} min-h-screen bg-contain text-text`}>
+<div data-theme={midnight} class={`bg-mobile-${midnight} md:bg-${midnight} min-h-screen bg-contain text-text`}>
 	<main class="container mx-auto px-4 py-8">
 		{#if !dc}
 		<div class={['container mx-auto px-4 py-8', wide ? 'max-w-5xl' : 'max-w-2xl']}>
@@ -43,15 +43,15 @@
 							class="logo-image h-40 rounded-full"
 						/>
 					</div>
-					<h1 class={`site-name text-4xl font-bold text-secondary${midnight}`}>{name}</h1>
+					<h1 class="site-name text-4xl font-bold text-secondary">{name}</h1>
 				{:else}
 					<div class="logo-container mb-4">
 						<a href={resolve("/")}>
 							<img src={icon} alt={name} class="logo-image h-36 rounded-full" />
 						</a>
 					</div>
-					<h2 class="site-name text-2xl font-bold">
-						<a href={resolve('/')} class={`hover:no-underline text-secondary${midnight}`}>{name}</a>
+					<h2 class="site-name text-2xl font-bold hover:no-underline text-secondary">
+						<a href={resolve('/')}>{name}</a>
 					</h2>
 				{/if}
 			</header>
