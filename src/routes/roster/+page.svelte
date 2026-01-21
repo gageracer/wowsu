@@ -4,6 +4,10 @@
 	import { getRoster, checkForUpdates, applyUpdate, saveRoster, applyRaiderIOData } from './data.remote';
 	import { RosterState } from '$lib/components/roster/roster.state.svelte';
 	import { rosterContext } from '$lib/components/roster/context/roster';
+	import {  formatDistanceToNow } from 'date-fns';
+	import { Debounced } from 'runed';
+    import DevTools from '$lib/components/roster/DevTools.svelte';
+    import { formatDate, formatDateTime } from '$lib/utils';
 
 	// Call the query - it returns a reactive object
 	const rosterQuery = getRoster();
@@ -17,7 +21,9 @@
 	let hasScrolled = $state(false);
 	let rosterSection: HTMLElement | undefined = $state();
 	let hasInitialized = $state(false);
-
+  	let updatedTime = $derived(formatDistanceToNow(rosterState.lastUpdated * 1000, {
+      addSuffix: true
+    }));
 	// Sync query data to roster state
 	$effect(() => {
   		if (rosterQuery.current && !hasInitialized) {
@@ -37,8 +43,6 @@
     });
 
 	// Auto-save with Debounced - simple and clean
-    import { Debounced } from 'runed';
-	import DevTools from '$lib/components/roster/DevTools.svelte';
 
     let isSaving = $state(false);
     let saveError = $state<string | null>(null);
@@ -96,17 +100,6 @@
 	let updateError = $state<string | null>(null);
 	let updateData = $state<Record<string, unknown> | null>(null);
 
-	function formatDate(timestamp: number): string {
-		if (!timestamp) return 'Never';
-		const date = new Date(timestamp * 1000);
-		return date.toLocaleString('en-US', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-			hour: '2-digit',
-			minute: '2-digit'
-		});
-	}
 
 	async function handleApplyUpdate() {
 		isUpdating = true;
@@ -265,7 +258,7 @@
 			<p>Total Members: <span class="font-semibold text-gray-300">{rosterState.roster.length}</span></p>
 			<span class="text-gray-600">•</span>
 			<p>
-				Last Updated: <span class="font-semibold text-gray-300">{formatDate(rosterState.lastUpdated)}</span>
+				Last Updated: <span class="font-semibold text-gray-300">{formatDateTime(rosterState.lastUpdated * 1000)} - {updatedTime}</span>
 			</p>
 		</div>
 	</section>
