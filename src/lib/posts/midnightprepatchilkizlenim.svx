@@ -1,0 +1,66 @@
+---
+title: 'Midnight Pre-Patch İlk İzlenimlerimiz'
+date: '2026-1-23'
+img: 'midnight-logo-1.avif'
+---
+
+
+
+Pre-patch ile birlikte World of Warcraft’ta yeni bir dönemin kapısı aralanmış gibi hissediyoruz. Genel tabloya baktığımızda deneyimimiz ağırlıklı olarak pozitif olsa da, henüz tam oturmamış bazı sistemler ve bariz pürüzler de mevcut.
+
+## Combat & Class Tasarımı
+
+Basitleştirilmiş class tasarımları, henüz emekleme aşamasında olmasına rağmen cooldown manager ile birleşince combat’ı daha oynanabilir ve akıcı hale getirmiş durumda. Özellikle görsel performanstaki artış ilk andan itibaren dikkat çekiyor; efektler daha temiz, combat daha okunabilir.
+
+Buna karşın, henüz 90 level’a ulaşamadığımız için build’lerin tam olarak açılmaması oynanışı yer yer eksik hissettiriyor. Yeni gelen spell’ler yerine, kendimizi daha çok eski ve alışık olduğumuz class build’lerine yönelirken bulduk. Bunun büyük ölçüde level sınırı ve talent erişiminin kısıtlı olmasından kaynaklandığını düşünüyoruz.
+
+## Holy Priest Üzerine
+
+Holy Priest tarafında değişim oldukça radikal. Oynanış ciddi biçimde sadeleşmiş durumda.
+“Komplikasyondan uzak olayım, heal atayım, mekaniklere odaklanayım” diyen oyuncular için adeta DPS tarafındaki Beast Master Hunter karşılığına dönüşmüş diyebiliriz:
+
+##Az tuş, çok efekt.
+
+Bu yaklaşım erişilebilirlik açısından güçlü bir artı sunarken, daha karmaşık ve karar odaklı heal oynanışını seven oyuncular için fazla sade gelebilir.
+
+## Timewalking & Low Level Problemi
+
+Pre-patch’in şu ana kadarki en sorunlu alanlarından biri Timewalking scale problemi.
+Low level karakterler TW içerisinde doğru şekilde scale olmuyor. Rastgele gruplarda düşük level oyuncularla eşleşildiğinde — Allah muhafaza — deneyim oldukça kötü bir noktaya gidebiliyor. Bu durum özellikle pug oyuncuları için ciddi bir risk oluşturuyor.
+
+## Teknik Sorunlar & Bug’lar
+
+İlk iki gün boyunca yüksek RAM kullanımı nedeniyle sık crash yaşadık. Bu sorun büyük ölçüde hafiflemiş olsa da tamamen ortadan kalkmış değil.
+Buna ek olarak tooltip’lerde ve inventory açıklamalarında hâlâ çeşitli bug’lar mevcut. Ancak önümüzdeki hafta içinde bu problemlerin büyük kısmının düzeleceğini öngörüyoruz.
+
+## Talent Tree & Öğrenme Eğrisi
+
+Rotasyonlar genel anlamda rahatlamış olsa da, talent tree üzerindeki etkileşimler hâlâ oldukça karmaşık.
+Bir build oluştururken:
+
+Bir talent’i aldıktan sonra hangi spell’in ne kadar bufflandığını,
+
+Ya da hangi diğer spell’leri dolaylı olarak etkilediğini
+
+net şekilde görebilmek çok daha sağlıklı olurdu. Şu an bu ilişkileri anlamak için çoğu zaman yeni cooldown manager’a güvenmek zorunda kalıyoruz, ancak neden–sonuç bağlantıları her zaman yeterince açık değil.
+
+Bu nedenle class’ları gerçekten öğrenmek için hâlâ 3. parti siteler, rehber yazıları ve guide videoları neredeyse zorunlu gibi duruyor.
+
+## Endeavour Sistemi & Guild Etkileşimi
+
+Pre-patch ile gelen Endeavour sistemi, bireysel ilerlemenin ötesinde guild içi etkileşimi artırma potansiyeli taşıyan en güçlü yeniliklerden biri olarak öne çıkıyor. Oyuncuları ortak hedefler etrafında toplaması, doğal olarak iletişimi artırıyor ve “yan yana oynamaktan” ziyade birlikte çalışmayı teşvik ediyor.
+
+Görev paylaşımı, planlama ve rol dağılımı gibi alanlarda koordinasyonun önem kazanması, guild içi bağları güçlendiren bir etki yaratıyor. Doğru kullanıldığında Endeavour sistemi yalnızca ilerleme hızını değil, aidiyet hissini ve birlikte başarma duygusunu da ciddi şekilde besleyebilir.
+
+Bu noktada guild arkadaşlarımıza küçük ama önemli bir ricamız var:
+Lütfen Endeavour sistemini aktif olarak deneyelim ve katkı sağlayalım.
+Çünkü bu sistemdeki ilerleme barı tek başına kolay dolmuyor ve gerçek değerini ancak toplu katılım ve ortak çaba ile gösterebiliyor.
+
+Ne kadar çok kişi sürece dahil olursa, hem ilerleme daha anlamlı hale geliyor hem de guild olarak birlikte oynama kültürümüz daha da güçleniyor.
+
+## Genel Değerlendirme
+
+Tüm artı ve eksilerine rağmen pre-patch bize net bir his veriyor:
+Yeni bir WoW çağına giriyoruz.
+
+Sistemler sadeleşiyor, combat daha erişilebilir hale geliyor; ancak derinlik tamamen kaybolmuş değil. Sadece farklı bir yere taşınmış durumda. Önümüzdeki haftalarda yapılacak düzeltmelerle bu deneyimin çok daha sağlam bir zemine oturacağını düşünüyoruz.
