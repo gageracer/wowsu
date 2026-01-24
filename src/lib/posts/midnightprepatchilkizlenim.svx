@@ -19,7 +19,7 @@ Buna karşın, henüz 90 level’a ulaşamadığımız için build’lerin tam o
 Holy Priest tarafında değişim oldukça radikal. Oynanış ciddi biçimde sadeleşmiş durumda.
 “Komplikasyondan uzak olayım, heal atayım, mekaniklere odaklanayım” diyen oyuncular için adeta DPS tarafındaki Beast Master Hunter karşılığına dönüşmüş diyebiliriz:
 
-##Az tuş, çok efekt.
+## Az tuş, çok efekt.
 
 Bu yaklaşım erişilebilirlik açısından güçlü bir artı sunarken, daha karmaşık ve karar odaklı heal oynanışını seven oyuncular için fazla sade gelebilir.
 
