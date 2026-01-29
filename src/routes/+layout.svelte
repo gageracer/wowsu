@@ -3,6 +3,8 @@
 	import '../app.css';
 	import { page } from '$app/state';
 	import { resolve } from '$app/paths';
+	import { dev } from '$app/environment';
+	import { RenderScan } from 'svelte-render-scan';
 
 	let { children } = $props();
 	const home = $derived(page.url.pathname === '/');
@@ -29,6 +31,11 @@
 <svelte:head>
 	<link rel="icon" href={icon} />
 </svelte:head>
+
+
+{#if dev}
+		<RenderScan />
+{/if}
 <div data-theme={midnight} class={`bg-mobile-${midnight} md:bg-${midnight} min-h-screen bg-contain text-text`}>
 	<main class="container mx-auto px-4 py-8">
 		{#if !dc}
